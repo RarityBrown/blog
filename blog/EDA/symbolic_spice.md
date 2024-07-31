@@ -64,3 +64,31 @@ too old/new to be listed: [Symbolic-Spice](https://github.com/eliot-des/Symbolic
 |      | ![image](https://github.com/user-attachments/assets/7f3ede06-8267-4b6f-9d9b-c8108bd787d7) |                                                              |
 | 答案 | $\dfrac{1}{r_{out}}=1/r_{o1}+g_{m1}(1+(g_{m2}+g_{mb2})r_{o2})\approx g_{m1}g_{m2}r_{o2}$ |                                                              |
 |      |                                                              |                                                              |
+
+### SCAM
+
+Netlist file: `FVF.cir`
+
+```scss
+Vt 1 0 v_t
+Ro1 1 0 r_o1
+Ro2 2 1 r_o2
+Gm1 1 0 2 0 g_m1
+Gm2 2 1 0 1 g_m2
+Gmb2 2 1 0 1 g_mb2
+```
+
+MATLAB code:
+
+```matlab
+clear
+fname='FVF.cir';
+scam;
+1/expand(simplify(-I_Vt/Vt))
+```
+
+Result:
+
+![image](https://github.com/user-attachments/assets/baa7c72e-fd6c-481a-bf49-6efb5b504107)
+
+
