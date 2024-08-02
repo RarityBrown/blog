@@ -14,7 +14,7 @@
 
 ### Phillip E. Allen
 
-他的书不适合初学者使用，中文翻译有一些机翻痕迹，但也不至于像网上说的有很多错误。
+他的书不适合初学者使用，中文翻译有一些机翻痕迹，但也不至于像网上说的有很多错误。不过书里面把 $V_{TH}$ 记作 $V_T$ 真的是不好。
 
 [个人网站](https://aicdesign.org/)上有[售](https://aicdesign.org/product-category/academic-courses/)他亲自讲解的书每章的 course，$45 一章，不便宜，网上找不到相关资源。也有更面向[产业界](https://aicdesign.org/product/design-procedures-for-analog-integrated-circuits/)一点的课，更贵。
 
@@ -23,7 +23,7 @@
 - 他个人网站上的，新一点：[2016 Short Course Notes – AICDESIGN.ORG](https://aicdesign.org/2016-short-course-notes-2/)
 - 他大学网站上的，多一点：[Phillip Allen--Professor (gatech.edu)](https://pallen.ece.gatech.edu/00courses.html)
 
-Bilibili 上东南大学吴金老师的网课可以参考。
+Bilibili 上东南大学吴金老师的网课可以参考，网课不像书本往往直接给出一个电路图，来进行“逆向”分析，网课会讲述电路的“正向”设计思路，即这个电路是怎么思考产生的。在 eetop 上有配套 slide 可以下载。所以说看书和上课都很重要，不可能看完四本书就无师自通的。
 
 ### Ali Hajimiri
 
