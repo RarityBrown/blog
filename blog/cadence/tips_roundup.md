@@ -8,6 +8,8 @@
 
 ## ADE
 
+[加快 SPICE 仿真速度的三种设置方法](https://zhuanlan.zhihu.com/p/677379106)
+
 ## VIVA
 
 
