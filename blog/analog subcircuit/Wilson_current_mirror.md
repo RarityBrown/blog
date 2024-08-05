@@ -102,7 +102,7 @@ $$
 
 改进型 Wilson 电流镜可以获得 $g_{m}^2r_{o}^3$ 量级的输出电阻，但是最低输出电压仍然较高
 
-## 4T-Wilson
+## 4T-Wilson / Improved Wilson
 
 ### CMOS
 
@@ -133,6 +133,8 @@ $$
 ==The circuit is a feedback amplifier with loop gain $g_{m3}R_{in}$​==. Since all time constants in that loop are of the same order of magnitude, they create a system with several poles. As a result, peaking can occur in the current transfer characteristic. When the Wilson current mirror circuit is biased with maximum high frequency the negative feedback loop cause instability in frequency response.
 
 Wilson current mirror circuit creates noise across the output. This is due to the feedback which raises output impedance and directly affect the collector/drain current. The collector/drain current fluctuation contributes noises across the output.
+
+对于基于信号流图的多反馈环路分析可以参考：[多反馈回路和 Wilson 电流镜](https://zhuanlan.zhihu.com/p/681694941)
 
 ## 总结
 
