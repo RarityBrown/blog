@@ -100,9 +100,22 @@ $$
 V_{IN\min}=2V_{GS},\quad V_{OUT\min}=V_{GS}+V_{ov}
 $$
 
-#### Regulated cascode current mirror
-
 ![image](https://github.com/user-attachments/assets/354fa114-8429-4196-9ecf-a35eb05833a4)
+
+#### Blackman 输出电阻分析
+
+因为存在反馈机制，尝试在不考虑 M2 体偏的情况下对 M3 使用 Blackman 阻抗定理分析（在 Razavi 中介绍的较为详细，Allen 中直接给出了简短的示例，本文取 Razavi 书中的符号），首先分析输入阻抗：
+
+1. $A|_{I_3=0}=r_{o3}$
+2. $T_{OC}|_{I_{in}=0}=-g_{m3}\dfrac{V_3}{I_3}=g_{m3}\dfrac{g_{m2}r_{o3}}{g_{m2}+g_{m1}}$ （没考虑 $r_{o2}$，将 $r_{M1}$ 近似为 $1/g_{m1}$）
+3. $T_{SC}|_{V_{in}=0}=-g_{m3}\dfrac{V_3}{I_3}=0$
+4. $R_{in}=A\dfrac{1+T_{SC}}{1+T_{OC}}=\dfrac{r_{o3}}{1+\frac{g_{m2}g_{m3}r_{o3}}{g_{m1}+g_{m2}}}=r_{o3}||\dfrac{g_{m1}+g_{m2}}{g_{m2}g_{m3}}\approx\dfrac{2}{g_m}$
+
+吴金视频中给出了一种定性分析方法：M2 可以视作 source follower，所以交流通路下 M3 的 drain 和 gate 视作短路，即 M3 是二极管接法，所以 $R_{in}$ 的量级为 $1/g_{m3}$
+
+对于小信号模型直接分析，可以给出考虑 $g_{ds2}$ 的结果，式中 $R_D$ 为电流镜输出负载电阻：$R_{in}=r_{o3}||\frac{g_{m1}+g_{m2}+g_{ds2}(1+g_{m1}R_D)}{g_{m2}g_{m3}}$
+
+#### Regulated cascode current mirror
 
 改进型 Wilson 电流镜可以获得 $g_{m}^2r_{o}^3$ 量级的输出电阻，但是最低输出电压仍然较高。
 
