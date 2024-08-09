@@ -42,7 +42,7 @@ $$
 
 - 相较于 bipolar cascode 复制地更准
 - 有限值 $\beta$ 影响复制准确度相较于 bipolar cascode 减小
-- 有限值 $V_A$ 影响复制准确度相较于 bipolar cascode 增大，can be overcome by introducing a new diode-connected transistor between the collector of Q3 and the base of Q2 to equalize the collector-emitter voltages of Q3 and Q1. 详见后文 [4T-Wilson](#4T-Wilson)
+- 有限值 $V_A$ 影响复制准确度相较于 bipolar cascode 增大，can be overcome by introducing a new diode-connected transistor between the collector of Q3 and the base of Q2 to equalize the collector-emitter voltages of Q3 and Q1. 详见后文 [4T-Wilson](#4t-wilson--improved-wilson)
 
 ![image](https://github.com/user-attachments/assets/431536a1-42b2-4014-b19f-a5f43c8117c4)
 
@@ -100,7 +100,11 @@ $$
 V_{IN\min}=2V_{GS},\quad V_{OUT\min}=V_{GS}+V_{ov}
 $$
 
-改进型 Wilson 电流镜可以获得 $g_{m}^2r_{o}^3$ 量级的输出电阻，但是最低输出电压仍然较高
+#### Regulated cascode current mirror
+
+![image](https://github.com/user-attachments/assets/354fa114-8429-4196-9ecf-a35eb05833a4)
+
+改进型 Wilson 电流镜可以获得 $g_{m}^2r_{o}^3$ 量级的输出电阻，但是最低输出电压仍然较高。
 
 ## 4T-Wilson / Improved Wilson
 
@@ -140,4 +144,4 @@ Wilson current mirror circuit creates noise across the output. This is due to th
 
 > [Difference between simple cascode current source and modified Wilson current source | Forum for Electronics (edaboard.com)](https://www.edaboard.com/threads/difference-between-simple-cascode-current-source-and-modified-wilson-current-source.23031/)
 
-综上，普通的 3T/4T-Wilson 电流镜在 CMOS 下和 cascode 电流镜有着相近的输出电阻、最小工作电压等交直流特性。但是相较于 cascode 电流镜引入了反馈、引入了相近的零极点，因此高频响应并不好，所以在 CMOS 下 Wilson 电流镜并不常用，直接使用 cascode 即可。只有在 bipolar 的情况下，Wilson 电流镜相较于 cascode 才有优点，这可能也是唯独只有 Razavi 这本较新的 CMOS 书中完全没有提到 Wilson 电流镜的原因。
+综上，普通的 3T/4T-Wilson 电流镜在 CMOS 下和 cascode 电流镜有着相近的输出电阻、最小工作电压等交直流特性。但是相较于 cascode 电流镜，Wilson 电流镜引入了反馈、引入了相近的零极点，因此高频响应并不好，所以在 CMOS 下 Wilson 电流镜并不常用，直接使用 cascode 即可。只有在 bipolar 的情况下，Wilson 电流镜相较于 cascode 才有优点，这可能也是唯独只有 Razavi 这本较新的 CMOS 书中完全没有提到 Wilson 电流镜的原因。
