@@ -97,5 +97,7 @@ UCB 的 EE140/240 相对好一些，大概 2010 年左右的视频。（不过�
 
 [射频方向的修课建议 v1.2 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/459066672)
 
+[如果让你重新开始学模拟ic，你的学习路线会怎么选择? - 知乎 (zhihu.com)](https://www.zhihu.com/question/605395889)
 
+[如何学习模拟ic设计？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/583788684)
 
