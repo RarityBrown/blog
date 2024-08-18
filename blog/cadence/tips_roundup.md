@@ -1,5 +1,9 @@
 # Cadence Virtuoso Tips & Tricks Roundup
 
+## Library & File
+
+- [文件书签 / 文件收藏](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
+
 ## Schematic & Layout
 
 ### SKILL 脚本
