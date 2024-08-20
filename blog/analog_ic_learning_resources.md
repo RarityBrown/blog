@@ -30,12 +30,12 @@
 
 ### Ali Hajimiri
 
-线性时变相噪模型提出者捏，强的很捏，不过这里不放 RF 的东西捏。
+线性时变相噪模型提出者捏，强的很捏，不过这里不放 RF 的东西捏。这个总体感觉这个老师数理背景很强（比如硅的导热性能比黄铜好之类的）。
 
 - book/slide/solution
-  - 网站上有 [Resources - CHIC (caltech.edu)](https://chic.caltech.edu/links/)，不过模拟 IC 的书 Hajimiri 还没写完，是草稿
+  - 网站上有 [Resources - CHIC (caltech.edu)](https://chic.caltech.edu/links/)，不过模拟 IC 的书 Hajimiri 还没写完，是草稿，看进度估计没再 5 年写不完
 - video
-  - Bilibili 上有转载，Hajimiri 的视频算是高质量视频中比较新的了，推荐观看 ⭐⭐⭐⭐⭐
+  - Bilibili 上有转载，Hajimiri 的视频算是高教学质量视频中比较新的了，推荐观看（相比于张鸿老师的电流声、吴金老师的画质而言，观看体验也好不少） ⭐⭐⭐⭐⭐
 
 ### Boris Murmann
 
@@ -101,3 +101,34 @@ UCB 的 EE140/240 相对好一些，大概 2010 年左右的视频。（不过�
 
 [如何学习模拟ic设计？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/583788684)
 
+### Plan
+
+总体建议的学习路径（仅供参考，横轴为一年的时间 365 天，可视情况自由放缩时间）：
+
+```mermaid
+gantt
+    title Analog IC Study Plan
+    dateFormat X
+    axisFormat %s
+    
+    section Basic
+    Razavi 书 + 张鸿网课                              :done,    des1, 0, 50
+    Razavi 书 + Hajimiri/李志毅网课 (T-model)         :done,    des2, 50, 80
+    Allen(+Gray) 书 + 吴金网课                        :done,    des3, 75, 100
+    
+    视情况可以翻翻 Baker 的书                          :active,   Baker, 150, 300
+    
+    section Simulation
+    Virtuoso + 5T-OTA                              :done,    Virtuoso, 60, 90
+    复旦尹睿两级运放（使用 gm/id 设计方法）             :done,    des4, 90, 120
+    复旦唐长文差分运放                                :done,    des5, 120, 130
+    Bandgap                                        :done,    des6, 130, 155
+    集创赛本科模拟 IC 题（历年赛题也可以）                :done,    des7, 155, 190
+    个人项目 或 集创赛简单的研究生模拟 IC 题（历年赛题也可以）:active,  Gra,  190, 365
+    
+    section Advanced
+    Murmann gm/id 书 + Stanford EE214B             :active,  des8, 90, 200
+    还没学到, todo                                  :done,    des9, 200, 365
+```
+
+整体学习计划前期偏理论。可以考虑把仿真的部分挪到第一遍 Razavi 后，即看 Hajimiri 的网课的同时仿真，不过不建议仿真和第一遍 Razavi 同时进行。Allen 也可以放到 Baker 的位置看。
