@@ -35,3 +35,13 @@ Engineer 在历史上留名还是比 scientist/researcher 难太多了。Razavi 
 ## Chips
 
 [Welcome to the Chip Hall of Fame - IEEE Spectrum](https://spectrum.ieee.org/welcome-to-the-chip-hall-of-fame)
+
+## Papers
+
+Papers with >1000 citations
+
+[Matching properties of MOS transistors](https://ieeexplore.ieee.org/abstract/document/572629)
+
+[On-chip spiral inductors with patterned ground shields for Si-based RF ICs](https://ieeexplore.ieee.org/abstract/document/668989)
+
+[A general theory of phase noise in electrical oscillators](https://ieeexplore.ieee.org/abstract/document/658619)
