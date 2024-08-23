@@ -109,6 +109,8 @@ UCB 的 EE140/240 相对好一些，大概 2010 年左右的视频。（不过�
 
 [如何学习模拟ic设计？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/583788684)
 
+translinear loop?
+
 ### Plan
 
 总体建议的学习路径（仅供参考，横轴为一年的时间 365 天，可视情况自由放缩时间）：
