@@ -15,5 +15,8 @@
 
 - [加快 Spectre 仿真速度](https://zhuanlan.zhihu.com/p/677379106)
 - [tran 仿真结束后延长仿真时间，不重新从头开始仿真——“断点续仿”](https://zhuanlan.zhihu.com/p/142714596)
+- [Mismatch 仿真: `dcmatch`, `acmatch`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
+- [参数敏感性仿真: `sens`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
+- [后仿不通过 pin 连接 symbol 内部节点: deepprobe](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 
 ## VIVA
