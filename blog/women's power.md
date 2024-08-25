@@ -11,3 +11,8 @@
 ![image](https://github.com/user-attachments/assets/16538e7b-8686-4e0e-9302-e6f786851a5b)
 
 当然，也有人指出这张图具有误导性，因为这张图表明在 justice 无法达到的情况下，equity 优于 equality，然而事实并非都是如此，还是得分情况讨论。
+
+美国行业内情况：
+
+[Gender & racial diversity of USA employees at semiconductor companies : r/dataisbeautiful (reddit.com)](https://www.reddit.com/r/dataisbeautiful/comments/1accvcl/gender_racial_diversity_of_usa_employees_at/)
+
