@@ -20,3 +20,5 @@
 - [后仿不通过 pin 连接 symbol 内部节点: deepprobe](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 
 ## VIVA
+
+- [保存仿真曲线结果](https://zhuanlan.zhihu.com/p/662309243)
