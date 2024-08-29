@@ -1,8 +1,8 @@
 # Symbolic SPICE / Analytical Circuit Analysis / Symbolic Modified Nodal Analysis (MNA)
 
-为什么会突然想到写这个嘞，因为写 [Wilson 电流镜](../analog-subcircuits/Wilson_current_mirror.md) 的时候看 Gray 英文版 273 页看烦了，觉得交流小信号下都是“KCL + KVL + 元件特性”的线性方程组，如果可以自动提取出来，然后用 MATLAB 的 symbolic toolbox 自动解出解析解就方便了。比如在网络的某节点加一个理想 $V_{test}$ ，可以自动求出 $I_{in}$ ，这样（小信号）电阻就有了。
+为什么会突然想到写这个嘞，因为写 [Wilson 电流镜](../analog-subcircuits/Wilson_current_mirror.md) 的时候看 Gray 英文版 273 页看烦了，觉得交流小信号下都是“KCL + KVL + 元件特性”的线性方程组，如果可以自动提取出来，然后用 MATLAB 的 symbolic toolbox 自动解出解析解就方便了。比如在网络的某节点加一个理想 $V_{test}$ ，可以自动求出 $I_{in}$ ，这样（小信号）电阻就有了。当然也有手动列写 KCL KVL 后 [MATLAB 求解](https://zhuanlan.zhihu.com/p/558561329)的方式，不过如果可以电路图或 netlist 直接出结果那自然更佳。
 
-随后就搜了一下，发现排在搜索结果首位的是基于 MATLAB 的 SCAM，我看这个领域总体而言挺早就有了，70 年代 SPICE 发布，90 年代初我看就有讨论 symbolic SPICE 的文章了，简直难以想象，Win95 都没发布嘞😂。中文这个大概翻译成“符号化电路仿真”或者“符号电路分析”之类的（symbolic 这个词确实是不好翻译，后文直接用 symbolic），中文互联网相关的内容极少，有也是论文之类的。
+搜索后发现排在搜索结果首位的是基于 MATLAB 的 SCAM，我看这个领域总体而言挺早就有了，70 年代 SPICE 发布，90 年代初我看就有讨论 symbolic SPICE 的文章了，简直难以想象，Win95 都没发布嘞😂。中文这个大概翻译成“符号化电路仿真”或者“符号电路分析”之类的（symbolic 这个词确实是不好翻译，后文直接用 symbolic），中文互联网相关的内容极少，有也是论文之类的。
 
 整理了一个目前还存在网站和下载途径的软件表格，供参考，还有部分没填的栏，等我有空试一试。
 
@@ -64,6 +64,8 @@ too old/new to be listed: [Symbolic-Spice](https://github.com/eliot-des/Symbolic
 |      | ![image](https://github.com/user-attachments/assets/7f3ede06-8267-4b6f-9d9b-c8108bd787d7) |                                                              |
 | 答案 | $\dfrac{1}{r_{out}}=1/r_{o1}+g_{m1}(1+(g_{m2}+g_{mb2})r_{o2})\approx g_{m1}g_{m2}r_{o2}$ |                                                              |
 |      |                                                              |                                                              |
+
+总体而言，软件无法具有 $g_m>g_{mb}\gg 1/r_o$ 的思路来化简，所以结果往往冗杂而且无法体现数量级。不过这个对于做符号计算的人来说应该挺简单的，只不过需求太少，没有牛人大一统。
 
 ### SCAM
 
