@@ -3,6 +3,7 @@
 ## Library & File
 
 - [文件书签 / 文件收藏](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
+- [`.cdsinit`, `.cdsenv` 和寻找操作对应的 SKILL 语句](https://zhuanlan.zhihu.com/p/37215838)
 
 ## Schematic & Layout
 
@@ -18,7 +19,11 @@
 - [Mismatch 仿真: `dcmatch`, `acmatch`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [参数敏感性仿真: `sens`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [后仿不通过 pin 连接 symbol 内部节点: deepprobe](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
+- [用 `.scs` 文件保存 model 批量引用](https://blog.csdn.net/qq_33599939/article/details/122505894#11scsmodel_19)
+- [查找替换网表名称、工艺库、器件等](https://blog.csdn.net/qq_33599939/article/details/122505894#16_171)
+
 
 ## VIVA
 
 - [保存仿真曲线结果](https://zhuanlan.zhihu.com/p/662309243)
+- [曲线斜率, dx, dy 标记](https://blog.csdn.net/qq_33599939/article/details/122505894#4_38)
