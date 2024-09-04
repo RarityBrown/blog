@@ -1,27 +1,30 @@
 # Analog IC Learning Resouces
 
-## General EE
+## General EE / Undergraduate-level Device
 
 [kennethkuhn.com/students/](https://www.kennethkuhn.com/students/)
 
 ## Basic & Advanced Analog IC
 
-### Behzad Razavi
+### Behzad Razavi @ UCLA
 
 - book & solution
   - 中文版翻译质量极高（甚至纠正了一些原版的错误），适合初学者（模电基础还是需要的） ⭐⭐⭐⭐⭐
-  - 网上的作业答案有三个版本：手写版、电子版、icdesign.com 版，其中从试看的视频质量来看 icdesign 版是不推荐购买的，手写版和电子版都有不少错误（特别是噪声那一章） ⭐⭐
+  - 网上的作业答案有四个版本：手写版、电子版、知乎网友版、icdesign.com 版，其中从试看的视频质量来看 icdesign 版是不推荐购买的，手写版和电子版都有不少错误（特别是噪声那一章） ⭐⭐
 - courseware
   - 课题组[网站](https://www.seas.ucla.edu/brweb/teaching/)上提供了 courseware、配套作业和考试的题目和解析
 - video
   - 广为流传的视频 Electronic Circuits 1 是 Razavi 的模电授课，而不是模集，内容偏基础
   - 本书的中文译者之一张鸿老师网课可参考 ⭐⭐⭐
   - Razavi Electronic Circuits 2 是高等模拟设计
+- IEEE Solid-State Circuits Magazine: The Analog Mind
+  - 如果你对 IC 设计有一定了解，JSSC 肯定知道，从类似的名字可以推断出 SSCM 是 SSCS 旗下一个 Magazine。Razavi 在上面发了不少科普性质的小文章
 
-### Phillip E. Allen
+### Phillip E. Allen @ Georgia Tech
 
 - book & solution
-  - 他的书不适合初学者使用，目前最新的中文第三版翻译仍有一些机翻痕迹，但也不至于像网上说的有很多错误（意思就是还是有一些错误的）。不过书里面把 $V_{TH}$ 记作 $V_T$ 真的是不爽
+  - 他的书不适合初学者使用，目前最新的中文第三版翻译仍有一些机翻痕迹，但也不至于像网上说的有很多错误（意思就是还是有一些错误的）。~~我个人而言看这类把 $V_{TH}$ 记作 $V_T$ 的书不是很舒服~~
+  - 第三版删去了 ADDA 部分的内容，可能的原因是第三版书前言中提到的“内容过时”
 - courseware (免费部分)：
   - 他个人网站上的，新一点：[2016 Short Course Notes – AICDESIGN.ORG](https://aicdesign.org/2016-short-course-notes-2/)
   - 他大学网站上的，多一点：[Phillip Allen--Professor (gatech.edu)](https://pallen.ece.gatech.edu/00courses.html)
@@ -29,20 +32,30 @@
   - 个人网站上有[售](https://aicdesign.org/product-category/academic-courses/)他亲自讲解的书每章的 course，$45 一章，不便宜，网上找不到相关资源。也有更面向[产业界](https://aicdesign.org/product/design-procedures-for-analog-integrated-circuits/)一点的课，更贵
   - Bilibili 上东南大学吴金老师的网课（有两个版本，老版本更深更全）可以参考，网课不像书本往往直接给出一个电路图，来进行“逆向”分析，网课会讲述电路的“正向”设计思路，即这个电路是怎么思考产生的。在 eetop 上有配套 slide 可以下载。所以说看书和上课都很重要，不可能看完四本书就无师自通的 ⭐⭐⭐⭐
 
-### Ali Hajimiri
+### Ali Hajimiri @ Caltech
 
-线性时变相噪模型提出者，非常强，不过这里先不放 RF 的内容。这个总体感觉 Hajimiri 老师数理背景深厚（比如硅的导热性能比黄铜好小知识，对于电子管时代的东西也挺了解），人也很好（上课风格，以及[回复学生邮件咨询](https://zhuanlan.zhihu.com/p/698862782)）。但是不建议初学使用这个网课，原因见后文。
+线性时变相噪模型提出者，非常强，不过这里先不放 RF 的内容。这个总体感觉 Hajimiri 老师：
+
+1. 数理背景深厚（比如硅的导热性能比黄铜好这类的小知识，对于电子管时代的东西也都挺了解）
+2. 人很好（上课风格，以及[回复学生邮件咨询](https://zhuanlan.zhihu.com/p/698862782)）
+3. 敢于直接指出问题，例如网课中说明不认可 Razavi 书上 Miller’s Theorem 的这一套说法（当然啊，没有指名道姓😂）
+4. ~~帅~~
+
+但是不建议看 Hajimiri 网课作为 Analog IC 初学入门，原因见后文。
 
 - book & solution
-  - 模拟 IC 的书 Hajimiri 还没写完，是草稿，看进度估计 5 年内写不完。网站上有 [Resources - CHIC (caltech.edu)](https://chic.caltech.edu/links/)
+  - 模拟 IC 的书 Hajimiri 还没写完，看进度估计 5 年内写不完。网站上有 [Resources - CHIC (caltech.edu)](https://chic.caltech.edu/links/) 一年左右更新一次的草稿版本
+  - 从他的网课内容推断 Hajimiri 课堂上应该是有布置作业的，但是没有公开的资源，~~可能得等他把书写好~~
 - courseware
   - 手写板书，无
 - video
-  - Bilibili 上有转载，Hajimiri 的视频算是高教学质量视频中比较新的了，推荐观看（相比于张鸿老师的电流声、吴金老师的画质而言，观看体验也好不少） ⭐⭐⭐⭐⭐
+  - YouTube 上是老师官方上传的，Bilibili 上有转载。Hajimiri 的视频算是高教学质量视频中比较新的了，推荐观看（相比于张鸿老师的电流声、吴金老师的画质而言，观看体验也好不少；老外在这方面还是舍得花钱，这个摄像师镜头追踪得非常及时） ⭐⭐⭐⭐⭐
+ 
+另外，因为被 Hajimiri 的人格有点吸引到了，所以就多提他几句。Hajimiri 最近几年好像在搞什么地球同步轨道供电之类的，“想要改变人类科技发展”的壮举了，他好像 TED 和 RFIC 之类的演讲中讲了不少这个，考虑到他还相对比较年轻，感觉真的是高山仰止。
 
-### Boris Murmann
+### Boris Murmann @ Stanford
 
-Murmann 在 2023 年从 Stanford 跳槽到夏威夷大学去了，不知道为什么。在夏威夷大学没开高等模集的课，开了一个开源 EDA 模集设计课。其他的可以看看 [Boris Murmann: GitHub](https://github.com/bmurmann)，因为这个老师相对年轻，GitHub 用得很多。
+Murmann 2023 年从 Stanford 跳槽到夏威夷大学去了，不知道为什么。在夏威夷大学没开高等模集的课，开了一个开源 EDA 模集设计课。其他的可以看看 [Boris Murmann: GitHub](https://github.com/bmurmann)，因为这个老师相对年轻，GitHub 用得很多。
 
 - book & solution
   - *Systematic Design of Analog CMOS Circuits Using Pre-Computed Lookup Tables* ⭐⭐⭐
@@ -51,14 +64,19 @@ Murmann 在 2023 年从 Stanford 跳槽到夏威夷大学去了，不知道为�
 - video
   - 暂无公开资源
 
-### R. Jacob Baker
+### R. Jacob Baker @ UNLV
 
 - book & solution
   - Baker 总体的研究领域以及一本比较新的书 *CMOS Circuit: Design, Layout, and Simulation* 都算是全定制 CMOS 设计，有数字/混合信号的部分，不过 ADPLL 之类的章节倒是在“初等”模拟设计中比较少见的，可以在看完 Razavi CMOS 中关于传统 PLL 介绍后，作为一个入门性质的补充。其 ADDA 相关章节也可供入门参考。
 - courseware/video
   - [R. Jacob Baker's courses](https://cmosedu.com/jbaker/courses/courses.htm) 可参考，目前公开的最新资源是 [2020 模集](https://www.cmosedu.com/jbaker/courses/ee420_ecg620/s20/lec_ee420_ecg620.htm) 和 [2016 高等模集](https://www.cmosedu.com/jbaker/courses/ecg720/s16/lec_ecg720.htm)
 
-### Gray & Sansen & Kenneth Martin
+### Gray
+
+- book
+  - 这本书已经到第六版了，我个人感觉是可以初学使用的，只不过因为翻译质量和翻译更新的问题，国内还是使用 Razavi 作为教学为主
+
+### Sansen & Kenneth Martin
 
 todo
 
@@ -68,16 +86,24 @@ todo
 
 UCB 的 EE140/240 相对好一些，大概 2010 年左右的视频。（不过画质看上去像是 2000 年的）
 
-### FDU
+### Fudan
 
 两级运放、唐长文差分运放
 
-### THU 孙楠
+### 孙楠 @ THU
 
 - book
   - 《现代模拟集成电路设计》挺新的书，也是基于 gm/id 设计方法的，目前找不到电子版（虽然说支持正版，但是电子版主要是为了便于快速搜索书中内容）和电子版购买渠道
 - courseware
   - 暂无公开资源
+
+### Johan Huijsing @ TU Delft
+
+好像是 Kofi 的导师
+
+- book
+  - *Operational Ampliers: Theory and Design (Third Edition)* 这老头好像研究了一辈子运放，所以这本书可以从题目中看出，就不是一本 Analog IC 的书，而是一本 OPAMP 的书
+  - 书中的内容也涉及一些 chopper 之类的东西，没看过也看不懂
 
 ### (Ultra) Low-Voltage Design
 
@@ -111,7 +137,7 @@ UCB 的 EE140/240 相对好一些，大概 2010 年左右的视频。（不过�
 
 translinear loop?
 
-### Plan
+### Roadmap
 
 总体建议的学习路径（仅供参考，横轴为一年的时间 365 天，可视情况自由放缩时间）：
 
@@ -137,14 +163,15 @@ gantt
     个人项目 或 集创赛简单的研究生模拟 IC 题（历年赛题也可以）:active,  Gra,  190, 365
     
     section Advanced
-    Murmann gm/id 书 + Stanford EE214B             :active,  des8, 90, 200
+    Murmann gm/id 书 + Stanford EE214B (或孙楠书)    :active,  des8, 90, 200
     还没学到, todo                                  :done,    des9, 200, 365
 ```
 
 - 整体学习计划前期偏理论
 - 不建议第一遍就看 Hajimiri 的网课有两个原因
   - 英语专有名词跟不上（抛开专有名词其实是很简单的英语），思路易打断，张鸿的网课使用英文 PPT 先熟悉一遍
-  - Hajimiri 部分采用 T-model 分析，而不是更主流的 π-model，虽然很难说哪种更好，但是第一遍入门还是和 Razavi 书保持一致，均使用 π-model 比较好；Hajimiri 在频响章节使用独创的 Time- and Transfer-Constant 分析方法，而不是更主流的 KCL KVL 硬算
+  - Hajimiri 对于 source 不接地的电路采用 T-model 分析，而不是更主流的 π-model。虽然很难说哪种更好，但是第一遍入门还是和 Razavi/Gray/Allen 书保持一致，均使用更主流的 π-model 比较好。李志毅老师的网课也是 T-model，不过我没怎么看过
+  - Hajimiri 在频响章节使用独创的 Time- and Transfer-Constant 分析方法，而不是更主流的 KCL KVL 硬算。频响算是比较难的部分，第一遍接触太多新方法对于普通人不合适
 - 可以考虑把仿真的部分挪到第一遍 Razavi 后，即看 Hajimiri 的网课的同时仿真，不过不建议仿真和第一遍 Razavi 同时进行
 - Allen 也可以放到 Baker 的位置看
 
@@ -162,6 +189,15 @@ THU 孙楠
 
 ## PLL
 
+### Razavi
+
 todo
 
 ## RF
+
+todo
+
+
+## Credit
+
+https://www.reddit.com/r/chipdesign/comments/1d2bbs5/kindly_suggest_roadmap_to_learn_analog_rf/
