@@ -44,7 +44,7 @@
 但是不建议看 Hajimiri 网课作为 Analog IC 初学入门，原因见后文。
 
 - book & solution
-  - 模拟 IC 的书 Hajimiri 还没写完，看进度估计 5 年内写不完。网站上有 [Resources - CHIC (caltech.edu)](https://chic.caltech.edu/links/) 一年左右更新一次的草稿版本
+  - 模拟 IC 的书 Hajimiri 还没写完，看进度估计 5 年内写不完。网站上有 [Resources - CHIC (caltech.edu)](https://chic.caltech.edu/links/) 一年左右更新一次的草稿版本。线下课提供 handout 草稿（内容好像也相较于线上版多一点）
   - 从他的网课内容推断 Hajimiri 课堂上应该是有布置作业的，但是没有公开的资源，~~可能得等他把书写好~~
 - courseware
   - 手写板书，无
