@@ -11,6 +11,7 @@
 
 - [为 schematic 自动加 PIN](https://mp.weixin.qq.com/s/qxZB4m2CG69nmannkSiT5w)
 - [切换 schematic 与 layout 的只读与编辑](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
+- [手动与自动运行 SKILL 脚本的方式](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
 
 ## ADE
 
