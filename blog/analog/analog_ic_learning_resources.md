@@ -8,22 +8,22 @@
 
 ### Behzad Razavi @ UCLA
 
-- book & solution
+- book & solution: CMOS only
   - 中文版翻译质量极高（甚至纠正了一些原版的错误），适合初学者（模电基础还是需要的） ⭐⭐⭐⭐⭐
-  - 网上的作业答案有四个版本：手写版、电子版、知乎网友版、icdesign.com 版，其中从试看的视频质量来看 icdesign 版是不推荐购买的，手写版和电子版都有不少错误（特别是噪声那一章） ⭐⭐
+  - 网上的作业答案有四个版本：手写版、电子版、知乎网友版、icdesign.com 版，其中从试看的视频质量来看 icdesign 版是不推荐购买的，手写版和电子版都有不少错误（特别是噪声那一章，而且可能一道题两份答案两种错法） ⭐⭐
 - courseware
   - 课题组[网站](https://www.seas.ucla.edu/brweb/teaching/)上提供了 courseware、配套作业和考试的题目和解析
 - video
   - 广为流传的视频 Electronic Circuits 1 是 Razavi 的模电授课，而不是模集，内容偏基础
-  - 本书的中文译者之一张鸿老师网课可参考 ⭐⭐⭐
+  - 本书的中文译者之一张鸿老师网课可参考（遗憾的是部分视频电流声大） ⭐⭐⭐
   - Razavi Electronic Circuits 2 是高等模拟设计
 - IEEE Solid-State Circuits Magazine: The Analog Mind
-  - 如果你对 IC 设计有一定了解，JSSC 肯定知道，从类似的名字可以推断出 SSCM 是 SSCS 旗下一个 Magazine。Razavi 在上面发了不少科普性质的小文章
+  - 如果你对 IC 设计有一定了解，JSSC 肯定知道，从类似的名字可以推断出 SSCM 是 SSCS 旗下一个 Magazine。Razavi 在上面发了不少教学性质的小文章
 
 ### Phillip E. Allen @ Georgia Tech
 
-- book & solution
-  - 他的书不适合初学者使用，目前最新的中文第三版翻译仍有一些机翻痕迹，但也不至于像网上说的有很多错误（意思就是还是有一些错误的）。~~我个人而言看这类把 $V_{TH}$ 记作 $V_T$ 的书不是很舒服~~
+- book & solution?: CMOS only
+  - 他的书不适合初学者使用，目前最新的中文第三版翻译仍有一些机翻痕迹，但也不至于像网上说的有很多错误（意思就是还是有一些错误的）。~~另外就是我个人而言，看这类把 $V_{TH}$ 记作 $V_T$ 的书不是很舒服~~
   - 第三版删去了 ADDA 部分的内容，可能的原因是第三版书前言中提到的“内容过时”
 - courseware (免费部分)：
   - 他个人网站上的，新一点：[2016 Short Course Notes – AICDESIGN.ORG](https://aicdesign.org/2016-short-course-notes-2/)
@@ -43,8 +43,8 @@
 
 但是不建议看 Hajimiri 网课作为 Analog IC 初学入门，原因见后文。
 
-- book & solution
-  - 模拟 IC 的书 Hajimiri 还没写完，看进度估计 5 年内写不完。网站上有 [Resources - CHIC (caltech.edu)](https://chic.caltech.edu/links/) 一年左右更新一次的草稿版本。线下课提供 handout 草稿（内容好像也相较于线上版多一点）
+- book(handout) & solution?: CMOS + BJT
+  - 模拟 IC 的书 Hajimiri 还没写完，看进度估计 2030 年前写不完。网站上有 [Resources - CHIC (caltech.edu)](https://chic.caltech.edu/links/) 一年左右更新一次的草稿版本
   - 从他的网课内容推断 Hajimiri 课堂上应该是有布置作业的，但是没有公开的资源，~~可能得等他把书写好~~
 - courseware
   - 手写板书，无
@@ -57,7 +57,7 @@
 
 Murmann 2023 年从 Stanford 跳槽到夏威夷大学去了，不知道为什么。在夏威夷大学没开高等模集的课，开了一个开源 EDA 模集设计课。其他的可以看看 [Boris Murmann: GitHub](https://github.com/bmurmann)，因为这个老师相对年轻，GitHub 用得很多。
 
-- book & solution
+- book & solution?: CMOS only
   - *Systematic Design of Analog CMOS Circuits Using Pre-Computed Lookup Tables* ⭐⭐⭐
 - courseware
   - Stanford EE214B, *Advanced Analog Integrated Circuit Design*. 我目前网上搜到的最新版本是 Winter 2017-18 ⭐⭐⭐⭐
@@ -66,19 +66,23 @@ Murmann 2023 年从 Stanford 跳槽到夏威夷大学去了，不知道为什么
 
 ### R. Jacob Baker @ UNLV
 
-- book & solution
+- book & solution?: CMOS only
   - Baker 总体的研究领域以及一本比较新的书 *CMOS Circuit: Design, Layout, and Simulation* 都算是全定制 CMOS 设计，有数字/混合信号的部分，不过 ADPLL 之类的章节倒是在“初等”模拟设计中比较少见的，可以在看完 Razavi CMOS 中关于传统 PLL 介绍后，作为一个入门性质的补充。其 ADDA 相关章节也可供入门参考。
 - courseware/video
   - [R. Jacob Baker's courses](https://cmosedu.com/jbaker/courses/courses.htm) 可参考，目前公开的最新资源是 [2020 模集](https://www.cmosedu.com/jbaker/courses/ee420_ecg620/s20/lec_ee420_ecg620.htm) 和 [2016 高等模集](https://www.cmosedu.com/jbaker/courses/ecg720/s16/lec_ecg720.htm)
 
 ### Gray
 
-- book
+- book & solution?: CMOS + BJT
   - 这本书已经到第六版了，我个人感觉是可以初学使用的，只不过因为翻译质量和翻译更新的问题，国内还是使用 Razavi 作为教学为主
 
-### Sansen & Kenneth Martin
+### Sansen
 
-todo
+- book: CMOS + BJT
+
+### Kenneth Martin
+
+- book: CMOS
 
 ### MIT / UC Berkeley
 
@@ -92,7 +96,7 @@ UCB 的 EE140/240 相对好一些，大概 2010 年左右的视频。（不过�
 
 ### 孙楠 @ THU
 
-- book
+- book: CMOS
   - 《现代模拟集成电路设计》挺新的书，也是基于 gm/id 设计方法的，目前找不到电子版（虽然说支持正版，但是电子版主要是为了便于快速搜索书中内容）和电子版购买渠道
 - courseware
   - 暂无公开资源
@@ -123,23 +127,11 @@ UCB 的 EE140/240 相对好一些，大概 2010 年左右的视频。（不过�
 - https://www.scribd.com/document/43005861/10-1-1-112
 - https://www.scribd.com/document/40733019/Low-Voltage-LowPower-AnalogComs-Course
 
-### Others
+### Overview & Roadmap
 
-[Home | Solid State Circuits Society(SSCS) (ieee.org)](https://resourcecenter.sscs.ieee.org/)
+不同于 CS 的 Open Source 精神，EE 课程在开放性上从来都是介于传统工科和 CS 之间的。公开资料过时、需要学生账号登录、不公开提供 slides 和视频、PDK 不公开、付费资料良莠不齐等问题是妨碍自学的重要因素。尽管如此，因为 2010s 的 MOOC 热和 2020s 的 COVID 疫情，仍有不少老师和工程师或主动或被动地为广大学子提供了宝贵的在线学习资源，其中 YouTube Razavi 老师网课和 BiliBili 张鸿老师网课分别超过了 1million 和 0.5million 的总播放量。不过幸运的是，作为中国人，可以享受到几乎全世界的在线资源，如果你觉得中文课都不合你胃口，国外名师的英语课你也可以享受，但是如果老外在 YouTube 上找不到喜欢的课，就不可能找到 BiliBili 去听中文可课了。另外，受益于国内广泛的学生和工程师群体，eetop 这类连老外都羡慕的网站也得好好珍惜，可以说是 IC 届的 GitHub 了，从 slides 到 PDK，只要胆子大，无奇不有。
 
-[带隙基准已经仿出了基准电压，测出了温度系数，psrr，还要做什么？ - 知乎](https://www.zhihu.com/question/59563077)
-
-[射频方向的修课建议 v1.2 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/459066672)
-
-[如果让你重新开始学模拟ic，你的学习路线会怎么选择? - 知乎 (zhihu.com)](https://www.zhihu.com/question/605395889)
-
-[如何学习模拟ic设计？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/583788684)
-
-translinear loop?
-
-### Roadmap
-
-总体建议的学习路径（仅供参考，横轴为一年的时间 365 天，可视情况自由放缩时间）：
+对于天资不特别出众的学生而言，总体建议的学习路径如下（横轴为一年的时间 365 天，可视情况自由放缩时间）：
 
 ```mermaid
 gantt
@@ -181,11 +173,19 @@ gantt
 - 第二步从定量到定性，是指学习是应该注重直觉 (insight & intuition)，而不是拿到电路直接定量的硬求 KCL KVL，可以直接看出电路的大致情况
 - 第三步从定性又回到定量是指能拿到电路以后，不通过小信号模型，通过合理的近似，直接可以口算出电路定量情况
 
-定性的 insight & intuition 是非常重要的，Hajimiri 和孙楠老师都有特别强调过，别的老师也会潜移默化的提到。
+定性的 insight & intuition 是非常重要的。几乎所有老师都有特别强调过，即使没有强调，也会潜移默化的提到。
 
 ## ADDA
 
 THU 孙楠
+
+UCB EE247
+
+- https://www.zhihu.com/question/429625678
+- https://www.zhihu.com/question/553117936
+- https://www.zhihu.com/question/502632221
+- https://www.zhihu.com/question/478487601
+- https://www.zhihu.com/question/590222455
 
 ## PLL
 
@@ -197,7 +197,13 @@ todo
 
 todo
 
-
 ## Credit
 
-https://www.reddit.com/r/chipdesign/comments/1d2bbs5/kindly_suggest_roadmap_to_learn_analog_rf/
+- https://www.reddit.com/r/chipdesign/comments/1d2bbs5/kindly_suggest_roadmap_to_learn_analog_rf/
+- https://www.zhihu.com/question/518846728
+- [Home | Solid State Circuits Society(SSCS) (ieee.org)](https://resourcecenter.sscs.ieee.org/)
+- [带隙基准已经仿出了基准电压，测出了温度系数，psrr，还要做什么？ - 知乎](https://www.zhihu.com/question/59563077)
+- [射频方向的修课建议 v1.2 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/459066672)
+- [如果让你重新开始学模拟ic，你的学习路线会怎么选择? - 知乎 (zhihu.com)](https://www.zhihu.com/question/605395889)
+- [如何学习模拟ic设计？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/583788684)
+- translinear loop?
