@@ -1,4 +1,4 @@
-# Symbolic SPICE / Analytical Circuit Analysis / Symbolic Modified Nodal Analysis (MNA)
+# Symbolic SPICE / Analytical Circuit Analysis / Symbolic Modified Nodal Analysis
 
 为什么会突然想到写这个嘞，因为写 [Wilson 电流镜](../analog-subcircuits/Wilson_current_mirror.md) 的时候看 Gray 英文版 273 页看烦了，觉得交流小信号下都是“KCL + KVL + 元件特性”的线性方程组，如果可以自动提取出来，然后用 MATLAB 的 symbolic toolbox 自动解出解析解就方便了。比如在网络的某节点加一个理想 $V_{test}$ ，可以自动求出 $I_{in}$ ，这样（小信号）电阻就有了。当然也有手动列写 KCL KVL 后 [MATLAB 求解](https://zhuanlan.zhihu.com/p/558561329)的方式，不过如果可以电路图或 netlist 直接出结果那自然更佳。
 
@@ -28,7 +28,9 @@ too old/new to be listed: [Symbolic-Spice](https://github.com/eliot-des/Symbolic
 
 可以从中得出一些结论
 
-- 软件多但代码保存和作者交流情况不佳，重复造轮子的情况普遍存在：1995 年的一篇综述 [Symbolic circuit analysis: an overview](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=510249) 其中的很多软件已经消失在历史长河中了，希望现代化的搜索引擎和代码托管平台可以在这方面和重复功能的代码方面做出贡献
+- 软件多但代码保存和作者交流情况不佳，重复造轮子的情况普遍存在：
+  - 1995 年的一篇综述 [Symbolic circuit analysis: an overview](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=510249) 其中的很多软件已经消失在历史长河中了
+  - 希望现代化的搜索引擎和代码托管平台可以在这方面和重复功能的代码方面做出贡献。但是如果不摆脱论文导向的话恐怕难，因为学生发文章不太可能说是基于开源项目略微改进，只能说是重造了一个好轮子，有工作量，是 repository 的 owner，好发文章。CS 的 Open Source 则往往不是论文导向的
 - 大部分项目都是学生或老师在大学中用于课程教学的代码：对于大型电路 symbolic 解复杂度极高，无法为设计提供有效指导，EDA 公司在这方面兴趣往往不大。如果是学生开发的往往因为学生毕业而废弃，老师开发的项目维护周期会相对长一些
 - 大部分基于 MATLAB (Symbolic Math Toolbox), Mathematica, Maxima, Python (SymPy) 等开发，直接使用最优的 symbolic 矩阵算法，无需重复造轮子
 
