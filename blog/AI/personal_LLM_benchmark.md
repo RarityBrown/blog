@@ -29,7 +29,7 @@
 > A: 大部分 LLM 会存在不同程度的专有名词翻译错误。最典型的是 device 没有翻译成“器件”。
 
 
-> Q: Make `15/9*1e-12` symbolic in matlab within two lines. Your answer should be simple.
+> Q: Make `15/9*1e-12` symbolic in matlab within one line. Your answer should be simple.
 >
 > A: 典型错误：`expr = sym(15/9 * 1e-12);` 结果有浮点误差。正确答案：`expr = 15/9*str2sym('10^(-12)');`
 
