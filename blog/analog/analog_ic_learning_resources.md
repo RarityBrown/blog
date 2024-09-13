@@ -19,6 +19,8 @@
   - Razavi Electronic Circuits 2 是高等模拟设计
 - IEEE Solid-State Circuits Magazine: The Analog Mind
   - 如果你对 IC 设计有一定了解，JSSC 肯定知道，从类似的名字可以推断出 SSCM 是 SSCS 旗下一个 Magazine。Razavi 在上面发了不少教学性质的小文章
+- SerDes
+  - [Low-Power SERDES Design 2015 Qualcomm 内部授课](https://bbs.eetop.cn/thread-580435-1-1.html)
 
 ### Phillip E. Allen @ Georgia Tech
 
