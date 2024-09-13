@@ -6,7 +6,9 @@
 
 ![image](https://github.com/user-attachments/assets/cdcc8857-ddb3-44e7-925b-4bcdc4b259f3)
 
-> ref: [momo](https://www.xiaohongshu.com/user/profile/5be198fa848b0200019530ed)
+> [momo](https://www.xiaohongshu.com/user/profile/5be198fa848b0200019530ed)
+> 
+> [普通NMOS、native NMOS和衬底掺杂浓度对比](https://zhuanlan.zhihu.com/p/719689731)
 
 1. 用作开关：Ron 小，不会恶化 PGA 线性度
 2. 用作 mosCap：Vth 低，mosCap 压差大
