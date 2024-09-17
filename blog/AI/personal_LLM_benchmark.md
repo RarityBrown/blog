@@ -45,4 +45,6 @@
 
 ### 批判性思维和综合能力
 
-传统选择题形式的类 GPQA 评测 + 填空题形式的类 GPQA 评测 + 没有一个选项正确的选择题形式的类 GPQA 评测
+- 传统选择题形式的类 GPQA 评测 + 填空题形式的类 GPQA 评测 + 没有一个选项正确的选择题形式的类 GPQA 评测
+- 变量名、函数名对判断变量和函数作用与类型的影响：比如一个 Moore FSM 的 Verilog module name 写成 xxx_Mealy(); 然后询问这个 module 是一个 Mealy FSM 还是 Moore FSM
+- 1+1=2: Are you sure? / rethink / recheck
