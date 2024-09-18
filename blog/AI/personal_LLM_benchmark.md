@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至2024年8月的第一梯队 LLM (GPT-4o, Sonnet 3.5, Gemini 1.5 Pro Exp, Llama 3.1 405b) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如解个明年的高考数学压轴题、明年的物理系考研压轴题、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU，都拉不开区分度。
+同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至2024年9月的第一梯队 LLM (o1, Sonnet 3.5, Gemini 1.5 Pro Exp, Llama 3.1 405b) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如解个明年的高考数学压轴题、明年的物理系考研压轴题、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU，都拉不开区分度。
 
 题目以中文提问，但是不涉及汉语言相关知识，所以不会涉及写一首绝句、“回”字有几划之类的问题。但是包含大中华区相关知识和常识，例如总得知道川菜和淮扬菜哪个辣吧。
 
@@ -32,6 +32,30 @@
 > Q: Make `15/9*1e-12` symbolic in matlab within one line. Your answer should be simple.
 >
 > A: 典型错误：`expr = sym(15/9 * 1e-12);` 结果有浮点误差。正确答案：`expr = 15/9*str2sym('10^(-12)');`
+
+
+> Q:
+> ```verilog
+> module shiftreg_PA_rev (
+>     output reg A, 
+>     input E, clk, rst
+> );
+>     reg B, C, D;
+>     always @ (posedge clk, posedge rst) begin
+>         if (rst == 1'b1) begin A = 0; B = 0; C = 0; D = 0; end
+>         else begin
+>             D = E;
+>             C = D;
+>             B = C;
+>             A = B;
+>         end
+>     end
+> endmodule
+> ```
+> 
+> Schematic of this code?
+>
+> A: 典型错误：4-bit 的 serial shift regs。正确答案：因为是阻塞赋值，其实是一个 A = E 的 1-bit DFF
 
 ## 评测的小 ideas
 
