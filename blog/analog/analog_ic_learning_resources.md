@@ -57,7 +57,7 @@
 
 ### Boris Murmann @ Stanford
 
-Murmann 2023 年从 Stanford 跳槽到夏威夷大学去了，不知道为什么。在夏威夷大学没开高等模集的课，开了一个开源 EDA 模集设计课。其他的可以看看 [Boris Murmann: GitHub](https://github.com/bmurmann)，因为这个老师相对年轻，GitHub 用得很多。
+Murmann 2023 年从 Stanford 跳槽到夏威夷大学去养老了。在夏威夷大学没开高等模集的课，开了一个开源 EDA 模集设计课。其他的可以看看 [Boris Murmann: GitHub](https://github.com/bmurmann)，因为这个老师相对 Razavi, Allen 年轻，GitHub 用得很多。
 
 - book & solution?: CMOS only
   - *Systematic Design of Analog CMOS Circuits Using Pre-Computed Lookup Tables* ⭐⭐⭐
@@ -209,4 +209,5 @@ todo
 - [射频方向的修课建议 v1.2 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/459066672)
 - [如果让你重新开始学模拟ic，你的学习路线会怎么选择? - 知乎 (zhihu.com)](https://www.zhihu.com/question/605395889)
 - [如何学习模拟ic设计？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/583788684)
+- [有没有专门讲反馈电路的书? - 知乎 (zhihu.com)](https://www.zhihu.com/question/667613439)
 - translinear loop?
