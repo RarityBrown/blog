@@ -211,3 +211,9 @@ todo
 - [如何学习模拟ic设计？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/583788684)
 - [有没有专门讲反馈电路的书? - 知乎 (zhihu.com)](https://www.zhihu.com/question/667613439)
 - translinear loop?
+
+
+### IEEE Solid-State Circuits Magazine
+- https://ieeexplore.ieee.org/document/6841782
+- https://ieeexplore.ieee.org/document/9467047
+- https://ieeexplore.ieee.org/document/8901499
