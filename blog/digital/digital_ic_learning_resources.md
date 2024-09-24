@@ -23,3 +23,4 @@ UCB EECS 151/251A 第一节课就提到，没有适用的书，*Digital Design a
 一些知乎资源：
 
 - https://www.zhihu.com/question/21892919
+- https://www.zhihu.com/question/54815861
