@@ -194,9 +194,17 @@ UCB EE247
 
 ### Razavi
 
-todo
+### 李致毅
+
+是 Razavi 的学生，关于更多八卦详见 [Academic Tree](../hall_of_fame.md)
+
+[BiliBili](https://space.bilibili.com/1629031600)
 
 ## RF
+
+todo
+
+## SerDes
 
 todo
 
