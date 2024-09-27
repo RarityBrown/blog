@@ -25,3 +25,10 @@ UCB EECS 151/251A 第一节课就提到，没有适用的书，*Digital Design a
 - https://www.zhihu.com/question/21892919
 - https://www.zhihu.com/question/54815861
 - https://www.zhihu.com/question/403640698
+
+
+一些工具资源
+
+- https://www.sigasi.com/
+- https://github.com/Digital-EDA/Digital-IDE
+- 
