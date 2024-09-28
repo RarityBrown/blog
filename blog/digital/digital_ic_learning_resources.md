@@ -29,6 +29,7 @@ UCB EECS 151/251A 第一节课就提到，没有适用的书，*Digital Design a
 
 一些工具资源
 
+- [StarVision PRO (concept.de)](https://www.concept.de/StarVision.html)
 - https://www.sigasi.com/
 - https://github.com/Digital-EDA/Digital-IDE
-- 
+
