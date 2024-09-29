@@ -23,6 +23,7 @@
 - [后仿不通过 pin 连接 symbol 内部节点: deepprobe](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [用 `.scs` 文件保存 model 批量引用](https://blog.csdn.net/qq_33599939/article/details/122505894#11scsmodel_19)
 - [查找替换网表名称、工艺库、器件等](https://blog.csdn.net/qq_33599939/article/details/122505894#16_171)
+- [ADE Explorer 和 Assembler 的一些小技巧](https://zhuanlan.zhihu.com/p/372495688)
 
 
 ## VIVA
