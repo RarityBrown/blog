@@ -10,3 +10,9 @@
 
 
 ### Hot Chips (Aug. 2024):
+
+VerilogCoder
+
+### Google
+
+AlphaChip
