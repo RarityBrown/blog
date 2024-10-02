@@ -2,17 +2,25 @@
 
 虽然大概率以后就是做 analog 的了，但是和 digital 因电源时钟离不开 analog 类似，analog 因接口离不开 digital，所以也得学习啊。
 
-另外，国内高校普遍使用 *Digital Integrated Circuit: A Design Perspective* 这本又老又底层的书，对于 Verilog 和 Architecture 的内容介绍几乎为零，从现代的角度看与其说是 design perspective 的，不妨说是 EDA perspective 的。
+国内高校普遍使用 *Digital Integrated Circuit: A Design Perspective* 这本又老又底层的书，对于 Verilog 和 Architecture 的内容介绍几乎为零，从现代的角度看与其说是 design perspective 的，不妨说是 EDA perspective 的。建议的 prerequisite 和 EECS 151 一致：数电、计组，也非常建议考虑用 AI 辅助学一学 Verilog 基础的语法
 
-UCB EECS 151/251A 第一节课就提到，没有适用的书，*Digital Design and Computer Architecture* 太浅而 *A Design Perspective* 太底层。知乎之类的平台可能会推荐 *Advanced Digital Design with the Verilog HDL*，我总体读下来感觉代码质量参差不齐，有得挺好，但也有部分 HDL 代码存在 inferred latch 和不可综合等问题。不过总体而言还是比前两本书适合不少了，可以作为参考资料。
+## Courses
 
-建议的 prerequisite 和 EECS 151 一致：数电、计组，也非常建议考虑用 AI 辅助学一学 Verilog 基础的语法
+- EECS 151/251A by John Wawrzynek, UC Berkeley
+- ELEC 4200 Digital System Design by Ujjwal Guin, Auburn University (顺带一提，Google 联想 Tim Cook 是校友，这学校感觉很不出名啊，也是因为 Google 到 slides 后一看内容感觉很好才发现的)
 
+## Books
 
-建议的教科书是：
+EECS 151/251A 第一节课就提到，没有适用的书，*Digital Design and Computer Architecture* 太浅而 *A Design Perspective* 太底层。另一个国内比较主流的选择是 *Advanced Digital Design with the Verilog HDL*，我总体读下来感觉代码有得挺好，但也有部分 HDL 代码存在不可综合等问题。不过总体而言还是比前两本书适合不少了。
 
-- *Advanced Digital Design with the Verilog HDL*
-- *Digital Design and Computer Architecture*
+因此建议的教科书是：
+
+- Advanced Digital Design with the Verilog HDL, 2nd edition: 有扫描版 pdf
+- Digital Design and Computer Architecture, RISC-V edition: 有原版 pdf
+- Digital Logic Circuit Analysis and Design, 2nd edition: 找不到 pdf
+- Digital Design Using VHDL: A Systems Approach: 有原版 pdf
+
+不仅仅介绍 HDL 语法；（几乎）不涉及晶体管级；
 
 可参考的资料是一些比较新的书（2010 年以后出版）：
 
@@ -30,7 +38,7 @@ UCB EECS 151/251A 第一节课就提到，没有适用的书，*Digital Design a
 Designing Video Game Hardware in Verilog
 
 
-
+## 一些其他资源
 
 一些刷题网站：
 
