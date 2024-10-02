@@ -19,8 +19,6 @@
   - Razavi Electronic Circuits 2 是高等模拟设计
 - IEEE Solid-State Circuits Magazine: The Analog Mind
   - 如果你对 IC 设计有一定了解，JSSC 肯定知道，从类似的名字可以推断出 SSCM 是 SSCS 旗下一个 Magazine。Razavi 在上面发了不少教学性质的小文章
-- SerDes
-  - [Low-Power SERDES Design 2015 Qualcomm 内部授课](https://bbs.eetop.cn/thread-580435-1-1.html)
 
 ### Phillip E. Allen @ Georgia Tech
 
@@ -178,7 +176,11 @@ gantt
 
 定性的 insight & intuition 是非常重要的。几乎所有老师都有特别强调过，即使没有强调，也会潜移默化的提到。
 
-## ADDA
+## Analog/RF/Mixed-Signal 常见方向
+
+对于研究生层次的方向，因为行业内竞争等原因，公开的教学资源更加稀少。
+
+### ADDA
 
 THU 孙楠
 
@@ -190,23 +192,33 @@ UCB EE247
 - https://www.zhihu.com/question/478487601
 - https://www.zhihu.com/question/590222455
 
-## PLL
+### PLL
 
-### Razavi
+#### Razavi
 
-### 李致毅
+#### 李致毅
 
 是 Razavi 的学生，关于更多八卦详见 [Academic Tree](../hall_of_fame.md)
 
 [BiliBili](https://space.bilibili.com/1629031600)
 
-## RF
+### RF
 
-todo
+FDU
 
-## SerDes
+### SerDes
 
-todo
+对于（没那么有钱）高校来说可能不是一个很好的方向，非常吃先进工艺。但是确实是近年来信号链比较火的方向。
+
+李志毅
+
+https://www.zhihu.com/question/656963771
+
+Razavi [Low-Power SERDES Design 2015 Qualcomm 内部授课](https://bbs.eetop.cn/thread-580435-1-1.html)
+
+### 电源
+
+
 
 ## Credit
 
