@@ -206,7 +206,7 @@ UCB EE247
 
 FDU
 
-### SerDes
+### Wireline (SerDes)
 
 对于（没那么有钱）高校来说可能不是一个很好的方向，非常吃先进工艺。但是确实是近年来信号链比较火的方向。
 
@@ -216,7 +216,7 @@ https://www.zhihu.com/question/656963771
 
 Razavi [Low-Power SERDES Design 2015 Qualcomm 内部授课](https://bbs.eetop.cn/thread-580435-1-1.html)
 
-### 电源
+### Power (DC-DC＆LDO)
 
 
 
