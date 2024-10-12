@@ -16,3 +16,9 @@ VerilogCoder
 ### Google
 
 AlphaChip
+
+
+### Industry
+
+Synopsys DSO.ai
+Cadence Cerebrus
