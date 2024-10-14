@@ -10,7 +10,7 @@
 
 - book & solution: CMOS only
   - 中文版翻译质量极高（甚至纠正了一些原版的错误），适合初学者（模电基础还是需要的） ⭐⭐⭐⭐⭐
-  - 网上的作业答案有四个版本：手写版、电子版、知乎网友版、icdesign.com 版，其中从试看的视频质量来看 icdesign 版是不推荐购买的，手写版和电子版都有不少错误（特别是噪声那一章，而且可能一道题两份答案两种错法） ⭐⭐
+  - 网上的作业答案有四个版本：Razavi?手写版、chegg?电子版、知乎网友版、icdesign.com 版，手写版和电子版作为最广泛流传的版本都存在着不少错误（特别是噪声那一章，而且可能一道题两份答案两种错法） ⭐⭐
 - courseware
   - 课题组[网站](https://www.seas.ucla.edu/brweb/teaching/)上提供了 courseware、配套作业和考试的题目和解析
 - video
@@ -182,6 +182,9 @@ gantt
 
 ### ADDA
 
+开关电容
+
+
 THU 孙楠
 
 UCB EE247
@@ -202,7 +205,7 @@ UCB EE247
 
 [BiliBili](https://space.bilibili.com/1629031600)
 
-### RF
+### RF Front-End / Wireless
 
 FDU
 
@@ -221,6 +224,10 @@ https://www.zhihu.com/question/656963771
 Razavi [Low-Power SERDES Design 2015 Qualcomm 内部授课](https://bbs.eetop.cn/thread-580435-1-1.html)
 
 ### Power (DC-DC＆LDO)
+
+## Tools
+
+### Cadence Virtuoso
 
 
 
