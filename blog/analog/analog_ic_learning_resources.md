@@ -79,6 +79,7 @@ Murmann 2023 年从 Stanford 跳槽到夏威夷大学去养老了。在夏威夷
 ### Sansen
 
 - book: CMOS + BJT
+  - 不同的人对于这本书有不同的评价：“工程师参考手册”“一本书足够几乎全部的模拟设计”“不适合初学者”等等
 
 ### Kenneth Martin
 
@@ -182,12 +183,15 @@ gantt
 
 ### ADDA
 
+#### prerequisite
+
 开关电容
 
+#### 孙楠 @ THU
 
-THU 孙楠
+#### UCB EE247
 
-UCB EE247
+#### 参考
 
 - https://www.zhihu.com/question/429625678
 - https://www.zhihu.com/question/553117936
@@ -199,7 +203,7 @@ UCB EE247
 
 #### Razavi
 
-#### 李致毅
+#### 李致毅 @ NTU
 
 是 Razavi 的学生，关于更多八卦详见 [Academic Tree](../hall_of_fame.md)
 
@@ -217,7 +221,7 @@ MIT 6.776
 
 对于（没那么有钱/connection）高校来说可能不是一个很好的方向，非常吃先进工艺。但是确实是近年来信号链比较火的方向。
 
-李志毅
+#### 李志毅 @ NTU
 
 https://www.zhihu.com/question/656963771
 
@@ -229,7 +233,11 @@ Razavi [Low-Power SERDES Design 2015 Qualcomm 内部授课](https://bbs.eetop.cn
 
 ### Cadence Virtuoso
 
+### Keysight ADS
 
+RFPro = FEM + Momentum
+
+### Ansys HFSS
 
 ## Credit
 
