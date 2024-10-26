@@ -16,14 +16,23 @@
 
 ## ADE
 
+### General
+
 - [加快 Spectre 仿真速度](https://zhuanlan.zhihu.com/p/677379106)
-- [tran 仿真结束后延长仿真时间，不重新从头开始仿真——“断点续仿”](https://zhuanlan.zhihu.com/p/142714596)
-- [Mismatch 仿真: `dcmatch`, `acmatch`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
-- [参数敏感性仿真: `sens`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [后仿不通过 pin 连接 symbol 内部节点: deepprobe](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [用 `.scs` 文件保存 model 批量引用](https://blog.csdn.net/qq_33599939/article/details/122505894#11scsmodel_19)
 - [查找替换网表名称、工艺库、器件等](https://blog.csdn.net/qq_33599939/article/details/122505894#16_171)
 - [ADE Explorer 和 Assembler 的一些小技巧](https://zhuanlan.zhihu.com/p/372495688)
+
+### `tran`
+
+- [`tran` 仿真结束后延长仿真时间，不重新从头开始仿真——“断点续仿”](https://zhuanlan.zhihu.com/p/142714596)
+- [`tran` 仿真时的 Dynamic Parameter](https://zhuanlan.zhihu.com/p/392505085)
+
+### Others
+
+- [Mismatch 仿真: `dcmatch`, `acmatch`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
+- [参数敏感性仿真: `sens`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 
 
 ## VIVA
