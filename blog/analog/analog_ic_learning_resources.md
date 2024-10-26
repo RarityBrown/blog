@@ -198,8 +198,11 @@ gantt
 - https://www.zhihu.com/question/502632221
 - https://www.zhihu.com/question/478487601
 - https://www.zhihu.com/question/590222455
+- https://www.zhihu.com/question/433785533
 
 ### PLL
+
+就业：https://www.zhihu.com/question/457135207
 
 #### Razavi
 
@@ -210,6 +213,10 @@ gantt
 [BiliBili](https://space.bilibili.com/1629031600)
 
 ### RF Front-End / Wireless
+
+[学射频ic 先啃拉扎维的模集还是射频微电子? - 知乎 (zhihu.com)](https://www.zhihu.com/question/528173753)
+
+就业：https://www.zhihu.com/question/638315525
 
 FDU
 
@@ -232,6 +239,8 @@ Razavi [Low-Power SERDES Design 2015 Qualcomm 内部授课](https://bbs.eetop.cn
 ## Tools
 
 ### Cadence Virtuoso
+
+详见一些小技巧 Virtuoso 的收集：[tips_roundup](../EDA/cadence/virtuoso/tips_roundup.md)
 
 ### Keysight ADS
 
