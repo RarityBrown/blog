@@ -8,9 +8,10 @@
 ## HDL Language
 
 - Verilog 而不是 VHDL：ref: *Language Wars in the 21st Century: Verilog versus VHDL*
-- Verilog 而不是 Chisel：~~不要被做体系结构的人拐跑了（说的就是一生一芯）~~
-- Verilog 而不是 SystemVerilog：没什么直接面向初学者的 SystemVerilog 的课程或教材，往往假设读者有 Verilog 背景；而且面向验证的内容多，面向设计的内容少
+- Verilog 而不是 Chisel 等 HLS：~~不要被做体系结构的人拐跑了（说的就是一生一芯）~~
+- Verilog 而不是 SystemVerilog：面向初学者的 SystemVerilog 的优质课程或教材较少，往往假设读者有 Verilog 背景；而且面向验证的内容多，面向设计的内容少
   - [RTL Modeling with SystemVerilog for Simulation and Synthesis by Stuart Sutherland](https://www.sutherland-hdl.com/books_and_guides.html) 作者去世
+  - 当然，如果准备在数字方向上深造的话近年来可能还是 SystemVerilog 为主了，当然，这只是我一个数字外行人的想法罢了
 
 ## Courses
 
