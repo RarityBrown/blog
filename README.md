@@ -14,11 +14,12 @@ Some ramblings about my major. 一些有关我的专业的碎碎念
   - Virtuoso 小技巧
   - 半定制数字流程 (todo)
   - Open EDA 相关的内容
-- Analog
+- Analog（主要以 IC 为主，不是 discrete circuit，因为毕竟就是学这行的）
   - Analog subcircuit：如果恰好需要研究一个小电路，可以把有关内容写一写。例如：Wilson 电流镜
   - feedback, gm/id 等
   - 学习资源
-- 一些小感悟/八卦（更接近世俗的 blog）
+- Digital（同理，IC 为主） 
+- 一些杂七杂八的小感悟/八卦（更接近世俗的 blog）
   - 学术界的“派系”
   - 产业界的八卦
 
