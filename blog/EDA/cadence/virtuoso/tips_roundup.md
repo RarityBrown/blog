@@ -7,6 +7,8 @@
 
 ## Schematic & Layout
 
+- [通过 Spice In 功能批量将数字标准单元库网表转换成 schematic](https://zhuanlan.zhihu.com/p/678951019)
+
 ### SKILL 脚本
 
 - [SKILL 脚本的基本编写与运行](https://www.zhihu.com/question/55715745/answer/3395432392)
@@ -29,11 +31,19 @@
 - [`tran` 仿真结束后延长仿真时间，不重新从头开始仿真——“断点续仿”](https://zhuanlan.zhihu.com/p/142714596)
 - [`tran` 仿真时的 Dynamic Parameter](https://zhuanlan.zhihu.com/p/392505085)
 
+### AMS & Verilog-A
+
+- [用 Verilog-A 配置电路修调控制](https://zhuanlan.zhihu.com/p/460423786)
+- [AMS 数模混仿步骤](https://zhuanlan.zhihu.com/p/683070031)
+
 ### Others
 
 - [Mismatch 仿真: `dcmatch`, `acmatch`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [参数敏感性仿真: `sens`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 
+### config
+
+- [config 简介：修改结构参数，在不改动PIN的情况下更换电路元件；模拟后仿寄生电容以及设计其他参数](https://zhuanlan.zhihu.com/p/614286236)
 
 ## VIVA
 
