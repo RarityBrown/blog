@@ -98,4 +98,4 @@ Designing Video Game Hardware in Verilog
 - [StarVision PRO (concept.de)](https://www.concept.de/StarVision.html)
 - https://www.sigasi.com/
 - https://github.com/Digital-EDA/Digital-IDE
-
+- 使用 yosys 的在线综合网站：https://digitaljs.tilk.eu/
