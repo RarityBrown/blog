@@ -37,6 +37,11 @@ Engineer 在历史上留名还是比 scientist/researcher 难太多了。Razavi 
 
 [知乎](https://www.zhihu.com/question/279354736)上有一个问题详细介绍了 Widlar 的工作。
 
+
+#### [Ken Kundert](https://en.wikipedia.org/wiki/Ken_Kundert)
+
+EDA 领域可能因为市场规模的原因，Albert Sangiovanni-Vincentelli 等做数字 EDA 的教授或是工程师往往更有名，模拟 EDA 领域则几乎无人关心。Ken Kundert 可能算模拟 EDA 领域贡献度排名前 5 之一了，他也是 IEEE Fellow。最近第二次在网上看到 *The designer's guide to SPICE and Spectre* 推荐了，所以把这位加入 Hall of Fame。没有将 SPICE 的发明者之一 Donald O. Pederson 加入是因为 SPICE 的初始版本有一点太老了，笔者知之甚少
+
 ## Chips
 
 [Welcome to the Chip Hall of Fame - IEEE Spectrum](https://spectrum.ieee.org/welcome-to-the-chip-hall-of-fame)
