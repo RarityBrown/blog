@@ -228,9 +228,11 @@ MIT 6.776
 
 对于（没那么有钱/connection）高校来说可能不是一个很好的方向，非常吃先进工艺。但是确实是近年来信号链比较火的方向。
 
+https://www.zhihu.com/question/656963771
+
 #### 李志毅 @ NTU
 
-https://www.zhihu.com/question/656963771
+#### Razavi @ UCLA
 
 Razavi [Low-Power SERDES Design 2015 Qualcomm 内部授课](https://bbs.eetop.cn/thread-580435-1-1.html)
 
@@ -242,9 +244,15 @@ Razavi [Low-Power SERDES Design 2015 Qualcomm 内部授课](https://bbs.eetop.cn
 
 详见一些小技巧 Virtuoso 的收集：[tips_roundup](../EDA/cadence/virtuoso/tips_roundup.md)
 
+#### SPICE & Spectre
+
+> The designer's guide to SPICE and Spectre 有许建超（西安交通大学）的电子译本
+
 ### Keysight ADS
 
 RFPro = FEM + Momentum
+
+ChannelSim (SerDes 方向)
 
 ### Ansys HFSS
 
