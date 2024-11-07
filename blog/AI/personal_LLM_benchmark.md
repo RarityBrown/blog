@@ -70,10 +70,16 @@
 > 正确答案：因为是阻塞赋值，其实是一个 A = E 的 1-bit DFF
 
 
-
 > Q: 1 fJ 的能量可以使一个质子加速到多少速度？1 nJ 呢？如果是对于光子呢？
 >
 > 正确答案： $1.093 \times 10^6 \mathrm{m/s}$, $2.97\times 10^8\mathrm{m/s}=0.9914c$, $\lambda=199\mathrm{pm}$, $\lambda=0.199\mathrm{fm}$
+
+
+> Q: #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
+>
+> 典型错误：#D7B5CC, #D7B8CC, #D2B4D2, #D7CCCC, #D8CCCC
+>
+> 正确答案：#EBDAE5, #EBDAE6, #ECDAE6?
 
 ### 混合问题
 
