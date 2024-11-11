@@ -110,6 +110,66 @@
 >
 > 正确答案：#EBDAE5, #EBDAE6, #ECDAE6?
 
+### 批判性-推理问题
+
+> Q: 试证明 $x^4 + 4$ 无法因式分解成实数系中的因式
+>
+> 正确答案： $x^4 + 4 = (x^2 - 2x + 2)(x^2 + 2x + 2)$
+
+
+> Q:
+> ```verilog
+> module simple_moore_fsm(
+>     input wire clk,
+>     input wire rst_n,
+>     input wire x,
+>     output reg y
+> );
+>     parameter S0 = 1'b0;
+>     parameter S1 = 1'b1;
+> 
+>     reg current_state, next_state;
+> 
+>     always @(posedge clk or negedge rst_n) begin
+>         if (!rst_n) current_state <= S0;
+>         else        current_state <= next_state;
+>     end
+> 
+>     always @(*) begin
+>         case (current_state)
+>             S0: begin
+>                 if (x) next_state = S1;
+>                 else   next_state = S0;
+>             end
+>             S1: begin
+>                 if (x) next_state = S1;
+>                 else   next_state = S0;
+>             end
+>             default: next_state = S0;
+>         endcase
+>     end
+> 
+>     always @(*) begin
+>         case (current_state)
+>             S0: begin
+>                 if (x) y = 1'b1;
+>                 else   y = 1'b0;
+>             end
+>             S1: begin
+>                 if (x) y = 1'b0;
+>                 else   y = 1'b1;
+>             end
+>             default: y = 1'b0;
+>         endcase
+>     end
+> 
+> endmodule
+> ```
+>
+> 这段代码是 Moore FSM 还是 Mealy FSM？
+>
+> 正确答案：Mealy FSM
+
 
 ## 评测的小 ideas
 
@@ -124,5 +184,4 @@
 ### 批判性思维和综合能力
 
 - 传统选择题形式的类 GPQA 评测 + 填空题形式的类 GPQA 评测 + 没有一个选项正确的选择题形式的类 GPQA 评测
-- 变量名、函数名对判断变量和函数作用与类型的影响：比如一个 Moore FSM 的 Verilog module name 写成 xxx_Mealy(); 然后询问这个 module 是一个 Mealy FSM 还是 Moore FSM
 - 1+1=2: Are you sure? / rethink / recheck
