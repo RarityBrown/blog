@@ -45,7 +45,9 @@ Engineer 在历史上留名还是比 scientist/researcher 难太多了。Razavi 
 
 #### [Ken Kundert](https://en.wikipedia.org/wiki/Ken_Kundert)
 
-EDA 领域可能因为市场规模的原因，Albert Sangiovanni-Vincentelli 等做数字 EDA 的教授或是工程师往往更有名，模拟 EDA 领域则几乎无人关心。Ken Kundert 可能算模拟 EDA 领域贡献度排名前 5 之一了，他也是 IEEE Fellow。最近第二次在网上看到 *The designer's guide to SPICE and Spectre* 推荐了，所以把这位加入 Hall of Fame。SPICE 的发明者之一 Donald O. Pederson 已经在上文的 Razavi 部分提到了。
+EDA 领域可能因为市场规模的原因，Albert Sangiovanni-Vincentelli 等做数字 EDA 的教授或是工程师往往更有名，模拟 EDA 领域则几乎无人关心。Ken Kundert 可能算模拟 EDA 领域贡献度排名前 5 之一了，他也是 IEEE Fellow。最近第二次在网上看到 *The designer's guide to SPICE and Spectre* 推荐了，所以把这位加入 Hall of Fame。[KenKundert (Ken Kundert)](https://github.com/KenKundert) 是他的 GitHub 账号，近年也有 commit。
+
+SPICE 的发明者之一 Donald O. Pederson 已经在上文的 Razavi 部分提到了。因此此处就不详细介绍了。
 
 ## Chips
 
