@@ -8,6 +8,7 @@
 ## Schematic & Layout
 
 - [通过 Spice In 功能批量将数字标准单元库网表转换成 schematic](https://zhuanlan.zhihu.com/p/678951019)
+- [快速建立尺寸不同的反相器等单元](https://blog.csdn.net/qq_40007892/article/details/119246219)
 
 ### SKILL 脚本
 
