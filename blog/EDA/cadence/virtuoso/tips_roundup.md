@@ -4,6 +4,7 @@
 
 - [文件书签 / 文件收藏](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [`.cdsinit`, `.cdsenv` 和寻找操作对应的 SKILL 语句](https://zhuanlan.zhihu.com/p/37215838)
+- [用 `.scs` 文件实现批量引用同一工艺角下的 mos, res, cap](https://zhuanlan.zhihu.com/p/588659964)
 
 ## Schematic & Layout
 
