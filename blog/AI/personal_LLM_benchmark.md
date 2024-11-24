@@ -172,6 +172,22 @@
 
 
 > Q:
+> ```python
+> def accumulate(x):
+>     sum = 0
+>     for counter in range(x):
+>         sum = sum + x
+>     return sum
+> ```
+>
+> 这个函数执行什么功能？输入 4 后是不是输出 3+2+1+0=6 ？
+>
+> A: https://www.zhihu.com/question/616737341
+
+
+
+
+> Q:
 > ```verilog
 > module simple_moore_fsm(
 >     input wire clk,
