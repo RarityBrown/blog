@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至2024年11月的第一梯队 LLM (o1p, 4oL, Sonnet 3.5 Oct., Gemini 1.5 Pro 2, gemini-exp-1114, big-engine-test (Gemini 2 Pro? in Chatbot Arena), secret-chatbot (in arena)) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~、明年的物理系考研压轴题、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU，都拉不开区分度。
+同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至2024年11月的第一梯队 LLM (o1p, 4oL, Sonnet 3.5 Oct., Gemini 1.5 Pro 2, gemini-exp-1121, big-engine-test (Gemini 2 Pro? in Chatbot Arena), secret-chatbot (in arena)) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~、明年的物理系考研压轴题、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU，都拉不开区分度。
 
 2024/08/22: 我认为 LLM 的发展向“知识库”方向发展比较有前景，像 Mistral 堆代码和数学的训练数据是错误的方向，数学和代码需要很不一样的训练手段，例如 AlphaGeometry。如果依靠现在 LLM 的训练方式，可能需要 500T 级别的参数量级（此时数据的来源又是一个问题）才能达到人类行业中上水平，或者说认为 GPT-5 的水平会接近业内平均水平，这当然是一个了不起的成就，但是也意味着受限于（目前可预估的）算力，至少在未来 30 年内，不可能通过这种通用 LLM 的方式到达超过业内的 top 10% 水平。类似的，人脑中负责语言和数学的中枢显然也是两个。
 
@@ -71,9 +71,9 @@
 > - “无机半导体**通常**是由金属和非金属元素组成的化合物”（Si 和 Ge 更通常啊）
 > - “它利用PN结的特性实现了电流的整流和**放大**”
 > - “当外界施加**电场**或加热材料时，一部分价带中的电子会跃迁到导带中”
->   - 这个 o1-mini 认为是错的。感觉在高场强下可能存在碰撞电离（雪崩击穿），对于 PN 结可能存在隧穿效应。但是“电场”用在原文这个语境下，应该是不对的，就是只有热激发、光激发。所以 o1-mini 的观点应该是正确的？我也没看出来
+>   - 这个 o1-mini 认为是错的。虽然在高场强下可能存在碰撞电离（雪崩击穿），对于 PN 结可能存在隧穿效应。但是“电场”用在原文这个语境下，应该是不对的，就是只有热激发、光激发。所以 o1-mini 的观点应该是正确的？我也没看出来
 >
-> 无论哪个点都容易被 LLM 遗漏，单独再问 LLM 一次这两句话对不对，往往都能给出正确答案。所以现在的 LLM 大海捞针评估我感觉是很有问题，或者说太简单了（大海捞针的插入针对于人类来说极明显，只能说是“大海捞钢筋”），此处稍微难一点点的“水塘捞细针”都捞不到。Jamba 有提到这个问题，并给出了 effective context window。但是显然，对于这个问题而言 1k 至 4k 左右 token 的 context window 都没有，大致只有 0.1k 的水平。不过这段话摘自公开的百度文库，所以这可能进一步加剧了这种情况，因为搞不好这段话还在训练数据集里。不过震惊的是 yi-lighting 全部答出来了。
+> 无论哪个点都容易被 LLM 遗漏，单独再问 LLM 一次这几句话对不对，往往都能给出正确答案。所以现在的 LLM 大海捞针评估我感觉是很有问题，或者说太简单了（大海捞针的插入针对于人类来说极明显，只能说是“大海捞钢筋”），此处稍微难一点点的“水塘捞细针”都捞不到。Jamba 有提到这个问题，并给出了 effective context window。但是显然，对于这个问题而言 1k 至 4k 左右 token 的 context window 都没有，大致只有 0.1k 的水平。不过这段话摘自公开的百度文库，所以这可能进一步加剧了这种情况，因为搞不好这段话还在训练数据集里。不过震惊的是 yi-lighting 全部答出来了。
 >
 > 同时，这题的 prompt 也挺重要的，似乎**哪些**比**什么**会导致 LLM 答得更全。
 
@@ -124,6 +124,24 @@
 >
 > \verb|line1|  \\  \verb|line2|
 > ```
+
+
+> Q: I'm trying to typeset text in LaTeX with specific spacing, resembling `\texttt{\textcolor{red}{METAL1}~~~~~~~~\textcolor{blue}{cm1}}`, ensuring the code block maintains an exact width equivalent to eight spaces between the colored words within the `\texttt{}` environment. My current attempts at achieving this have failed, as the multiple spaces collapse into a single space, deviating from the desired output. Can you provide two distinct LaTeX methods to accomplish this precise formatting, demonstrating them within a single code block without additional commentary?
+>
+> 典型错误：
+>
+> 1. `\texttt{\textcolor{red}{METAL1}\hspace{8em}\textcolor{blue}{cm1}}`. 因为 `\hspace{8em}` 的宽度和 `\texttt{}` 中 8 个连续的 monospace 不一样宽
+> 2. `\texttt{\textcolor{red}{METAL1}\phantom{xxxxxxxx}\textcolor{blue}{cm1}}`. `\phantom` is only supported in math mode
+> 
+> 参考答案：`\textcolor{red}{\texttt{METAL1}} \verb|        | \textcolor{blue}{\texttt{cm1}}`
+>
+> 正确情况：grok2 对错错, gemini-exp-1121 错错错错, o1-min 错错错, o1p 错, 4oL 错错错
+
+> Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
+>
+> 正确答案：对于 PMOS 输入的 5T-OTA 有 $\text{PSRR}_+\approx\dfrac{1}{2g_{m,\text{current mirror}}r_{o,\text{tail}}}  \qquad  \text{PSRR}_-=1$
+>
+> 这道题好像有一些过难了，如果通过记忆来回答的话语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
 
 ### 推理问题
 
