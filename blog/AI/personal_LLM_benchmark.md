@@ -63,6 +63,13 @@
 > 正确情况：gemini-exp-1114 对错; o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 Oct. 错错错错; Gemini 1.5 Pro 2 错错
 
 
+> Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
+>
+> 典型错误：`vlog -work work +acc=r *.v`
+> 
+> 正确答案：`project compileoutofdate`
+
+
 > Q: Verilog 中 `always @(posedge clk, negedge rst_n)` 和 `always @(posedge clk or negedge rst_n)` 哪个更好？为什么？好像和 Verilog 标准也有关系？
 >
 > 典型错误：推荐使用 IEEE 1364-2001 标准下的 `always @(posedge clk or negedge rst_n)` 写法。某种是同步/异步的，导致竞争。
@@ -149,7 +156,7 @@
 >
 > 正确答案：对于 PMOS 输入的 5T-OTA 有 $\text{PSRR}_+\approx\dfrac{1}{2g_{m,\text{current mirror}}r_{o,\text{tail}}}  \qquad  \text{PSRR}_-=1$
 >
-> 这道题好像有一些过难了，如果通过记忆来回答的话语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
+> 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
 
 ### 推理问题
 
