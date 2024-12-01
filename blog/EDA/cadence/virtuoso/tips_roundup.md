@@ -47,10 +47,11 @@
 
 - [config 简介：修改结构参数，在不改动PIN的情况下更换电路元件；模拟后仿寄生电容以及设计其他参数](https://zhuanlan.zhihu.com/p/614286236)
 
-## VIVA
+## VIVA & Calculator
 
 - [保存仿真曲线结果](https://zhuanlan.zhihu.com/p/662309243)
 - [曲线斜率, dx, dy 标记](https://blog.csdn.net/qq_33599939/article/details/122505894#4_38)
+- [通过 `value` 和 `cross` 函数，给定横/纵坐标的值，得到纵/横坐标的值，y(x), x(y)](https://zhuanlan.zhihu.com/p/10093779489)
 
 # Ref
 
