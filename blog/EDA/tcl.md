@@ -3,6 +3,8 @@
 
 ## 语法注意点
 
+---
+
 行尾的反斜杠不能有多余的空白字符：
 
 ```tcl
@@ -20,3 +22,12 @@ add wave -position insertpoint -group MTP_Interface_Address \
 ```
 
 因为多加了空格会报错 `# ** UI-Msg (Warning): (vish-4014) No objects found matching ' '.`
+
+---
+
+在同一行中添加注释，需要使用命令分隔符 `;` 来分隔代码和注释
+
+```tcl
+set x 5 ; # comment
+```
+
