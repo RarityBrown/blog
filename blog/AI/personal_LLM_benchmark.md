@@ -53,6 +53,11 @@
 >
 > 参考答案：Analog: **Donald O. Pederson (SPICE)**, Laurence(Larry) Nagel (SPICE), Arthur Richard Newton (SPICE), Ken Kundert (Spectre); Digital: **Alberto Sangiovanni-Vincentelli**, Kurt Keutzer (Bell Labs, Synopsys, UCB), Aart de Geus (Synopsys), Robert K. Brayton (UCB) 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
 
+> Q: 除了 Logitech MX Master，推荐**一**款有侧向滚轮的鼠标。仅需要名字，无需介绍    Apart from the Logitech MX Master, recommend **one** mouse with a side scroll wheel. Only the name is needed, no description.
+>
+> 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse
+>
+> 正确情况：4oL 错, Sonnet 3.5 Oct. 错
 
 > Q: How to print quotes within a node in a Mermaid flowchart? Answer within 2 lines in a code block.
 >
@@ -60,7 +65,7 @@
 >
 > 正确答案：`A["Node with #quot;quotes#quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
 >
-> 正确情况：gemini-exp-1114 对错; o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 Oct. 错错错错; Gemini 1.5 Pro 2 错错
+> 正确情况：gemini-exp-1114 对错错; o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 Oct. 错错错错; Gemini 1.5 Pro 2 错错
 
 
 > Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
@@ -91,6 +96,12 @@
 > 无论哪个点都容易被 LLM 遗漏，单独再问 LLM 一次这几句话对不对，往往都能给出正确答案。所以现在的 LLM 大海捞针评估我感觉是很有问题，或者说太简单了（大海捞针的插入针对于人类来说极明显，只能说是“大海捞钢筋”），此处稍微难一点点的“水塘捞细针”都捞不到。Jamba 有提到这个问题，并给出了 effective context window。但是显然，对于这个问题而言 1k 至 4k 左右 token 的 context window 都没有，大致只有 0.1k 的水平。不过这段话摘自公开的百度文库，所以这可能进一步加剧了这种情况，因为搞不好这段话还在训练数据集里。不过震惊的是 yi-lighting 全部答出来了。
 >
 > 同时，这题的 prompt 也挺重要的，似乎**哪些**比**什么**会导致 LLM 答得更全。
+
+> Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？
+>
+> 典型错误：12个
+> 
+> 正确答案：6个
 
 
 > Q: NMOS 弱反型区电流公式？（不要在最终结果中带 Id0，写在 latex code block 中）
@@ -140,7 +151,6 @@
 > \verb|line1|  \\  \verb|line2|
 > ```
 
-
 > Q: I'm trying to typeset text in LaTeX with specific spacing, resembling `\texttt{\textcolor{red}{METAL1}~~~~~~~~\textcolor{blue}{cm1}}`, ensuring the code block maintains an exact width equivalent to eight spaces between the colored words within the `\texttt{}` environment. My current attempts at achieving this have failed, as the multiple spaces collapse into a single space, deviating from the desired output. Can you provide two distinct LaTeX methods to accomplish this precise formatting, demonstrating them within a single code block without additional commentary?
 >
 > 典型错误：
@@ -157,6 +167,87 @@
 > 正确答案：对于 PMOS 输入的 5T-OTA 有 $\text{PSRR}_+\approx\dfrac{1}{2g_{m,\text{current mirror}}r_{o,\text{tail}}}  \qquad  \text{PSRR}_-=1$
 >
 > 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
+
+> Q: 可以让 `STOP_ADDR:      en     <= 1'b0;`这句话延迟 3 个时钟周期执行吗？
+> ```verilog
+> module Auto_Read #(
+>     parameter DATA_WIDTH = 8,
+>     parameter ADDR_WIDTH = 6,
+>     parameter JUMP_FROM_ADDR = 6'b001111,
+>     parameter JUMP_TO_ADDR   = 6'b011010,
+>     parameter STOP_ADDR      = 6'b100100,
+>     parameter COUNTER_MAX = 16
+> )(
+>     input  wire                    por,        // Power-on reset, active low
+>     input  wire                    clk,        // Clock input
+>     input  wire [DATA_WIDTH-1:0]   DOUT_reg,   // Serial data input from MTP_Interface
+>     output reg                     en,         // Enable signal
+>     output reg  [DATA_WIDTH-1:0]   data_0,     // Parallel output to Reg_File
+>     output reg  [ADDR_WIDTH-1:0]   addr_0,     // Main counter (row address to MTP_LUT, and address to Reg_File)
+>     output reg                     READ_0      // READ_0 signal to MTP_Interface
+> );
+>     reg [4:0] counter;
+>     reg [1:0] en_d;
+> 
+>     always @(posedge clk, negedge por) begin
+>         if (!por) begin
+>             addr_0      <= {ADDR_WIDTH{1'b0}};
+>             data_0      <= {DATA_WIDTH{1'b0}};
+>             en          <= 1'b1;
+>             en_d        <= 2'b00;
+>             READ_0      <= 1'b0;
+>             counter     <= 0;
+>         end
+>         else begin
+>             en_d <= {en_d[0], en}; // delay READ_0 by two clock cycles
+>             if (en_d[1]) begin
+>                 if (counter == COUNTER_MAX) begin
+>                     READ_0      <= 1'b0;
+>                     counter     <= 0;
+>                     data_0      <= DOUT_reg;
+>                     case (addr_0)
+>                         JUMP_FROM_ADDR: addr_0 <= JUMP_TO_ADDR;
+>                         STOP_ADDR:      en     <= 1'b0;
+>                         default:        addr_0 <= addr_0 + 1'b1;
+>                     endcase
+>                 end else begin
+>                     READ_0 <= 1'b1;
+>                     counter <= counter + 1'b1;
+>                 end
+>             end
+>         end
+>     end
+> ```
+>
+> 
+> 参考答案：
+>
+> ```verilog
+>          ...
+>          en_d <= {en_d[0], en};
+>          stop_d <= {stop_d[1:0], (addr_0 == STOP_ADDR && en_d[1])};
+>          if (en_d[1]) begin
+>              if (counter == COUNTER_MAX) begin
+>                  READ_0      <= 1'b0;
+>                  counter     <= 0;
+>                  data_0      <= DOUT_reg;
+>                  case (addr_0)
+>                      JUMP_FROM_ADDR: addr_0 <= JUMP_TO_ADDR;
+>                      default:        addr_0 <= addr_0 + 1'b1;
+>                  endcase
+>                  if (stop_d[2]) begin
+>                      en <= 1'b0;
+>                  end
+>              end else begin
+>                  READ_0 <= 1'b1;
+>                  counter <= counter + 1'b1;
+>              end
+>          end
+>          ...
+> ```
+>
+> 不好的答案：
+
 
 ### 推理问题
 
