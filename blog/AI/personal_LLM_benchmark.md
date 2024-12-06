@@ -53,9 +53,11 @@
 >
 > 参考答案：Analog: **Donald O. Pederson (SPICE)**, Laurence(Larry) Nagel (SPICE), Arthur Richard Newton (SPICE), Ken Kundert (Spectre); Digital: **Alberto Sangiovanni-Vincentelli**, Kurt Keutzer (Bell Labs, Synopsys, UCB), Aart de Geus (Synopsys), Robert K. Brayton (UCB) 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
 
-> Q: The release year of IC Compiler 2?
+> Q: The release year of IC Compiler 2? When did ICC1 stop updating?
 > 
-> 正确答案：2014
+> 正确答案：2014, 2016
+>
+> 正确情况：gemini-exp-1121 对对
 
 > Q: 除了 Logitech MX Master，推荐**一**款有侧向滚轮的鼠标。仅需要名字，无需介绍    Apart from the Logitech MX Master, recommend **one** mouse with a side scroll wheel. Only the name is needed, no description.
 >
