@@ -369,6 +369,8 @@
 > 这段代码是 Moore FSM 还是 Mealy FSM？
 >
 > 正确答案：Mealy FSM
+> 
+> 正确情况：Sonnet 3.5 Oct. 对, gemini-exp-1206 错错错, Gemini 1.5 Pro 2 错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对, 4oL 错错
 
 
 ## 评测的小 ideas
