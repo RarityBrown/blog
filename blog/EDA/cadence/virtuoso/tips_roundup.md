@@ -33,6 +33,7 @@
 
 - [`tran` 仿真结束后延长仿真时间，不重新从头开始仿真——“断点续仿”](https://zhuanlan.zhihu.com/p/142714596)
 - [`tran` 仿真时的 Dynamic Parameter](https://zhuanlan.zhihu.com/p/392505085)
+  - [`tran` 仿真在需要的时间点开启 noise](https://zhuanlan.zhihu.com/p/9915953761)
 
 ### AMS & Verilog-A
 
