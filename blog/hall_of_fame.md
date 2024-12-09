@@ -19,9 +19,9 @@
 5. 其他还知道的一些老师
     1. 最左边写 gm/id 设计方法 2017 的 Murmann 老师，最近从 Stanford 到夏威夷大学取养老去了
     2. 最右边最近去世的 Sansen 老师，Sansen 还有一本 *Circuit of Life* 的短篇自传，感觉老了以后读这篇自传感触会很深吧。又因为发现 Sansen 有唯一徒子的唯一徒孙是个华人名，一查，清本的，现在居然也是蹭上 AI 了，害
-    3. 因为一些~~不方便说~~的原因，彻底知道了中间位置 UCLA 的 Abidi，这样看来有机会和 Donald Pederson 扯上关系，笑死
+    3. 因为一些~~不方便说~~的原因，彻底知道了中间位置 UCLA 的 Abidi，这样看来有机会和 Donald Pederson 扯上关系😂
   
-
+一个类似的网站是 Caltech 的 [Bruce A. Wooley - CHIC](https://chic.caltech.edu/genealogy/bruce-a-wooley/)，怎么把 Hajimiri 放这么上面，把 Razavi 放这么下面，哦原来就是 Hajimiri CHIC 课题组的网站，怪不得，笑死。不过这样的话为啥没把 Thomas Lee 给放进去
 
 #### [胡正明](https://academictree.org/etree/tree.php?pid=184325&pnodecount=6&cnodecount=6):
 
