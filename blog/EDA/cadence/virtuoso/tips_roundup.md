@@ -7,17 +7,19 @@
 - [快捷键修改文件，配置符合自己的使用习惯—— `.cdsinit` 和 `.cdsenv` 文件的妙用](https://blog.csdn.net/weixin_42169245/article/details/112069316), or [防 virtuoso 意外退出而中断仿真（附 `.cdsinit` 和 `.cdsenv` 文件说明）](https://zhuanlan.zhihu.com/p/557858923)
 - [用 `.scs` 文件实现批量引用同一工艺角下的 mos, res, cap](https://zhuanlan.zhihu.com/p/588659964)
 
-## Schematic & Layout
+## Schematic & Layout & GDS
 
 - [通过 Spice In 功能批量将数字标准单元库网表转换成 schematic](https://zhuanlan.zhihu.com/p/678951019)
 - [快速建立尺寸不同的反相器等单元](https://blog.csdn.net/qq_40007892/article/details/119246219)
+- [通过 SKILL 为 schematic 自动加 PIN](https://mp.weixin.qq.com/s/qxZB4m2CG69nmannkSiT5w)
+- [通过 SKILL 切换 schematic 与 layout 的只读与编辑](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
+- [通过 SKILL 实现无 GUI 的命令操作，以及自动化 streamout 的 GDS 导出](https://zhuanlan.zhihu.com/p/6010155066)
 
 ### SKILL 脚本
 
 - [SKILL 脚本的基本编写与运行](https://www.zhihu.com/question/55715745/answer/3395432392)
 - [手动与自动运行 SKILL 脚本的方式](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
-- [为 schematic 自动加 PIN](https://mp.weixin.qq.com/s/qxZB4m2CG69nmannkSiT5w)
-- [切换 schematic 与 layout 的只读与编辑](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
+
 
 ## ADE
 
