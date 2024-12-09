@@ -43,7 +43,7 @@
 - [用 Verilog-A 配置电路修调控制](https://zhuanlan.zhihu.com/p/460423786)
 - [AMS 数模混仿步骤](https://zhuanlan.zhihu.com/p/683070031)
 
-### Others
+### ADE Others
 
 - [Mismatch 仿真: `dcmatch`, `acmatch`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [参数敏感性仿真: `sens`](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
@@ -51,6 +51,11 @@
 ### config
 
 - [config 简介：修改结构参数，在不改动PIN的情况下更换电路元件；模拟后仿寄生电容以及设计其他参数](https://zhuanlan.zhihu.com/p/614286236)
+- [Spectre 后仿中端口 (bus) 数目过多导致网表生成失败问题的 .cdf 保存及 Python 脚本辅助解决](https://zhuanlan.zhihu.com/p/9576555642)
+
+## Others
+
+
 
 ## VIVA & Calculator
 
