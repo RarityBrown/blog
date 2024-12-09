@@ -31,6 +31,7 @@
 
 ### `tran`
 
+- [`tran` 仿真保存第一次仿真最后时间结点的状态，并让它成为下一次仿真的初始态](https://zhuanlan.zhihu.com/p/24416542)
 - [`tran` 仿真结束后延长仿真时间，不重新从头开始仿真——“断点续仿”](https://zhuanlan.zhihu.com/p/142714596)
 - [`tran` 仿真时的 Dynamic Parameter](https://zhuanlan.zhihu.com/p/392505085)
   - [`tran` 仿真在需要的时间点开启 noise](https://zhuanlan.zhihu.com/p/9915953761)
