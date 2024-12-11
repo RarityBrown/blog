@@ -1,11 +1,18 @@
 # Cadence Virtuoso Tips & Tricks Roundup
 
-## Library & File
+## Library & File & PDK
 
 - [文件书签 / 文件收藏](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
+- [用 `.scs` 文件实现批量引用同一工艺角下的 mos, res, cap](https://zhuanlan.zhihu.com/p/588659964)
+- [用 `.scs` 文件保存 model 批量引用](https://blog.csdn.net/qq_33599939/article/details/122505894#11scsmodel_19)
+
+### SKILL &  `.cshrc`, `.cdsinit`, `.cdsinit`
+
+- [SKILL 脚本的基本编写与运行](https://www.zhihu.com/question/55715745/answer/3395432392)
+- [手动与自动运行 SKILL 脚本的方式](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
 - [`.cdsinit`, `.cdsenv` 和寻找操作对应的 SKILL 语句](https://zhuanlan.zhihu.com/p/37215838)
 - [快捷键修改文件，配置符合自己的使用习惯—— `.cdsinit` 和 `.cdsenv` 文件的妙用](https://blog.csdn.net/weixin_42169245/article/details/112069316), or [防 virtuoso 意外退出而中断仿真（附 `.cdsinit` 和 `.cdsenv` 文件说明）](https://zhuanlan.zhihu.com/p/557858923)
-- [用 `.scs` 文件实现批量引用同一工艺角下的 mos, res, cap](https://zhuanlan.zhihu.com/p/588659964)
+- [ `.cshrc`, `.cdsinit`, `.cdsinit`文件配置，修改工艺文件通过 SKILL 实现 overstress 仿真](https://zhuanlan.zhihu.com/p/703004089)
 
 ## Schematic & Layout & GDS
 
@@ -15,19 +22,12 @@
 - [通过 SKILL 切换 schematic 与 layout 的只读与编辑](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
 - [通过 SKILL 实现无 GUI 的命令操作，以及自动化 streamout 的 GDS 导出](https://zhuanlan.zhihu.com/p/6010155066)
 
-### SKILL 脚本
-
-- [SKILL 脚本的基本编写与运行](https://www.zhihu.com/question/55715745/answer/3395432392)
-- [手动与自动运行 SKILL 脚本的方式](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
-
-
 ## ADE
 
 ### General
 
 - [加快 Spectre 仿真速度](https://zhuanlan.zhihu.com/p/677379106)
 - [后仿不通过 pin 连接 symbol 内部节点: deepprobe](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
-- [用 `.scs` 文件保存 model 批量引用](https://blog.csdn.net/qq_33599939/article/details/122505894#11scsmodel_19)
 - [查找替换网表名称、工艺库、器件等](https://blog.csdn.net/qq_33599939/article/details/122505894#16_171)
 - [ADE Explorer 和 Assembler 的一些小技巧](https://zhuanlan.zhihu.com/p/372495688)
 
@@ -38,7 +38,7 @@
 - [`tran` 仿真时的 Dynamic Parameter](https://zhuanlan.zhihu.com/p/392505085)
   - [`tran` 仿真在需要的时间点开启 noise](https://zhuanlan.zhihu.com/p/9915953761)
 
-### AMS & Verilog-A
+### AMS & Verilog-A & Verilog-AMS
 
 - [用 Verilog-A 配置电路修调控制](https://zhuanlan.zhihu.com/p/460423786)
 - [AMS 数模混仿步骤](https://zhuanlan.zhihu.com/p/683070031)
