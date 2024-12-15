@@ -24,3 +24,36 @@ abs(D)                                                     % 不自动化简
 simplify(abs(D))                                           % 不能默认化简
 simplify(abs(D), 'Steps', 12)                              % 正常化简
 ```
+
+## Uncommon but useful features
+
+Draw a vertical line across all plots in a subplot or stackedplot
+
+```matlab
+% Sample data
+t = -2:0.1:10;
+subplot(2,1,1); y1 = sin(t); plot(t, y1);
+subplot(2,1,2); y2 = cos(t); plot(t, y2);
+
+% Get figure handle
+fig = gcf;
+
+% Define x-coordinate for the vertical line
+x_line = 7;
+
+% Get x-axis limits from the first subplot (assuming both subplots have the same x-limits)
+ax1 = fig.Children(2); % Get the first subplot axes (second child, as order is reversed)
+x_limits = xlim(ax1); % Get x-limits of the first subplot
+
+% Get the position of the first subplot in normalized figure coordinates
+ax1_pos = ax1.Position;
+
+% Calculate normalized x-coordinate, considering the axes position
+x_norm = ax1_pos(1) + (x_line - x_limits(1)) / (x_limits(2) - x_limits(1)) * ax1_pos(3);
+
+% Draw vertical line using annotation
+annotation(fig, 'line', [x_norm x_norm], [0 1], 'LineStyle', '--');
+```
+
+![untitled](https://github.com/user-attachments/assets/29d92373-77a3-485f-8bd1-bb2ed205e869)
+
