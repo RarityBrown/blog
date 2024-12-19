@@ -62,3 +62,18 @@ Papers with >1000 citations
 [On-chip spiral inductors with patterned ground shields for Si-based RF ICs](https://ieeexplore.ieee.org/abstract/document/668989)
 
 [A general theory of phase noise in electrical oscillators](https://ieeexplore.ieee.org/abstract/document/658619)
+
+## Schools and Institutes
+
+### Europe
+
+- Netherlands
+  - TU Delft
+  - TU/e
+- Belgium
+  - IMEC
+  - KU Leuven
+- Switzerland
+  - ETH Zurich
+
+![image](https://op.europa.eu/webpub/com/eu-and-me/img/en_sol01.svg)
