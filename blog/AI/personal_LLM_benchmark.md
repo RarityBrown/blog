@@ -111,7 +111,7 @@
 >
 > 典型错误：12个
 > 
-> 正确答案：6个
+> 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
 
 
 > Q: NMOS 弱反型区电流公式？（不要在最终结果中带 Id0，写在 latex code block 中）
