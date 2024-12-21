@@ -31,6 +31,7 @@
 - [后仿不通过 pin 连接 symbol 内部节点: deepprobe](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [查找替换网表名称、工艺库、器件等](https://blog.csdn.net/qq_33599939/article/details/122505894#16_171)
 - [ADE Explorer 和 Assembler 的一些小技巧](https://zhuanlan.zhihu.com/p/372495688)
+- [后仿真总结 (包含Calibre、DSPF、Spectre 提寄生)](https://zhuanlan.zhihu.com/p/6580714389)
 
 ### `tran`
 
@@ -63,6 +64,7 @@
 - [保存仿真曲线结果](https://zhuanlan.zhihu.com/p/662309243)
 - [曲线斜率, dx, dy 标记](https://blog.csdn.net/qq_33599939/article/details/122505894#4_38)
 - [通过 `value` 和 `cross` 函数，给定横/纵坐标的值，得到纵/横坐标的值，y(x), x(y)](https://zhuanlan.zhihu.com/p/10093779489)
+- [IC23.1 仿真结果 VIVA 曲线图背景调整成白色](https://zhuanlan.zhihu.com/p/8242343475)
 
 # Ref
 
