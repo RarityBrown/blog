@@ -2,7 +2,9 @@
 
 ## People
 
-### Academic Tree
+### Reddit & Academic Tree
+
+[Leading Researchers from Academia in Chip Design : r/chipdesign](https://www.reddit.com/r/chipdesign/comments/j7fg38/leading_researchers_from_academia_in_chip_design/)
 
 刷[知乎](https://www.zhihu.com/question/556904632/answer/3248040031)发现了个网站 https://academictree.org/ 正好有感学术圈子其实很小，抬头不见低头见的，看看专业内名师的情况。
 
