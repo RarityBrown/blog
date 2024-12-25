@@ -1,5 +1,25 @@
 # English
 
+### 由 Maxim 产生的联想
+
+| 词语         | 含义                                                         | 示例                                                         |
+| :----------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| **Saying**   | **俗语**，**谚语**。指广泛流传的、简练通俗、含义深刻的短语。可以涵盖谚语、格言等，范围最广。 | - **Time is money.** (时间就是金钱) <br> - **No pain, no gain.** (没有付出就没有收获) <br> - **Every cloud has a silver lining.** (黑暗中总有一线光明) |
+| **Proverb**  | **谚语**。通常指历史悠久、流传广泛，富含智慧和经验教训的俗语。强调其传统性和普遍性，是民间智慧的结晶。 | - **A penny saved is a penny earned.** (省一分就是赚一分) <br> - **Too many cooks spoil the broth.** (厨师多了烧坏汤) <br> - **Still waters run deep.** (静水流深) |
+| **Motto**    | **座右铭**，**箴言**。指个人、组织或家族用来作为行为准则或信念的短语或句子。强调其指导性和激励性。 | - **Carpe diem.** (拉丁语：及时行乐) <br> - **Always be prepared.** (时刻准备着) <br> - **Semper Fidelis** (拉丁语：永远忠诚) — 美国海军陆战队的座右铭 |
+| **Maxim**    | **格言**，**座右铭**。指行为或道德上的准则或规则。强调其规范性和指导性，常常是劝人向善，给人启示。 | - **Neither a borrower nor a lender be.** (不要借债也不要借给别人) <br> - **Always do right; this will gratify some people and astonish the rest.** (Mark Twain) (永远做正确的事，这会让一些人满意，让其他人震惊) <br> - **Early to bed and early to rise makes a man healthy, wealthy, and wise.** (早睡早起身体好) |
+| **Adage**    | **格言**，**古训**。通常指古老而为人所熟知的谚语或格言。强调其年代久远和普遍认可。 | - **Where there's a will, there's a way.** (有志者事竟成) <br> - **A rolling stone gathers no moss.** (滚石不生苔) <br> - **Haste makes waste.** (欲速则不达) |
+| **Aphorism** | **格言**，**警句**。指简短而富有哲理或洞察力的陈述。通常作者明确，且语言更为精炼巧妙。 | - **Life is not a problem to be solved, but a reality to be experienced.** (Søren Kierkegaard) (生活不是要解决的问题，而是要经历的现实) <br> - **If you can't explain it simply, you don't understand it well enough.** (Albert Einstein) (如果你不能简单地解释它，你就没有充分地理解它) <br>- **Knowing yourself is the beginning of all wisdom.** (Aristotle) (认识自己是一切智慧的开端) |
+
+如果 Maxim 指的是马克沁机枪，类似的词有：
+
+- Machine gun (机枪): 泛指所有自动连续射击的枪械。
+- Gatling gun (加特林机枪): 另一种早期机枪，以其多管旋转射击而闻名。
+- Heavy machine gun (重机枪): 指口径较大、火力较猛的机枪。
+- Light machine gun (轻机枪): 指口径较小、重量较轻、可由单兵携带的机枪。
+- Automatic weapon (自动武器): 泛指所有能自动连续射击的武器。
+
+### 由 proceedings 产生的联想
 
 
 | 英语词汇        | 词性      | 含义                                     | 与 *procedere* 的联系                                | 示例                                                         |
