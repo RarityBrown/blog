@@ -28,6 +28,7 @@
 ### General
 
 - [加快 Spectre 仿真速度](https://zhuanlan.zhihu.com/p/677379106)
+- [同一个 testbench 仿真结果不同](https://zhuanlan.zhihu.com/p/14460437849)
 - [后仿不通过 pin 连接 symbol 内部节点: deepprobe](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [查找替换网表名称、工艺库、器件等](https://blog.csdn.net/qq_33599939/article/details/122505894#16_171)
 - [ADE Explorer 和 Assembler 的一些小技巧](https://zhuanlan.zhihu.com/p/372495688)
