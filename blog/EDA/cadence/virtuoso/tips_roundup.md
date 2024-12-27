@@ -45,6 +45,7 @@
 
 - [用 Verilog-A 配置电路修调控制](https://zhuanlan.zhihu.com/p/460423786)
 - [AMS 数模混仿步骤](https://zhuanlan.zhihu.com/p/683070031)
+- [AMS 数模混仿流程](https://zhuanlan.zhihu.com/p/8280687951)
 
 ### ADE Others
 
