@@ -109,7 +109,7 @@
 
 > Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？
 >
-> 典型错误：12个
+> 典型错误：8个, 12个
 > 
 > 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
 
