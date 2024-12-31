@@ -265,6 +265,39 @@
 >
 > 参考答案：一椭圆内接三角形的其中一个顶点是椭圆长轴的一个端点，另外两个顶点是椭圆短轴的两个端点。一个以椭圆长轴一个端点和短轴两个端点为顶点的椭圆内接等腰三角形
 
+> Q:
+>
+> ```python
+> import schemdraw
+> import schemdraw.elements as elm
+> 
+> with schemdraw.Drawing() as d:
+>     d += elm.Resistor().label('R1')
+>     d += elm.Resistor().label('R2').down()
+>     d += elm.Resistor().label('R3').left()
+>     d += elm.Resistor().label('R4').up()
+> d.draw()
+> ```
+>
+> 在 R3 的左侧，即 R4 的下侧，添加一个接地符号
+> 参考答案：
+>
+> ```python
+> import schemdraw
+> import schemdraw.elements as elm
+> 
+> with schemdraw.Drawing() as d:
+>     d += elm.Resistor().label('R1')
+>     d += elm.Resistor().label('R2').down()
+>     R3 = elm.Resistor().label('R3').left()
+>     d += R3
+>     d += elm.Resistor().label('R4').up()
+>     
+>     d += elm.Ground().at(R3.end) # or d += elm.Ground().at(R4.start)
+> d.draw()
+> ```
+
+
 
 ### 推理问题
 
