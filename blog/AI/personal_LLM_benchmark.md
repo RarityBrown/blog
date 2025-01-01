@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至2024年11月的第一梯队 LLM (o1p, 4oL, Sonnet 3.5 Oct., Gemini 1.5 Pro 2, gemini-exp-1121, big-engine-test (Gemini 2 Pro? in Chatbot Arena), secret-chatbot (in arena)) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~、明年的物理系考研压轴题、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU，都拉不开区分度。
+同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至2025年1月的第一梯队 LLM (o1, Sonnet 3.5 Oct., exp-1206, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
 
 2024/08/22: 我认为 LLM 的发展向“知识库”方向发展比较有前景，像 Mistral 堆代码和数学的训练数据是错误的方向，数学和代码需要很不一样的训练手段，例如 AlphaGeometry。如果依靠现在 LLM 的训练方式，可能需要 500T 级别的参数量级（此时数据的来源又是一个问题）才能达到人类行业中上水平，或者说认为 GPT-5 的水平会接近业内平均水平，这当然是一个了不起的成就，但是也意味着受限于（目前可预估的）算力，至少在未来 30 年内，不可能通过这种通用 LLM 的方式到达超过业内的 top 10% 水平。类似的，人脑中负责语言和数学的中枢显然也是两个。
 
@@ -37,10 +37,6 @@
 > 典型错误：回答古文或诗词
 >
 > 正确回答：充分体现各种字形，包括左右结构、上下结构等；或是直接翻译也可以（Edge 浏览器的官方做法）
-
-> "a 1" or "an 1", which one is grammatically correct?
->
-> A: a 1
 
 ### 知识问题
 
@@ -115,13 +111,16 @@
 > 典型错误：8个, 12个
 > 
 > 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
+>
+> 正确情况： o1 对，3-opus 半对
+
 
 
 > Q: NMOS 弱反型区电流公式？（不要在最终结果中带 Id0，写在 latex code block 中）
 >
 > 正确答案： $I_d = \left[ \mu C_{ox} \dfrac{W}{L} (n-1) V_t^2 \right] \exp\left(\dfrac{V_{gs} - V_{TH}}{n V_t}\right) \left(1 - \exp\left(-\dfrac{V_{ds}}{V_t}\right)\right)$
 >
-> 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 Oct. 使用 $e^x$ 形式，易读性欠佳; big-engine-test 正确答案; 
+> 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 Oct. 对; big-engine-test 对; 3-opus 对
 
 > Q: 随便找一篇专业相关的论文的一大段，令其翻译至中文
 >
@@ -299,6 +298,60 @@
 
 
 
+> Q:
+>
+> 这是电容的一阶时间常数电路图，画一个电感的，和电容的图并排放置
+>
+> ```python
+> import schemdraw
+> import schemdraw.elements as elm
+> 
+> with schemdraw.Drawing() as d:
+>  d.add(elm.Ground())
+>  d.add(elm.SourceV().label('$V_{in}$'))
+>  d.add(elm.Switch(action='close').right().label('S'))
+>  d.add(elm.Resistor().right().label('$R$'))
+>  d.add(elm.Dot(open=True).label('$V_{out}$'))
+>  d.add(elm.Capacitor().down().label('$C$'))
+>  d.add(elm.Ground())
+> 
+>  d.draw()
+> ```
+>
+> 参考答案：
+>
+> ```python
+> import schemdraw
+> import schemdraw.elements as elm
+> 
+> with schemdraw.Drawing() as d:
+>     d += (elm.Ground())
+>     d += (elm.SourceV().label('$V_{in}$'))
+>     d += (elm.Switch(action='close').right().label('S'))
+>     d += (elm.Resistor().right().label('$R$'))
+>     d += (elm.Dot(open=True).label('$V_{out}$'))
+>     d += (elm.Capacitor().down().label('$C$'))
+>     d += (elm.Ground())
+>     
+>     d.move(3, 0)
+>     
+>     d += (elm.Ground())
+>     d += (elm.SourceV().label('$V_{in}$'))
+>     d += (elm.Switch(action='close').right().label('S'))
+>     d += (elm.Inductor().right().label('$L$'))
+>     d += (elm.Dot(open=True).label('$V_{out}$'))
+>     d += (elm.Resistor().down().label('$R$'))
+>     d += (elm.Ground())
+>     
+>     d.draw()
+> ```
+>
+> 正确情况：o1错,
+>
+> 两个关键点：1. `d.move(3, 0)` 2. RC, LR 的顺序
+
+
+
 ### 推理问题
 
 > Q:
@@ -414,7 +467,7 @@
 >
 > 正确答案：Mealy FSM
 > 
-> 正确情况：Sonnet 3.5 Oct. 对, gemini-exp-1206 错错错, Gemini 1.5 Pro 2 错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对, 4oL 错错
+> 正确情况：Sonnet 3.5 Oct. 对, gemini-exp-1206 错错错, Gemini 1.5 Pro 2 错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对, 4oL 错错, 3-opus 对
 
 
 ## 评测的小 ideas
