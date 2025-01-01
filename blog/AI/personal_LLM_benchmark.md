@@ -264,7 +264,7 @@
 >
 > 参考答案：一椭圆内接三角形的其中一个顶点是椭圆长轴的一个端点，另外两个顶点是椭圆短轴的两个端点。一个以椭圆长轴一个端点和短轴两个端点为顶点的椭圆内接等腰三角形
 
-> Q:
+> Q: 在 R3 的左侧，即 R4 的下侧，添加一个接地符号
 >
 > ```python
 > import schemdraw
@@ -277,8 +277,7 @@
 >     d += elm.Resistor().label('R4').up()
 > d.draw()
 > ```
->
-> 在 R3 的左侧，即 R4 的下侧，添加一个接地符号
+> 
 > 参考答案：
 >
 > ```python
@@ -298,9 +297,7 @@
 
 
 
-> Q:
->
-> 这是电容的一阶时间常数电路图，画一个电感的，和电容的图并排放置
+> Q: 这是电容的一阶时间常数电路图，画一个电感的，和电容的图并排放置
 >
 > ```python
 > import schemdraw
@@ -349,6 +346,85 @@
 > 正确情况：o1错,
 >
 > 两个关键点：1. `d.move(3, 0)` 2. RC, LR 的顺序
+
+
+> Q: 这是电压源激励的一阶电路，在同一幅图下面画上电流源激励的一阶电路
+>
+> ```python
+> import schemdraw
+> import schemdraw.elements as elm
+> 
+> with schemdraw.Drawing() as d:
+>     d += (elm.Ground())
+>     d += (elm.SourceV().label('$V_{in}$'))
+>     d += (elm.Switch(action='close').right().label('S'))
+>     d += (elm.Resistor().right().label('$R$'))
+>     d += (elm.Dot(open=True).label('$V_{out}$'))
+>     d += (elm.Capacitor().down().label('$C$'))
+>     d += (elm.Ground())
+>     
+>     d.move(3, 0)
+>     
+>     d += (elm.Ground())
+>     d += (elm.SourceV().label('$V_{in}$'))
+>     d += (elm.Switch(action='close').right().label('S'))
+>     d += (elm.Inductor().right().label('$L$'))
+>     d += (elm.Dot(open=True).label('$V_{out}$'))
+>     d += (elm.Resistor().down().label('$R$'))
+>     d += (elm.Ground())
+>     
+>     d.draw()
+> ```
+>
+> 参考答案：
+>
+> ```python
+> import schemdraw
+> import schemdraw.elements as elm
+> 
+> with schemdraw.Drawing() as d:
+>     d += (elm.Ground())
+>     d += (elm.SourceV().label('$V_{in}$'))
+>     d += (elm.Switch(action='close').right().label('S'))
+>     d += (elm.Resistor().right().label('$R$'))
+>     d += (elm.Dot(open=True).label('$V_{out}$'))
+>     d += (elm.Capacitor().down().label('$C$'))
+>     d += (elm.Ground())
+>     d.move(3, 0)
+>     d += (elm.Ground())
+>     d += (elm.SourceV().label('$V_{in}$'))
+>     d += (elm.Switch(action='close').right().label('S'))
+>     d += (elm.Inductor().right().label('$L$'))
+>     d += (elm.Dot(open=True).label('$V_{out}$'))
+>     d += (elm.Resistor().down().label('$R$'))
+>     d += (elm.Ground())
+> 
+>     d.move(-15, -5)
+>     
+>     d += (elm.Ground())
+>     d += (elm.SourceI().label('$I_{in}$'))
+>     d += (elm.Switch(action='close').right().label('S'))
+>     d += (elm.Dot())
+>     d += (R1 := elm.Resistor().down().label('$R$'))
+>     d += (elm.Ground())
+>     d += (elm.Line().right().at(R1.start))
+>     d += (elm.Dot(open=True).label('$V_{out}$'))
+>     d += (elm.Capacitor().down().label('$C$'))
+>     d += (elm.Ground())
+>     d.move(3, 0)
+>     d += (elm.Ground())
+>     d += (elm.SourceI().label('$I_{in}$'))
+>     d += (elm.Switch(action='close').right().label('S'))
+>     d += (elm.Dot())
+>     d += (R2 := elm.Resistor().down().label('$R$'))
+>     d += (elm.Ground())
+>     d += (elm.Line().right().at(R2.start))
+>     d += (elm.Dot(open=True).label('$V_{out}$'))
+>     d += (elm.Inductor().down().label('$L$'))
+>     d += (elm.Ground())
+>     
+>     d.draw()
+> ```
 
 
 
