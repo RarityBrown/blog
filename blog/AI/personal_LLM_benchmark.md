@@ -60,7 +60,7 @@
 > 
 > 正确答案：2014, 2016
 >
-> 正确情况：gemini-exp-1121 对对
+> 正确情况：gemini-exp-1121 对对, Sonnet 3.5 Oct. 对.不会.
 
 > Q: 除了 Logitech MX Master，推荐**一**款有侧向滚轮的鼠标。仅需要名字，无需介绍    Apart from the Logitech MX Master, recommend **one** mouse with a side scroll wheel. Only the name is needed, no description.
 >
@@ -461,6 +461,11 @@
 > Q: 1 fJ 的能量可以使一个质子加速到多少速度？1 nJ 呢？如果是对于光子呢？
 >
 > 正确答案： $1.093 \times 10^6 \text{m/s}$, $2.97\times 10^8\text{m/s}=0.9914c$, $\lambda=199\mathrm{pm}$, $\lambda=0.199\mathrm{fm}$
+
+
+> Q: Draw a cross using `\rule` in latex. The commands `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the cross are 6em and 1em.
+>
+> 正确答案：`\rule{1em}{6em} \hspace{-3.5em} \rule[+2.5em]{6em}{1em}` or `\rule{6em}{1em} \kern{-3.5em}   \rule[-2.5em]{1em}{6em}` 
 
 
 > Q: #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
