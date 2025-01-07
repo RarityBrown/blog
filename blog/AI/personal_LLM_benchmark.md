@@ -176,6 +176,14 @@
 >
 > 正确情况：grok2 对错错, gemini-exp-1121 错错错错, o1-min 错错错, o1p 错, 4oL 错错错
 
+> Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}`` How to align at the `=`?
+>
+> 正确答案：`\xrightarrow[\hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}]{\hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c} }`
+>
+> 正确情况：
+
+
+
 > Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
 >
 > 正确答案：对于 PMOS 输入的 5T-OTA 有 $\text{PSRR}_+\approx\dfrac{1}{2g_{m,\text{current mirror}}r_{o,\text{tail}}}  \qquad  \text{PSRR}_-=1$
