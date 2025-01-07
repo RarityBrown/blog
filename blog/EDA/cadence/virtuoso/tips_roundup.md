@@ -43,6 +43,10 @@
 - [`tran` 仿真时的 Dynamic Parameter](https://zhuanlan.zhihu.com/p/392505085)
   - [`tran` 仿真在需要的时间点开启 noise](https://zhuanlan.zhihu.com/p/9915953761)
 
+### `pss`
+
+- [pss 仿真](https://zhuanlan.zhihu.com/p/16816066025)
+
 ### AMS & Verilog-A & Verilog-AMS
 
 - [用 Verilog-A 配置电路修调控制](https://zhuanlan.zhihu.com/p/460423786)
@@ -69,6 +73,7 @@
 - [曲线斜率, dx, dy 标记](https://blog.csdn.net/qq_33599939/article/details/122505894#4_38)
 - [通过 `value` 和 `cross` 函数，给定横/纵坐标的值，得到纵/横坐标的值，y(x), x(y)](https://zhuanlan.zhihu.com/p/10093779489)
 - [IC23.1 仿真结果 VIVA 曲线图背景调整成白色](https://zhuanlan.zhihu.com/p/8242343475)
+- [Calculator 基本操作](https://zhuanlan.zhihu.com/p/461911657)
 
 # Ref
 
