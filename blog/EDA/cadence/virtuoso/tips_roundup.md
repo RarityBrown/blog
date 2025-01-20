@@ -13,7 +13,8 @@
 - [SKILL 脚本的基本编写与运行](https://www.zhihu.com/question/55715745/answer/3395432392)
 - [手动与自动运行 SKILL 脚本的方式](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
 - [`.cdsinit`, `.cdsenv` 和寻找操作对应的 SKILL 语句](https://zhuanlan.zhihu.com/p/37215838)
-- [快捷键修改文件，配置符合自己的使用习惯—— `.cdsinit` 和 `.cdsenv` 文件的妙用](https://blog.csdn.net/weixin_42169245/article/details/112069316), or [防 virtuoso 意外退出而中断仿真（附 `.cdsinit` 和 `.cdsenv` 文件说明）](https://zhuanlan.zhihu.com/p/557858923)
+- [`.cdsinit` 和 `.cdsenv` 文件的妙用](https://zhuanlan.zhihu.com/p/334782042)
+- [防 virtuoso 意外退出而中断仿真（附 `.cdsinit` 和 `.cdsenv` 文件说明）](https://zhuanlan.zhihu.com/p/557858923)
 - [ `.cshrc`, `.cdsinit`, `.cdsenv`文件配置，修改工艺文件通过 SKILL 实现 overstress 仿真](https://zhuanlan.zhihu.com/p/703004089)
 
 ## Schematic & Layout & GDS
