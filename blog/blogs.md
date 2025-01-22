@@ -4,3 +4,4 @@
 
 - [Teruteru的学习笔记](https://teruteru.space/) <!-- 47.100.52.206 teru.space --> 
 - [Alvin's Stage](https://alvinrolling.github.io/): This is Alvin’s blog about Digital IC Design skills and tricks.
+- [Mis Circuitos - Learning electronics together](https://miscircuitos.com/): 一个中途换专业学模拟 IC 的外国人 Alberto 
