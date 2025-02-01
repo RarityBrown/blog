@@ -1,4 +1,6 @@
-# AI for Chip Design
+# AI & Chip Design
+
+## AI for Digital Chip Design (basically Verilog + Digital Layout)
 
 ### Nvidia
 
@@ -24,3 +26,14 @@ Cadence Cerebrus Verisium
 ### Others
 
 RapidGPT 
+
+## AI for Analog & RF Chip Design
+
+RFIC-GPT
+
+
+
+## Impact
+
+- https://www.zhihu.com/people/xia-jing-jing-57
+- https://www.zhihu.com/people/mackler
