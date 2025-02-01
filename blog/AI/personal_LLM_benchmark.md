@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至2025年1月的第一梯队 LLM (o1, Sonnet 3.5 Oct., exp-1206, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
+同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至2025年2月的第一梯队 LLM (o1, o3-mini, r1, Sonnet 3.5, exp-1206, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
 
 2024/08/22: 我认为 LLM 的发展向“知识库”方向发展比较有前景，像 Mistral 堆代码和数学的训练数据是错误的方向，数学和代码需要很不一样的训练手段，例如 AlphaGeometry。如果依靠现在 LLM 的训练方式，可能需要 500T 级别的参数量级（此时数据的来源又是一个问题）才能达到人类行业中上水平，或者说认为 GPT-5 的水平会接近业内平均水平，这当然是一个了不起的成就，但是也意味着受限于（目前可预估的）算力，至少在未来 30 年内，不可能通过这种通用 LLM 的方式到达超过业内的 top 10% 水平。类似的，人脑中负责语言和数学的中枢显然也是两个。
 
@@ -94,6 +94,56 @@
 
 ### 知识-推理混合问题
 
+#### LaTeX 相关
+
+> Q: Create a code block containing all possible methods for inserting a new line within a `\texttt` in LaTeX, ensuring compatibility with Mathjax/Katex.
+>
+> 典型错误：
+>
+> ```latex
+> \texttt{line1 \\       line2}
+> \texttt{line1 \newline line2}
+> \texttt{line1 \cr      line2}
+> \begin{verbatim}
+> line1
+> line2
+> \end{verbatim}
+> ```
+>
+> 正确答案：There is no direct way, some alternative ways are
+> 
+> ```latex
+> \begin{array}{l}  \texttt{line1} \\  \texttt{line2}  \end{array}
+> 
+> \begin{aligned}   \texttt{line1} \\  \texttt{line2}  \end{aligned}
+>
+> \verb|line1|  \\  \verb|line2|
+> ```
+
+> Q: I'm trying to typeset text in LaTeX with specific spacing, resembling `\texttt{\textcolor{red}{METAL1}~~~~~~~~\textcolor{blue}{cm1}}`, ensuring the code block maintains an exact width equivalent to eight spaces between the colored words within the `\texttt{}` environment. My current attempts at achieving this have failed, as the multiple spaces collapse into a single space, deviating from the desired output. Can you provide two distinct LaTeX methods to accomplish this precise formatting, demonstrating them within a single code block without additional commentary?
+>
+> 典型错误：
+>
+> 1. `\texttt{\textcolor{red}{METAL1}\hspace{8em}\textcolor{blue}{cm1}}`. 因为 `\hspace{8em}` 的宽度和 `\texttt{}` 中 8 个连续的 monospace 不一样宽
+> 2. `\texttt{\textcolor{red}{METAL1}\phantom{xxxxxxxx}\textcolor{blue}{cm1}}`. `\phantom` is only supported in math mode
+> 
+> 参考答案：`\textcolor{red}{\texttt{METAL1}} \verb|        | \textcolor{blue}{\texttt{cm1}}`
+>
+> 正确情况：grok2 对错错, gemini-exp-1121 错错错错, o1-min 错错错, o1p 错, 4oL 错错错
+
+> Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
+>
+> 正确答案：`\xrightarrow[\hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}]{\hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c} }`
+>
+> 正确情况：
+
+> Q: Draw a cross using `\rule` in latex. The commands `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
+>
+> 正确答案：`\rule{1em}{6em} \hspace{-3.5em} \rule[+2.5em]{6em}{1em}` or `\rule{6em}{1em} \kern{-3.5em}   \rule[-2.5em]{1em}{6em}` . 更复杂的写法有 `\rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}  \rule[-0.5em]{6em}{1em}` 等
+
+
+#### 其他
+
 > Q: 以下这段话有什么根本性的事实错误（正确、不完整、略有不严谨、正确但笼统、正确但过于简单的部分均无需列出与分析）？无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。本文将介绍无机半导体的基本概念、特性以及其在实际应用中的重要性。无机半导体是指由无机材料构成的半导体材料。与有机半导体不同，无机半导体的导电性主要是由其晶体结构和化学成分决定的。具体而言，无机半导体通常是由金属和非金属元素组成的化合物，如二硫化锌、氧化镓等。这些化合物具有特殊的晶体结构，使得它们的电子能带结构在一定温度范围内呈现出半导体的特性。无机半导体的最重要特性之一是能带结构。能带结构决定了材料的导电性质。在无机半导体中，通常存在着价带和导带两个能带。价带中的电子处于较低的能量状态，而导带中的电子处于较高的能量状态。当外界施加电场或加热材料时，一部分价带中的电子会跃迁到导带中，形成自由电子和空穴。这种电子和空穴的运动就是电流的基础。无机半导体的导电性还与掺杂有关。掺杂是指在材料中引入少量的杂质，以改变其导电性质。掺杂可以分为N型和P型两种。在N型掺杂中，引入的杂质具有多余的电子，这些电子可以自由移动，从而增加材料的导电性。而在P型掺杂中，引入的杂质具有少了一个电子的空位，这些空位可以被电子填充，形成空穴，从而增加材料的导电性。N型和P型材料的结合可以形成PN结，这是半导体器件中最基本的结构之一。无机半导体在电子学和光电子学领域有着广泛的应用。例如，半导体二极管是一种常见的电子器件，它利用PN结的特性实现了电流的整流和放大。此外，无机半导体还广泛应用于太阳能电池、激光器、光电探测器等领域。这些应用使得无机半导体成为现代高科技产业的重要基础材料。无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。无机半导体的导电性质与其能带结构和掺杂有关，这使得它成为实现电流控制和光电转换的重要材料。对于人类社会的科技进步和经济发展而言，无机半导体的研究和应用具有重要意义。
 > 
 > 正确答案：
@@ -139,49 +189,6 @@
 > Q: PCIe 6.0 x8 的双向速度上限？以 GB/s 为单位。
 >
 > 正确答案：[121 GB/s](https://en.wikipedia.org/wiki/PCI_Express#Comparison_table)
-
-
-> Q: Create a code block containing all possible methods for inserting a new line within a `\texttt` in LaTeX, ensuring compatibility with Mathjax/Katex.
->
-> 典型错误：
->
-> ```latex
-> \texttt{line1 \\       line2}
-> \texttt{line1 \newline line2}
-> \texttt{line1 \cr      line2}
-> \begin{verbatim}
-> line1
-> line2
-> \end{verbatim}
-> ```
->
-> 正确答案：There is no direct way, some alternative ways are
-> 
-> ```latex
-> \begin{array}{l}  \texttt{line1} \\  \texttt{line2}  \end{array}
-> 
-> \begin{aligned}   \texttt{line1} \\  \texttt{line2}  \end{aligned}
->
-> \verb|line1|  \\  \verb|line2|
-> ```
-
-> Q: I'm trying to typeset text in LaTeX with specific spacing, resembling `\texttt{\textcolor{red}{METAL1}~~~~~~~~\textcolor{blue}{cm1}}`, ensuring the code block maintains an exact width equivalent to eight spaces between the colored words within the `\texttt{}` environment. My current attempts at achieving this have failed, as the multiple spaces collapse into a single space, deviating from the desired output. Can you provide two distinct LaTeX methods to accomplish this precise formatting, demonstrating them within a single code block without additional commentary?
->
-> 典型错误：
->
-> 1. `\texttt{\textcolor{red}{METAL1}\hspace{8em}\textcolor{blue}{cm1}}`. 因为 `\hspace{8em}` 的宽度和 `\texttt{}` 中 8 个连续的 monospace 不一样宽
-> 2. `\texttt{\textcolor{red}{METAL1}\phantom{xxxxxxxx}\textcolor{blue}{cm1}}`. `\phantom` is only supported in math mode
-> 
-> 参考答案：`\textcolor{red}{\texttt{METAL1}} \verb|        | \textcolor{blue}{\texttt{cm1}}`
->
-> 正确情况：grok2 对错错, gemini-exp-1121 错错错错, o1-min 错错错, o1p 错, 4oL 错错错
-
-> Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}`` How to align at the `=`?
->
-> 正确答案：`\xrightarrow[\hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}]{\hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c} }`
->
-> 正确情况：
-
 
 
 > Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
@@ -471,11 +478,6 @@
 > 正确答案： $1.093 \times 10^6 \text{m/s}$, $2.97\times 10^8\text{m/s}=0.9914c$, $\lambda=199\mathrm{pm}$, $\lambda=0.199\mathrm{fm}$
 
 
-> Q: Draw a cross using `\rule` in latex. The commands `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
->
-> 正确答案：`\rule{1em}{6em} \hspace{-3.5em} \rule[+2.5em]{6em}{1em}` or `\rule{6em}{1em} \kern{-3.5em}   \rule[-2.5em]{1em}{6em}` . 更复杂的写法有 `\rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}  \rule[-0.5em]{6em}{1em}` 等
-
-
 > Q: #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
 >
 > 典型错误：#D7B5CC, #D7B8CC, #D2B4D2, #D7CCCC, #D8CCCC
@@ -483,16 +485,28 @@
 > 正确答案：#EBDAE5, #EBDAE6, #ECDAE6?
 
 
-> Q: 1145141919810 在任意数字之间插入 +- 使得等式 = 2025 (不用代码，不用过程，仅直接给出两种答案，给出答案后再检查一下正确性)  [ref](https://www.zhihu.com/question/7671636421/answer/68993839512)
+> Q: 1145141919810 在任意数字之间插入 +- 使得等式 = 2025 (不用代码，不用过程，仅直接给出两种答案，给出答案后再检查一下正确性)  Insert + or - between the digits of 1145141919810 to make the equation equal to 2025. (No code, no process, just provide two solutions directly. Check the correctness after giving the solutions.)  [ref] (https://www.zhihu.com/question/7671636421/answer/68993839512)
 >
 > 参考答案：
 > 
 > - 1 + 1 + 4 + 5 + 14 + 19 + 1981 + 0 = 2025 (原作者)
-> - 1 + 1 + 4 + 5 + 1 + 41 - 9 + 1981 + 0 = 2025 (o1-min)
-> - 11 + 4 + 5 + 1 + 4 + 1919 + 81 + 0 = 2025 (o1-min)
+> - 1 + 14 + 5 + 14 + 1 + 9 + 1981 + 0 = 2025 (o3-min + aid)
+> - 11 + 4 + 5 + 14 + 1 + 9 + 1981 + 0 = 2025 (o3-min + aid)
 > - 11 + 4 + 5 + 1 + 4 + 19 + 1981 + 0 = 2025 (2-flash-thinking)
+> - 11 + 4 + 5 + 1 + 4 + 1919 + 81 + 0 = 2025 (o1-min)
+> - 1 + 1 + 4 + 5 + 1 + 41 - 9 + 1981 + 0 = 2025 (o1-min)
 >
-> 正确情况：o1-min 对/直接答不会, o1 超时, exp-1206 错, 2-flash-thinking 有时超时
+> 代码遍历：
+> 
+> - 1+1+4+5+1+41-9+1981+0=2025 1+1+4+5+14+19+1981+0=2025 1+1+4+5+14+1919+81+0=2025 1+1-4-5+1+41+9+1981+0=2025 1+1+45+1+4+1-9+1981+0=2025
+> - 1+14+5+1+4+19+1981+0=2025 1+14+5+1+4+1919+81+0=2025 1+14+5+14+1+9+1981+0=2025 1-14+51-4+1+9+1981+0=2025
+> - 11+4+5+1+4+19+1981+0=2025 11+4+5+1+4+1919+81+0=2025 11+4+5+14+1+9+1981+0=2025 11-4+51-4-1-9+1981+0=2025
+> - 114+5+1+4+1919-8-10=2025 114-5-1-4+1919-8+10=2025
+> - 1145+1+41+9+19+810=2025 1145+1+41+919-81+0=2025
+> 
+> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能, o1 超时, exp-1206 错, 2-flash-thinking 有时超时
+
+
 
 
 
