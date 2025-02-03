@@ -38,6 +38,14 @@
 >
 > 正确回答：充分体现各种字形，包括左右结构、上下结构等；或是直接翻译也可以（Edge 浏览器的官方做法）
 
+> Q: 两个木一个双耳旁读啥
+>
+> 正确答案：郴（chen）
+
+> Q: 椭圆内接三角形的一个顶点在椭圆的右侧(a,0)，另外两个顶点分别在椭圆的上顶点 (0,b) 和下顶点 (0,-b)。如果椭圆不是正着放在直角坐标系中间，而且还旋转了，我应该如何用一句话描述这个三角形？
+>
+> 参考答案：一个以椭圆长轴一个端点和短轴两个端点为顶点的椭圆内接等腰三角形
+
 ### 知识问题
 
 > Q: 上海四校八大？
@@ -62,7 +70,9 @@
 >
 > 正确情况：gemini-exp-1121 对对, Sonnet 3.5 Oct. 对.不会.
 
-> Q: 除了 Logitech MX Master，推荐**一**款有侧向滚轮的鼠标。仅需要名字，无需介绍    Apart from the Logitech MX Master, recommend **one** mouse with a side scroll wheel. Only the name is needed, no description.
+> Q: 除了 Logitech MX Master，推荐**一**款有侧向滚轮的鼠标。仅需要名字，无需介绍
+> 
+> Q: Apart from the Logitech MX Master, recommend **one** mouse with a side scroll wheel. Only the name is needed, no description.
 >
 > 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse
 >
@@ -92,9 +102,40 @@
 >
 > 正确情况：gemini-exp-1114 错错对对; 
 
+
+> Q: Considering support for various devices (Windows, Mac, Android, iOS without requiring any extra installation, Linux can be ignored), please choose two CJK sans-serif fonts for me?
+>
+> 正确答案：没有
+
 ### 知识-推理混合问题
 
-#### LaTeX 相关
+#### 代码相关
+
+##### LaTeX 相关
+
+###### LaTeX
+
+> Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
+>
+> 参考答案：`\xrightarrow[\hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}]{\hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c} }`
+
+> Q: Draw a cross using `\rule` in latex. The commands `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
+>
+> 参考答案：
+> 
+> ```latex
+> \rule{1em}{6em} \hspace{-3.5em}            \rule[+2.5em]{6em}{1em}
+> \rule{6em}{1em} \kern{-3.5em}              \rule[-2.5em]{1em}{6em}
+>
+> \rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}  \rule[-0.5em]{6em}{1em}
+> ```
+> 
+
+> Q: How to make $\boldsymbol{\tau_{Y}}$ even bolder without any other formatting change and without `\usepackage{bm}`? Answer within 2 lines in a code block.
+>
+> 参考答案：`\pmb{\boldsymbol{\tau_{Y}}} \boldsymbol{\pmb{\tau_{Y}}}`
+
+###### MathJax / KaTeX
 
 > Q: Create a code block containing all possible methods for inserting a new line within a `\texttt` in LaTeX, ensuring compatibility with Mathjax/Katex.
 >
@@ -131,155 +172,7 @@
 >
 > 正确情况：grok2 对错错, gemini-exp-1121 错错错错, o1-min 错错错, o1p 错, 4oL 错错错
 
-> Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
->
-> 正确答案：`\xrightarrow[\hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}]{\hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c} }`
->
-> 正确情况：
-
-> Q: Draw a cross using `\rule` in latex. The commands `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
->
-> 正确答案：`\rule{1em}{6em} \hspace{-3.5em} \rule[+2.5em]{6em}{1em}` or `\rule{6em}{1em} \kern{-3.5em}   \rule[-2.5em]{1em}{6em}` . 更复杂的写法有 `\rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}  \rule[-0.5em]{6em}{1em}` 等
-
-
-#### 其他
-
-> Q: 以下这段话有什么根本性的事实错误（正确、不完整、略有不严谨、正确但笼统、正确但过于简单的部分均无需列出与分析）？无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。本文将介绍无机半导体的基本概念、特性以及其在实际应用中的重要性。无机半导体是指由无机材料构成的半导体材料。与有机半导体不同，无机半导体的导电性主要是由其晶体结构和化学成分决定的。具体而言，无机半导体通常是由金属和非金属元素组成的化合物，如二硫化锌、氧化镓等。这些化合物具有特殊的晶体结构，使得它们的电子能带结构在一定温度范围内呈现出半导体的特性。无机半导体的最重要特性之一是能带结构。能带结构决定了材料的导电性质。在无机半导体中，通常存在着价带和导带两个能带。价带中的电子处于较低的能量状态，而导带中的电子处于较高的能量状态。当外界施加电场或加热材料时，一部分价带中的电子会跃迁到导带中，形成自由电子和空穴。这种电子和空穴的运动就是电流的基础。无机半导体的导电性还与掺杂有关。掺杂是指在材料中引入少量的杂质，以改变其导电性质。掺杂可以分为N型和P型两种。在N型掺杂中，引入的杂质具有多余的电子，这些电子可以自由移动，从而增加材料的导电性。而在P型掺杂中，引入的杂质具有少了一个电子的空位，这些空位可以被电子填充，形成空穴，从而增加材料的导电性。N型和P型材料的结合可以形成PN结，这是半导体器件中最基本的结构之一。无机半导体在电子学和光电子学领域有着广泛的应用。例如，半导体二极管是一种常见的电子器件，它利用PN结的特性实现了电流的整流和放大。此外，无机半导体还广泛应用于太阳能电池、激光器、光电探测器等领域。这些应用使得无机半导体成为现代高科技产业的重要基础材料。无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。无机半导体的导电性质与其能带结构和掺杂有关，这使得它成为实现电流控制和光电转换的重要材料。对于人类社会的科技进步和经济发展而言，无机半导体的研究和应用具有重要意义。
-> 
-> 正确答案：
-> - “无机半导体**通常**是由金属和非金属元素组成的化合物”（Si 和 Ge 更通常啊）
-> - “它利用PN结的特性实现了电流的整流和**放大**”
-> - “当外界施加**电场**或加热材料时，一部分价带中的电子会跃迁到导带中”
->   - 这个 o1-mini 认为是错的。虽然在高场强下可能存在碰撞电离（雪崩击穿），对于 PN 结可能存在隧穿效应。但是“电场”用在原文这个语境下，应该是不对的，就是只有热激发、光激发。所以 o1-mini 的观点应该是正确的？我也没看出来
->
-> 无论哪个点都容易被 LLM 遗漏，单独再问 LLM 一次这几句话对不对，往往都能给出正确答案。所以现在的 LLM 大海捞针评估我感觉是很有问题，或者说太简单了（大海捞针的插入针对于人类来说极明显，只能说是“大海捞钢筋”），此处稍微难一点点的“水塘捞细针”都捞不到。Jamba 有提到这个问题，并给出了 effective context window。但是显然，对于这个问题而言 1k 至 4k 左右 token 的 context window 都没有，大致只有 0.1k 的水平。不过这段话摘自公开的百度文库，所以这可能进一步加剧了这种情况，因为搞不好这段话还在训练数据集里。不过震惊的是 yi-lighting 全部答出来了。
->
-> 同时，这题的 prompt 也挺重要的，似乎**哪些**比**什么**会导致 LLM 答得更全。
-
-> Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？
->
-> 典型错误：8个, 12个
-> 
-> 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
->
-> 正确情况： o1 对, 3-opus 半对, 2-flash-thinking 对
-
-> Q: 理想 LC tank 有 τ 吗？从以下几方面思考 1. τ 的定义是什么？2. LC tank 是几阶系统？给出总计 30 个字以内的解答。
->
-> 正确答案：没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统
-
-> Q: NMOS 弱反型区电流公式？（不要在最终结果中带 Id0，写在 latex code block 中）
->
-> 正确答案： $I_d = \left[ \mu C_{ox} \dfrac{W}{L} (n-1) V_t^2 \right] \exp\left(\dfrac{V_{gs} - V_{TH}}{n V_t}\right) \left(1 - \exp\left(-\dfrac{V_{ds}}{V_t}\right)\right)$
->
-> 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 Oct. 对; big-engine-test 对; 3-opus 对
-
-> Q: 随便找一篇专业相关的论文的一大段，令其翻译至中文
->
-> 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
-
-
-> Q: Make `15/9*1e-12` symbolic in matlab within one line. Your answer should be simple.
->
-> 典型错误：`expr = sym(15/9 * 1e-12);` 结果有浮点误差
-> 
-> 正确答案：`expr = 15/9*str2sym('10^(-12)');` 或 `sym(15)/sym(9)*sym(1e-12)` 之类把 1e-12 单独拿出来
-
-
-> Q: PCIe 6.0 x8 的双向速度上限？以 GB/s 为单位。
->
-> 正确答案：[121 GB/s](https://en.wikipedia.org/wiki/PCI_Express#Comparison_table)
-
-
-> Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
->
-> 正确答案：对于 PMOS 输入的 5T-OTA 有 $\text{PSRR}_+\approx\dfrac{1}{2g_{m,\text{current mirror}}r_{o,\text{tail}}}  \qquad  \text{PSRR}_-=1$
->
-> 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
-
-> Q: 可以让 `STOP_ADDR:      en     <= 1'b0;`这句话延迟 3 个时钟周期执行吗？
-> ```verilog
-> module Auto_Read #(
->     parameter DATA_WIDTH = 8,
->     parameter ADDR_WIDTH = 6,
->     parameter JUMP_FROM_ADDR = 6'b001111,
->     parameter JUMP_TO_ADDR   = 6'b011010,
->     parameter STOP_ADDR      = 6'b100100,
->     parameter COUNTER_MAX = 16
-> )(
->     input  wire                    por,        // Power-on reset, active low
->     input  wire                    clk,        // Clock input
->     input  wire [DATA_WIDTH-1:0]   DOUT_reg,   // Serial data input from MTP_Interface
->     output reg                     en,         // Enable signal
->     output reg  [DATA_WIDTH-1:0]   data_0,     // Parallel output to Reg_File
->     output reg  [ADDR_WIDTH-1:0]   addr_0,     // Main counter (row address to MTP_LUT, and address to Reg_File)
->     output reg                     READ_0      // READ_0 signal to MTP_Interface
-> );
->     reg [4:0] counter;
->     reg [1:0] en_d;
-> 
->     always @(posedge clk, negedge por) begin
->         if (!por) begin
->             addr_0      <= {ADDR_WIDTH{1'b0}};
->             data_0      <= {DATA_WIDTH{1'b0}};
->             en          <= 1'b1;
->             en_d        <= 2'b00;
->             READ_0      <= 1'b0;
->             counter     <= 0;
->         end
->         else begin
->             en_d <= {en_d[0], en}; // delay READ_0 by two clock cycles
->             if (en_d[1]) begin
->                 if (counter == COUNTER_MAX) begin
->                     READ_0      <= 1'b0;
->                     counter     <= 0;
->                     data_0      <= DOUT_reg;
->                     case (addr_0)
->                         JUMP_FROM_ADDR: addr_0 <= JUMP_TO_ADDR;
->                         STOP_ADDR:      en     <= 1'b0;
->                         default:        addr_0 <= addr_0 + 1'b1;
->                     endcase
->                 end else begin
->                     READ_0 <= 1'b1;
->                     counter <= counter + 1'b1;
->                 end
->             end
->         end
->     end
-> ```
->
-> 
-> 参考答案：
->
-> ```verilog
->          ...
->          en_d <= {en_d[0], en};
->          stop_d <= {stop_d[1:0], (addr_0 == STOP_ADDR && en_d[1])};
->          if (en_d[1]) begin
->              if (counter == COUNTER_MAX) begin
->                  READ_0      <= 1'b0;
->                  counter     <= 0;
->                  data_0      <= DOUT_reg;
->                  case (addr_0)
->                      JUMP_FROM_ADDR: addr_0 <= JUMP_TO_ADDR;
->                      default:        addr_0 <= addr_0 + 1'b1;
->                  endcase
->                  if (stop_d[2]) begin
->                      en <= 1'b0;
->                  end
->              end else begin
->                  READ_0 <= 1'b1;
->                  counter <= counter + 1'b1;
->              end
->          end
->          ...
-> ```
->
-> 不好的答案：
-
-> Q: 椭圆内接三角形的一个顶点在椭圆的右侧(a,0)，另外两个顶点分别在椭圆的上顶点 (0,b) 和下顶点 (0,-b)。如果椭圆不是正着放在直角坐标系中间，而且还旋转了，我应该如何用一句话描述这个三角形？
->
-> 参考答案：一椭圆内接三角形的其中一个顶点是椭圆长轴的一个端点，另外两个顶点是椭圆短轴的两个端点。一个以椭圆长轴一个端点和短轴两个端点为顶点的椭圆内接等腰三角形
+##### Python 小众库
 
 > Q: 在 R3 的左侧，即 R4 的下侧，添加一个接地符号
 >
@@ -443,6 +336,59 @@
 >     d.draw()
 > ```
 
+##### MATLAB
+
+> Q: Make `15/9*1e-12` symbolic in matlab within one line. Your answer should be simple.
+>
+> 典型错误：`expr = sym(15/9 * 1e-12);` 结果有浮点误差
+> 
+> 正确答案：`expr = 15/9*str2sym('10^(-12)');` 或 `sym(15)/sym(9)*sym(1e-12)` 之类把 1e-12 单独拿出来
+
+##### 专业相关问题
+
+> Q: 以下这段话有什么根本性的事实错误（正确、不完整、略有不严谨、正确但笼统、正确但过于简单的部分均无需列出与分析）？无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。本文将介绍无机半导体的基本概念、特性以及其在实际应用中的重要性。无机半导体是指由无机材料构成的半导体材料。与有机半导体不同，无机半导体的导电性主要是由其晶体结构和化学成分决定的。具体而言，无机半导体通常是由金属和非金属元素组成的化合物，如二硫化锌、氧化镓等。这些化合物具有特殊的晶体结构，使得它们的电子能带结构在一定温度范围内呈现出半导体的特性。无机半导体的最重要特性之一是能带结构。能带结构决定了材料的导电性质。在无机半导体中，通常存在着价带和导带两个能带。价带中的电子处于较低的能量状态，而导带中的电子处于较高的能量状态。当外界施加电场或加热材料时，一部分价带中的电子会跃迁到导带中，形成自由电子和空穴。这种电子和空穴的运动就是电流的基础。无机半导体的导电性还与掺杂有关。掺杂是指在材料中引入少量的杂质，以改变其导电性质。掺杂可以分为N型和P型两种。在N型掺杂中，引入的杂质具有多余的电子，这些电子可以自由移动，从而增加材料的导电性。而在P型掺杂中，引入的杂质具有少了一个电子的空位，这些空位可以被电子填充，形成空穴，从而增加材料的导电性。N型和P型材料的结合可以形成PN结，这是半导体器件中最基本的结构之一。无机半导体在电子学和光电子学领域有着广泛的应用。例如，半导体二极管是一种常见的电子器件，它利用PN结的特性实现了电流的整流和放大。此外，无机半导体还广泛应用于太阳能电池、激光器、光电探测器等领域。这些应用使得无机半导体成为现代高科技产业的重要基础材料。无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。无机半导体的导电性质与其能带结构和掺杂有关，这使得它成为实现电流控制和光电转换的重要材料。对于人类社会的科技进步和经济发展而言，无机半导体的研究和应用具有重要意义。
+> 
+> 正确答案：
+> - “无机半导体**通常**是由金属和非金属元素组成的化合物”（Si 和 Ge 更通常啊）
+> - “它利用PN结的特性实现了电流的整流和**放大**”
+> - “当外界施加**电场**或加热材料时，一部分价带中的电子会跃迁到导带中”
+>   - 这个 o1-mini 认为是错的。虽然在高场强下可能存在碰撞电离（雪崩击穿），对于 PN 结可能存在隧穿效应。但是“电场”用在原文这个语境下，应该是不对的，就是只有热激发、光激发。所以 o1-mini 的观点应该是正确的？我也没看出来
+>
+> 无论哪个点都容易被 LLM 遗漏，单独再问 LLM 一次这几句话对不对，往往都能给出正确答案。所以现在的 LLM 大海捞针评估我感觉是很有问题，或者说太简单了（大海捞针的插入针对于人类来说极明显，只能说是“大海捞钢筋”），此处稍微难一点点的“水塘捞细针”都捞不到。Jamba 有提到这个问题，并给出了 effective context window。但是显然，对于这个问题而言 1k 至 4k 左右 token 的 context window 都没有，大致只有 0.1k 的水平。不过这段话摘自公开的百度文库，所以这可能进一步加剧了这种情况，因为搞不好这段话还在训练数据集里。不过震惊的是 yi-lighting 全部答出来了。
+>
+> 同时，这题的 prompt 也挺重要的，似乎**哪些**比**什么**会导致 LLM 答得更全。
+
+> Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？
+>
+> 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
+>
+> 正确情况： o1 对, 3-opus 半对, 2-flash-thinking 对对对对
+
+> Q: 理想 LC tank 有 τ 吗？从以下几方面思考 1. τ 的定义是什么？2. LC tank 是几阶系统？给出总计 30 个字以内的解答。
+>
+> 正确答案：没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统
+
+> Q: NMOS 弱反型区电流公式？（不要在最终结果中带 Id0，写在 latex code block 中）
+>
+> 正确答案： $I_d = \left[ \mu C_{ox} \dfrac{W}{L} (n-1) V_t^2 \right] \exp\left(\dfrac{V_{gs} - V_{TH}}{n V_t}\right) \left(1 - \exp\left(-\dfrac{V_{ds}}{V_t}\right)\right)$
+>
+> 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 Oct. 对; big-engine-test 对; 3-opus 对
+
+> Q: 随便找一篇专业相关的论文的一大段，令其翻译至中文
+>
+> 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
+
+
+> Q: PCIe 6.0 x8 的双向速度上限？以 GB/s 为单位。
+>
+> 正确答案：[121 GB/s](https://en.wikipedia.org/wiki/PCI_Express#Comparison_table)
+
+
+> Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
+>
+> 正确答案：对于 PMOS 输入的 5T-OTA 有 $\text{PSRR}_+\approx\dfrac{1}{2g_{m,\text{current mirror}}r_{o,\text{tail}}}  \qquad  \text{PSRR}_-=1$
+>
+> 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
 
 
 ### 推理问题
@@ -505,7 +451,6 @@
 > - 1145+1+41+9+19+810=2025 1145+1+41+919-81+0=2025
 > 
 > 正确情况：o1-min, o3-mini 对/回答不会/回答不可能, o1 超时, exp-1206 错, 2-flash-thinking 有时超时
-
 
 
 
