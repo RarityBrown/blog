@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至2025年2月的第一梯队 LLM (o1, o3-mini, r1, Sonnet 3.5, exp-1206, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
+同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至 2025 年 2 月的第一梯队 LLM (o1, o3-mini, r1, Sonnet 3.5, Gemini 2 Pro, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
 
 2024/08/22: 我认为 LLM 的发展向“知识库”方向发展比较有前景，像 Mistral 堆代码和数学的训练数据是错误的方向，数学和代码需要很不一样的训练手段，例如 AlphaGeometry。如果依靠现在 LLM 的训练方式，可能需要 500T 级别的参数量级（此时数据的来源又是一个问题）才能达到人类行业中上水平，或者说认为 GPT-5 的水平会接近业内平均水平，这当然是一个了不起的成就，但是也意味着受限于（目前可预估的）算力，至少在未来 30 年内，不可能通过这种通用 LLM 的方式到达超过业内的 top 10% 水平。类似的，人脑中负责语言和数学的中枢显然也是两个。
 
@@ -20,13 +20,17 @@
 
 1. 满足①而不满足②③的例子是最广泛，有法律等一系列
 2. 可用于训练的资料内容多且质量高。不代表这些数据要是公开的或者开源的，只要有数据即可。例如画家反对 AI 训练，但是大公司直接无视法律风险，直接继续使用大量数据训练；Tesla 收集全球用户的驾驶数据用于训练 FSD。从 2022 LLM 高考语文的水平高于高考数学，到 2025 LLM 满分的高考数学和略微进步的高考语文，就是定量化评价体系中的差别。AlphaGo 也是同理，首先竞技性游戏的评价极为单一和清晰，其次，使用合成棋谱进行 RL。
-3. 
+3. 程序员相较于产品经理恐怕更危险。更宏观的，技术员相较于管理者可能更危险，不过这也是千百年来的主流了
 
+2025/02/07: **2025 年不会是 AI Computer Agent 的元年。** 更悲观的说，Agent 就像机器人，年年是元年，但是恐怕始终难堪大用。主要是两点原因：1. 目前多模态模型的能力仍远逊于普通人 2. Agent 在工程上是一个很复杂的问题，Agent 意味着从做题到实践的巨大进步，而且短时间内难以通过基模的提升来解决。其他一些小问题，比如 context window 和有效 context window 都太少、强基模延迟高速度慢价格高、Agent Benchmark 不明晰等等问题，都有望在 2025 年解决。当然啊，还有一个房间里的大象——非公开语料，这对于 AGI 和 Agent 都没有影响，但是对于更好地帮助工作可能有一定影响，不过我相信非公开语料已经不是 OpenAI 和 Google 所关心的主要内容了。
 
+OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，而非 Agent：Operator 目前只能完成定义清晰、目标明确的简单网页操作，而 Deep Research 更像是一个以自己知识面作为常识，结合公开信息作为辅助判断的做题者。AI Agent 的第一步就是*完全*取代中低端程序员，这也是 Agent 中最简单的一步，但是正如 AI 永远无法到达 100% 正确率的彼岸一样，不要小看*完全*二字啊。至于 OpenAI 机器人？那更是遥远的彼岸，说不定和可控核聚变一样，被物理世界的残酷一次次拖延。
+
+那么我们在 2025 年会看到什么？更好的做题模型，但是快到头了；更好的多模态模型，仍有不少发展空间；更多基于 AI 的可有可无的软硬件，火得很，但并非未来。没有了，人们追求 Scaling Law 的能力远不如追求 Moore's Law 的能力，而不是说 Scaling Law 已经失效了。
 
 ## 题目列表
 
-### 语言理解
+### 语言
 
 > Q: Delaying graduation because of an exchange program vs. Going on an exchange program because of delayed graduation; Female college student engaging in prostitution vs. A fallen young woman persisting to complete her college education; He smokes while praying vs. He prays while smoking. Are there any other similar examples?
 >
@@ -40,23 +44,27 @@
 
 > Q: 两个木一个双耳旁读啥
 >
-> 正确答案：郴（chen）
+> 正确答案：郴（chēn）
+>
+> 正确回答：Gemini 2 Pro 对
 
 > Q: 椭圆内接三角形的一个顶点在椭圆的右侧(a,0)，另外两个顶点分别在椭圆的上顶点 (0,b) 和下顶点 (0,-b)。如果椭圆不是正着放在直角坐标系中间，而且还旋转了，我应该如何用一句话描述这个三角形？
 >
 > 参考答案：一个以椭圆长轴一个端点和短轴两个端点为顶点的椭圆内接等腰三角形
 
-### 知识问题
+### 知识问题（类似于 SimpleQA ）
 
 > Q: 上海四校八大？
 > 
 > 典型错误：复交同师。基本上只取决对于中文互联网上知识的爬取深入程度和清洗的合理程度，因为这个靠多语言能力翻译没用，同时含有“四校八大”相关的网页内容往往是低质量的。
 > 
-> 正确情况：4oL 对; Sonnet 3.5 Oct. 错; Gemini 1.5 Pro 2 半对; 
+> 正确情况：4oL 对; Sonnet 3.5 错; Gemini 2 Pro 对; 
 
 > Q: 顺尔宁是 NSAIDs 吗？泰诺呢？开瑞坦呢？双氯芬酸呢？右美沙芬呢？简单回答，即类似于“是、不是、不是、不是、是”。
 >
 > 正确答案：不是、不是、不是、是、不是。类似地，取决于中文语料，多语言能力翻译没用。这题可以看出不管是开源还是闭源的模型都有明显蒸馏其他家的模型，对于“顺尔宁”这一项的错误认知往往是“顺尔宁就是布洛芬”
+>
+> 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 
 
 > Q: 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献
 >
@@ -68,7 +76,7 @@
 > 
 > 正确答案：2014, 2016
 >
-> 正确情况：gemini-exp-1121 对对, Sonnet 3.5 Oct. 对.不会.
+> 正确情况：gemini-exp-1121 对对, Sonnet 3.5 对.不会.
 
 > Q: 除了 Logitech MX Master，推荐**一**款有侧向滚轮的鼠标。仅需要名字，无需介绍
 > 
@@ -76,7 +84,7 @@
 >
 > 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse
 >
-> 正确情况：4oL 错, Sonnet 3.5 Oct. 错
+> 正确情况：4oL 错, Sonnet 3.5 错
 
 > Q: How to print quotes within a node in a Mermaid flowchart? Answer within 2 lines in a code block.
 >
@@ -84,7 +92,7 @@
 >
 > 正确答案：`A["Node with #quot;quotes#quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
 >
-> 正确情况：gemini-exp-1114 对错错; o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 Oct. 错错错错; Gemini 1.5 Pro 2 错错
+> 正确情况：gemini-exp-1114 对错错; o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错
 
 
 > Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
@@ -171,6 +179,86 @@
 > 参考答案：`\textcolor{red}{\texttt{METAL1}} \verb|        | \textcolor{blue}{\texttt{cm1}}`
 >
 > 正确情况：grok2 对错错, gemini-exp-1121 错错错错, o1-min 错错错, o1p 错, 4oL 错错错
+
+
+##### 前端开发全流程
+
+背景：
+
+- 准备通过 Electron + React  + Vite + TypeScript 在 Windows 上写一个小工具 app
+- 但是我对前端开发一无所知，准备全部依赖于 LLM 实现开发
+- 首先通过跑几次 LLM，大致知道了环境配置流程
+  - 创建 Vite 项目
+  - 安装 Electron
+  - 项目文件夹结构创建与调整
+  - 编写 Electron 主进程文件
+  - 配置 `package.json`
+- 以下是一个初学者在开发过程中，按照时间顺序遇到的、无法被 LLM 很好解决（或者 LLM 没有意识到）的问题 
+
+> Q: 
+> 
+> ```
+> `npm create vue@latest` 如何自动给如下参数
+> √ Project name: mathforge
+> √ Add TypeScript? ... Yes
+> √ Add JSX support? ... No
+> √ Add Vue Router for Single Page Application development? ... Yes
+> √ Add Pinia for state management? ... Yes
+> √ Add Vitest for Unit testing? ... No
+> √ Add Cypress for E2E testing? ... No
+> √ Add ESLint for code quality? ... Yes
+> √ Add Prettier for code formatting? ... Yes
+> ```
+>
+> 参考答案：目前来看是没有办法实现全自动传参的。（这些选项的选择建议也是通过 AI 先行给出的）
+>
+> 正确情况：o3-mini-median-search 错, 2-flash-thinking 错错, 4oL 半对
+
+> Q: 帮我用 PowerShell 写一个脚本：1. 现有 src 目录下的所有东西都移动到 src/renderer 中（src/renderer 还不存在）2. 在 src 创建 main, shared 两文件夹。运行中多加一点状态提示。
+>
+> 典型错误：使用在 PowerShell 脚本中使用中文字符串。Windows 11 默认预装 PowerShell 5.1 默认编码格式不是 UTF-8，而保存的 `.ps1` 脚本的编码格式默认是 UTF-8。导致脚本无法正确运行。
+>
+> 参考答案：使用纯英语撰写 ps 脚本；提示编码问题；建议更新 PowerShell 7
+
+
+Q: 
+
+通过如下命令：
+
+```shell
+npm create vite@latest mathforge  # (React - Typescript)
+cd mathforge
+npm install
+npm install electron electron-builder --save-dev
+npm install @electron/vite-plugin.js --save-dev
+```
+
+用 React + Vite + Electron + Typescript 开发应用的 `package.js` 中的 `scripts` 应该怎么写（别的字段不用写）？ Vite 自动生成的 `scripts` 如下：
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+    
+    // 需要写的 electron:build 等等
+  },
+```
+
+Q: 用 React + Vite + Electron + Typescript 开发应用
+
+```shell
+npm create vite@latest mathforge # (React + Typescript)
+cd mathforge
+npm install
+npm install electron electron-builder --save-dev
+```
+
+下一条命令应该是什么？
+
+
 
 ##### Python 小众库
 
@@ -362,7 +450,7 @@
 >
 > 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
 >
-> 正确情况： o1 对, 3-opus 半对, 2-flash-thinking 对对对对
+> 正确情况： o1 对, 3-opus 半对, 2-flash-thinking 对对对对, Gemini 2 Pro 半对
 
 > Q: 理想 LC tank 有 τ 吗？从以下几方面思考 1. τ 的定义是什么？2. LC tank 是几阶系统？给出总计 30 个字以内的解答。
 >
@@ -372,7 +460,7 @@
 >
 > 正确答案： $I_d = \left[ \mu C_{ox} \dfrac{W}{L} (n-1) V_t^2 \right] \exp\left(\dfrac{V_{gs} - V_{TH}}{n V_t}\right) \left(1 - \exp\left(-\dfrac{V_{ds}}{V_t}\right)\right)$
 >
-> 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 Oct. 对; big-engine-test 对; 3-opus 对
+> 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 对; big-engine-test 对; 3-opus 对
 
 > Q: 随便找一篇专业相关的论文的一大段，令其翻译至中文
 >
@@ -450,7 +538,7 @@
 > - 114+5+1+4+1919-8-10=2025 114-5-1-4+1919-8+10=2025
 > - 1145+1+41+9+19+810=2025 1145+1+41+919-81+0=2025
 > 
-> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能, o1 超时, exp-1206 错, 2-flash-thinking 有时超时
+> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能, o1 超时, 2-flash-thinking 有时超时
 
 
 
@@ -510,7 +598,7 @@
 >
 > 正确答案：Mealy FSM
 > 
-> 正确情况：Sonnet 3.5 Oct. 对, gemini-exp-1206 错错错, Gemini 1.5 Pro 2 错错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL 错错, 3-opus 对
+> 正确情况：Sonnet 3.5 对, Gemini 2 Pro 错错错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL 错错, 3-opus 对
 
 
 ## 评测的小 ideas
