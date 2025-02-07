@@ -33,6 +33,24 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 ### 语言和创造性
 
+越往上，越偏向于语言；越往下，越偏向于语言中的创造力
+
+> Q: 两个木一个双耳旁读啥
+>
+> 正确答案：郴（chēn）
+>
+> 正确情况：Gemini 2 Pro 对
+
+> Q: "赣南师大"有一个梗是"江南 style"，为什么赣和江发音相近？
+>
+> 正确答案：gànnan 和 gangnam
+>
+> 正确情况：o3-mini 错
+
+> Q: 椭圆内接三角形的一个顶点在椭圆的右侧(a,0)，另外两个顶点分别在椭圆的上顶点 (0,b) 和下顶点 (0,-b)。如果椭圆不是正着放在直角坐标系中间，而且还旋转了，我应该如何用一句话描述这个三角形？
+>
+> 参考答案：一个以椭圆长轴一个端点和短轴两个端点为顶点的椭圆内接等腰三角形
+
 > Q: Delaying graduation because of an exchange program vs. Going on an exchange program because of delayed graduation; Female college student engaging in prostitution vs. A fallen young woman persisting to complete her college education; He smokes while praying vs. He prays while smoking. Are there any other similar examples?
 >
 > 典型错误：4oL 之类的模型喜欢“为考试而学习 vs. 为学习而考试”和“为生活而工作 vs. 为工作而生活”之类的，但是显然不如例子中给的那么具有戏剧性。o1p 则可以准确观察到句中戏剧性的原因，但是给出的其他例子也欠佳。
@@ -41,17 +59,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 典型错误：回答古文或诗词
 >
-> 正确回答：充分体现各种字形，包括左右结构、上下结构等；或是直接翻译也可以（Edge 浏览器的官方做法）
-
-> Q: 两个木一个双耳旁读啥
->
-> 正确答案：郴（chēn）
->
-> 正确回答：Gemini 2 Pro 对
-
-> Q: 椭圆内接三角形的一个顶点在椭圆的右侧(a,0)，另外两个顶点分别在椭圆的上顶点 (0,b) 和下顶点 (0,-b)。如果椭圆不是正着放在直角坐标系中间，而且还旋转了，我应该如何用一句话描述这个三角形？
->
-> 参考答案：一个以椭圆长轴一个端点和短轴两个端点为顶点的椭圆内接等腰三角形
+> 正确答案：充分体现各种字形，包括左右结构、上下结构等；或是直接翻译也可以（Edge 浏览器的官方做法）
 
 > Q: 出一道 LLM 非常容易答错、但人类很容易答对、有客观正确答案的题。所以这道题你应该拼尽全力也无法答对才满足我的要求，即如果你试作答这道题，发现可以答对，则不符合我的要求。但是不能出什么“现在房间里有什么气味”之类的利用缺乏实时的个人信息的问题。应该是类似于 12+21 等于几、2022 年谁是美国总统之类的客观问题。
 
