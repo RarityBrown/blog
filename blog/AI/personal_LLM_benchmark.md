@@ -31,15 +31,19 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 ## 题目列表
 
-### 语言和创造性
+### 语言和创造力
 
-越往上，越偏向于语言；越往下，越偏向于语言中的创造力
+越往上，越偏向于语言中的知识；越往下，越偏向于语言中的创造力
 
 > Q: 两个木一个双耳旁读啥
 >
 > 正确答案：郴（chēn）
 >
 > 正确情况：Gemini 2 Pro 对
+
+> Q: Tea and coffee are available, but liquor, wine or beer (?) not.   are / is
+>
+> 正确答案：is
 
 > Q: "赣南师大"有一个梗是"江南 style"，为什么赣和江发音相近？
 >
@@ -49,9 +53,9 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 > Q: 椭圆内接三角形的一个顶点在椭圆的右侧(a,0)，另外两个顶点分别在椭圆的上顶点 (0,b) 和下顶点 (0,-b)。如果椭圆不是正着放在直角坐标系中间，而且还旋转了，我应该如何用一句话描述这个三角形？
 >
-> 参考答案：一个以椭圆长轴一个端点和短轴两个端点为顶点的椭圆内接等腰三角形
+> 参考答案：以椭圆长轴一个端点为顶角顶点、短轴两个端点为底角顶点的椭圆内接等腰三角形
 
-> Q: Delaying graduation because of an exchange program vs. Going on an exchange program because of delayed graduation; Female college student engaging in prostitution vs. A fallen young woman persisting to complete her college education; He smokes while praying vs. He prays while smoking. Are there any other similar examples?
+> Q: Delaying graduation because of an exchange program vs. Going on an exchange program because of delayed graduation; Female college student engaging in prostitution vs. A fallen young woman persisting to complete her college education; He smokes while praying vs. He prays while smoking. Are there any other similar examples? Give me one.
 >
 > 典型错误：4oL 之类的模型喜欢“为考试而学习 vs. 为学习而考试”和“为生活而工作 vs. 为工作而生活”之类的，但是显然不如例子中给的那么具有戏剧性。o1p 则可以准确观察到句中戏剧性的原因，但是给出的其他例子也欠佳。
 
@@ -61,7 +65,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：充分体现各种字形，包括左右结构、上下结构等；或是直接翻译也可以（Edge 浏览器的官方做法）
 
-> Q: 出一道 LLM 非常容易答错、但人类很容易答对、有客观正确答案的题。所以这道题你应该拼尽全力也无法答对才满足我的要求，即如果你试作答这道题，发现可以答对，则不符合我的要求。但是不能出什么“现在房间里有什么气味”之类的利用缺乏实时的个人信息的问题。应该是类似于 12+21 等于几、2022 年谁是美国总统之类的客观问题。
+> Q: 出一道 LLM 非常容易答错、但人类很容易答对、有客观正确答案的题。所以这道题你应该拼尽全力也无法答对才满足我的要求，即如果你试作答这道题，发现可以答对，则不符合我的要求。但是不能出什么“现在房间里有什么气味”之类的利用缺乏实时的个人信息的问题，应该是类似于 12+21 等于几、2022 年谁是美国总统之类的客观问题。
 
 ### 知识问题（类似于 SimpleQA ）
 
@@ -97,15 +101,6 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确情况：4oL 错, Sonnet 3.5 错
 
-> Q: How to print quotes within a node in a Mermaid flowchart? Answer within 2 lines in a code block.
->
-> 典型错误：`A["Node with \"quotes\""]`
->
-> 正确答案：`A["Node with #quot;quotes#quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
->
-> 正确情况：gemini-exp-1114 对错错; o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错
-
-
 > Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
 >
 > 典型错误：`vlog -work work +acc=r *.v`
@@ -134,6 +129,10 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 ###### LaTeX
 
+> Q: `A{\scriptstyle{\boxed{A}}}A` box 中的 A 会变小吗？
+>
+> 正确答案：不会
+
 > Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
 >
 > 参考答案：`\xrightarrow[\hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}]{\hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c} }`
@@ -146,9 +145,34 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > \rule{1em}{6em} \hspace{-3.5em}            \rule[+2.5em]{6em}{1em}
 > \rule{6em}{1em} \kern{-3.5em}              \rule[-2.5em]{1em}{6em}
 >
-> \rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}  \rule[-0.5em]{6em}{1em}
+> \rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}  \rule[-0.5em]{6em}{1em}  % laps? \smash?
 > ```
 > 
+
+> Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but TikZ, `graphicx` or `calc` is not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
+>
+> 参考答案：
+>
+> ```latex
+> \newcommand{\xuparrow}[2][]{
+>     \hspace{0.3em}{\scriptstyle{#1}}\hspace{-0.3em}
+>     \left.\vphantom{#1#2}\right\uparrow
+>     \hspace{-0.3em}{\scriptstyle{#2}}\hspace{0.3em}
+> }
+>
+> A \xuparrow[\begin{cases}1\\2\\3\\4\\5\\6\\7\end{cases}]{\begin{aligned}x+y \\ \sin +\sum_i \\ x+y+z \end{aligned}} B
+> ```
+> 
+
+> Q: Why the `\scriptstyle` is not working for cases and aligned? How to make it work without applying `\scriptstyle` to every individual lines?
+> 
+> ```latex
+> \[
+>     \scriptstyle{\scriptstyle{\scriptstyle\begin{cases}A \\B+\sum_i \end{cases}+\scriptstyle\begin{aligned}1\\2\\3\end{aligned}}}
+> \]
+> ```
+>
+> 参考答案：目前来看没办法。只能通过 `\scriptsize` 模拟实现。`\mathchoice` `\crampedclap` `\forcedscriptstyle` 等命令也无用。
 
 > Q: How to make $\boldsymbol{\tau_{Y}}$ even bolder without any other formatting change and without `\usepackage{bm}`? Answer within 2 lines in a code block.
 >
@@ -443,6 +467,57 @@ npm install electron electron-builder --save-dev
 > 
 > 正确答案：`expr = 15/9*str2sym('10^(-12)');` 或 `sym(15)/sym(9)*sym(1e-12)` 之类把 1e-12 单独拿出来
 
+##### Mermaid
+
+> Q: How to print quotes within a node in a Mermaid flowchart? Answer within 1 lines in a code block.
+>
+> 典型错误：`A["Node with \"quotes\""]`
+>
+> 正确答案：`A["Node with #quot;quotes#quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
+>
+> 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错
+>
+> 思考：泛化和对齐未必是好事，也可能增加幻觉（gemini-exp-1114 小概率答对）；说“不会”的能力，目前主流方向是让模型强到没有不会的问题；模型应知道何时调用搜索，如何参考信源
+
+
+> Q: 第几行代码不符合 Mermaid 语法要求，会导致报错？直接简单回答行号，例如，"2, 30, 31"
+> 
+> ```
+> graph TD
+>     subgraph Attempt 4: \genfrac and Prime Symbol
+>         V[Use \genfrac or similar construct] --> W(Build vertical arrow with text)
+>         W --> X[Consider using prime symbol (') for arrowhead]
+>         X --> Y[Probably won't look like an up arrow]
+>         AC[Use \left\uparrow and \vphantom to control height] --> AD(Test this approach)
+>         AD --> AE[\left and \right are for delimiters, \uparrow has fixed sizes]
+>         AE --> AF[Doesn't stretch infinitely, chooses from available sizes]
+>     end
+> 
+>     subgraph Attempt 7: \stackrel, \underset, \overset
+>         AG[Consider \stackrel] --> AH(For stacking symbols *over* each other)
+>         AH --> AI[User wants text *beside* the arrow]
+>         AI --> AJ[\underset and \overset place text above/below]
+>         AU[Use \vcenter to center arrow and text] --> AV(Create box with arrow and text side-by-side)
+>         AV --> AW[\vcenter centers them vertically, but arrow doesn't lengthen]
+>         AW --> AX[Arrow height should match text height]
+>         BA --> BB[How to implement without graphicx/TikZ?]
+>         BB --> BC[Use \vphantom{#1} to get text height]
+>         BC --> BD[But how to stretch arrow vertically?]
+>         BE[Arrowhead (\uparrow)] --> BF(Vertical shaft (rule) matching text height)
+>         BG --> BH[Standard \uparrow is a compound character]
+>         BH --> BI[Break into parts or extend shaft?]
+>         BI --> BJ["Draw" arrow: vertical rule + arrowhead]
+>         BO --> BP[Use \setbox, \ht, \dp, \dimen, \mkern, \llap]
+>         BP --> BQ[Final Code: \newcommand{\xuparrow}[1]{% \setbox0=\hbox{$\scriptstyle#1$}% \dimen0=\ht0 \advance\dimen0 by \dp0 \mathrel{\uparrow\mkern-5mu\rule[-.7ex]{0.4pt}{\dimen0}\llap{$\scriptstyle#1$}}% }]
+>         BQ --> BR[Explanation of the code and its limitations]
+>         BR --> BS[Acknowledge approximation and need for fine-tuning]
+>     end
+> 
+>     BS --> Final[Final Answer: \boxed{\xuparrow}]
+> ```
+>
+> 正确答案：4, 7, 11, 14, 16, 19, 21, 26, 31
+
 #### 专业相关问题
 
 > Q: 以下这段话有什么根本性的事实错误（正确、不完整、略有不严谨、正确但笼统、正确但过于简单的部分均无需列出与分析）？无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。本文将介绍无机半导体的基本概念、特性以及其在实际应用中的重要性。无机半导体是指由无机材料构成的半导体材料。与有机半导体不同，无机半导体的导电性主要是由其晶体结构和化学成分决定的。具体而言，无机半导体通常是由金属和非金属元素组成的化合物，如二硫化锌、氧化镓等。这些化合物具有特殊的晶体结构，使得它们的电子能带结构在一定温度范围内呈现出半导体的特性。无机半导体的最重要特性之一是能带结构。能带结构决定了材料的导电性质。在无机半导体中，通常存在着价带和导带两个能带。价带中的电子处于较低的能量状态，而导带中的电子处于较高的能量状态。当外界施加电场或加热材料时，一部分价带中的电子会跃迁到导带中，形成自由电子和空穴。这种电子和空穴的运动就是电流的基础。无机半导体的导电性还与掺杂有关。掺杂是指在材料中引入少量的杂质，以改变其导电性质。掺杂可以分为N型和P型两种。在N型掺杂中，引入的杂质具有多余的电子，这些电子可以自由移动，从而增加材料的导电性。而在P型掺杂中，引入的杂质具有少了一个电子的空位，这些空位可以被电子填充，形成空穴，从而增加材料的导电性。N型和P型材料的结合可以形成PN结，这是半导体器件中最基本的结构之一。无机半导体在电子学和光电子学领域有着广泛的应用。例如，半导体二极管是一种常见的电子器件，它利用PN结的特性实现了电流的整流和放大。此外，无机半导体还广泛应用于太阳能电池、激光器、光电探测器等领域。这些应用使得无机半导体成为现代高科技产业的重要基础材料。无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。无机半导体的导电性质与其能带结构和掺杂有关，这使得它成为实现电流控制和光电转换的重要材料。对于人类社会的科技进步和经济发展而言，无机半导体的研究和应用具有重要意义。
@@ -467,7 +542,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统
 
-> Q: NMOS 弱反型区电流公式？（不要在最终结果中带 Id0，写在 latex code block 中）
+> Q: NMOS 弱反型区电流公式？（不要在最终结果中带 $I_{d0}$ 或 $I_S$ ，写在 latex code block 中）
 >
 > 正确答案： $I_d = \left[ \mu C_{ox} \dfrac{W}{L} (n-1) V_t^2 \right] \exp\left(\dfrac{V_{gs} - V_{TH}}{n V_t}\right) \left(1 - \exp\left(-\dfrac{V_{ds}}{V_t}\right)\right)$
 >
