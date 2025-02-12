@@ -65,7 +65,11 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：充分体现各种字形，包括左右结构、上下结构等；或是直接翻译也可以（Edge 浏览器的官方做法）
 
-> Q: 出一道 LLM 非常容易答错、但人类很容易答对、有客观正确答案的题。所以这道题你应该拼尽全力也无法答对才满足我的要求，即如果你试作答这道题，发现可以答对，则不符合我的要求。但是不能出什么“现在房间里有什么气味”之类的利用缺乏实时的个人信息的问题，应该是类似于 12+21 等于几、2022 年谁是美国总统之类的客观问题。
+> Q: 设计一道题目：1. 要求 LLM 极易出错，而人类却能轻松解答。所以如果**你**尝试作答后发现可成功正确作答，则说明题目设计不符合要求；2. 题目答案具有客观唯一性。题目不应依赖于实时的、私人的感官信息（例如“现在房间里有什么气味”），而应基于客观事实，类似于“12+21等于几”或“2022年美国总统是谁”这类问题。
+>
+> 参考答案：文本视觉模式识别（Look-and-say sequence）；脑筋急转弯、谜语；
+> 
+> 正确情况：Gemini 2 Pro 基本上是 SOTA
 
 ### 知识问题（类似于 SimpleQA ）
 
@@ -129,9 +133,9 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 ###### LaTeX
 
-> Q: `A{\scriptstyle{\boxed{A}}}A` box 中的 A 会变小吗？
+> Q: `A{\scriptstyle{\boxed{A}}}A` box 中的 A 会变小吗？   In the LaTeX expression `A{\scriptstyle{\boxed{A}}}A`, is the boxed "A" rendered smaller? Yes/No without any further explanation.
 >
-> 正确答案：不会
+> 正确答案：No
 
 > Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
 >
@@ -174,7 +178,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 参考答案：目前来看没办法。只能通过 `\scriptsize` 模拟实现。`\mathchoice` `\crampedclap` `\forcedscriptstyle` 等命令也无用。
 
-> Q: How to make $\boldsymbol{\tau_{Y}}$ even bolder without any other formatting change and without `\usepackage{bm}`? Answer within 2 lines in a code block.
+> Q: How to make $\boldsymbol{\tau_{Y}}$ even bolder without any other formatting change and without `\usepackage{bm}`? Answer within 1 lines in a code block.
 >
 > 参考答案：`\pmb{\boldsymbol{\tau_{Y}}} \boldsymbol{\pmb{\tau_{Y}}}`
 
@@ -215,6 +219,91 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确情况：grok2 对错错, gemini-exp-1121 错错错错, o1-min 错错错, o1p 错, 4oL 错错错
 
+###### tikz
+
+> Q: use CircuiTikz to draw a basic common source without bias or ac coupling
+>
+> 参考答案：
+>
+> ```latex
+> \ctikzset{
+> 	bipoles/thickness=1,  % \ctikzset{resistors/thickness=1}
+> 	monopoles/ground/thickness/.initial=1,
+> 	monopoles/ground/connectionthickness/.initial=1,
+> 	monopoles/tground/thickness/.initial=1,
+> 	transistors/thickness=1.618,
+> 	% \ctikzset{transistors/scale=1.2}
+> 	resistors/scale=0.75,
+> 	capacitors/scale=0.65,
+> 	transistors/arrow pos=end,
+> 	tripoles/mos style/arrows,
+> 	tripoles/pmos style/emptycircle,
+> 	resistors/zigzag hook/.code={\pgfsetroundcap\pgfsetroundjoin},
+> 	resistors/zigzag stub=0.02,
+> }
+> 
+> \begin{circuitikz}[american, line width=1.6pt]
+>     % \draw (0,0)                                   node[nmos, font=\sffamily\bfseries] (M1)  {M1};
+> 	    % \draw (0,0)                                   node[nmos] (M1)  {\textbf{\fontfamily{phv}\selectfont M1}};
+>     \draw (0,0)                                   node[nmos] (M1)  {\textbf{\fontspec{Segoe UI}M1}};
+>     \draw (M1.gate)    to [short, -o]   ++(-1,0)  node[left]       {$V_{in}$};
+>     \draw (M1.source)                             node[tlground]   {};
+>     \draw (M1.drain)   to [R=$R_D$]     ++(0,2)   node[tground]    {$V_{DD}$};
+>     \draw (M1.drain)   to [short, *-o]  ++(1,0)   node[right]      {$V_{out}$};
+> \end{circuitikz}
+> ```
+
+
+> Q: use CircuiTikz to draw a basic two-stage amplifier in CMOS with differential input and common source output
+>
+> 参考答案：
+>
+> ```latex
+> \begin{circuitikz}[american, line width=1.6pt]
+> 	\draw[help lines] (0,0) grid (6,6);
+> 	
+> 	% Stage 1: Differential pair with current mirror load
+> 	\draw
+> 	(0,4) node [pmos, xscale=-1] (M3) {\ctikzflipx{$M_3$}}
+> 	(2,4) node [pmos] (M4) {$M_4$}
+> 	(M3.source) -- ++(0,0.2) coordinate (vdd1)
+> 	(M4.source) -- ++(0,0.2) coordinate (vdd2)
+> 	% (vdd1) -- (vdd2)
+> 	(M4.gate) -- (M3.gate)
+> 	(M4.gate) |- (M3.drain);
+> 	
+> 	\draw
+> 	(0,2) node [nmos] (M1) {$M_1$}
+> 	(2,2) node [nmos, xscale=-1] (M2) {\ctikzflipx{$M_2$}}
+> 	(M1.drain) -- (M3.drain)
+> 	(M2.drain) -- (M4.drain)
+> 	(M1.gate) to[short, -o] ++(-0.2,0) node[left] {$V_{in}^-$}
+> 	(M2.gate) to[short, -o] ++(0.2,0) node[right] {$V_{in}^+$};
+> 	
+> 	\draw
+> 	($(M1.source)!0.5!(M2.source)$) ++(0,-0.5) node[nmos, anchor=drain] (M5) {$M_5$} % Corrected: Anchor at drain
+> 	(M5.source) -- ++(0,-0.2) coordinate (gnd1)
+> 	(M1.source) -| (M5.drain)
+> 	(M2.source) -| (M5.drain)
+> 	(M5.gate) to[short, -o] ++(-0.5,0) node[left] {$V_{bias1}$};
+> 	
+> 	% Stage 2: Common source amplifier
+> 	\draw
+> 	(6,0) node [nmos] (M6) {$M_6$}
+> 	(6,4) node [pmos] (M7) {$M_7$}
+> 	(M7.source) -- ++(0,0.2) coordinate (vdd3)
+> 	(vdd1) -- (vdd3) node[above] {VDD} % VDD track
+> 	(M6.source) -- ++(0,-0.2) coordinate (gnd2)
+> 	(gnd1) -- (gnd2) node[below] {GND} % GND track
+> 	(M6.gate) to[short, -o] ++(-0.7,0) node[left] {$V_{bias2}$}
+> 	(M6.drain) -- (M7.drain)
+> 	(M6.drain) -- ++(0, 1.23) to[short, -o] ++(1,0) node[right] {$V_{out}$};
+> 	
+> 	% connect two stage
+> 	\draw (M4.drain) |- ++(1,-0.23) coordinate (Vo1) -- ++(1/3,0)  to[R=Rz] ++(4/3,0) to[C=Cc] ++(4/3,0);
+> 	\draw (Vo1) |- (M7.gate);
+> \end{circuitikz}
+> ```
 
 ##### 前端开发全流程
 
@@ -517,6 +606,44 @@ npm install electron electron-builder --save-dev
 > ```
 >
 > 正确答案：4, 7, 11, 14, 16, 19, 21, 26, 31
+
+##### AHK
+
+> Q: two ways to simplify this
+> 
+> ```ahk
+> #Requires AutoHotkey >=2.0
+>    :?*:1/:: {
+>        Send '\frac{{}1{}}{{}{}}{Left 1}'
+>    }
+>    :?*:2/:: {
+>        Send '\frac{{}2{}}{{}{}}{Left 1}'
+>    }
+>    :?*:3/:: {
+>        Send '\frac{{}3{}}{{}{}}{Left 1}'
+>    }
+>    ; ...
+>    :?*:9/:: {
+>        Send '\frac{{}9{}}{{}{}}{Left 1}'
+>    }
+> ```
+>
+> 参考答案：
+>
+> ```ahk
+> #Requires AutoHotkey >=2.0
+> 
+> loop 9 {
+>     num := A_Index
+>     Hotstring(":?*:" . num . "/", "\frac{{}" . num . "{}}}{{}{}}{Left 1}")
+> }
+>
+> #Include RegExHotstring.ahk ; https://github.com/8LWXpg/RegExHotstring/blob/master/RegExHotstring.ahk
+> RegExHotstring("(\d+)/", "\frac{{}$1{}}{{}{}}{Left 1}", "?*")
+> ```
+
+
+
 
 #### 专业相关问题
 
