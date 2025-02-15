@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时（主要是专业相关的）使用过程中，收集选择一些截至 2025 年 2 月的第一梯队 LLM (o1, o3-mini, r1, Sonnet 3.5, Gemini 2 Pro, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些截至 2025 年 2 月的第一梯队 LLM (o1, o3-mini, r1, 4oL, Sonnet 3.5, Gemini 2 Pro, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
 
 ## 一些个人观点
 
@@ -29,21 +29,33 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 我们在 2025 年期望看到什么？知识面更广更深的做题模型，但是快到头了，而且很显然到不了 AGI；更好的多模态模型，仍有不少发展空间；更多基于 AI 的可有可无的软硬件，火得很，但并非未来；一些打着通用 Agent 旗号的专用 Agent。没有了。人们追求 Scaling Law 的能力远不如追求 Moore's Law 的能力，而不是说 Scaling Law 已经失效了。LLM 会被写入历史书吗？有可能，但是最多最多就是边角的一块豆腐干罢了。
 
+2025/02/15: 从种种小众代码的场景来看，LLM 对训练数据的利用率太低。所以唱一个反调：pre-training 未必到头，只能说基于 GPT 形式和传统 pre-training 方式的、通过 scale-up 来提升性能的 pre-training 到头了。预计 200B 左右 (4o, Sonnet 4, Llama 4) 的 Dense 或者 MoE 的 LLM 仍有不小的提升空间才会饱和（如果要定量的话，认为 200B LLM (w/o RAG) 在 2025 年底达到 GPQA/SimpleQA 90%+；另外一个预测是 HLE/SciCode(Main) 40%+，只不过 pre-training 在其中作用不大了）。唉，还是在做题啊。不过也好，更强的做题能力确实是 Agent 的必要条件。
+
 ## 题目列表
 
 ### 语言和创造力
 
-越往上，越偏向于语言中的知识；越往下，越偏向于语言中的创造力
+主要是三部分内容：
 
-> Q: 两个木一个双耳旁读啥
+1. 语言中的知识
+2. "情商", unspoken rules, unspoken expectations
+3. 语言中的创造力
+
+> Q: 一个双耳旁两个木读啥（将回答限制在 10 字符以内）
 >
 > 正确答案：郴（chēn）
 >
-> 正确情况：Gemini 2 Pro 对
+> 正确情况：Gemini 2 Pro 对对
 
 > Q: Tea and coffee are available, but liquor, wine or beer (?) not.   are / is
 >
 > 正确答案：is
+>
+> 正确情况：Gemini 2 Pro 对对, 4oL 对
+
+> Q: This paper should be otherwise read as if aimed at an audience not expert in control. aimed 在从句中是表语。整体句子的结构中起什么语的作用？是状语补语？宾语补语？状语？定语？
+>
+> 参考答案：as if \[it were\] aimed at ... 状语？装补？我也不确定
 
 > Q: "赣南师大"有一个梗是"江南 style"，为什么赣和江发音相近？
 >
@@ -58,6 +70,10 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > Q: Delaying graduation because of an exchange program vs. Going on an exchange program because of delayed graduation; Female college student engaging in prostitution vs. A fallen young woman persisting to complete her college education; He smokes while praying vs. He prays while smoking. Are there any other similar examples? Give me one.
 >
 > 典型错误：4oL 之类的模型喜欢“为考试而学习 vs. 为学习而考试”和“为生活而工作 vs. 为工作而生活”之类的，但是显然不如例子中给的那么具有戏剧性。o1p 则可以准确观察到句中戏剧性的原因，但是给出的其他例子也欠佳。
+
+> Q: 在晚宴上嘉宾们觥筹交错，交谈甚欢，这时，一位嘉宾问你：“我们太吵不会影响你吧？” 此时你的回答应该是： A. 不会不会 B. 没有没有。请简要说明理由
+>
+> 参考答案：A. 不会不会: 隐含承认“吵”这个事实，只是强调“吵”这个事实不会造成影响；**B**. 没有没有: 直接否定“吵”这个前提，表示对方根本不吵，自然也就不存在“影响”的问题
 
 > Q: Chinese alternatives for "the quick brown fox jumps over the lazy dog"
 >
@@ -125,6 +141,11 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：没有
 
+
+> Q: customize Word/Powerpoint highlight colors?
+>
+> 正确答案：就是不行。使用 shading 或文本框背景替代，但是无法被 ctrl+h 搜索到。
+
 ### 知识-推理混合问题
 
 #### 代码相关
@@ -138,6 +159,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > Q: `A{\scriptstyle{\boxed{A}}}A` box 中的 A 会变小吗？   In the LaTeX expression `A{\scriptstyle{\boxed{A}}}A`, is the boxed "A" rendered smaller? Yes/No without any further explanation.
 >
 > 正确答案：No
+>
+> 正确情况：Gemini 2 Pro 错, 4oL 错 
 
 > Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
 >
@@ -153,7 +176,19 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > \rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}  \rule[-0.5em]{6em}{1em}  % laps? \smash?
 > ```
+
+> Q:
 > 
+> ```latex
+> \[
+> \begin{cases} l\ddot{\theta}=g\sin\theta-\ddot{x}\cos\theta  \\ y=x+l_0\sin\theta+n \end{cases} \xRightarrow{\displaystyle \theta \sim 0} \begin{cases} l\ddot{\theta}=g\theta-\ddot{x}  \\ y=x+l_0\theta+n \end{cases} % How to add a new line here?
+> \xRightarrow{\displaystyle \mathcal{L}} \begin{cases} Y = \dfrac{(l-l_0)s^2 - g}{s^2(Mls^2-(M+m)g)}(U + R) + N \end{cases}
+> \]
+> ```
+>
+> 参考答案：加上 `\begin{gathered}` 环境
+>
+> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错(提醒后对), experimental-router-0207 错错(提醒后对)
 
 > Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but TikZ, `graphicx` or `calc` is not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
 >
@@ -170,14 +205,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > ```
 > 
 
-> Q: Why the `\scriptstyle` is not working for cases and aligned? How to make it work without applying `\scriptstyle` to every individual lines?
+> Q: Why the `\scriptstyle` does not work for `\scriptstyle{\scriptstyle{\scriptstyle\begin{cases}A \\B+\sum_i \end{cases}+\scriptstyle\begin{aligned}1\\2\\3\end{aligned}}}`? How to make it work without applying `\scriptstyle` to every individual lines?
 > 
-> ```latex
-> \[
->     \scriptstyle{\scriptstyle{\scriptstyle\begin{cases}A \\B+\sum_i \end{cases}+\scriptstyle\begin{aligned}1\\2\\3\end{aligned}}}
-> \]
-> ```
->
 > 参考答案：目前来看没办法。只能通过 `\scriptsize` 模拟实现。`\mathchoice` `\crampedclap` `\forcedscriptstyle` 等命令也无用。
 
 > Q: How to make $\boldsymbol{\tau_{Y}}$ even bolder without any other formatting change and without `\usepackage{bm}`? Answer within 1 lines in a code block.
