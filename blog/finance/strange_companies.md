@@ -6,6 +6,10 @@
 
 ![image](https://github.com/user-attachments/assets/ef7994fb-079b-4bfd-b4c9-3de517b2b2ab)
 
+[Mythic](https://mythic.ai/)
+
+![image](https://github.com/user-attachments/assets/4a68badc-38c8-4626-98ac-7d9386e82c26)
+
 
 ### 一些 HR 企业和咨询公司
 
