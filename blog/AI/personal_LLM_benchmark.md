@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时使用过程中，收集选择一些截至 2025 年 2 月的第一梯队 LLM (o1, o3-mini, r1, 4oL, Sonnet 3.5, Gemini 2 Pro, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些截至 2025 年 2 月的第一梯队 LLM (o1, o3-mini-high, r1, 4oL, Sonnet 3.5, Gemini 2 Pro, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
 
 ## 一些个人观点
 
@@ -722,6 +722,17 @@ npm install electron electron-builder --save-dev
 >
 > 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
 
+#### 其他
+
+> Q: 6米长的竹竿能否通过高4米宽3米的门？6米长的队伍能不能通过高4米宽3米的门？ [ref](https://zhuanlan.zhihu.com/p/23434595912)
+>
+> 正确答案：可以
+>
+> 正确情况：o3-mini-high 对对, 4oL 错
+
+> Q: 一个硬币第一次投出正面，第二次也投出正面的概率是多少？考试砸了回到家，母亲打我的概率是 1/2，父亲打我的概率也是 1/2，那我被打的概率是多少？ [ref](https://www.zhihu.com/question/441647108)
+>
+> 正确答案：1/4；和相关性有关
 
 ### 推理问题
 
@@ -751,7 +762,7 @@ npm install electron electron-builder --save-dev
 > 正确答案：因为是阻塞赋值，其实是一个 A = E 的 1-bit DFF
 
 
-> Q: 1 fJ 的能量可以使一个质子加速到多少速度？1 nJ 呢？如果是对于光子呢？
+> Q: 1 fJ 的能量可以使一个质子加速到多少速度？1 nJ 呢？如果是对于光子呢？ 1 fJ of energy can accelerate a proton to what speed? What about 1 nJ? And what about for photons?
 >
 > 正确答案： $1.093 \times 10^6 \text{m/s}$, $2.97\times 10^8\text{m/s}=0.9914c$, $\lambda=199\mathrm{pm}$, $\lambda=0.199\mathrm{fm}$
 
