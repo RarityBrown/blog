@@ -5,3 +5,10 @@
 - [Teruteru的学习笔记](https://teruteru.space/) <!-- 47.100.52.206 teru.space --> 
 - [Alvin's Stage](https://alvinrolling.github.io/): This is Alvin’s blog about Digital IC Design skills and tricks.
 - [Mis Circuitos - Learning electronics together](https://miscircuitos.com/): 一个中途换专业学模拟 IC 的外国人 Alberto 
+
+知乎：
+
+- [宇文青霜](https://www.zhihu.com/people/yu-wen-qing-shuang)
+- [模集王小桃](https://www.zhihu.com/people/a-ba-a-ba-43-73)
+- [混分巨兽](https://www.zhihu.com/people/hun-fen-ju-shou-77)
+- [NJU拾忆](https://www.zhihu.com/people/shi-yi-24-19)
