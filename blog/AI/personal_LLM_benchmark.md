@@ -36,6 +36,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 ## 题目列表
 
+[你都有哪些压箱底的测试题，是目前的推理模型做不出来的？ - 知乎](https://www.zhihu.com/question/11758906952)
+
 ### 语言和创造力
 
 主要是三部分内容：
@@ -189,9 +191,9 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > \]
 > ```
 >
-> 参考答案：加上 `\begin{gathered}` 环境
+> 参考答案：加上 `\begin{gathered}` 或 `\begin{align*}` 等环境
 >
-> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错(提醒后对), experimental-router-0207 错错(提醒后对)
+> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错(提醒后对), experimental-router-0207 错错(提醒后对), grok3 对
 
 > Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but TikZ, `graphicx` or `calc` is not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
 >
@@ -736,13 +738,9 @@ npm install electron electron-builder --save-dev
 
 > Q: 6米长的竹竿能否通过高4米宽3米的门？6米长的队伍能不能通过高4米宽3米的门？ [ref](https://zhuanlan.zhihu.com/p/23434595912)
 >
-> 正确答案：可以
+> 正确答案：可以, 可以
 >
-> 正确情况（都答对算对）：o3-mini-high 对对对, 4oL 错, 2-flash-thinking 错, o1 错
-
-> Q: 一个硬币第一次投出正面，第二次也投出正面的概率是多少？考试砸了回到家，母亲打我的概率是 1/2，父亲打我的概率也是 1/2，那我被打的概率是多少？ [ref](https://www.zhihu.com/question/441647108)
->
-> 正确答案：1/4；和相关性有关
+> 正确情况（都答对算对）：o3-mini-high 对对对, 4oL 错, 2-flash-thinking 错错, o1 错, Gemini 2 Pro 错, grok3 错
 
 ### 推理问题
 
