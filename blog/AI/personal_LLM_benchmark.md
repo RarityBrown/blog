@@ -104,7 +104,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：不是、不是、不是、是、不是。类似地，取决于中文语料，多语言能力翻译没用。这题可以看出不管是开源还是闭源的模型都有明显蒸馏其他家的模型，对于“顺尔宁”这一项的错误认知往往是“顺尔宁就是布洛芬”
 >
-> 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 
+> 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错
 
 > Q: 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献
 >
@@ -193,7 +193,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 参考答案：加上 `\begin{gathered}` 或 `\begin{align*}` 等环境
 >
-> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错(提醒后对), experimental-router-0207 错错(提醒后对), grok3 对
+> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错(提醒后对), experimental-router-0207 错错(提醒后对), grok3 对错; 4oL 错
 
 > Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but TikZ, `graphicx` or `calc` is not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
 >
@@ -217,6 +217,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > Q: How to make $\boldsymbol{\tau_{Y}}$ even bolder without any other formatting change and without `\usepackage{bm}`? Answer within 1 line in a code block.
 >
 > 参考答案：`\pmb{\boldsymbol{\tau_{Y}}} \boldsymbol{\pmb{\tau_{Y}}}`
+>
+> 正确情况：4oL 错; grok3 错
 
 ###### MathJax / KaTeX
 
@@ -600,7 +602,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：`A["Node with #quot;quotes#quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
 >
-> 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错
+> 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错; r1 错
 >
 > 思考：泛化和对齐未必是好事，也可能增加幻觉（gemini-exp-1114 小概率答对）；说“不会”的能力，目前主流方向是让模型强到没有不会的问题；模型应知道何时调用搜索，如何参考信源
 
@@ -649,7 +651,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：`Send('{{}\')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
 >
-> 正确情况：Gemini 2 Pro 错, o3-mini-high 错对错, o3-mini 错, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对
+> 正确情况：Gemini 2 Pro 错, o3-mini-high 错对错, o3-mini 错, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对, r1 对
 
 
 > Q: two ways to simplify this
@@ -736,11 +738,11 @@ npm install electron electron-builder --save-dev
 
 #### 其他
 
-> Q: 6米长的竹竿能否通过高4米宽3米的门？6米长的队伍能不能通过高4米宽3米的门？ [ref](https://zhuanlan.zhihu.com/p/23434595912)
+> Q: 6米长的竹竿能否通过高4米宽3米的门？6米长的队伍能不能通过高4米宽3米的门？ Can a 6-meter-long pole pass through a door 4 meters high and 3 meters wide? [ref](https://zhuanlan.zhihu.com/p/23434595912)
 >
 > 正确答案：可以, 可以
 >
-> 正确情况（都答对算对）：o3-mini-high 对对对, 4oL 错, 2-flash-thinking 错错, o1 错, Gemini 2 Pro 错, grok3 错
+> 正确情况（都答对算对）：o3-mini-high 对对对, 4oL 错, 2-flash-thinking 错错, o1 错, Gemini 2 Pro 错, grok3 错, r1 错
 
 ### 推理问题
 
@@ -801,7 +803,16 @@ npm install electron electron-builder --save-dev
 > - 114+5+1+4+1919-8-10=2025 114-5-1-4+1919-8+10=2025
 > - 1145+1+41+9+19+810=2025 1145+1+41+919-81+0=2025
 > 
-> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能, o1 超时, 2-flash-thinking 有时超时
+> 人脑思路：
+> 1. 因为第一个1必是正号，所以其实就是通过五个1、两个4、一个5、一个8、两个9（不应该全部用上）来加减得到个位是 4 的一个数字，可以凑 4 + 0 , 14 + 0, 24 + 0, 34 + 0, 44 + 0
+> 2. 
+> 
+> 
+> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能, o1 超时超时超时, 2-flash-thinking 有时超时, o3-mini-high 超长思考后超时
+>
+> 本题可以充分测试 max output token (o3-mini 原生的 1M 确实是有用的)
+
+ 撒地方撒地方即使对方就是 撒旦反抗 撒旦联发科撒地方  萨克砥砺奋进 撒旦联发科见识到了发  是拉动房价 撒旦反抗使得 撒旦萨拉丁反馈  是独立开发就山卡拉地方就  四点零分
 
 
 
