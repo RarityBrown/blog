@@ -88,7 +88,12 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 > Q: 设计一道题目：1. 要求 LLM 极易出错，而人类却能轻松解答。所以如果**你**尝试作答后发现可成功正确作答，则说明题目设计不符合要求；2. 题目答案具有客观唯一性。题目不应依赖于实时的、私人的感官信息（例如“现在房间里有什么气味”），而应基于客观事实，类似于“12+21等于几”或“2022年美国总统是谁”这类问题。
 >
-> 参考答案：文本视觉模式识别（Look-and-say sequence）；脑筋急转弯、谜语；
+> 参考答案：
+> 
+> 1. 脑筋急转弯、谜语、双关；
+> 2. 纯语言难以理解的、必须用到多模态的问题
+>     - 视觉：文本视觉模式识别 (Look-and-say sequence), 竹竿问题
+>     - 听觉: 发音, 谐音梗, 双语笑话
 > 
 > 正确情况：Gemini 2 Pro 基本上是 SOTA
 
@@ -104,7 +109,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：不是、不是、不是、是、不是。类似地，取决于中文语料，多语言能力翻译没用。这题可以看出不管是开源还是闭源的模型都有明显蒸馏其他家的模型，对于“顺尔宁”这一项的错误认知往往是“顺尔宁就是布洛芬”
 >
-> 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错
+> 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错
 
 > Q: 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献
 >
@@ -146,10 +151,13 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：没有
 
-
-> Q: customize Word/Powerpoint highlight colors?
+> Q: customize Word/Powerpoint text highlight colors?
 >
-> 正确答案：就是不行。使用 shading 或文本框背景替代，但是无法被 ctrl+h 搜索到。
+> 正确答案：网上一般说就是不行，使用 shading 或文本框背景替代，不过无法被 ctrl+h 搜索到。但是其实可以先使用 Font Color - Eyedropper 先添加到 Recent Color 中，再在 Text Highlight Color 选项卡选择 Recent Color
+
+> Q: 地球上最光滑的人造物是什么？
+>
+> 正确答案：EUV 镜头，RMS=0.02nm
 
 ### 知识-推理混合问题
 
@@ -170,6 +178,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
 >
 > 参考答案：`\xrightarrow[\hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}]{\hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c} }`
+>
+> 正确情况：o3-mini 错
 
 > Q: Draw a cross using `\rule` in latex. The commands `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
 >
