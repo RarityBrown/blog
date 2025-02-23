@@ -50,7 +50,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：郴（chēn）
 >
-> 正确情况：Gemini 2 Pro 对对
+> 正确情况：Gemini 2 Pro 对对; 2-flash-thinking 错
 
 > Q: Tea and coffee are available, but liquor, wine or beer (?) not.   are / is
 >
@@ -92,7 +92,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > 
 > 1. 脑筋急转弯、谜语、双关；
 > 2. 纯语言难以理解的、必须用到多模态的问题
->     - 视觉：文本视觉模式识别 (Look-and-say sequence), 竹竿问题
+>     - 视觉：文本视觉模式识别 (Look-and-say sequence), 竹竿问题, 用 tikz, svg, python 等画图
 >     - 听觉: 发音, 谐音梗, 双语笑话
 > 
 > 正确情况：Gemini 2 Pro 基本上是 SOTA
@@ -109,7 +109,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：不是、不是、不是、是、不是。类似地，取决于中文语料，多语言能力翻译没用。这题可以看出不管是开源还是闭源的模型都有明显蒸馏其他家的模型，对于“顺尔宁”这一项的错误认知往往是“顺尔宁就是布洛芬”
 >
-> 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错
+> 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错; o3-mini-high 对
 
 > Q: 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献
 >
@@ -179,7 +179,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 参考答案：`\xrightarrow[\hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}]{\hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c} }`
 >
-> 正确情况：o3-mini 错
+> 正确情况：o3-mini-high 错
 
 > Q: Draw a cross using `\rule` in latex. The commands `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
 >
@@ -203,7 +203,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 参考答案：加上 `\begin{gathered}` 或 `\begin{align*}` 等环境
 >
-> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错(提醒后对), experimental-router-0207 错错(提醒后对), grok3 对错; 4oL 错
+> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错, grok3 对错; 4oL 错; o3-mini-high 错
 
 > Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but TikZ, `graphicx` or `calc` is not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
 >
@@ -228,7 +228,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 参考答案：`\pmb{\boldsymbol{\tau_{Y}}} \boldsymbol{\pmb{\tau_{Y}}}`
 >
-> 正确情况：4oL 错; grok3 错
+> 正确情况：4oL 错; grok3 错; o3-mini-high 错
 
 ###### MathJax / KaTeX
 
@@ -661,7 +661,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：`Send('{{}\')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
 >
-> 正确情况：Gemini 2 Pro 错, o3-mini-high 错对错, o3-mini 错, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对, r1 对
+> 正确情况：Gemini 2 Pro 错, o3-mini-high 错对错错, o3-mini 错, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对, r1 对
 
 
 > Q: two ways to simplify this
@@ -714,11 +714,12 @@ npm install electron electron-builder --save-dev
 >
 > 正确情况（使用**什么**作为关键词）：o3-mini-high 1;
 
-> Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？
+> Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？  What is the name of the standard cell corresponding to the logic expression !(AB+C)? How many MOSFETs are required in CMOS logic?
+
 >
 > 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
 >
-> 正确情况： o1 对, 3-opus 半对, 2-flash-thinking 对对对对, Gemini 2 Pro 半对
+> 正确情况： o1 对, 3-opus 半对, 2-flash-thinking 对对对对对, Gemini 2 Pro 半对
 
 > Q: 理想 LC tank 有 τ 吗？从以下几方面思考 1. τ 的定义是什么？2. LC tank 是几阶系统？给出总计 30 个字以内的解答。
 >
@@ -748,11 +749,14 @@ npm install electron electron-builder --save-dev
 
 #### 其他
 
-> Q: 6米长的竹竿能否通过高4米宽3米的门？6米长的队伍能不能通过高4米宽3米的门？ Can a 6-meter-long pole pass through a door 4 meters high and 3 meters wide? [ref](https://zhuanlan.zhihu.com/p/23434595912)
+> Q: 4.5米, 6米, 20米长的竹竿能否通过高4米宽3米的门？Can poles of 4.5 meters, 6 meters, and 20 meters in length pass through a door 4 meters high and 3 meters wide? Omit the process and give the answer directly, for example, "Yes, No, Yes"          [ref](https://zhuanlan.zhihu.com/p/23434595912)
 >
-> 正确答案：可以, 可以
+> 更简单的版本：6米长的队伍能不能通过高4米宽3米的门？ 
+> 
 >
-> 正确情况（都答对算对）：o3-mini-high 对对对, 4oL 错, 2-flash-thinking 错错, o1 错, Gemini 2 Pro 错, grok3 错, r1 错
+> 正确答案：都可以
+>
+> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错), 4oL 错, 2-flash-thinking 错错错, o1 错, Gemini 2 Pro 错, grok3 错错错, r1 错
 
 ### 推理问题
 
@@ -785,6 +789,8 @@ npm install electron electron-builder --save-dev
 > Q: 1 fJ 的能量可以使一个质子加速到多少速度？1 nJ 呢？如果是对于光子呢？ 1 fJ of energy can accelerate a proton to what speed? What about 1 nJ? And what about for photons?
 >
 > 正确答案： $1.093 \times 10^6 \text{m/s}$, $2.97\times 10^8\text{m/s}=0.9914c$, $\lambda=199\mathrm{pm}$, $\lambda=0.199\mathrm{fm}$
+>
+> 正确情况：2-flash-thinking 对
 
 
 > Q: #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
@@ -882,7 +888,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：Mealy FSM
 > 
-> 正确情况：Sonnet 3.5 对, Gemini 2 Pro 错错错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL 错错, 3-opus 对
+> 正确情况：Sonnet 3.5 对, Gemini 2 Pro 错错错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL 错错, 3-opus 对, 2-flash-thinking 对
 
 
 ## 评测的小 ideas
