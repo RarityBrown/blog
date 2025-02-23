@@ -61,3 +61,21 @@
 - /kroʊˈʃeɪ/
 - 法语词根 “croc” (钩子): 法语单词 “crochet” 的词根是 "croc"，意思是“钩子”。这个词根和英语的 “hook” 是同源的。因此，"crochet"这个词本身就暗示了用钩针进行编织的动作和工具。
 - 法语后缀 "-et": 法语后缀 "-et" 用来表示小的东西或者工具。在这里，它表示小钩子或者用小钩子进行的编织活动。
+
+
+### -ine: 胺类与生物碱
+
+| -ine                            | 来源                        | 类型          |
+| ------------------------------- | --------------------------- | ------------- |
+| Cocaine 可卡因                  | Coca (古柯)                 | 胺类 - 生物碱 |
+| Morphine 吗啡                   | Opium (鸦片)                | 胺类 - 生物碱 |
+| Atropine 阿托品                 | Atropa belladonna (颠茄)    | 胺类 - 生物碱 |
+| Quinine 奎宁                    | Cinchona bark (金鸡纳树皮)  | 胺类 - 生物碱 |
+| Nicotine 尼古丁                 | Nicotiana tabacum (烟草)    | 胺类 - 生物碱 |
+| Caffeine 咖啡因                 | Coffee (咖啡)               | 胺类 - 生物碱 |
+| Theobromine 可可碱              | Theobroma cacao (可可豆)    | 胺类 - 生物碱 |
+| Epinephrine/Adrenaline 肾上腺素 | Adrenal glands (动物肾上腺) | 胺类          |
+| Histamine 组胺                  | Histidine (组氨酸)          | 胺类          |
+| Serotonin 血清素                | Serum (血清)                | 胺类          |
+| Dopamine 多巴胺                 | DOPA (多巴)                 | 胺类          |
+
