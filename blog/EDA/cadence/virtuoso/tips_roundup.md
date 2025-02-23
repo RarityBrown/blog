@@ -25,6 +25,7 @@
 - [通过 SKILL 为 schematic 自动加 PIN](https://mp.weixin.qq.com/s/qxZB4m2CG69nmannkSiT5w)
 - [通过 SKILL 切换 schematic 与 layout 的只读与编辑](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
 - [通过 SKILL 实现无 GUI 的命令操作，以及自动化 streamout 的 GDS 导出](https://zhuanlan.zhihu.com/p/6010155066)
+- [Net trace manager 版图快速定位](https://zhuanlan.zhihu.com/p/13366999517)
 
 ## ADE
 
