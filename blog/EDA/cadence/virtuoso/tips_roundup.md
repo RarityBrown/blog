@@ -48,6 +48,13 @@
 
 - [pss 仿真](https://zhuanlan.zhihu.com/p/16816066025)
 
+#### `pnoise`
+
+
+#### `pstb`
+
+- [pstb 仿真斩波运放增益及相位特性](https://zhuanlan.zhihu.com/p/683249779)
+
 ### AMS & Verilog-A & Verilog-AMS
 
 - [用 Verilog-A 配置电路修调控制](https://zhuanlan.zhihu.com/p/460423786)
