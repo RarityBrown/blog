@@ -52,13 +52,13 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：郴（chēn）
 >
-> 正确情况：Gemini 2 Pro 对对; 2-flash-thinking 错
+> 正确情况：Gemini 2 Pro 对对; 2-flash-thinking 错; 4oL 错
 
 > Q: Tea and coffee are available, but liquor, wine or beer (?) not.   are / is
 >
 > 正确答案：is
 >
-> 正确情况：Gemini 2 Pro 对对, 4oL 对
+> 正确情况：Gemini 2 Pro 对对, 4oL 对, grok-3 错
 
 > Q: This paper should be otherwise read as if aimed at an audience not expert in control. aimed 在从句中是表语。整体句子的结构中起什么语的作用？是状语补语？宾语补语？状语？定语？
 >
@@ -183,7 +183,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确情况：o3-mini-high 错
 
-> Q: Draw a cross using `\rule` in latex. The commands `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
+> Q: Draw a cross using `\rule` in latex. The commands `\hfil`, `\vbox`, `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
 >
 > 参考答案：
 > 
@@ -659,11 +659,11 @@ npm install electron electron-builder --save-dev
 
 ##### AHK
 
-> Q: How to send the string "{\" (a left brace + a backslash) in ahkv2 using the `Send` function? Answer within 1 line in a code block.
+> Q: How to send the string "{`\`" (one left brace + one backtick + one backslash + one backtick) in ahkv2 using the `Send` function? Answer within 1 line in a code block.
 >
-> 正确答案：`Send('{{}\')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
+> 正确答案：`Send('{{}``\``')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
 >
-> 正确情况：Gemini 2 Pro 错, o3-mini-high 错对错错, o3-mini 错, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对, r1 对
+> 正确情况：Gemini 2 Pro 错, o3-mini-high 错对错错, o3-mini 错错, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错
 
 
 > Q: two ways to simplify this
@@ -758,7 +758,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：都可以
 >
-> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错), 4oL 错, 2-flash-thinking 错错错, o1 错, Gemini 2 Pro 错, grok3 错错错, r1 错
+> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错), 4oL 错, 2-flash-thinking 错错错, o1 错, Gemini 2 Pro 错错, grok3 错错错, r1 错
 
 ### 推理问题
 
