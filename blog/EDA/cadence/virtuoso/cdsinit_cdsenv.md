@@ -1,10 +1,18 @@
 ## Virtuoso 中的 `.cdsinit` 和 `.cdsenv`
 
+参考资料：
+
+- Virtuoso 官方文档
+  - *Virtuoso Software Licensing and Configuration User Guide*: `dfIIconfig.pdf`
+  - 网页链接
+
+本文框架由 Perplexity Deep Research 完成，笔者审核与补充。
+
 ### 基本介绍
 
-Virtuoso 的配置体系采用分层管理策略，`.cdsinit`与`.cdsenv`作为用户级配置文件，在系统默认配置基础上实现个性化定制。
+Cadence Virtuoso 有一些默认的设置不是很方便，例如 VIVA 绘图默认背景颜色、线宽等，可以通过在启动 Virtuoso 后通过 load  `.cdsinit` 和 `.cdsenv` 来自动自定义配置。
 
-`.cdsinit` 文件以 lisp 语言为基础，吸收了 Common Lisp 和 Scheme 两种 Lisp 方言的特性，主要负责工具扩展模块的动态加载、快捷键绑定以及用户自定义函数的初始化[1](https://blog.csdn.net/weixin_44951108/article/details/133921228)[3](https://blog.csdn.net/LSTK_LAY/article/details/131250586)。典型的应用场景包括：
+`.cdsinit` 文件是以 lisp 语言为基础，吸收了 Common Lisp 和 Scheme 两种 Lisp 方言特性的 SKILL 脚本，主要负责工具扩展模块的动态加载、快捷键绑定以及用户自定义函数的初始化[1](https://blog.csdn.net/weixin_44951108/article/details/133921228)[3](https://blog.csdn.net/LSTK_LAY/article/details/131250586)。典型的应用场景包括：
 
 - 工艺设计套件(PDK)显示规则文件的自动加载
 - 仿真器参数预配置
@@ -16,18 +24,11 @@ Virtuoso 的配置体系采用分层管理策略，`.cdsinit`与`.cdsenv`作为�
 - 文件系统的路径映射规则
 - 仿真结果存储目录定义
 
-两文件的协同工作机制体现在：`.cdsenv` 在 Virtuoso 启动初期加载，建立基础运行环境；`.cdsinit` 随后执行，完成**高级**功能扩展与交互优化。
-
-参考资料：
-
-- Virtuoso 官方文档
-  - *Virtuoso Software Licensing and Configuration User Guide*: `dfIIconfig.pdf`
-  - 网页链接
-
-本文由 Perplexity Deep Research 完成，笔者审核与补充。
-
+两文件的协同工作机制体现在：`.cdsenv` 在 Virtuoso 启动初期加载，建立基础运行环境；`.cdsinit` **随后**执行，完成**高级**功能扩展与交互优化。
 
 ### 文件路径与加载优先级
+
+Virtuoso 的配置体系采用分层管理策略，`.cdsinit`与`.cdsenv`作为用户级配置文件，在系统默认配置基础上实现个性化定制。
 
 #### `.cdsinit`
 
@@ -65,7 +66,7 @@ envLoadFile("~/.cdsenv")  ; 可以考虑在前文提到的 `.cdsinit` 文件中�
 
 ;;;;;;;;;;;;;; CIW ;;;;;;;;;;;;;;;;;
 envLoadFile("./.cdsenv")  ; 也可以在 CIW 窗口执行配置动态实时更新，无需重启 Virtuoso 即可生效，适用于长期运行的仿真任务环境
-load("./.cdsinit")
+load("./.cdsinit")        ; 或是使用 lisp 文件名，保存成 init.il 后 load("/home/.../init.il") 也可以手动加载
 ```
 
 ### 利用 `.cdsinit` 和 `.cdsenv` 自定义 Virtuoso 设置
@@ -74,7 +75,7 @@ load("./.cdsinit")
 
 ##### 基本介绍
 
-Cadence Virtuoso 的环境变量，简称 cds env，可以通过 Virtuoso CIW 菜单中 Options - Cdsenv Editor 可视化地查看与编辑；而通过 `.cdsenv` 则可以实现在每次启动时自动地设置：
+Cadence Virtuoso 的环境变量，简称 cds env，可以通过 Virtuoso Command Interpreter Window (CIW) 菜单中 Options - Cdsenv Editor 可视化地查看与编辑；而通过 `.cdsenv` 则可以实现在每次启动时自动地设置：
 
 ```scheme
 ; .cdsenv 文件采用
@@ -106,6 +107,10 @@ envSetVal("viva.graphFrame" "background" 'string "white")
 
 ; 参数的顺序与种类和 .cdsenv 保持一致，只是语法略有不同：
 envSetVal(tool.env variable 'type value)
+
+; .cdsinit 中还有一个 envGetVal() 函数，语法和例子如下
+envGetVal(toolName variableName)
+labelHeight = envGetVal("layout" "labelHeight")
 ```
 
 ##### 示例
@@ -120,7 +125,11 @@ graphic cursorStyle string "cross"         ; 十字光标样式
 ;;;;;;;;;;;;;;;;;; schematic 
 schematic srcSolderOnCrossover cyclic "ignored")  ; ignore cross over of wires in schematic
 schematic srcInstOverlapValue  int    30)         ; default = 10
+schematic schDynamicNetHilightColorMemNet string "black"
+schematic srcSolderOnCrossover cyclic "ignored"  ; ignore cross over of wires in schematic
+schematic srcInstOverlapValue int 30  ; default = 10
 
+maestro.gui textColorForSpecNearInResults string "purple"
 
 layout snapMode string "diagonal"          ; 设置标尺捕捉模式为对角线模式 "orthogonal" 正交模式
 layout gridSpacing double 0.005            ; 栅格间距5nm
@@ -173,11 +182,11 @@ envSetVal("lvsenv.setup" "ruleFile" 'string "/pdk/lvs/calibre.lvs")
 
 ```lisp
 ;;;;;;;;;;;;;;;;;; lib manager
-cdsLibManager.main   showCategoriesOn boolean t        ; lib manager show categories
-cdsLibManager.main   showFilesOn      boolean t        ; lib manager show files
+cdsLibManager.main   showCategoriesOn boolean t        ; lib manager shows categories
+cdsLibManager.main   showFilesOn      boolean t        ; lib manager shows files
 
 ;;;;;;;;;;;;;;;;;; spectre
-spectre.turboOpts    uniMode          string  "APS"     ; to use spectre APS by default, "Spectre X"
+spectre.turboOpts    uniMode          string  "APS"     ; to use spectre APS by default. or "Spectre X"
 ; spectre              numThreads       int     16        ; memory and multithreading config, todo
 
 ;;;;;;;;;;;;;;;;;; VIVA ;;;;;;;;;;;;;
@@ -192,6 +201,10 @@ viva.vertMarker      interceptStyle   string  "on"
 viva.pointMarker     font             string  "Default,15,-1,5,75,0,0,0,0,0"
 viva.axis            font             string  "Default,15,-1,5,75,0,0,0,0,0"
 viva.traceLegend     font             string  "Default,15,-1,5,75,0,0,0,0,0"
+
+;;;;;;;;;;;;;;;;;;
+; ui defaultEditorBackgroundColor string "white"   ; todo
+
 
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
 layout               xSnapSpacing     float   0.005        ; 0.005um typical for 40nm node
