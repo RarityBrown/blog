@@ -1,0 +1,43 @@
+## Virtuoso 仿真数据导出与导入
+
+
+Virtuoso 中仿真数据默认存储位置由 asimenv.startup projectDir 这一环境变量设置，默认位置是 `~/simulation`。对于如何修改这一环境变量，以及如何把波形图背景设为白色，可以参考 [.cdsenv](#cdsinit_cdsenv.md) 这一篇小文章。
+
+在仿真结束后，Virtuoso Visualization & Analysis XL 会自动弹出结果，当我们把图中的每一条线都删除后，留下空白的 Visualization & Analysis XL 窗口：
+
+
+|                     Open Results                             |              tran - 选择 nodes                               |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![image](https://github.com/user-attachments/assets/fa230287-0063-463e-890d-e0f3f3e5a34a) | ![image](https://github.com/user-attachments/assets/6a9271e9-1e8c-42ac-b5c7-3d19eb4f9792) |
+
+
+通过 File - Open Results - psf 可以打开上一次仿真的所有保存了的数据。在 load psf 文件后，在 tran 文件夹找到相应的信号节点，双击即可查看波形。
+
+
+
+<!-- 例如 Virtuoso tran 仿真默认保存节点电压，不默认保存支路电流，所以如果在 tran 仿真前不添加任何信号，psf database 仍可以中找到每个节点的电压，但是没有电流。 -->
+
+
+todo: 如何自动保存多个 psf 文件？
+
+
+
+
+
+to ref:
+
+- [Cadence Waveform Import and Export - Applied Optics Wiki](https://optics.eee.nottingham.ac.uk/wiki/Cadence_Waveform_Import_and_Export)
+- [你们如何在不崩溃的情况下读取长反仿真的结果 virtuoso ： r/chipdesign](https://www.reddit.com/r/chipdesign/comments/1goul9p/how_do_you_guys_read_result_from_long_trans/)
+- [virtuoso中保存仿真数据_virtuoso仿真数据怎么保存-CSDN博客](https://blog.csdn.net/Cixil/article/details/117400442)
+- [Virtuoso 波形不更新及 VIVA XL 字体问题-张长瑞-FastEDA](https://www.fasteda.cn/post/7.html)
+- [保存所有仿真点的数据_virtuoso怎么保存仿真的波形图-CSDN博客](https://blog.csdn.net/CarrieVAE/article/details/115729273)
+- [在 Cadence 中保存仿真波形 |电子论坛](https://www.edaboard.com/threads/saving-simulation-waveform-in-cadence.44856/)
+- [使用 Tcl 在 AMS 仿真中更有效地保存信号](https://semiengineering.com/use-tcl-to-save-signals-more-efficiently-in-ams-simulations/)
+- [cadence virtuoso如何将波形转为vec文件？ - 知乎](https://www.zhihu.com/question/607405184)
+- [芯片设计小技巧（3）——仿真中的设置的小tips - 知乎](https://zhuanlan.zhihu.com/p/669822724)
+- [Virtuoso在仿真过程中查看波形（瞬态仿真 tran仿真） - 哔哩哔哩](https://www.bilibili.com/opus/872227327212257282)
+- [Cadence Virtuoso 将时域波形保存为波形文件并在仿真中使用 – Analog-Life](https://www.analog-life.com/2023/05/save-time-domain-waveforms-as-waveform-files-and-use-them-in-simulations/)
+- [6200b77d5e03f.pdf](https://www.boardchain.cn/Uploads/2022-02-07/6200b77d5e03f.pdf)
+- [Spectre Tech Tips: Spectre APS Save Overview - Part 2 - Analog/Custom Design - Cadence Blogs - Cadence Community](https://community.cadence.com/cadence_blogs_8/b/cic/posts/spectre-tech-tips-spectre-aps-save-overview---part-2)
+- [将图形波形保存到 ADE-XL 视图中，就像频谱状态视图一样 - 定制 IC 设计 - Cadence Technology 论坛 - Cadence 社区](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/48458/save-graphical-waveforms-into-ade-xl-views-just-like-a-spectre-state-view)
+- [Virtuosity：在Virtuoso可视化和分析中阅读矢量文件 - 定制IC芯片设计 - Cadence Blogs - Cadence Community](https://community.cadence.com/cadence_blogs_8/b/ic-cn/posts/virtuosity-virtuoso)
