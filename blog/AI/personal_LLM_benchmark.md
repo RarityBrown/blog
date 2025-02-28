@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时使用过程中，收集选择一些截至 2025 年 2 月的第一梯队 LLM (o1, o3-mini-high, r1, 4oL, Sonnet 3.5, Gemini 2 Pro, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些截至 2025 年 3 月的第一梯队 LLM (GPT4.5, Gemini 2 Pro, Sonnet 3.7, grok3, Sonnet 3.7 thinking, grok3 thinking, o1, o3-mini-high, r1, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
 
 ## 一些个人观点
 
@@ -35,6 +35,10 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 2025/02/25: 去年，Jensen 和 Zuckerberg 有一次公开对话，其中两人对 LLM 的未来是专用还是通用有着不同看法：Jensen 认为通用 LLM 是未来，人们无不希望在各方面都更强大的 AI；Zuckerberg 则认为专用是未来。今日，Sonnet 3.7 发布，过去以来一直认同 Jensen 观点的我产生了动摇。随着 scaling law 的瓶颈愈发显现，应该用 200B 的参数训练一个啥都过得去，但是不专精的通用 LLM；或是用 200B 的参数训练一个更专精于代码的模型，以此在该领域产生真正的“价值”？这个问题在过去可以随意 scaling 的时代是不存在的，而且这不仅是一个技术问题，更是一个商业问题。To be, or not to be, that is the question. 也许 UCB 的 experiment-router，后端配上具有一定通用能力的多个领域专用 LLM 才是未来？人类社会也是如此啊。但是除了数学、理论物理、计算机等少部分信息公开程度高、定量化评价体系清晰 (RL 方便) 的领域可以方便地使用传统方法训练 200B 左右的专用 LLM，其他领域的专用 LLM 还是面临着两个问题，一是 AI 领域老生常谈的问题——少样本训练，二是性价比——小企业的工厂里为什么自动化程度不高？因为对于小批量细分领域，人比机器便宜，主要原因是 robustness 和 versatility。
 
+2025/02/28: 除了 A 家的大基模以外，GPT4.5, grok3, Gemini 2 Pro 都已上菜完毕。More Scaling 已经基本结束; More than Scaling 方兴未艾; Beyond Transformer 遥不可及。
+
+![image](https://github.com/user-attachments/assets/522a1600-971b-4934-94b3-af8fa37a4ac6)
+
 
 ## 题目列表
 
@@ -66,7 +70,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 > Q: "赣南师大"有一个梗是"江南 style"，为什么赣和江发音相近？
 >
-> 正确答案：gànnan 和 gangnam
+> 正确答案：gànnan (中文) 和 gangnam (韩语); 和 (Jiang) 没关系
 >
 > 正确情况：o3-mini 错
 
@@ -117,7 +121,9 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Thomas Lee 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
 >
-> 参考答案：Analog: **Donald O. Pederson (SPICE)**, Laurence(Larry) Nagel (SPICE), Arthur Richard Newton (SPICE), Ken Kundert (Spectre); Digital: **Alberto Sangiovanni-Vincentelli**, Kurt Keutzer (Bell Labs, Synopsys, UCB), Aart de Geus (Synopsys), Robert K. Brayton (UCB) 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
+> 参考答案：Analog: **Donald O. Pederson (SPICE)**, Laurence(Larry) Nagel (SPICE), Arthur Richard Newton (SPICE), Ken Kundert (Spectre); Digital: **Alberto Sangiovanni-Vincentelli**, Kurt Keutzer (Bell Labs, Synopsys, UCB), Aart de Geus (Synopsys), Robert K. Brayton (UCB), Hugo De Man(IMEC), Giovanni De Micheli, Robert K. Brayton 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
+>
+> 正确情况：Sonnet 3.7 错; o1 错
 
 > Q: The release year of IC Compiler 2? When did ICC1 stop updating?
 > 
@@ -141,12 +147,10 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 
 > Q: Verilog 中 `always @(posedge clk, negedge rst_n)` 和 `always @(posedge clk or negedge rst_n)` 哪个更好？为什么？好像和 Verilog 标准也有关系？
->
-> 典型错误：推荐使用 IEEE 1364-2001 标准下的 `always @(posedge clk or negedge rst_n)` 写法。某种是同步/异步的，导致竞争。
 > 
 > 正确答案(by perplexity)：The use of commas in Verilog sensitivity lists is a feature introduced in the Verilog-2001 standard. This change provides an alternative syntax to the traditional "or" keyword used in Verilog-1995, offering a more intuitive and consistent approach to specifying multiple signals in the sensitivity list. The comma-separated sensitivity list does not add new functionality compared to the "or" keyword. It simply provides an alternative, more readable syntax. Many developers prefer the comma-separated style as it aligns better with other list-based constructs in Verilog and other programming languages.
 >
-> 正确情况：gemini-exp-1114 错错对对; 
+> 正确情况：gemini-exp-1114 错错对对; Sonnet 3.7 错; o1 半对
 
 
 > Q: Considering support for various devices (Windows, Mac, Android, iOS without requiring any extra installation, Linux can be ignored), please choose two CJK sans-serif fonts for me?
