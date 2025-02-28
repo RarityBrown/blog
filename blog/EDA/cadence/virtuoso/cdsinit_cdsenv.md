@@ -182,16 +182,19 @@ envSetVal("lvsenv.setup" "ruleFile" 'string "/pdk/lvs/calibre.lvs")
 
 ```lisp
 ;;;;;;;;;;;;;;;;;; lib manager
-cdsLibManager.main   showCategoriesOn boolean t        ; lib manager shows categories
-cdsLibManager.main   showFilesOn      boolean t        ; lib manager shows files
+cdsLibManager.main   showCategoriesOn boolean t              ; lib manager shows categories
+cdsLibManager.main   showFilesOn      boolean t              ; lib manager shows files
 
 ;;;;;;;;;;;;;;;;;; spectre
-spectre.turboOpts    uniMode          string  "APS"     ; to use spectre APS by default. or "Spectre X"
-; spectre              numThreads       int     16        ; memory and multithreading config, todo
+spectre.turboOpts    uniMode          string  "APS"          ; to use spectre APS by default. or "Spectre X"
+; spectre              numThreads       int     16           ; memory and multithreading config, todo
 
-;;;;;;;;;;;;;;;;;; VIVA ;;;;;;;;;;;;;
-; viva.rectGraph       background       string  "white"   ; for older version
-viva.graphFrame      background       string  "white"   ; for IC6.1.8 IC23.1 
+;;;;;;;;;;;;;;;;;; ADE XL (ADE Explorer)
+adexl.icrpStartup    defaultJobPolicy string "My_jobpolicy"  ; My jobs parallelization policy
+
+;;;;;;;;;;;;;;;;;; VIVA
+; viva.rectGraph       background       string  "white"        ; for older version
+viva.graphFrame      background       string  "white"        ; for IC6.1.8 IC23.1 
 viva.trace           lineThickness    string  "thick"
 ; viva.trace           lineStyle        string  "dashed"
 viva.horizMarker     font             string  "Default,15,-1,5,75,0,0,0,0,0"
@@ -202,13 +205,13 @@ viva.pointMarker     font             string  "Default,15,-1,5,75,0,0,0,0,0"
 viva.axis            font             string  "Default,15,-1,5,75,0,0,0,0,0"
 viva.traceLegend     font             string  "Default,15,-1,5,75,0,0,0,0,0"
 
-;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;; 
 ; ui defaultEditorBackgroundColor string "white"   ; todo
 
 
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
-layout               xSnapSpacing     float   0.005        ; 0.005um typical for 40nm node
-layout               ySnapSpacing     float   0.005        ; 0.005um typical for 40nm node
+layout               xSnapSpacing     float   0.005           ; 0.005um typical for 40nm node
+layout               ySnapSpacing     float   0.005           ; 0.005um typical for 40nm node
 ; todo, layoutXL?
 
 ; backup and autosave setting, todo
