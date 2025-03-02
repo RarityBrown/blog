@@ -604,7 +604,7 @@ npm install electron electron-builder --save-dev
 
 ##### MATLAB
 
-> Q: Make `15/9*1e-12` symbolic in matlab within one line. Your answer should be simple.
+> Q: Make `15/9*1e-12` symbolic without any error in matlab within one line. Your answer should be simple.
 >
 > 典型错误：`expr = sym(15/9 * 1e-12);` 结果有浮点误差
 > 
@@ -702,6 +702,32 @@ npm install electron electron-builder --save-dev
 > #Include RegExHotstring.ahk ; https://github.com/8LWXpg/RegExHotstring/blob/master/RegExHotstring.ahk
 > RegExHotstring("(\d+)/", "\frac{{}$1{}}{{}{}}{Left 1}", "?*")
 > ```
+
+
+#### Assembly
+
+
+> Q: `.long   -1559429120` to hex
+>
+> 正确答案：`0xA30D0000`
+>
+> 正确情况：sonnet 3.7 thinking 错对错; o3-mini 对对错; 2-flash-thinking 错
+
+
+> Q: x87 FPU + GCC. LC0 in decimal? Do not use scientific notation, write out the entire number directly.
+> 
+> ```assembly
+> .LC0:
+>         .long   -1559429120
+>         .long   -1834274295
+>         .long   16433
+>         .long   0
+> ```
+> 
+> 正确答案：`1,290,111,812,442,216`
+>
+> 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错
+
 
 
 #### 专业相关问题
