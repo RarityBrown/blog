@@ -1,4 +1,4 @@
-## Calculator
+## Calculator & ADE Explorer Expression Builder
 
 
 ### 半对数轴求导
