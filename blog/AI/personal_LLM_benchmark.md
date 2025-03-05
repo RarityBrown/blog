@@ -441,6 +441,9 @@ npm install electron electron-builder --save-dev
 
 下一条命令应该是什么？
 
+###### Webarena
+
+> Q: 2x2 layout: mathlive + latex code editor (with syntax highlight); mathjax + katex (to compare the rendered output). Enable all the possible package for mathjax and katex. For instance, enable `physics` in mathjax.
 
 
 ##### Python 小众库
