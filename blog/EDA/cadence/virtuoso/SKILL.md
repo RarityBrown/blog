@@ -1,5 +1,7 @@
 # SKILL & OCEAN
 
+TLDR: 
+
 ## SKILL 和 Lisp 的基本介绍 
 
 Cadence 家的工具几乎所有 API 都基于 SKILL 语言开发，SKILL 是以 Lisp 语言为基础，吸收了 Common Lisp 和 Scheme 两种 Lisp 方言特性的脚本语言。部分 SKILL 脚本以 `.il` 为 file extension name，`.il` 扩展名的起源可以追溯到该语言的前身 **IL (Interface Language)**。最初，开发 IL 语言是创建 silicon compilers 脚本接口的一部分，其早期名称 SCIL (Silicon Compiler Interface Language) 即由此缩写而来。这个名字发音为“SKIL”，逐渐演变为 **SKILL**。Cadence 官方澄清说，“SKILL”不是首字母缩略词，而是一个注册商标名称，尽管它的血统仍然与 SCIL 和 IL 相关，同时 IL 的历史可能早于 Cadence 成立的时间。从 IL 到 SKILL 的转变标志着该语言角色的转变——从低级接口到全面的 API 和脚本框架。尽管进行了品牌重塑，但 `.il` 扩展名仍然作为 SKILL 源文件的传统约定而存在，反映了它在接口语言时代的根源。
@@ -7,7 +9,7 @@ Cadence 家的工具几乎所有 API 都基于 SKILL 语言开发，SKILL 是以
 `.il` 扩展名专门表示遵循 **Lisp-2 semantics** 的 SKILL 代码，这是一种命名空间范例，其中函数和变量占据不同的范围。这与使用 **Lisp-1 语义**（函数和变量的单个命名空间）的 `.ils` 文件形成对比。这种区别对开发人员至关重要：Lisp-2 允许函数和变量名称共存而不会发生冲突，而 Lisp-1 需要仔细命名以避免重叠。例如，在 Lisp-2 上下文中，变量 `list` 和函数 `list()` 可以共存，而在 Lisp-1 中，重新定义 `list` 将覆盖该函数。
 SKILL++ 是一种增强型方言，具有词法作用域和一等函数等特性，进一步说明了 .il 扩展名的上下文。SKILL++ 代码通常使用 `.ils` 扩展名来表示 Lisp-1 语义，而传统的 SKILL 则保留 `.il`。这种分叉允许开发人员选择适合其任务的范例——词法作用域用于模块化代码（SKILL++），动态作用域用于快速原型设计（传统SKILL）。
 
-选用 lisp 的可能原因也包括 lisp 的数值计算能力，例如 [LdBeth](https://www.zhihu.com/question/622919986/answer/3222931638) 提到的 $\operatorname{atanh}(1.2 + 20000000i)=\frac{\pi}{2}j$ 这一计算精度问题。
+选用 lisp 的原因除了历史原因，可能也包括 lisp 的数值计算能力，例如 [LdBeth](https://www.zhihu.com/question/622919986/answer/3222931638) 提到的 $\operatorname{atanh}(1.2 + 20000000i)=\frac{\pi}{2}j$ 这一计算精度问题。
 
 ## CIW (Command Interpreter Window)
 
@@ -20,8 +22,6 @@ SKILL++ 是一种增强型方言，具有词法作用域和一等函数等特性
 | **Primary Function**        | Text interface to OS             | Interprets/executes OS commands | Text interface for program/system | Text interface for Cadence Virtuoso |
 | **Operating System Access** | Direct                           | Indirect (via terminal)         | Varies, often direct for system   | Indirect, application-specific      |
 | **Example**                 | GNOME Terminal, Windows Terminal | Bash, PowerShell                | System console, app command line  | CIW window in Virtuoso              |
-
-
 
 ## 快捷键 bindkey
 
@@ -36,7 +36,7 @@ SKILL++ 是一种增强型方言，具有词法作用域和一等函数等特性
 
 #### 第一步 (获得 Virtuoso SKILL API)：
 
-1. 通过在 CIW 菜单栏中的 `Option` - `Log Filter...` 打开 "Set Log File Display Filter" 窗口，将默认没有选上的 `\a`, `\r`, `\p` 选项全部勾选（参考 [eetop](https://bbs.eetop.cn/thread-963864-1-1.html)）
+1. 通过在 CIW 菜单栏中的 `Option` - `Log Filter...` 打开 "Set Log File Display Filter" 窗口，将默认没有选上的 `\a`, `\r`, `\p` 选项全部勾选（参考 [eetop](https://bbs.eetop.cn/thread-963864-1-1.html), [蓝色天空](https://www.kaixinspace.com/virtuoso-bindkey/)）
 2. 用鼠标单击 ADE Explorer 右侧工具栏中的 `Add Outputs`，观察 Virtuoso CIW 窗口中显示的 SKILL 函数：
 
 ```lisp
@@ -74,6 +74,30 @@ CIW 中 <kbd>Enter</kbd> 执行，返回 `t` 即意味着设置成功。我们�
 2. 通过在 CIW 菜单栏中的 `Option` - `Bindkeys...` 打开图形化的 "Bindkeys Editor" 窗口检查。未来我们也可以直接在 "Bindkeys Editor" 中图形化地设置 bindkey，而不直接使用 `hiSetBindKey()` 函数
 
 至此，我们已经完成了在 Virtuoso 中找到一个命令的 SKILL API 并将其设置为快捷键的全部流程。如果我们想要在 Virtuoso 每次启动时可以自动绑定 <kbd>Ctrl</kbd> + <kbd>N</kbd> 作为 `Add Outputs` 的快捷键则需要用到 `.cdsinit` 和 `.cdsenv`：
+
+通过这个流程，我们就可以实现一系列我们想要的操作了，例如[网上](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/23666/keyboard-shortcut-for-running-simulation-in-ade-gxl)提到的使用 <kbd>F5</kbd> 作为仿真启动快捷键：
+
+
+```lisp
+hiSetBindKey("adexl"      "<Key>F5" "axlRunSimulation()")
+hiSetBindKey("adegxl"     "<Key>F5" "axlRunSimulation()")
+hiSetBindKey("Schematics" "<Key>F5" "axlRunSimulation()")
+hiSetBindKey("explorer"   "<Key>F5" "axlRunSimulation()")
+hiSetBindKey("assembler"  "<Key>F5" "axlRunSimulation()")
+; sevNetlistAndRun() in ADE L
+```
+
+
+
+又或者使用 <kbd>Ctrl</kbd> + <kbd>D</kbd> 直接在 schematic 中添加 vdc 源 （参考 [eetop](https://blog.eetop.cn/blog-1722314-6946097.html), [zhihu](https://zhuanlan.zhihu.com/p/703004089)）
+
+```lisp
+procedure(add_vdc( )
+   schHicreateInst( ?libraryName "AnalogLib" ?cellName "vdc" ?viewName "symbol" )
+)
+hisetBindKey("schematics" "Ctrl<Key>d" "add_vdc( ) ")
+```
+
 
 ## `.cdsinit` and `.cdsenv`
 
