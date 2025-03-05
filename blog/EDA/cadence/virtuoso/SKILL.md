@@ -1,4 +1,76 @@
-## Virtuoso 中的 `.cdsinit` 和 `.cdsenv`
+# SKILL & OCEAN
+
+## SKILL 基本介绍和 CIW (Command Interpreter Window)
+
+SKILL 是以 Lisp 语言为基础，吸收了 Common Lisp 和 Scheme 两种 Lisp 方言特性的脚本语言
+
+- CIW (Command Interpreter Window) 是一个 console (见下表)
+- 在 Virtuoso 中执行的所有操作都有对应的 SKILL API 函数进行实现
+
+
+| Characteristic              | Terminal                         | Shell                           | Console                           | Cadence Virtuoso CIW                |
+| --------------------------- | -------------------------------- | ------------------------------- | --------------------------------- | ----------------------------------- |
+| **Primary Function**        | Text interface to OS             | Interprets/executes OS commands | Text interface for program/system | Text interface for Cadence Virtuoso |
+| **Operating System Access** | Direct                           | Indirect (via terminal)         | Varies, often direct for system   | Indirect, application-specific      |
+| **Example**                 | GNOME Terminal, Windows Terminal | Bash, PowerShell                | System console, app command line  | CIW window in Virtuoso              |
+
+
+
+## 快捷键 bindkey
+
+在 Virtuoso 中，键盘快捷键被称作是 "bindkey"，这不同于一般软件开发中的 "shortcut" 或 "hotkey" 的称谓。我们以一个例子作为本段落的开场：
+
+### 全流程例子
+
+我们想在 [ADE Explorer](ADE.md) 中自定义 <kbd>Ctrl</kbd> + <kbd>N</kbd> 快捷键，来实现右侧工具栏中的 `Add Outputs` 添加一个空白的 expr 条目，这样我们就不需要每次移动鼠标点击才能添加仿真结果。我们主要需要干两件事：
+
+- **第一步**：知道 ADE Explorer 的图形界面中 `Add Outputs` 按钮所对应的 Virtuoso SKILL API（因为上文提到，所有操作都有对应的 SKILL API）
+- **第二步**：将快捷键 <kbd>Ctrl</kbd> + <kbd>N</kbd> 绑定到第一步中找到的 API 上
+
+#### 第一步 (获得 Virtuoso SKILL API)：
+
+1. 通过在 CIW 菜单栏中的 `Option` - `Log Filter...` 打开 "Set Log File Display Filter" 窗口，将默认没有选上的 `\a`, `\r`, `\p` 选项全部勾选（参考 [eetop](https://bbs.eetop.cn/thread-963864-1-1.html)）
+2. 用鼠标单击 ADE Explorer 右侧工具栏中的 `Add Outputs`，观察 Virtuoso CIW 窗口中显示的 SKILL 函数：
+
+```lisp
+_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() "expr")
+_axlOutputsSetupAddOutputByType(axlOutputsForm4->axlOutputsWidget4 "expr" "LIB_NAME:CELL_NAME:1")
+_axlShowHideOutputSetupNamedFilterItems(axlOutputsForm4->axlOutputsWidget4 t)
+```
+
+如果我们此时再次使用鼠标点击 `Add Outputs`，会发现在 ADE Explorer 中并没有再新建一个空白的条目，因为 ADE Explorer 不允许多个空白条目。此时 SKILL API 也会在 CIW 中显示 `nil`，`nil` 在 lisp 中可以表示 `false`，即函数执行失败了：
+
+```lisp
+_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() "expr")
+nil
+```
+
+我们在 ADE Explorer 中手动删除刚刚新建的空白条目后，将 `_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() "expr")` 复制到 CIW 窗口下方的输入框内，并 <kbd>Enter</kbd> 执行。可以惊喜地发现，在 ADE Explorer 中，一个新的空白条目被创建了。至此，我们已经成功地完成了第一步——获取了 `Add Outputs` 所对应的 SKILL API。聪明的读者在刚刚删除的过程中，可能会顺便获取了删除 ADE Explorer 输出结果条目的 SKILL API：
+
+```lisp
+_axlOutputsSetupDeleteSelected(axlOutputsForm4->axlOutputsWidget4)
+_axlShowHideOutputSetupNamedFilterItems(axlOutputsForm4->axlOutputsWidget4 t)
+```
+
+#### 第二步（绑定快捷键）
+
+直接在 CIW 中依次输入
+
+```lisp
+hiSetBindKey("explorer"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hiSetBindKey("assembler" "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+```
+
+CIW 中 <kbd>Enter</kbd> 执行，返回 `t` 即意味着设置成功。我们有两种方式确认：
+
+1. 直接在 ADE Explorer 中 <kbd>Ctrl</kbd> + <kbd>N</kbd> 看看有不有新条目生成
+2. 通过在 CIW 菜单栏中的 `Option` - `Bindkeys...` 打开图形化的 "Bindkeys Editor" 窗口检查。未来我们也可以直接在 "Bindkeys Editor" 中图形化地设置 bindkey，而不直接使用 `hiSetBindKey()` 函数
+
+至此，我们已经完成了在 Virtuoso 中找到一个命令的 SKILL API 并将其设置为快捷键的全部流程。如果我们想要在 Virtuoso 每次启动时可以自动绑定 <kbd>Ctrl</kbd> + <kbd>N</kbd> 作为 `Add Outputs` 的快捷键则需要用到 `.cdsinit` 和 `.cdsenv`：
+
+## `.cdsinit` and `.cdsenv`
+
+其实 SKILL 对于用户最常用的功能就是设置 `.cdsinit` 和 `.cdsenv`：
 
 参考资料：
 
@@ -6,17 +78,17 @@
   - *Virtuoso Software Licensing and Configuration User Guide*: `dfIIconfig.pdf`
   - 网页链接
 
-本文框架由 Perplexity Deep Research 完成，笔者审核与补充。
+本段落框架由 Perplexity Deep Research 完成，笔者审核与补充。
 
 ### 基本介绍
 
 Cadence Virtuoso 有一些默认的设置不是很方便，例如 VIVA 绘图默认背景颜色、线宽等，可以通过在启动 Virtuoso 后通过 load  `.cdsinit` 和 `.cdsenv` 来自动自定义配置。
 
-`.cdsinit` 文件是以 lisp 语言为基础，吸收了 Common Lisp 和 Scheme 两种 Lisp 方言特性的 SKILL 脚本，主要负责工具扩展模块的动态加载、快捷键绑定以及用户自定义函数的初始化[1](https://blog.csdn.net/weixin_44951108/article/details/133921228)[3](https://blog.csdn.net/LSTK_LAY/article/details/131250586)。典型的应用场景包括：
+`.cdsinit` 文件是一个 SKILL 脚本，主要负责工具扩展模块的动态加载、快捷键绑定以及用户自定义函数的初始化[1](https://blog.csdn.net/weixin_44951108/article/details/133921228)[3](https://blog.csdn.net/LSTK_LAY/article/details/131250586)。典型的应用场景包括：
 
-- 工艺设计套件(PDK)显示规则文件的自动加载
+- PDK 显示规则文件自动加载
 - 仿真器参数预配置
-- 版图验证工具集成
+- Calibre 工具集成
 
 `.cdsenv` 文件则采用 key-value pair 形式管理环境变量，控制工具的基础行为参数[1](https://blog.csdn.net/weixin_44951108/article/details/133921228)[6](https://www.dzsc.com/data/2007-4-30/29147.html)。其核心功能涵盖：
 
@@ -26,7 +98,7 @@ Cadence Virtuoso 有一些默认的设置不是很方便，例如 VIVA 绘图默
 
 两文件的协同工作机制体现在：`.cdsenv` 在 Virtuoso 启动初期加载，建立基础运行环境；`.cdsinit` **随后**执行，完成**高级**功能扩展与交互优化。
 
-### 文件路径与加载优先级
+### 文件路径和加载优先级
 
 Virtuoso 的配置体系采用分层管理策略，`.cdsinit`与`.cdsenv`作为用户级配置文件，在系统默认配置基础上实现个性化定制。
 
@@ -113,7 +185,7 @@ envGetVal(toolName variableName)
 labelHeight = envGetVal("layout" "labelHeight")
 ```
 
-##### 示例
+##### `.cdsenv` 示例
 
 一个大而全的 `.cdsenv` 配置示例（但有不少字段错误，需要人工核查）：
 
@@ -302,11 +374,16 @@ load("debug_toolkit.il")
 
 ```lisp
 envLoadFile("~/.cdsenv")                         ; 
+
 hiRegTimer("ddsOpenLibManager()" 1)              ; Delayed automatic opening of lib manager
 hiResizeWindow(window(1) list(100:150 1500:800)) ; Set the CIW window size, 400:150 and 1200:600 are the screen coordinates.
+
 hiSetFont("ciw"   ?size 16)                      ; CIW font size, greater than 16 is not recommended
 hiSetFont("text"  ?size 16)                      ; Toolbar and Menu font size, greater than 16 is not recommended
 hiSetFont("label" ?size 16)                      ; simulation font size, greater than 16 is not recommended
+
+hiSetBindKey("explorer"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hiSetBindKey("assembler" "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
 ```
 
 #### 常见问题
