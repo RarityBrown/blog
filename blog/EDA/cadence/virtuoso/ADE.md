@@ -20,7 +20,7 @@
   - 这个设置的上限不应多于 logical CPU cores (更为保守的做法是不多于 physical CPU cores)
   - 可使用 `lscpu | awk '/Core\(s\) per socket/{cores=$4} /Socket\(s\):/{sockets=$2} END{print cores * sockets}'` 来获取 physical CPU cores 数量
   - 关于 logical or physical CPU cores 和 hyperthreading 的内容，可参见 [1](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/40006/aps-better-hyperthreading-on-or-off-on-the-machine) [2](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/16464/hardware-for-best-simulation-performance) [3](https://community.cadence.com/cadence_blogs_8/b/cic/posts/spectre-optimizing-spectre-aps-performance) 
-- 可以将自己的 Job Policy 保存，例如保存为 `My_jobpolicy`，可以通过 [cdsevn](SKILL.md#cdsinit-and-cdsenv) 来实现每次启动 Virtuoso 时的自动设置。
+- 可以将自己的 Job Policy 保存，例如保存为 `My_jobpolicy`，可以通过 [cdsenv](SKILL.md#cdsinit-and-cdsenv) 来实现每次启动 Virtuoso 时的自动设置。
 - 其他一些选项，比如 IC6.1.8 引入的 LSCS (Large Scale Compute Server) 只有大公司里面才能用得到。
 
 ### 直接加快串行仿真速度
@@ -42,7 +42,7 @@
 ### 仿真数据导出与导入
 
 
-Virtuoso 中仿真数据默认存储位置由 asimenv.startup projectDir 这一环境变量设置，默认位置是 `~/simulation`。对于如何修改这一环境变量，以及如何把波形图背景设为白色，可以参考 [.cdsenv](#cdsinit_cdsenv.md) 这一篇小文章。
+Virtuoso 中仿真数据默认存储位置由 asimenv.startup projectDir 这一环境变量设置，默认位置是 `~/simulation`。对于如何修改这一环境变量，以及如何把波形图背景设为白色，可以参考 [cdsenv](SKILL.md#cdsinit-and-cdsenv) 这篇文章。
 
 在仿真结束后，Virtuoso Visualization & Analysis XL 会自动弹出结果，当我们把图中的每一条线都删除后，留下空白的 Visualization & Analysis XL 窗口：
 
