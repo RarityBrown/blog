@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时使用过程中，收集选择一些截至 2025 年 3 月的第一梯队 LLM (GPT4.5, Gemini 2 Pro, Sonnet 3.7, grok3, Sonnet 3.7 thinking, grok3 thinking, o1, o3-mini-high, r1, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些截至 2025 年 3 月的第一梯队 LLM (GPT4.5, Gemini 2 Pro, Sonnet 3.7 thinking, grok3 thinking, o1, o3-mini-high, r1, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
 
 ## 一些个人观点
 
@@ -39,6 +39,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 ![image](https://github.com/user-attachments/assets/522a1600-971b-4934-94b3-af8fa37a4ac6)
 
+
+2025/03/06：LLM 需要一个推理 FoM 值，类似于 $\log(1/\text{average end time}\cdot\text{average first token time}\cdot\text{average token})\cdot \text{Raw Performance}$ 之类的。QwQ 32B 的推理过程动辄消耗 2 万个 token，不比 preview 版好多少，仍然是刷榜的废物。Groq 之类的硬件加速方案还是有一定前途的，就等 Jensen 下场了。
 
 ## 题目列表
 
@@ -140,9 +142,11 @@ Recommend the three most significant and influential people in the analog EDA fi
 > 
 > Q: Apart from the Logitech MX Master, recommend **one** mouse with a side scroll wheel. Only the name is needed, no description.
 >
-> 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse
+> 参考答案：Kensington Pro Fit Ergo Vertical Wireless Trackball; Keychron M6 Wireless Mouse
+> 
+> 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse, Microsoft Surface Precision Mouse, MX Anywhere
 >
-> 正确情况：4oL 错, Sonnet 3.5 错
+> 正确情况：4oL 错, Sonnet 3.7 错错, Sonnet 3.7 thinking 错错
 
 > Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
 >
@@ -759,7 +763,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
 >
-> 正确情况： o1 对, 3-opus 半对, 2-flash-thinking 对对对对对, Gemini 2 Pro 半对
+> 正确情况： o1 对, 3-opus 半对, 2-flash-thinking 对对对对对, Gemini 2 Pro 半对; Sonnet 3.7 对对
 
 > Q: 理想 LC tank 有 τ 吗？从以下几方面思考 1. τ 的定义是什么？2. LC tank 是几阶系统？给出总计 30 个字以内的解答。
 >
@@ -786,6 +790,14 @@ npm install electron electron-builder --save-dev
 > 正确答案：对于 PMOS 输入的 5T-OTA 有 $\text{PSRR}_+\approx\dfrac{1}{2g_{m,\text{current mirror}}r_{o,\text{tail}}}  \qquad  \text{PSRR}_-=1$
 >
 > 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
+
+
+> Q: 普通的一个 PMOS 和一个 NMOS 的 CMOS inverter，和 Transistor Stacking (两个 PMOS 串联 + 两个 NMOS 串联，所有 MOSFET 的栅接在一起作为输入) 的 CMOS inverter 有什么区别？一句话总结最关键的内容。
+>
+> 参考答案：降低了 CMOS logic 的亚阈值漏电流（静态功耗/静态电流），但牺牲了开关速度和驱动能力（延迟和输入电容），并增加了面积。（增加了输出节点到电源/地的阻抗，提高了抗噪声能力？）
+>
+> 正确情况：Sonnet 3.7 对对对; Gemini 2 Pro 对; enigma 对; centaur 对
+
 
 #### 其他
 
@@ -839,6 +851,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：#EBDAE5, #EBDAE6, #ECDAE6?
 
+#### 纯数学问题
 
 > Q: 1145141919810 在任意数字之间插入 +- 使得等式 = 2025 (不用代码，不用过程，仅直接给出两种答案，给出答案后再检查一下正确性)  Insert + or - between the digits of 1145141919810 to make the equation equal to 2025. (No code, just provide two solutions directly. Check the correctness after giving the solutions.)  [ref] (https://www.zhihu.com/question/7671636421/answer/68993839512)
 >
@@ -868,9 +881,14 @@ npm install electron electron-builder --save-dev
 >
 > 本题可以充分测试 max output token (o3-mini 原生的 1M 确实是有用的)
 
- 撒地方撒地方即使对方就是 撒旦反抗 撒旦联发科撒地方  萨克砥砺奋进 撒旦联发科见识到了发  是拉动房价 撒旦反抗使得 撒旦萨拉丁反馈  是独立开发就山卡拉地方就  四点零分
 
+> Q: $V_{S2} = V_T\ln(\frac{1}{x})\quad\text{with}\quad x^{1/n} = \frac{L_2}{L_3}(1-x)$ 和 $V_{S2} = nV_T\ln(\frac{1}{x})\quad\text{with}\quad x^n + \frac{L_3}{L_2}x - 1 = 0$ 两个 $V_{S2}$ 的表达式等价吗？
+>
+> 正确答案：等价。令 $x_2=x_1^{1/n}$ 即可。
 
+> Q: Solve $y^n + \frac{L_3}{L_2}y - 1 = 0$ analytically, where $1<n<2$. Solution should not be numerical or approximate.
+>
+> 正确答案
 
 
 ### 批判性-推理问题
