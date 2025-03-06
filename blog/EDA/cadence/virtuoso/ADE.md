@@ -79,3 +79,12 @@ to ref:
 - [Spectre Tech Tips: Spectre APS Save Overview - Part 2 - Analog/Custom Design - Cadence Blogs - Cadence Community](https://community.cadence.com/cadence_blogs_8/b/cic/posts/spectre-tech-tips-spectre-aps-save-overview---part-2)
 - [将图形波形保存到 ADE-XL 视图中，就像频谱状态视图一样 - 定制 IC 设计 - Cadence Technology 论坛 - Cadence 社区](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/48458/save-graphical-waveforms-into-ade-xl-views-just-like-a-spectre-state-view)
 - [Virtuosity：在Virtuoso可视化和分析中阅读矢量文件 - 定制IC芯片设计 - Cadence Blogs - Cadence Community](https://community.cadence.com/cadence_blogs_8/b/ic-cn/posts/virtuosity-virtuoso)
+
+
+
+## 仿真类型
+
+### sp
+
+
+### pss
