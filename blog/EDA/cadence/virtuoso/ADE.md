@@ -80,7 +80,18 @@ to ref:
 - [将图形波形保存到 ADE-XL 视图中，就像频谱状态视图一样 - 定制 IC 设计 - Cadence Technology 论坛 - Cadence 社区](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/48458/save-graphical-waveforms-into-ade-xl-views-just-like-a-spectre-state-view)
 - [Virtuosity：在Virtuoso可视化和分析中阅读矢量文件 - 定制IC芯片设计 - Cadence Blogs - Cadence Community](https://community.cadence.com/cadence_blogs_8/b/ic-cn/posts/virtuosity-virtuoso)
 
+### 常见 bug
 
+所有 "Save" check box 都 check 了，但是只有 `signal` 类型的曲线可以绘出，`expr` 的曲线无法绘制。同时有概率报错：
+
+```
+ERROR (WIA-1175): Cannot plot waveform signals because no waveform data is available for plotting.
+One of the possible reasons can be that 'Save' check box for these signals are not selected in the Outputs Setup pane. Ensure that these check boxes are selected before you run the simulation.
+```
+
+![image](https://github.com/user-attachments/assets/68c3d8ab-794f-4f55-9af0-5470cba67a77)
+
+解决方案：这是将 `IT("/PM2/S")` 函数的变量名设置成 `/PM2/S` 后产生的 bug，将 Name 字段中的 `/PM2/S` 删去或改成其他任意字符。
 
 ## 仿真类型
 
