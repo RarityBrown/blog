@@ -851,7 +851,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：#EBDAE5, #EBDAE6, #ECDAE6?
 
-#### 纯数学问题
+#### 纯数学问题（主要考察 reasoning model）
 
 > Q: 1145141919810 在任意数字之间插入 +- 使得等式 = 2025 (不用代码，不用过程，仅直接给出两种答案，给出答案后再检查一下正确性)  Insert + or - between the digits of 1145141919810 to make the equation equal to 2025. (No code, just provide two solutions directly. Check the correctness after giving the solutions.)  [ref] (https://www.zhihu.com/question/7671636421/answer/68993839512)
 >
@@ -873,7 +873,7 @@ npm install electron electron-builder --save-dev
 > - 1145+1+41+9+19+810=2025 1145+1+41+919-81+0=2025
 > 
 > 人脑思路：
-> 1. 因为第一个1必是正号，所以其实就是通过五个1、两个4、一个5、一个8、两个9（不应该全部用上）来加减得到个位是 4 的一个数字，可以凑 4 + 0 , 14 + 0, 24 + 0, 34 + 0, 44 + 0
+> 1. 因为第一个1必是正号，所以其实就是通过五个1、两个4、一个5、一个8、两个9（所有数字不应全部用上）来加减得到个位是 4 的一个数字，可以凑 4 + 0 , 14 + 0, 24 + 0, 34 + 0, 44 + 0
 > 2. 
 > 
 > 
@@ -882,14 +882,48 @@ npm install electron electron-builder --save-dev
 > 本题可以充分测试 max output token (o3-mini 原生的 1M 确实是有用的)
 
 
+> Q: $\left[ \mu C_{ox} \frac{W}{L_2} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{S2} - V_{TH2}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_D - V_{S2}}{V_T} \right) \right)=\left[ \mu C_{ox} \frac{W}{L_3} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{TH3}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_{S2}}{V_T} \right) \right)$ 除了 $V_{S2}$ 不知道，别的都已知，且 $V_{TH2}=V_{TH3}=V_{TH}$ ，求 $V_{S2}$
+>
+> 正确答案：下一题
+
+
 > Q: $V_{S2} = V_T\ln(\frac{1}{x})\quad\text{with}\quad x^{1/n} = \frac{L_2}{L_3}(1-x)$ 和 $V_{S2} = nV_T\ln(\frac{1}{x})\quad\text{with}\quad x^n + \frac{L_3}{L_2}x - 1 = 0$ 两个 $V_{S2}$ 的表达式等价吗？
 >
 > 正确答案：等价。令 $x_2=x_1^{1/n}$ 即可。
 
-> Q: Solve $y^n + \frac{L_3}{L_2}y - 1 = 0$ analytically, where $1<n<2$. Solution should not be numerical or approximate.
->
-> 正确答案
 
+> Q: Solve $y^n + \frac{L_3}{L_2}y - 1 = 0$ analytically in a closed-form, where $1<n<2$. Solution should not be numerical nor approximate (such as series expansion). The solution does exist.
+>
+> Q: Given $x^n + ax - 1 = 0$, solve for $x$ in a closed-form analytically, where $1<n<2$. Solution should not be numerical nor approximate (such as series expansion). The solution does exist, but not in elementary functions.
+>
+> 正确?答案：$y=\left\{\frac{1}{\frac{L_3}{L_2}(n-1)}\,W\!\Biggl[\frac{n}{n-1}\Bigl(\frac{L_3}{L_2}\Bigr)^{-\frac{n}{n-1}}\Biggr]\right\}^{\frac1{n-1}}=1 - \frac{1}{n}\frac{L_3}{L_2} + \frac{(3-n)}{2n^2}\left(\frac{L_3}{L_2}\right)^2 - \frac{(n^2-5n+10)}{6n^3}\left(\frac{L_3}{L_2}\right)^3 + ...$
+>
+> 正确情况：grok3 thinking 不会; qwq 32b 不会; 
+
+
+> Q: What is the relationship between the transcendental equation $x=x^{m}+q$ and the Lambert W function?
+>
+> 正确答案：$x=\exp\left[-\frac{1}{m-1}\,W\!\left(-\frac{m-1}{m}\,q^{\frac{m}{m-1}}\right)\right]$
+>
+> 正确情况：o3-mini 对
+
+
+> Q: Are $x=\exp\left[-\frac{1}{m-1} W\left(-\frac{m-1}{m}q^{\frac{m}{m-1}}\right)\right]$ and $x = x^m + q$ equivalent?
+>
+> 正确答案：Yes
+>
+> 正确情况：o3-mini 对; Sonnet 3.7 对; grok 3 thinking 对
+>
+> - Set $t = -\frac{1}{m-1}W\left(-\frac{m-1}{m}q^{\frac{m}{m-1}}\right)$, so $x = e^t$.
+> - Substituting into $x = x^m + q$: $e^t - e^{mt} = q$
+> - If $W(z) = w$, then $z = we^w$: In our case, $W\left(-\frac{m-1}{m}q^{\frac{m}{m-1}}\right) = -(m-1)t$,  so: $-\frac{m-1}{m}q^{\frac{m}{m-1}} = -(m-1)t \cdot e^{-(m-1)t}$​
+> - Simplifying: $\frac{m-1}{m}q^{\frac{m}{m-1}} = (m-1)t \cdot e^{-(m-1)t}$
+> - Now, let's examine our equation $e^t - e^{mt} = q$: $e^t - e^{mt} = e^t(1 - e^{(m-1)t}) = q$
+> - Since $e^{(m-1)t} = (e^t)^{m-1} = x^{m-1}$, we have: $e^t(1 - x^{m-1}) = x - x^m = q$
+
+> Q: Given $y^n + \frac{L_3}{L_2}y - 1 = 0, \text{where} 1<n<2, 0.01<\frac{L_3}{L_2}<100$. How to approximate the analytical solution of $y$? The final approximate analytical solution should avoid case discussion and transcendental functions. Within the range of $1<n<2, 0.01<\frac{L_3}{L_2}<100$, the error of the approximate solution should be controlled within 5%, and the solution should be as concise as possible while ensuring accuracy.
+>
+> 参考答案：
 
 ### 批判性-推理问题
 
