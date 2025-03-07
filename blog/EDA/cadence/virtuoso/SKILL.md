@@ -23,6 +23,9 @@ SKILL++ 是一种增强型方言，具有词法作用域和一等函数等特性
 | **Operating System Access** | Direct                           | Indirect (via terminal)         | Varies, often direct for system   | Indirect, application-specific      |
 | **Example**                 | GNOME Terminal, Windows Terminal | Bash, PowerShell                | System console, app command line  | CIW window in Virtuoso              |
 
+CIW 中并不像 Bash 或 PowerShell 一样，可以使用 `clear` 命令清屏。因为 CIW 还有起到日志的作用，可以在 Options → Log Filter 中设置。常见的清屏手段是 `printf("\n\n\n\n\n\n\n\n\n\n")`
+
+
 ## 快捷键 bindkey
 
 在 Virtuoso 中，键盘快捷键被称作是 "bindkey"，这不同于一般软件开发中的 "shortcut" 或 "hotkey" 的称谓。我们以一个例子作为本段落的开场：
