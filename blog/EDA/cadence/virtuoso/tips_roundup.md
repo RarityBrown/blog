@@ -26,6 +26,7 @@
 - [通过 SKILL 切换 schematic 与 layout 的只读与编辑](https://www.xiaohongshu.com/user/profile/6345788e000000001802b944)
 - [通过 SKILL 实现无 GUI 的命令操作，以及自动化 streamout 的 GDS 导出](https://zhuanlan.zhihu.com/p/6010155066)
 - [Net trace manager 版图快速定位](https://zhuanlan.zhihu.com/p/13366999517)
+- [Layout 常见快捷键](https://zhuanlan.zhihu.com/p/28770741048)
 
 ## ADE
 
@@ -44,6 +45,7 @@
 - [`tran` 仿真结束后延长仿真时间，不重新从头开始仿真——“断点续仿”](https://zhuanlan.zhihu.com/p/142714596)
 - [`tran` 仿真时的 Dynamic Parameter](https://zhuanlan.zhihu.com/p/392505085)
   - [`tran` 仿真在需要的时间点开启 noise](https://zhuanlan.zhihu.com/p/9915953761)
+- [`tran` 仿真的过程中进行小信号相关的仿真](https://zhuanlan.zhihu.com/p/344932538)
 
 ### `pss`
 
