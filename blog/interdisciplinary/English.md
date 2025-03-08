@@ -79,3 +79,10 @@
 | Serotonin 血清素                | Serum (血清)                | 胺类          |
 | Dopamine 多巴胺                 | DOPA (多巴)                 | 胺类          |
 
+### 一些关于四肢的俗语
+
+- Hands down: 19世纪的赛马比赛，如果一个骑师在比赛中遥遥领先，确信自己能获胜，他就可以放松缰绳，把双手放下来（hands down），不再催促马匹冲刺。这表示胜利是如此的轻松和确定。表示某件事情毫无疑问
+- Break a leg: 表演前祝好运
+- Cost an arm and a leg: 非常昂贵
+- Get cold feet: 临阵退缩
+- Play it by ear: 见机行事
