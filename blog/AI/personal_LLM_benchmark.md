@@ -123,14 +123,13 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：1700 中心对称, 轴对称; 1700 中心对称, 轴对称; 1900 中心对称, 不轴对称
 
-> Q: 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献  
-Recommend the three most significant and influential people in the analog EDA field and the digital EDA field, respectively. Just list their names, without introducing their contributions.
+> Q: 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献. Recommend the three most significant and influential people in the analog EDA field and the digital EDA field, respectively. Just list their names, without introducing their contributions.
 >
-> 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Thomas Lee 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
+> 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Thomas Lee, Murmann 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
 >
-> 参考答案：Analog: **Donald O. Pederson (SPICE)**, Laurence(Larry) Nagel (SPICE), Arthur Richard Newton (SPICE), Ken Kundert (Spectre), Jacob K. White (Spectre); Digital: **Alberto Sangiovanni-Vincentelli**, Kurt Keutzer (Bell Labs, Synopsys, UCB), Aart de Geus (Synopsys), Robert K. Brayton (UCB), Hugo De Man(IMEC), Giovanni De Micheli, Robert K. Brayton 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
+> 参考答案：Analog: **Donald O. Pederson (SPICE)**, Laurence(Larry) Nagel (SPICE), Arthur Richard Newton (SPICE), Ronald A. Rohrer (SPICE),  Ken Kundert (Spectre), Jacob K. White (Spectre); Digital: **Alberto Sangiovanni-Vincentelli**, Kurt Keutzer (Bell Labs, Synopsys, UCB), Aart de Geus (Synopsys), Robert K. Brayton (UCB), Hugo De Man(IMEC), Giovanni De Micheli, Robert K. Brayton 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
 >
-> 正确情况：Sonnet 3.7 错; o1 错
+> 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错
 
 > Q: The release year of IC Compiler 2? When did ICC1 stop updating?
 > 
@@ -196,7 +195,7 @@ Recommend the three most significant and influential people in the analog EDA fi
 >
 > 正确情况：o3-mini-high 错
 
-> Q: Draw a cross using `\rule` in latex. The commands `\hfil`, `\vbox`, `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
+> Q: Draw a cross using `\rule` in latex. The commands `\hfil`, `\vbox`, `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\centerline`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
 >
 > 参考答案：
 > 
@@ -221,7 +220,7 @@ Recommend the three most significant and influential people in the analog EDA fi
 > 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错, grok3 对错; 4oL 错; o3-mini-high 错
 
 > Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but TikZ, `graphicx` or `calc` is not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
->
+> 
 > 参考答案：
 >
 > ```latex
@@ -243,7 +242,7 @@ Recommend the three most significant and influential people in the analog EDA fi
 >
 > 参考答案：`\pmb{\boldsymbol{\tau_{Y}}} \boldsymbol{\pmb{\tau_{Y}}}`
 >
-> 正确情况：4oL 错; grok3 错; o3-mini-high 错
+> 正确情况：4oL 错; grok3 错; o3-mini-high 错; Gemini 2 Pro 对
 
 ###### MathJax / KaTeX
 
@@ -630,7 +629,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：`A["Node with #quot;quotes#quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
 >
-> 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错; r1 错
+> 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错错; r1 错
 >
 > 思考：泛化和对齐未必是好事，也可能增加幻觉（gemini-exp-1114 小概率答对）；说“不会”的能力，目前主流方向是让模型强到没有不会的问题；模型应知道何时调用搜索，如何参考信源
 
@@ -679,7 +678,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：`Send('{{}``\``')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
 >
-> 正确情况：Gemini 2 Pro 错, o3-mini-high 错对错错, o3-mini 错错, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错
+> 正确情况：Gemini 2 Pro 错错, o3-mini-high 错对错错, o3-mini 错错, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错
 
 
 > Q: two ways to simplify this
