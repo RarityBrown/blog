@@ -57,3 +57,8 @@ annotation(fig, 'line', [x_norm x_norm], [0 1], 'LineStyle', '--');
 
 ![untitled](https://github.com/user-attachments/assets/29d92373-77a3-485f-8bd1-bb2ed205e869)
 
+
+
+## 绘图的一些碎碎念
+
+MATLAB 和 Matplotlib 的 2d 和 3d 交互式绘图因为历史原因都是基于纯 CPU 的，而没有 GPU OpenGL 加速。用惯了 GeoGebra，看惯了 3b1b manim 生成的视频后会非常不适应。VisPy 是一个解决方案，但是创建于 2015 年的它还没有成为主流。
