@@ -715,7 +715,25 @@ npm install electron electron-builder --save-dev
 > ```
 
 
-#### Assembly
+##### PowerShell
+
+> Q: How to create a clipboard entry and specify the data type as `text/html` (implemented in PowerShell)? For example, the string "<html><body><sub>x</sub></body></html>", if I copy it directly in the Notepad, I get a `text/plain` clipboard entry.
+>
+> 正确答案：[CF_HTML](https://learn.microsoft.com/en-us/windows/win32/dataxchg/html-clipboard-format) header info + [System.Windows.Forms.Clipboard Class](https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.clipboard) 实现。
+>
+> 参考答案（最简实现）：
+>
+> ```powershell
+> Add-Type -AssemblyName System.Windows.Forms
+> 
+> # Note: The HTML/mime specification requires <!--StartFragment--> and <!--EndFragment-->
+> $html = "<html><body><!--StartFragment--><sub>x</sub><!--EndFragment--></body></html>"
+> 
+> # Place the string on the clipboard using the "HTML Format" identifier:
+> [System.Windows.Forms.Clipboard]::SetData("HTML Format", $html)
+> ```
+
+##### Assembly
 
 
 > Q: `.long   -1559429120` to hex
