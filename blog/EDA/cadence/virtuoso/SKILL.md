@@ -229,8 +229,8 @@ graphic cursorStyle string "cross"         ; 十字光标样式
 
 
 ;;;;;;;;;;;;;;;;;; schematic 
-schematic srcSolderOnCrossover cyclic "ignored")  ; ignore cross over of wires in schematic
-schematic srcInstOverlapValue  int    30)         ; default = 10
+schematic srcSolderOnCrossover cyclic "ignored"   ; ignore cross over of wires in schematic
+schematic srcInstOverlapValue  int    30          ; default = 10
 schematic schDynamicNetHilightColorMemNet string "black"
 schematic srcSolderOnCrossover cyclic "ignored"  ; ignore cross over of wires in schematic
 schematic srcInstOverlapValue int 30  ; default = 10
@@ -312,7 +312,7 @@ viva.axis            font             string  "Default,15,-1,5,75,0,0,0,0,0"
 viva.traceLegend     font             string  "Default,15,-1,5,75,0,0,0,0,0"
 
 ;;;;;;;;;;;;;;;;;; 
-; ui defaultEditorBackgroundColor string "white"   ; todo
+ui    defaultEditorBackgroundColor    string  "#2f2f2f"       ; to try
 
 
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
