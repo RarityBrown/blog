@@ -111,13 +111,13 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > 
 > 典型错误：复交同师。基本上只取决对于中文互联网上知识的爬取深入程度和清洗的合理程度，因为这个靠多语言能力翻译没用，同时含有“四校八大”相关的网页内容往往是低质量的。
 > 
-> 正确情况：4oL 对; Sonnet 3.5 错; Gemini 2 Pro 对; 
+> 正确情况：4oL 对; Sonnet 3.5 错错; Gemini 2 Pro 对; 
 
 > Q: 顺尔宁是 NSAIDs 吗？泰诺呢？开瑞坦呢？双氯芬酸呢？右美沙芬呢？简单回答，即类似于“是、不是、不是、不是、是”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
 >
 > 正确答案：不是、不是、不是、是、不是。类似地，取决于中文语料，多语言能力翻译没用。这题可以看出不管是开源还是闭源的模型都有明显蒸馏其他家的模型，对于“顺尔宁”这一项的错误认知往往是“顺尔宁就是布洛芬”
 >
-> 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错; o3-mini-high 对
+> 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
 
 > Q: 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
 >
@@ -125,11 +125,11 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 > Q: 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献. Recommend the three most significant and influential people in the analog EDA field and the digital EDA field, respectively. Just list their names, without introducing their contributions.
 >
-> 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Thomas Lee, Murmann 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
+> 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Thomas Lee, Murmann, Willy 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
 >
-> 参考答案：Analog: **Donald O. Pederson (SPICE)**, Laurence(Larry) Nagel (SPICE), Arthur Richard Newton (SPICE), Ronald A. Rohrer (SPICE),  Ken Kundert (Spectre), Jacob K. White (Spectre); Digital: **Alberto Sangiovanni-Vincentelli**, Kurt Keutzer (Bell Labs, Synopsys, UCB), Aart de Geus (Synopsys), Robert K. Brayton (UCB), Hugo De Man(IMEC), Giovanni De Micheli, Robert K. Brayton 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
+> 参考答案：Analog: **Donald O. Pederson (SPICE)**, Laurence(Larry) Nagel (SPICE), Arthur Richard Newton (SPICE), Ronald A. Rohrer (SPICE),  Ken Kundert (Spectre), Jacob K. White (Spectre), Rob A. Rutenbar, Georges Gielen, ; Digital: **Alberto Sangiovanni-Vincentelli**, Kurt Keutzer (Bell Labs, Synopsys, UCB), Aart de Geus (Synopsys), Robert K. Brayton (UCB), Hugo De Man(IMEC), Giovanni De Micheli, Robert K. Brayton, Ernest S. Kuh (葛守仁) 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
 >
-> 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错
+> 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错错
 
 > Q: The release year of IC Compiler 2? When did ICC1 stop updating?
 > 
@@ -145,7 +145,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > 
 > 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse, Microsoft Surface Precision Mouse, MX Anywhere
 >
-> 正确情况：4oL 错, Sonnet 3.7 错错, Sonnet 3.7 thinking 错错
+> 正确情况：4oL 错, Sonnet 3.7 错错, Sonnet 3.7 thinking 错错, GPT4.5 错
 
 > Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
 >
@@ -808,6 +808,11 @@ npm install electron electron-builder --save-dev
 >
 > 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
 
+> Q: NMOS + 一个电阻的 source follower 的 $A_{V_{DD}}$ 是多少？不考虑体效应，但是考虑 CLM
+>
+> 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$
+>
+> 正确情况：o3-mini-high 对
 
 > Q: 普通的一个 PMOS 和一个 NMOS 的 CMOS inverter，和 Transistor Stacking (两个 PMOS 串联 + 两个 NMOS 串联，所有 MOSFET 的栅接在一起作为输入) 的 CMOS inverter 有什么区别？一句话总结最关键的内容。
 >
@@ -825,7 +830,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：都可以
 >
-> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错), 4oL 错, 2-flash-thinking 错错错, o1 错, Gemini 2 Pro 错错, grok3 错错错, r1 错
+> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错), 4oL 错, 2-flash-thinking 错错错, o1 错, Gemini 2 Pro 错错, grok3 错错错, r1 错, GPT4.5 错
 
 ### 推理问题
 
@@ -853,7 +858,6 @@ npm install electron electron-builder --save-dev
 > 典型错误：4-bit 的 serial shift regs。因为 module 名称也具有误导性。
 > 
 > 正确答案：因为是阻塞赋值，其实是一个 A = E 的 1-bit DFF
-
 
 > Q: 1 fJ 的能量可以使一个质子加速到多少速度？1 nJ 呢？如果是对于光子呢？ 1 fJ of energy can accelerate a proton to what speed? What about 1 nJ? And what about for photons?
 >
@@ -915,7 +919,7 @@ npm install electron electron-builder --save-dev
 >
 > 正确?答案：$y=\left\{\frac{1}{\frac{L_3}{L_2}(n-1)}\,W\!\Biggl[\frac{n}{n-1}\Bigl(\frac{L_3}{L_2}\Bigr)^{-\frac{n}{n-1}}\Biggr]\right\}^{\frac1{n-1}}=1 - \frac{1}{n}\frac{L_3}{L_2} + \frac{(3-n)}{2n^2}\left(\frac{L_3}{L_2}\right)^2 - \frac{(n^2-5n+10)}{6n^3}\left(\frac{L_3}{L_2}\right)^3 + ...$
 >
-> 正确情况：grok3 thinking 不会; qwq 32b 不会; 
+> 正确情况：grok3 thinking 不会; qwq 32b 不会; o3-mini 对
 
 
 > Q: What is the relationship between the transcendental equation $x=x^{m}+q$ and the Lambert W function?
@@ -999,6 +1003,12 @@ npm install electron electron-builder --save-dev
 > 
 > 正确情况：Sonnet 3.5 对, Gemini 2 Pro 错错错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL 错错, 3-opus 对, 2-flash-thinking 对
 
+
+> Q: 试推导 MOSFET 的亚阈值 $r_o=\frac{V_T}{I_{d}} \exp(\frac{V_{ds}}{V_T}-1)$, 其中 $I_d$ 是 MOSFET 目前的亚阈值电流
+>
+> 正确答案：公式就是不对的，应当为 $\frac{V_T}{I_{d}} \left( \exp(\frac{V_{ds}}{V_T})-1 \right)$
+>
+> 正确情况：2-flash-thinking 对; Sonnet 3.7 thinking 对; o3-mini 对但没指出错误
 
 ## 评测的小 ideas
 
