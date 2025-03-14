@@ -1,13 +1,37 @@
 
 Deep Research & Deep Search
 
-|                                                              |             |      |
-| ------------------------------------------------------------ | ----------- | ---- |
-| Perplexity                                                   |             |      |
-| Grok                                                         |             |      |
-| [Genspark](https://www.genspark.ai/agents?type=moa_deep_research) |             |      |
-| [STORM](https://storm.genie.stanford.edu/)                   |             |      |
-| [Jina AI](https://search.jina.ai/)                           | Deep Search |      |
+|                                                              |               |      |
+| ------------------------------------------------------------ | ------------- | ---- |
+| [Gemini](https://gemini.google.com/app)                      | Deep Research |      |
+| Perplexity                                                   | Deep Research |      |
+| [Genspark](https://www.genspark.ai/agents?type=moa_deep_research) | Deep Research |      |
+| [STORM](https://storm.genie.stanford.edu/)                   | Deep Research |      |
+| Grok                                                         | Deep Search   |      |
+| [Jina AI](https://search.jina.ai/)                           | Deep Search   |      |
+
+> Alternatives to OpenAI's Deep Research apart from Grok, Gemini, Perplexity and open-source alternatives.
+
+```mermaid
+quadrantChart
+    title Deep Search & Deep Research
+    x-axis High Hallucination --> Low Hallucination
+    y-axis Shollow --> Deep
+    
+    quadrant-1 Great!
+    quadrant-2 ?
+    quadrant-3 Bad
+    quadrant-4 Daily Searching
+    
+    Grok DS: [0.65, 0.55]
+    Perplexity Pro: [0.7, 0.3]
+    Perplexity DR: [0.1, 0.6]
+    Jina AI DS: [0.8, 0.40]
+    
+    Genspark DR: [0.45, 0.62]
+    STORM DR: [0.45, 0.5]
+    Gemini DR: [0.6, 0.65]
+```
 
 
 free LLMs
