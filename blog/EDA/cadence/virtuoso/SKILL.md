@@ -1,4 +1,4 @@
-# SKILL & OCEAN
+# SKILL & SKILL++ & OCEAN
 
 TLDR: 
 
@@ -10,6 +10,9 @@ Cadence 家的工具几乎所有 API 都基于 SKILL 语言开发，SKILL 是以
 SKILL++ 是一种增强型方言，具有词法作用域和一等函数等特性，进一步说明了 .il 扩展名的上下文。SKILL++ 代码通常使用 `.ils` 扩展名来表示 Lisp-1 语义，而传统的 SKILL 则保留 `.il`。这种分叉允许开发人员选择适合其任务的范例——词法作用域用于模块化代码（SKILL++），动态作用域用于快速原型设计（传统SKILL）。
 
 选用 lisp 的原因除了历史原因，可能也包括 lisp 的数值计算能力，例如 [LdBeth](https://www.zhihu.com/question/622919986/answer/3222931638) 提到的 $\operatorname{atanh}(1.2 + 20000000i)=\frac{\pi}{2}j$ 这一计算精度问题。
+
+> [!NOTE]
+> YouTube 上有基于 IC6.1.8 的官方培训 SKILL [视频](https://www.youtube.com/playlist?list=PLjRIBQDeKyRqWp8Uyk6gIYmRSE2ltCX3s)，可以说是公开内容中最好的 SKILL 培训资料。
 
 ## CIW (Command Interpreter Window)
 
@@ -312,7 +315,7 @@ viva.axis            font             string  "Default,15,-1,5,75,0,0,0,0,0"
 viva.traceLegend     font             string  "Default,15,-1,5,75,0,0,0,0,0"
 
 ;;;;;;;;;;;;;;;;;; 
-ui    defaultEditorBackgroundColor    string  "#2f2f2f"       ; to try
+ui    defaultEditorBackgroundColor    string  "#2F2F2F"       ; schematic / layout black background to gray
 
 
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
@@ -432,4 +435,288 @@ hiSetBindKey("assembler" "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessi
 ### 利用 `.cdsinit` 实现 Calibre 集成
 
 todo
+
+
+## Calculator 中的 SKILL
+
+### 示例：两点一线
+
+> [参考](https://community.cadence.com/cadence_technology_forums/f/mixed-signal-design/38553/straight-line-best-fit-using-viva-calculator)
+
+我们还是以一个简单的[例子](https://community.cadence.com/cadence_technology_forums/f/mixed-signal-design/38553/straight-line-best-fit-using-viva-calculator/1355129)作为开场，比如我们对反相器的转移特性曲线进行了扫描，想要在曲线图中加一条直线，连接这条转移特性曲线的开头和结尾。我们先着重关注有注释解释的代码，暂未注释的代码在后文会继续解释（以下均代码由 Virtuoso 的资深工程师 Andrew Beckett 撰写）：
+
+```lisp
+; Output a waveform which just contains the first and last points of the input waveform. 
+
+; def a func called abFirstLastLine, takes one `waveform` object as input
+(defun abFirstLastLine (wave)
+
+; `cond` statement to check the type of the input
+  (cond
+
+; If `wave` is a `waveform` object
+    ((drIsWaveform wave)
+     (let (xVec yVec newXVec newYVec len newWave)
+       (setq xVec (drGetWaveformXVec wave))
+       (setq yVec (drGetWaveformYVec wave))
+       (setq len (drVectorLength xVec))
+       (setq newXVec (drCreateVec 'double 2))
+       (setq newYVec (drCreateVec 'double 2))
+       (drAddElem newXVec (drGetElem xVec 0))
+       (drAddElem newXVec (drGetElem xVec (sub1 len)))
+       (drAddElem newYVec (drGetElem yVec 0))
+       (drAddElem newYVec (drGetElem yVec (sub1 len)))
+       (putpropq newXVec (getq xVec units) units)
+       (putpropq newXVec (getq xVec name) name)
+       (putpropq newYVec (getq yVec units) units)
+       (putpropq newYVec (getq yVec name) name)
+       (setq newWave (drCreateWaveform newXVec newYVec))
+       (famSetExpr newWave `(abFirstLastLine ,(famGetExpr wave)))
+       newWave
+       )
+     )
+      
+; If `wave` is a family of waveforms
+    ((famIsFamily wave)
+     (famMap 'abFirstLastLine wave)
+     )
+
+; Otherwise (if `wave` is neither a waveform nor a family)
+    (t
+      (error "abFirstLastLine: cannot handle %L\n" wave)
+      )
+    )
+  )
+```
+
+#### 基本语法：`defun`, `cond`
+
+在这其中，我们主要学习两条最主要的语法：`defun` 用于定义函数；`cond` 用于 if 判断。我们可以写出一段使用 `defun` 和 `cond` 这两条 lisp 语法的 Hello World:
+
+```lisp
+(defun greet (name)
+  (cond
+    ((equal name "Alice") 
+     (print "Hello, Alice!")
+     )
+    ((equal name "Bob") 
+     (print "Hi, Bob!")
+     )
+    (t          ; 't' 代表 "true"，是默认情况
+     (print "Hello, stranger!")
+     )
+  )
+) 
+
+(greet "Alice")  ; 输出: Hello, Alice!
+(greet "Bob")    ; 输出: Hi, Bob!
+(greet "Charlie"); 输出: Hello, stranger!
+```
+
+其在 python 中的等效是：
+
+```python
+def greet(name):
+  if name == "Alice":
+    print("Hello, Alice!")
+  elif name == "Bob":
+    print("Hi, Bob!")
+  else:
+    print("Hello, stranger!")
+
+greet("Alice")
+greet("Bob")
+greet("Charlie")
+```
+
+把这一段 SKILL 代码命名成 `greet.il` 后，在 CIW 输入 `load("greet.il")` 执行，会输出：
+
+```lisp
+load("test.il")
+function greet redefined
+"Hello, Alice!""Hi, Bob!""Hello, stranger!"
+t
+```
+
+我们可以改动 `defun` → `procedure`, `cond` → `case` 以及 `print` → `printf` 实现类似的效果：
+
+```lisp
+(procedure (greet name)
+  (case name
+    ("Alice" (printf "Hello, Alice!\n")    )
+    ("Bob"   (printf "Hi, Bob!\n")         )
+    (t       (printf "Hello, stranger!\n") )
+  )
+)
+```
+
+#### 变量设置：`set`, `let`
+
+
+ `let` 和 `setq` 是用来给变量赋值的：
+
+```lisp
+(set 'a 5)  ; 将符号 a 赋值为 5, " ' " 用于防止 a 被求值
+a           ; 返回 5
+
+(setq b 10)           ; 将 b 赋值为 10 (set Quoted)
+(setq c 20 d 30)      ; 同时给 c 和 d 赋值
+b  ; 返回 10
+c  ; 返回 20
+d  ; 返回 30
+
+(let ((x 10)
+      (y 20))
+  (+ x y))  ; 块内 x 和 y 分别取 10 和 20，结果返回 30
+```
+
+再回到之前的代码：
+
+```lisp
+;; Declare local variables to store vectors, their lengths, and the new waveform
+(let (xVec yVec newXVec newYVec len newWave) 
+
+  ;; Assign the x-vector, y-vector of the input waveform 'wave' to xVec, yVec
+  (setq xVec (drGetWaveformXVec wave))
+  (setq yVec (drGetWaveformYVec wave))
+     
+  ;; Get the length (number of elements) of xVec and assign it to len
+  (setq len (drVectorLength xVec))
+
+  ;; Create two empty double-precision vector with a length of 2, assign it to newXVec, newYVec
+  (setq newXVec (drCreateVec 'double 2))
+  (setq newYVec (drCreateVec 'double 2))
+     
+  ;; Add the first (index 0) and last (index len-1) elements of xVec/yVec to newXVec/newYVec
+  (drAddElem newXVec (drGetElem xVec 0))
+  (drAddElem newXVec (drGetElem xVec (sub1 len)))
+  (drAddElem newYVec (drGetElem yVec 0))
+  (drAddElem newYVec (drGetElem yVec (sub1 len)))
+
+  ;; Copy the 'units' and 'name' from the original xVec/yVec to newXVec/newYVec
+  (putpropq newXVec (getq xVec units) units)
+  (putpropq newXVec (getq xVec name ) name )
+  (putpropq newYVec (getq yVec units) units)
+  (putpropq newYVec (getq yVec name ) name )
+
+  ;; Create a new waveform 'newWave' object consisting of new X and Y vectors
+  (setq newWave (drCreateWaveform newXVec newYVec))
+
+  ;; See below
+  (famSetExpr newWave `(abFirstLastLine ,(famGetExpr wave)))
+
+  ;; Return the newly created waveform 'newWave' object
+  newWave
+)
+```
+
+其中有 `famSetExpr` 和 `famGetExpr` 两函数，`fam` 的前缀的意思是 family。在 Virtuoso 中，有四种 strip [分类方式](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-organizing-waveform-families)：trace, 特定的扫描变量, family, leaf。具体可以点击链接查看官方介绍。此处我们只需知道  `famSetExpr` 和 `famGetExpr` 两函数是对波形族 (family) 操作的。同时，因为这两个函数是 [private](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/23155/plotting-within-foreach-loop/1313226) 的，在 SKILL API Finder 中不可见，所以我们只能通过 Andrew Beckett 在 Cadence Community 中发的帖子来推断这两个函数的 arguments 和 return：
+
+- **famSetExpr(waveform1, `waveform2)**
+  - Arguments:
+    - `waveform1`: A waveform object to be set.
+    - `waveform2`: A waveform string? object?
+- **famGetExpr(waveform)**
+  - Arguments:
+    - `waveform`: A waveform object.
+  - Return:
+    - `waveform`: Returns a waveform string? object?
+
+#### calculator 中的惯例写法
+
+加上 GUI builder information，整段代码就成形了：
+
+```lisp
+/* abFirstLastLine.il
+
+Author     A.D.Beckett
+Group      Custom IC (UK), Cadence Design Systems Ltd.
+Language   SKILL
+Date       May 16, 2018 
+Modified   
+By         
+
+Construct a line between first and last points in waveform.
+Not a best fit - just a simple line consisting of just the first
+and last points.
+
+Includes function template so this can be added to the calculator
+with the "fx" button in the calculator function panel.
+
+***************************************************
+
+SCCS Info: @(#) abFirstLastLine.il 05/16/18.22:55:10 1.1
+
+*/
+
+/*********************************************************************
+*                                                                    *
+*                       (abFirstLastLine wave)                       *
+*                                                                    *
+* Output a waveform which just contains the first and last points of *
+*                        the input waveform.                         *
+*                                                                    *
+*********************************************************************/
+(defun abFirstLastLine (wave)
+  (cond
+    ((drIsWaveform wave)
+     (let (xVec yVec newXVec newYVec len newWave)
+       (setq xVec (drGetWaveformXVec wave))
+       (setq yVec (drGetWaveformYVec wave))
+       (setq len (drVectorLength xVec))
+       (setq newXVec (drCreateVec 'double 2))
+       (setq newYVec (drCreateVec 'double 2))
+       (drAddElem newXVec (drGetElem xVec 0))
+       (drAddElem newXVec (drGetElem xVec (sub1 len)))
+       (drAddElem newYVec (drGetElem yVec 0))
+       (drAddElem newYVec (drGetElem yVec (sub1 len)))
+       ;-----------------------------------------------------------------
+       ; Sort out attributes for new waveform to match input
+       ;-----------------------------------------------------------------
+       (putpropq newXVec (getq xVec units) units)
+       (putpropq newXVec (getq xVec name) name)
+       (putpropq newYVec (getq yVec units) units)
+       (putpropq newYVec (getq yVec name) name)
+       (setq newWave (drCreateWaveform newXVec newYVec))
+       (famSetExpr newWave `(abFirstLastLine ,(famGetExpr wave)))
+       newWave
+       )
+     )
+    ((famIsFamily wave)
+     (famMap 'abFirstLastLine wave)
+     )
+    (t
+      (error "abFirstLastLine: cannot handle %L\n" wave)
+      )
+    )
+  )
+
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;; GUI builder information ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ocnmRegGUIBuilder(
+ '(nil
+  function abFirstLastLine
+  name abFirstLastLine
+  description "Create line between first and last points"
+  category ("Custom Functions")
+  analysis (nil
+      general (nil
+        args (wave )
+          signals (nil
+                wave (nil
+                      prompt "Waveform"
+                      tooltip "Waveform"
+                      )
+           )
+          params(nil
+          )
+        inputrange t
+      )
+  )
+  outputs(result)
+ )
+)
+```
+
+### 示例：曲线拟合
 
