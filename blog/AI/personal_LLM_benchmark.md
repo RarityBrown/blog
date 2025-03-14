@@ -735,7 +735,6 @@ npm install electron electron-builder --save-dev
 
 ##### Assembly
 
-
 > Q: `.long   -1559429120` to hex
 >
 > 正确答案：`0xA30D0000`
@@ -757,6 +756,54 @@ npm install electron electron-builder --save-dev
 >
 > 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错
 
+### Lisp (Cadence SKILL)
+
+```python
+def greet(name):
+  if name == "Alice":
+    print("Hello, Alice!")
+  elif name == "Bob":
+    print("Hi, Bob!")
+  else:
+    print("Hello, stranger!")
+
+greet("Alice")
+greet("Bob")
+greet("Charlie")
+```
+
+refactor to Cadence Virtuoso SKILL
+
+> 参考答案：
+> 
+> ```lisp
+> (defun greet (name)
+>   (cond
+>     ((equal name "Alice") 
+>      (print "Hello, Alice!")
+>      )
+>     ((equal name "Bob") 
+>      (print "Hi, Bob!")
+>      )
+>     (t
+>      (print "Hello, stranger!")
+>      )
+>   )
+> ) 
+> (procedure (greet name)
+>   (case name
+>     ("Alice" (printf "Hello, Alice!\n")    )
+>     ("Bob"   (printf "Hi, Bob!\n")         )
+>     (t       (printf "Hello, stranger!\n") )
+>   )
+> )
+> 
+> (greet "Alice")
+> (greet "Bob")
+> (greet "Charlie")
+> ```
+>
+> 正确情况：Gemini 2 Pro 错; r1 对; grok-3 对
 
 
 #### 专业相关问题
