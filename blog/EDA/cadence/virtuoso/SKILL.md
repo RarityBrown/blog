@@ -2,7 +2,7 @@
 
 TLDR: 
 
-## SKILL 和 Lisp 的基本介绍 
+## Lisp, SKILL 和 OCEAN 的基本介绍 
 
 Cadence 家的工具几乎所有 API 都基于 SKILL 语言开发，SKILL 是以 Lisp 语言为基础，吸收了 Common Lisp 和 Scheme 两种 Lisp 方言特性的脚本语言。部分 SKILL 脚本以 `.il` 为 file extension name，`.il` 扩展名的起源可以追溯到该语言的前身 **IL (Interface Language)**。最初，开发 IL 语言是创建 silicon compilers 脚本接口的一部分，其早期名称 SCIL (Silicon Compiler Interface Language) 即由此缩写而来。这个名字发音为“SKIL”，逐渐演变为 **SKILL**。Cadence 官方澄清说，“SKILL”不是首字母缩略词，而是一个注册商标名称，尽管它的血统仍然与 SCIL 和 IL 相关，同时 IL 的历史可能早于 Cadence 成立的时间。从 IL 到 SKILL 的转变标志着该语言角色的转变——从低级接口到全面的 API 和脚本框架。尽管进行了品牌重塑，但 `.il` 扩展名仍然作为 SKILL 源文件的传统约定而存在，反映了它在接口语言时代的根源。
 
@@ -13,6 +13,10 @@ SKILL++ 是一种增强型方言，具有词法作用域和一等函数等特性
 
 > [!NOTE]
 > YouTube 上有基于 IC6.1.8 的官方培训 SKILL [视频](https://www.youtube.com/playlist?list=PLjRIBQDeKyRqWp8Uyk6gIYmRSE2ltCX3s)，可以说是公开内容中最好的 SKILL 培训资料。
+
+OCEAN 是专门用于 Virtuoso ADE 仿真和分析的 SKILL 子函数集。OCEAN 专注于仿真任务，如运行多工艺角仿真、预/后仿真处理、批处理仿真、管理输出结果。仿真后的数据分析可以使用 Calculator，也可以通过 OCEAN 自动化完成在 Calculator 中需要手动完成的任务。所以 Calculator 中的所有函数的帮助文档其实都在 `oceanref.pdf` 中。
+
+
 
 ## CIW (Command Interpreter Window)
 
@@ -437,7 +441,13 @@ hiSetBindKey("assembler" "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessi
 todo
 
 
-## Calculator 中的 SKILL
+## Calculator 中的 SKILL (OCEAN)
+
+### 文档
+
+
+
+https://zhuanlan.zhihu.com/p/27786161
 
 ### 示例：两点一线
 
@@ -717,6 +727,10 @@ ocnmRegGUIBuilder(
  )
 )
 ```
+
+### SKILL 基本语法
+
+[SKILL 语言入门](https://www.cnblogs.com/yeungchie/p/skill_tutorial.html)
 
 ### 示例：曲线拟合
 
