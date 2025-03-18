@@ -6,6 +6,10 @@
 - [用 `.scs` 文件实现批量引用同一工艺角下的 mos, res, cap](https://zhuanlan.zhihu.com/p/588659964)
 - [用 `.scs` 文件保存 model 批量引用](https://blog.csdn.net/qq_33599939/article/details/122505894#11scsmodel_19)
 
+### analogLib & rfLib
+
+
+
 ### SKILL &  `.cshrc`, `.cdsinit`, `.cdsenv`
 
 [SKILL for the Skilled: What is SKILL++? Cadence Blogs](https://community.cadence.com/cadence_blogs_8/b/cic/posts/skill-for-the-skilled-what-is-skill)
