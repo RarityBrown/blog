@@ -119,7 +119,7 @@ Striving for small-signal stability - Loop-Based and Device-Based Algorithms for
   - 可使用 `lscpu | awk '/Core\(s\) per socket/{cores=$4} /Socket\(s\):/{sockets=$2} END{print cores * sockets}'` 来获取 physical CPU cores 数量
   - 关于 logical or physical CPU cores 和 hyperthreading 的内容，可参见 [1](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/40006/aps-better-hyperthreading-on-or-off-on-the-machine) [2](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/16464/hardware-for-best-simulation-performance) [3](https://community.cadence.com/cadence_blogs_8/b/cic/posts/spectre-optimizing-spectre-aps-performance) 
 - 可以将自己的 Job Policy 保存，例如保存为 `My_jobpolicy`，可以通过 [cdsenv](SKILL.md#cdsinit-and-cdsenv) 来实现每次启动 Virtuoso 时的自动设置。
-- 其他一些选项，比如 IC6.1.8 引入的 LSCS (Large Scale Compute Server) 只有大公司里面才能用得到。
+- 其他一些选项，比如 IC6.1.8 引入的 LSCS (Large Scale Compute Server) 只有大公司里面才能用得到。[3](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-part-1-let-s-have-fun-with-ade-debugging)
 
 ### 直接加快串行仿真速度
 
