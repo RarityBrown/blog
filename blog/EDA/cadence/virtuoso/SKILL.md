@@ -795,7 +795,71 @@ ocnmRegGUIBuilder(
 
 ### SKILL 基本语法
 
-[SKILL 语言入门](https://www.cnblogs.com/yeungchie/p/skill_tutorial.html)
+> [SKILL 语言入门](https://www.cnblogs.com/yeungchie/p/skill_tutorial.html) by yeungchie
+> `skdfref.pdf`: Virtuoso Design Environment SKILL Reference
+
+获取函数帮助：`help(asiGetSession)`
+
+todo: 
+
+
+```text
+> Search "asiGetSession", "asiGetCurrentSession", "asiGetOutputList", "asiGetTopCellView", "asiGetDesignVarList", "asiSaveState" "asiInitAnalysis" and "asiGetFormatter" with quotes separately. 
+> Answer in Chinese.
+
+在 Virtuoso 中，存在两个主要的会话层次 [ref](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/56802/difference-between-asigetsession-sevsession-and-sevenvironment-sevsession/1388501)：
+
+1. **asiSession** (**A**nalog **S**imulation **I**nterface Session)：用于底层的模拟器集成接口
+   - `asiGetSession` 函数
+     - 用于从 GUI 层获取底层的 ASI 会话
+     - 传入 ASI 的 session 名称作为参数；不支持 SEV 的 session 作为参数，如 `sevSession` （返回当前会话，而不是预期的会话）
+   - `asiGetCurrentSession` 函数
+     - 获取当前活动的 ASI 会话，不需要任何参数
+     - 如果没有活动的 asi session，返回 `nil`
+   - asiGetTopCellView
+   - asiGetOutputList
+   - asiGetDesignVarList
+   - asiSaveState
+   - asiInitAnalysis
+   - asiGetFormatter
+2. **sevSession** (**S**imulation **E**n**v**ironment Session)：用于 GUI 的 ADE
+   - 使用 `sevEnvironment` 函数来获取与 `sevSession` 相关联的 ASI 会话
+
+
+Human Interface [ref](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/50958/whats-the-difference-between-le-commands-and-hi-commands) [hi App Forms](https://community.cadence.com/cadence_blogs_8/b/cic/posts/skill-for-the-skilled-skill-and-hi-app-forms)
+
+- Form 类
+  - 创建表单:
+    - hiCreateAppForm() - 创建应用程序表单
+    - hiCreateSimpleForm() - 创建简单表单
+    - hiCreateOptionsForm() - 创建选项表单
+  - 显示表单:
+    - hiDisplayForm() - 显示表单
+    - hiDisplayFormType() - 显示特定类型的表单
+  - 关闭表单:
+    - hiFormClose() - 关闭表单
+    - hiFormDone() - 完成并关闭表单
+  - 获取表单信息:
+    - hiGetCurrentForm() - 获取当前活动表单
+    - `(hiGetCurrentForm()->hiFormSym)` will return the symbol of the current form
+    - ?hiGetFormField() - 获取表单字段
+    - ?hiGetFormFieldList() - 获取表单字段列表
+  - 设置表单字段:
+    - hiSetFormField() - 设置表单字段值
+    - hiFormSetFieldEditable() - 设置字段是否可编辑
+    - hiFormSetFieldVisible() - 设置字段是否可见
+  - 表单回调:
+    - hiFormSetCallback() - 设置表单回调函数
+    - hiFormCallBack() - 调用表单回调函数
+  - 其他常用函数:
+    - hiFormGetField() - 获取表单字段值
+    - hiFormBuildPopup() - 构建弹出菜单
+    - hiFormSetFieldHighlight() - 高亮显示字段
+    - hiFormSetFieldColor() - 设置字段颜色
+    - hiAddFields() - 动态添加表单字段 `hiAddFields(hiGetCurrentForm(), list("新字段1", "新字段2"))`
+    - hiDeleteFields() - 删除指定表单字段 `hiDeleteFields(formHandle, list("旧字段名"))`
+```
+
 
 ### 示例：曲线拟合
 
