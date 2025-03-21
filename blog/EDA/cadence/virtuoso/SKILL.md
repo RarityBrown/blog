@@ -139,6 +139,8 @@ Cadence Virtuoso 有一些默认的设置不是很方便，例如 VIVA 绘图默
 
 两文件的协同工作机制体现在：`.cdsenv` 在 Virtuoso 启动初期加载，建立基础运行环境；`.cdsinit` **随后**执行，完成**高级**功能扩展与交互优化。
 
+todo 好像有问题↑
+
 ### 文件路径和加载优先级
 
 Virtuoso 的配置体系采用分层管理策略，`.cdsinit`与`.cdsenv`作为用户级配置文件，在系统默认配置基础上实现个性化定制。
@@ -303,7 +305,14 @@ spectre.turboOpts    uniMode          string  "APS"          ; to use spectre AP
 ; spectre              numThreads       int     16           ; memory and multithreading config, todo
 
 ;;;;;;;;;;;;;;;;;; ADE XL (ADE Explorer)
+;;; Why ADEXL instead of ADE Explorer: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/52576/how-to-set-default-corners-in-maestro
 adexl.icrpStartup    defaultJobPolicy string "My_jobpolicy"  ; My jobs parallelization policy
+adexl.gui            defaultCorners   string "./corners/corners_6.sdb" ; IC6.1.8-64b.500.19. see https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/49271/load-corners-csv-file-skill-function
+; adexl.gui            defaultCorners   string "./corners/corners_6.csv" ; IC6.1.8-64b.500.20
+
+;;;;;;;;;;;;;;;;;;
+auCore.misc          annotationSetupFileList string "./.cadence/dfII/annotationSetups/My_annoSetup.as"
+; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
 
 ;;;;;;;;;;;;;;;;;; VIVA
 ; viva.rectGraph       background       string  "white"        ; for older version
@@ -320,7 +329,7 @@ viva.traceLegend     font             string  "Default,15,-1,5,75,0,0,0,0,0"
 
 ;;;;;;;;;;;;;;;;;; 
 ui    defaultEditorBackgroundColor    string  "#2F2F2F"       ; schematic / layout black background to gray
-
+ui    ciwCmdInputLines                int     4
 
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
 layout               xSnapSpacing     float   0.005           ; 0.005um typical for 40nm node
@@ -329,6 +338,17 @@ layout               ySnapSpacing     float   0.005           ; 0.005um typical 
 
 ; backup and autosave setting, todo
 ```
+
+
+还有一些 virtuoso 用着不爽的点等待解决 todo：
+
+> 1. How to open a schematic for a cell in Cadence Virtuoso by default (set the default behavior to always open a cell in schematic view)?  (not to create a new schematic file)        virtuoso 默认打开 schematic
+> 2. How to automatically add a DC analysis every time I create a new Maestro (ADE Explorer) view in Cadence Virtuoso?
+> 3. descend default open for auto, open in new tab cadence virtuoso
+> 4. default annotation setup (virtuoso transient operating point?)
+> 5. virtuoso 查看仿真实时波形
+> 6. virtuoso move graph to an existing window
+> 7. 显示剩余时间 virtuoso show Simulation Progress status and Remaining Time
 
 #### `.cdsinit`
 
@@ -423,9 +443,17 @@ hiSetFont("ciw"   ?size 16)                      ; CIW font size, greater than 1
 hiSetFont("text"  ?size 16)                      ; Toolbar and Menu font size, greater than 16 is not recommended
 hiSetFont("label" ?size 16)                      ; simulation font size, greater than 16 is not recommended
 
-hiSetBindKey("explorer"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
-hiSetBindKey("assembler" "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hiSetBindKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hiSetBindKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+
+; hiSetBindKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/bachelor/huangheqing/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
+; hiSetBindKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
+
+; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
+
 ```
+
+
 
 #### 常见问题
 
@@ -445,9 +473,46 @@ todo
 
 ### 文档
 
+Calculator 所有的函数，例如 `clip`, `value` 都是 OCEAN 函数，所以函数相关文档在 `oceanref.pdf` 中。我们摘录两个函数作为示例：
 
 
-https://zhuanlan.zhihu.com/p/27786161
+函数 1：
+
+`freq`: **实时**频率
+
+```lisp
+freq(                         ; Computes the frequency of the input waveform(s) as a function of time or cycle.
+   o_waveform                 ; Waveform, expression, or a family of waveforms.
+   t_crossType                ; See below.
+   [ ?threshold n_threshold ] ; See below.
+   [ ?mode t_mode ]           ; See below.
+   [ ?xName xName ]           ; The X-axis of the output waveform. The default value is time but cycle is also a valid value.
+   [ ?histoDisplay g_histoDisplay ]      ; deprecated
+   [ ?noOfHistoBins x_noOfHistoBins ]    ; deprecated
+   )
+   => o_outputWave / nil      ; Returns the frequency as a function of time or cycle.
+```
+
+- `t_crossType`: The points at which the curves of the waveform intersect with the threshold. While intersecting, the curve may be either rising or falling. For the `freq` function, you may specify the frequency to be calculated against either the rising points or the falling points by setting `crossType` to `rising` or `falling`, respectively. The default `crossType` is `rising`.
+- `t_mode`: The mode for calculating the threshold. This is `auto`, by default, in which case `n_threshold` is calculated internally. It can alternatively be set to `user`, in which case, an `n_threshold` value needs to be provided.
+- `n_threshold`: The threshold value against which the frequency is to be calculated. This needs to be specified only when the `mode` selected is `user`.
+
+函数 2：
+
+`frequency`: **平均**频率 Computes the reciprocal of the **average** time between two successive midpoint crossings of the **rising** waveform.
+
+```lisp
+frequency(
+    o_waveform     
+    )
+    => o_waveform / n_value / nil
+```
+
+Example: `frequency( v( "/net12" ) ) => 12kHZ` Returns a number representing the frequency of the specified waveform. 
+
+(Returns a waveform representing the frequency of a family of waveforms if the input argument is a family of waveforms.)
+
+> 也可以参考网上的相关文章：https://zhuanlan.zhihu.com/p/27786161
 
 ### 示例：两点一线
 
