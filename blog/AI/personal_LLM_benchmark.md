@@ -42,6 +42,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 2025/03/06：LLM 需要一个推理 FoM 值，类似于 $\log(1/\text{average end time}\cdot\text{average first token time}\cdot\text{average token})\cdot \text{Raw Performance}$ 之类的。QwQ 32B 的推理过程动辄消耗 2 万个 token，不比 preview 版好多少，仍然是刷榜的废物。Groq 之类的硬件加速方案还是有一定前途的，就等 Jensen 下场了。
 
+2025/03/24: 加入 HardQA (SimpleQA 的困难版本，需要阅读大量网页和一定的推理能力才能答对，利用 LLM 自身知识储备几乎不可能答对)。加入 QC (Question with Critical Thinking, 题目就是错的，例如"证明 $\frac{1}{2}=\frac{2}{2+2-1}$"，又例如："Asheville, Akita, Kanazawa 哪个城市没有开过奥运会？")
+
 ## 题目列表
 
 [你都有哪些压箱底的测试题，是目前的推理模型做不出来的？ - 知乎](https://www.zhihu.com/question/11758906952)
@@ -107,6 +109,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 ### 知识问题（类似于 SimpleQA ）
 
+LLM without RAG 可能答对，LLM with RAG 几乎必对
+
 > Q: 上海四校八大？
 > 
 > 典型错误：复交同师。基本上只取决对于中文互联网上知识的爬取深入程度和清洗的合理程度，因为这个靠多语言能力翻译没用，同时含有“四校八大”相关的网页内容往往是低质量的。
@@ -115,9 +119,13 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 > Q: 顺尔宁是 NSAIDs 吗？泰诺呢？开瑞坦呢？双氯芬酸呢？右美沙芬呢？简单回答，即类似于“是、不是、不是、不是、是”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
 >
+> QC: 泰诺和顺尔宁哪个是抗组胺药？
+>
 > 正确答案：不是、不是、不是、是、不是。类似地，取决于中文语料，多语言能力翻译没用。这题可以看出不管是开源还是闭源的模型都有明显蒸馏其他家的模型，对于“顺尔宁”这一项的错误认知往往是“顺尔宁就是布洛芬”
 >
-> 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
+> Q 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
+>
+> QC 正确情况：grok3 错; nebula 对
 
 > Q: 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
 >
@@ -137,22 +145,15 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确情况：gemini-exp-1121 对对, Sonnet 3.5 对.不会.
 
-> Q: 除了 Logitech MX Master，推荐**一**款有侧向滚轮的鼠标。仅需要名字，无需介绍
+> Q: 除了 Logitech MX Master，推荐**两**款有侧向滚轮的鼠标。仅需要名字，无需介绍
 > 
-> Q: Apart from the Logitech MX Master, recommend **one** mouse with a side scroll wheel. Only the name is needed, no description.
+> Q: Apart from the Logitech MX Master, recommend **two** mice with a side scroll wheel. Only the name is needed, no description.
 >
-> 参考答案：Kensington Pro Fit Ergo Vertical Wireless Trackball; Keychron M6 Wireless Mouse
+> 参考答案：Kensington Pro Fit Ergo Vertical Wireless Trackball; Keychron M6 Wireless; rapoo mt760l; DeLUX M913GX
 > 
 > 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse, Microsoft Surface Precision Mouse, MX Anywhere
 >
 > 正确情况：4oL 错, Sonnet 3.7 错错, Sonnet 3.7 thinking 错错, GPT4.5 错
-
-> Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
->
-> 典型错误：`vlog -work work +acc=r *.v`
-> 
-> 正确答案：`project compileoutofdate`
-
 
 > Q: Verilog 中 `always @(posedge clk, negedge rst_n)` 和 `always @(posedge clk or negedge rst_n)` 哪个更好？为什么？好像和 Verilog 标准也有关系？
 > 
@@ -160,18 +161,44 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确情况：gemini-exp-1114 错错对对; Sonnet 3.7 错; o1 半对
 
-
 > Q: Considering support for various devices (Windows, Mac, Android, iOS without requiring any extra installation, Linux can be ignored), please choose two CJK sans-serif fonts for me?
 >
 > 正确答案：没有
 
-> Q: customize Word/Powerpoint text highlight colors?
->
-> 正确答案：网上一般说就是不行，使用 shading 或文本框背景替代，不过无法被 ctrl+h 搜索到。但是其实可以先使用 Font Color - Eyedropper 先添加到 Recent Color 中，再在 Text Highlight Color 选项卡选择 Recent Color
-
 > Q: 地球上最光滑的人造物是什么？
 >
 > 正确答案：EUV 镜头，RMS=0.02nm
+
+### 困难知识问题 (也许我们可以取名叫 HardQA? )
+
+- LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Deep Research，详见 Jina AI 的 Blog
+- 有 Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，包括但不限于
+  - 页面内广告等无关信息
+  - 整个页面和搜索问题无关
+  - 图片
+  - 不同页面间信息矛盾
+  - 
+  - 非常老的网页，现代浏览器的 TLS 版本默认不支持，例如 https://ccf.ee.ntu.edu.tw/~cchen/cadence/simulation.htm
+
+
+> Q: Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
+>
+> 参考答案: [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/)
+
+> Q: customize Word/Powerpoint text highlight colors?
+>
+> 正确答案：网上一般认为无法实现，使用 shading 或文本框背景替代，不过无法被 ctrl+h 搜索到。但是其实可以先使用 Font Color - Eyedropper 先添加到 Recent Color 中，再在 Text Highlight Color 选项卡选择 Recent Color
+
+> Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
+>
+> 典型错误：`vlog -work work +acc=r *.v`
+> 
+> 正确答案：`project compileoutofdate`
+
+> Q: "hiFormDone" 函数中的 hi 是什么意思？
+> 
+> 正确答案：[Human Interface](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/50958/whats-the-difference-between-le-commands-and-hi-commands)
+
 
 ### 知识-推理混合问题
 
@@ -187,7 +214,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：No
 >
-> 正确情况：Gemini 2 Pro 错, 4oL 错 
+> 正确情况：Gemini 2 Pro 错, 4oL 错, nebula 错
 
 > Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
 >
@@ -367,87 +394,11 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 > \end{circuitikz}
 > ```
 
-##### 前端开发全流程
-
-背景：
-
-- 准备通过 Electron + React  + Vite + TypeScript 在 Windows 上写一个小工具 app
-- 但是我对前端开发一无所知，准备全部依赖于 LLM 实现开发
-- 首先通过跑几次 LLM，大致知道了环境配置流程
-  - 创建 Vite 项目
-  - 安装 Electron
-  - 项目文件夹结构创建与调整
-  - 编写 Electron 主进程文件
-  - 配置 `package.json`
-- 以下是一个初学者在开发过程中，按照时间顺序遇到的、无法被 LLM 很好解决（或者 LLM 没有意识到）的问题 
-
-> Q: 
-> 
-> ```
-> `npm create vue@latest` 如何自动给如下参数
-> √ Project name: mathforge
-> √ Add TypeScript? ... Yes
-> √ Add JSX support? ... No
-> √ Add Vue Router for Single Page Application development? ... Yes
-> √ Add Pinia for state management? ... Yes
-> √ Add Vitest for Unit testing? ... No
-> √ Add Cypress for E2E testing? ... No
-> √ Add ESLint for code quality? ... Yes
-> √ Add Prettier for code formatting? ... Yes
-> ```
->
-> 参考答案：目前来看是没有办法实现全自动传参的。（这些选项的选择建议也是通过 AI 先行给出的）
->
-> 正确情况：o3-mini-median-search 错, 2-flash-thinking 错错, 4oL 半对
-
-> Q: 帮我用 PowerShell 写一个脚本：1. 现有 src 目录下的所有东西都移动到 src/renderer 中（src/renderer 还不存在）2. 在 src 创建 main, shared 两文件夹。运行中多加一点状态提示。
->
-> 典型错误：使用在 PowerShell 脚本中使用中文字符串。Windows 11 默认预装 PowerShell 5.1 默认编码格式不是 UTF-8，而保存的 `.ps1` 脚本的编码格式默认是 UTF-8。导致脚本无法正确运行。
->
-> 参考答案：使用纯英语撰写 ps 脚本；提示编码问题；建议更新 PowerShell 7
-
-
-Q: 
-
-通过如下命令：
-
-```shell
-npm create vite@latest mathforge  # (React - Typescript)
-cd mathforge
-npm install
-npm install electron electron-builder --save-dev
-npm install @electron/vite-plugin.js --save-dev
-```
-
-用 React + Vite + Electron + Typescript 开发应用的 `package.js` 中的 `scripts` 应该怎么写（别的字段不用写）？ Vite 自动生成的 `scripts` 如下：
-
-```json
-{
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-    
-    // 需要写的 electron:build 等等
-  },
-```
-
-Q: 用 React + Vite + Electron + Typescript 开发应用
-
-```shell
-npm create vite@latest mathforge # (React + Typescript)
-cd mathforge
-npm install
-npm install electron electron-builder --save-dev
-```
-
-下一条命令应该是什么？
-
 ###### Webarena
 
 > Q: 2x2 layout: mathlive + latex code editor (with syntax highlight); mathjax + katex (to compare the rendered output). Enable all the possible package for mathjax and katex. For instance, enable `physics` in mathjax.
 
+> Q: A ping pong game. computer vs computer
 
 ##### Python 小众库
 
@@ -627,9 +578,11 @@ npm install electron electron-builder --save-dev
 >
 > 典型错误：`A["Node with \"quotes\""]`
 >
-> 正确答案：`A["Node with #quot;quotes#quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
+> 正确答案：`A["Node with #quot;quotes&quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
 >
 > 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错错; r1 错
+>
+> 正确情况 RAG：gpt-4o-search-preview-high 对对; sonar 对
 >
 > 思考：泛化和对齐未必是好事，也可能增加幻觉（gemini-exp-1114 小概率答对）；说“不会”的能力，目前主流方向是让模型强到没有不会的问题；模型应知道何时调用搜索，如何参考信源
 
@@ -678,7 +631,9 @@ npm install electron electron-builder --save-dev
 >
 > 正确答案：`Send('{{}``\``')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
 >
-> 正确情况：Gemini 2 Pro 错错, o3-mini-high 错对错错, o3-mini 错错, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错
+> 正确情况：Gemini 2 Pro 错错, o3-mini-high 错对错错, o3-mini 错错对, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错, nebula 对,
+>
+> 正确情况 RAG：sonar-pro-high 错错
 
 
 > Q: two ways to simplify this
