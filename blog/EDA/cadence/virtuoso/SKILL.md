@@ -95,6 +95,10 @@ hiSetBindKey("Schematics" "<Key>F5" "axlRunSimulation()")
 hiSetBindKey("explorer"   "<Key>F5" "axlRunSimulation()")
 hiSetBindKey("assembler"  "<Key>F5" "axlRunSimulation()")
 ; sevNetlistAndRun() in ADE L
+
+
+sevNetlistAndRun(sevSession(hiGetCurrentWindow()))
+hiSetBindKey("Schematics" "<Key>F5" "(sevRunEngine (_axlGetExplorerSevSession (_axlGetCurrentSessionDontFail)))")
 ```
 
 
@@ -110,6 +114,9 @@ hisetBindKey("schematics" "Ctrl<Key>d" "add_vdc( ) ")
 
 
 ## `.cdsinit` and `.cdsenv`
+
+> https://github.com/DavidZemon/CadenceProject
+
 
 其实 SKILL 对于用户最常用的功能就是设置 `.cdsinit` 和 `.cdsenv`：
 
@@ -331,6 +338,12 @@ viva.traceLegend     font             string  "Default,15,-1,5,75,0,0,0,0,0"
 ui    defaultEditorBackgroundColor    string  "#2F2F2F"       ; schematic / layout black background to gray
 ui    ciwCmdInputLines                int     4
 
+;;;;;;;;;;;;;;;;;; schematic
+schematic            srcSolderOnCrossover cyclic "ignored"   ; ignore solder dot cross over warning
+
+;;;;;;;;;;;;;;;;;; graphic
+graphic              balloonOn        boolean t               ; ?enable the info balloon by default
+
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
 layout               xSnapSpacing     float   0.005           ; 0.005um typical for 40nm node
 layout               ySnapSpacing     float   0.005           ; 0.005um typical for 40nm node
@@ -343,12 +356,21 @@ layout               ySnapSpacing     float   0.005           ; 0.005um typical 
 还有一些 virtuoso 用着不爽的点等待解决 todo：
 
 > 1. How to open a schematic for a cell in Cadence Virtuoso by default (set the default behavior to always open a cell in schematic view)?  (not to create a new schematic file)        virtuoso 默认打开 schematic
-> 2. How to automatically add a DC analysis every time I create a new Maestro (ADE Explorer) view in Cadence Virtuoso?
+> 2. function to open the current maestro view 
 > 3. descend default open for auto, open in new tab cadence virtuoso
 > 4. default annotation setup (virtuoso transient operating point?)
-> 5. virtuoso 查看仿真实时波形
-> 6. virtuoso move graph to an existing window
-> 7. 显示剩余时间 virtuoso show Simulation Progress status and Remaining Time
+> 5. virtuoso 查看仿真实时波形 (How to output signals **during** virtuoso simulation? How to plot transient signals **before** simulation is complete? Virtuoso **real-time** tran waveform plotting?)
+> 6. virtuoso move graphs to an existing window
+> 7. 显示剩余时间 virtuoso show simulation progress status and estimated remaining time (Search again for estimated remaining time specific for ADE Explorer and ADE Assembler)
+> 8. virtuoso copy cellview maestro schematic linking issue
+> 9. auto-save, auto-backup in Cadence Virtuoso
+> 10. Cadence Virtuoso Schematic (sch.oa) to visio
+>   1. https://blog.sina.com.cn/s/blog_5cf90fbc0101dll9.html
+>   2. https://www.edaboard.com/threads/schematic-circuit-plot-from-cadence-virtuoso.390368/
+
+
+自动建立工艺 gmoverid 查找表，自动扫出工艺转移特性曲线等
+
 
 #### `.cdsinit`
 
@@ -470,6 +492,8 @@ todo
 
 
 ## Calculator 中的 SKILL (OCEAN)
+
+[Virtuosity: Sharing Custom SKILL Calculator Functions](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-custom-skill-calculator-functions)
 
 ### 文档
 
