@@ -10,6 +10,16 @@
 
 类比软件开发，ADE 是 IDE，而 Spectre 是 compiler
 
+关于 ADE 的技巧：
+
+- https://zhuanlan.zhihu.com/p/372495688
+
+### Real-time tuning & Local Optimization
+
+基本概念：A PCell, short for parameterized cell, is a feature in EDA tools that lets designers create components whose structure depends on specific parameters. For example, you could have a transistor PCell where you can adjust its length and width, and the tool automatically generates the layout based on those settings. This makes it easier to reuse and customize designs without starting from scratch. A PCell is a specific kind of device where there is a schematic view (or symbol view) where the connectivity changes based on a parameter?
+
+https://youtu.be/RG5CjoPcHvs?t=1058
+
 ### 仿真数据
 
 #### 默认设置
@@ -123,3 +133,5 @@ Striving for small-signal stability - Loop-Based and Device-Based Algorithms for
 
 ### 直接加快串行仿真速度
 
+- High Performance Simulation
+- 后仿：关闭保存所有电压节点的数据，手动选择需要保存的电压节点
