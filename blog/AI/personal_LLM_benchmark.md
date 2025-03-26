@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时使用过程中，收集选择一些截至 2025 年 3 月的第一梯队 LLM (GPT4.5, Gemini 2 Pro, Sonnet 3.7 thinking, grok3 thinking, o1, o3-mini-high, r1, 2-flash-thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些截至 2025 年 4 月的第一梯队 LLM (GPT4.5, Gemini 2.5 Pro, Sonnet 3.7 thinking, grok3-thinking, o1, o3-mini-high, r1, v3-0324) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
 
 ## 一些个人观点
 
@@ -112,6 +112,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 > Q: 上海四校八大？
+>
+> QC: 控江中学和七宝中学，哪个不是上海八大金刚？
 > 
 > 典型错误：复交同师。基本上只取决对于中文互联网上知识的爬取深入程度和清洗的合理程度，因为这个靠多语言能力翻译没用，同时含有“四校八大”相关的网页内容往往是低质量的。
 > 
@@ -125,7 +127,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > Q 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
 >
-> QC 正确情况：grok3 错; nebula 对
+> QC 正确情况：grok3 错错; Gemini 2.5 Pro 对; v3-0324 对
 
 > Q: 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
 >
@@ -214,24 +216,39 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确答案：No
 >
-> 正确情况：Gemini 2 Pro 错, 4oL 错, nebula 错
+> 正确情况：Gemini 2 Pro 错, 4oL 错, Gemini 2.5 Pro 错
 
 > Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
 >
-> 参考答案：`\xrightarrow[\hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}]{\hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c} }`
+> 参考答案：
 >
-> 正确情况：o3-mini-high 错
+> ```latex
+> \xrightarrow[
+>   \hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}
+> ]{
+>   \hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c}
+> } \\
+> \xrightarrow[
+>   \mathrel{\rlap{p+q}\phantom{x+y+z}}=\mathrel{\phantom{a+b+c}\llap{a+b+c}} 
+> ]{
+>   \mathrel{\rlap{x+y+z}\phantom{x+y+z}}=\mathrel{\phantom{a+b+c}\llap{m+n}}
+> }
+> ```
+>
+> 正确情况：o3-mini-high 错; Gemini 2.5 Pro 半对
 
 > Q: Draw a cross using `\rule` in latex. The commands `\hfil`, `\vbox`, `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\centerline`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
 >
 > 参考答案：
 > 
 > ```latex
-> \rule{1em}{6em} \hspace{-3.5em}            \rule[+2.5em]{6em}{1em}
-> \rule{6em}{1em} \kern{-3.5em}              \rule[-2.5em]{1em}{6em}
->
-> \rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}  \rule[-0.5em]{6em}{1em}  % laps? \smash?
+> \rule{1em}{6em}            \hspace{-3.5em}         \rule[+2.5em]{6em}{1em}
+> \rule{6em}{1em}            \kern{-3.5em}           \rule[-2.5em]{1em}{6em}
+> \rule[-2.5em]{1em}{6em}    \kern{-3.5em}           \rule{6em}{1em}
+> \rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}          \rule[-0.5em]{6em}{1em}  % laps? \smash?
 > ```
+>
+> 正确情况：Gemini 2.5 Pro 对
 
 > Q:
 > 
@@ -246,7 +263,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错, grok3 对错; 4oL 错; o3-mini-high 错
 
-> Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but TikZ, `graphicx` or `calc` is not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
+> Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but commands `\if` `\else` `\relax` `\sbox` `\setbox` and `\savebox`, and, packages TikZ, `graphicx` and `calc` are not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
 > 
 > 参考答案：
 >
@@ -580,7 +597,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确答案：`A["Node with #quot;quotes&quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
 >
-> 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错错; r1 错
+> 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错错; r1 错; Gemini 2.5 Pro 错
 >
 > 正确情况 RAG：gpt-4o-search-preview-high 对对; sonar 对
 >
@@ -631,7 +648,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确答案：`Send('{{}``\``')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
 >
-> 正确情况：Gemini 2 Pro 错错, o3-mini-high 错对错错, o3-mini 错错对, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错, nebula 对,
+> 正确情况：Gemini 2 Pro 错错, o3-mini-high 错对错错, o3-mini 错错对, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错, Gemini 2.5 Pro 对错,
 >
 > 正确情况 RAG：sonar-pro-high 错错
 
@@ -709,7 +726,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 
 > 正确答案：`1,290,111,812,442,216`
 >
-> 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错
+> 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错; Gemini 2.5 Pro 错; o3-mini-high 对
 
 ### Lisp (Cadence SKILL)
 
@@ -758,7 +775,7 @@ refactor to Cadence Virtuoso SKILL
 > (greet "Charlie")
 > ```
 >
-> 正确情况：Gemini 2 Pro 错; r1 对; grok-3 对
+> 正确情况：Gemini 2 Pro 错; r1 对; grok-3 对; Gemini 2.5 Pro 对
 
 
 #### 专业相关问题
@@ -778,7 +795,6 @@ refactor to Cadence Virtuoso SKILL
 > 正确情况（使用**什么**作为关键词）：o3-mini-high 1;
 
 > Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？  What is the name of the standard cell corresponding to the logic expression !(AB+C)? How many MOSFETs are required in CMOS logic?
-
 >
 > 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
 >
@@ -806,15 +822,17 @@ refactor to Cadence Virtuoso SKILL
 
 > Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
 >
-> 正确答案：对于 PMOS 输入的 5T-OTA 有 $\text{PSRR}_+\approx\dfrac{1}{2g_{m,\text{current mirror}}r_{o,\text{tail}}}  \qquad  \text{PSRR}_-=1$
+> 正确答案：对于 PMOS 输入的 5T-OTA 有 $A_{VDD}\approx\dfrac{1}{2g_{m3}r_{o,\text{tail}}}  \qquad  A_{VSS}\approx 1$
 >
 > 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
+>
+> 正确情况：o3-mini-high 错，Gemini 2.5 Pro 错
 
 > Q: NMOS + 一个电阻的 source follower 的 $A_{V_{DD}}$ 是多少？不考虑体效应，但是考虑 CLM
 >
 > 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$
 >
-> 正确情况：o3-mini-high 对
+> 正确情况：o3-mini-high 对错; Gemini 2.5 Pro 对; Grok3 对
 
 > Q: 普通的一个 PMOS 和一个 NMOS 的 CMOS inverter，和 Transistor Stacking (两个 PMOS 串联 + 两个 NMOS 串联，所有 MOSFET 的栅接在一起作为输入) 的 CMOS inverter 有什么区别？一句话总结最关键的内容。
 >
@@ -832,7 +850,7 @@ refactor to Cadence Virtuoso SKILL
 >
 > 正确答案：都可以
 >
-> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错), 4oL 错, 2-flash-thinking 错错错, o1 错, Gemini 2 Pro 错错, grok3 错错错, r1 错, GPT4.5 错
+> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错), 4oL 错, 2-flash-thinking 错错错, o1 错, Gemini 2.5 Pro 错错, grok3 错错错, r1 错, GPT4.5 错
 
 ### 推理问题
 
@@ -863,7 +881,7 @@ refactor to Cadence Virtuoso SKILL
 
 > Q: 1 fJ 的能量可以使一个质子加速到多少速度？1 nJ 呢？如果是对于光子呢？ 1 fJ of energy can accelerate a proton to what speed? What about 1 nJ? And what about for photons?
 >
-> 正确答案： $1.093 \times 10^6 \text{m/s}$, $2.97\times 10^8\text{m/s}=0.9914c$, $\lambda=199\mathrm{pm}$, $\lambda=0.199\mathrm{fm}$
+> 正确答案： $1.093 \times 10^6 \text{m/s}=0.0036c$, $2.97\times 10^8\text{m/s}=0.9914c$, $\lambda=199\mathrm{pm}$, $\lambda=0.199\mathrm{fm}$
 >
 > 正确情况：2-flash-thinking 对
 
@@ -872,22 +890,13 @@ refactor to Cadence Virtuoso SKILL
 >
 > 典型错误：#D7B5CC, #D7B8CC, #D2B4D2, #D7CCCC, #D8CCCC
 >
-> 正确答案：#EBDAE5, #EBDAE6, #ECDAE6?
+> 正确答案：#EBDAE5, #EBDAE6, #ECDAE6? #D7BACC?
 
 #### 纯数学问题（主要考察 reasoning model）
 
 > Q: 1145141919810 在任意数字之间插入 +- 使得等式 = 2025 (不用代码，不用过程，仅直接给出两种答案，给出答案后再检查一下正确性)  Insert + or - between the digits of 1145141919810 to make the equation equal to 2025. (No code, just provide two solutions directly. Check the correctness after giving the solutions.)  [ref] (https://www.zhihu.com/question/7671636421/answer/68993839512)
 >
-> 参考答案：
-> 
-> - 1 + 1 + 4 + 5 + 14 + 19 + 1981 + 0 = 2025 (原作者)
-> - 1 + 14 + 5 + 14 + 1 + 9 + 1981 + 0 = 2025 (o3-min + aid)
-> - 11 + 4 + 5 + 14 + 1 + 9 + 1981 + 0 = 2025 (o3-min + aid)
-> - 11 + 4 + 5 + 1 + 4 + 19 + 1981 + 0 = 2025 (2-flash-thinking)
-> - 11 + 4 + 5 + 1 + 4 + 1919 + 81 + 0 = 2025 (o1-min)
-> - 1 + 1 + 4 + 5 + 1 + 41 - 9 + 1981 + 0 = 2025 (o1-min)
->
-> 代码遍历：
+> 参考答案(代码遍历)：
 > 
 > - 1+1+4+5+1+41-9+1981+0=2025 1+1+4+5+14+19+1981+0=2025 1+1+4+5+14+1919+81+0=2025 1+1-4-5+1+41+9+1981+0=2025 1+1+45+1+4+1-9+1981+0=2025
 > - 1+14+5+1+4+19+1981+0=2025 1+14+5+1+4+1919+81+0=2025 1+14+5+14+1+9+1981+0=2025 1-14+51-4+1+9+1981+0=2025
@@ -900,7 +909,7 @@ refactor to Cadence Virtuoso SKILL
 > 2. 
 > 
 > 
-> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能, o1 超时超时超时, 2-flash-thinking 有时超时, o3-mini-high 超长思考后超时
+> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能, o1 超时超时超时, 2-flash-thinking 有时超时, o3-mini-high 超长思考后超时; Gemini 2.5 Pro 对
 >
 > 本题可以充分测试 max output token (o3-mini 原生的 1M 确实是有用的)
 
@@ -926,14 +935,14 @@ refactor to Cadence Virtuoso SKILL
 
 > Q: What is the relationship between the transcendental equation $x=x^{m}+q$ and the Lambert W function?
 >
-> 正确答案：$x=\exp\left[-\frac{1}{m-1}\,W\!\left(-\frac{m-1}{m}\,q^{\frac{m}{m-1}}\right)\right]$
+> 正确答案：Not sure $x=\exp\left[-\frac{1}{m-1}\,W\!\left(-\frac{m-1}{m}\,q^{\frac{m}{m-1}}\right)\right]$
 >
 > 正确情况：o3-mini 对
 
 
 > Q: Are $x=\exp\left[-\frac{1}{m-1} W\left(-\frac{m-1}{m}q^{\frac{m}{m-1}}\right)\right]$ and $x = x^m + q$ equivalent?
 >
-> 正确答案：Yes
+> 正确答案：Yes? Not sure
 >
 > 正确情况：o3-mini 对; Sonnet 3.7 对; grok 3 thinking 对
 >
@@ -950,7 +959,7 @@ refactor to Cadence Virtuoso SKILL
 
 ### 批判性-推理问题
 
-> Q:
+> QC:
 > ```verilog
 > module simple_moore_fsm(
 >     input wire clk,
@@ -1003,10 +1012,10 @@ refactor to Cadence Virtuoso SKILL
 >
 > 正确答案：Mealy FSM
 > 
-> 正确情况：Sonnet 3.5 对, Gemini 2 Pro 错错错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL 错错, 3-opus 对, 2-flash-thinking 对
+> 正确情况：Sonnet 3.5 对, Gemini 2 Pro 错错错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL 错错, 3-opus 对, 2-flash-thinking 对; Gemini 2.5 Pro 对
 
 
-> Q: 试推导 MOSFET 的亚阈值 $r_o=\frac{V_T}{I_{d}} \exp(\frac{V_{ds}}{V_T}-1)$, 其中 $I_d$ 是 MOSFET 目前的亚阈值电流
+> QC: 试推导 MOSFET 的亚阈值 $r_o=\frac{V_T}{I_{d}} \exp(\frac{V_{ds}}{V_T}-1)$, 其中 $I_d$ 是 MOSFET 目前的亚阈值电流
 >
 > 正确答案：公式就是不对的，应当为 $\frac{V_T}{I_{d}} \left( \exp(\frac{V_{ds}}{V_T})-1 \right)$
 >
