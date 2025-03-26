@@ -44,7 +44,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 2025/03/24: 加入 HardQA (SimpleQA 的困难版本，需要阅读大量网页和一定的推理能力才能答对，利用 LLM 自身知识储备几乎不可能答对)。加入 QC (Question with Critical Thinking, 题目就是错的，例如"证明 $\frac{1}{2}=\frac{2}{2+2-1}$"，又例如："Asheville, Akita, Kanazawa 哪个城市没有开过奥运会？")
 
-## 题目列表
+## 纯文本题目列表
 
 [你都有哪些压箱底的测试题，是目前的推理模型做不出来的？ - 知乎](https://www.zhihu.com/question/11758906952)
 
@@ -1035,3 +1035,13 @@ refactor to Cadence Virtuoso SKILL
 
 - 传统选择题形式的类 GPQA 评测 + 填空题形式的类 GPQA 评测 + 没有一个选项正确的选择题形式的类 GPQA 评测
 - 1+1=2: Are you sure? / rethink / recheck
+
+
+## VLLM 题目列表
+
+Use your native image editing capability to make the following virtuoso schematic screenshot to a Visio-style white-background circuit schematic for academic papers (not simply invert color, but make the wire thicker, delete the annotations on components, etc. to make the schematic publish-ready)
+
+The first image acts as a style reference for you.
+
+![image](https://github.com/user-attachments/assets/dbb993b9-2d15-43b1-bfc9-eee475d5375b)
+
