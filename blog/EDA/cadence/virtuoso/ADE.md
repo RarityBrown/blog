@@ -24,17 +24,26 @@ https://youtu.be/RG5CjoPcHvs?t=1058
 
 #### 默认设置
 
+仿真数据对于电路而言：
+
 - 默认保存
   - 节点电压
 - 默认不保存 
-  - 支路电流
+  - Terminal 上的电流
     - `IS("/PM0/S")`
     - 需要 Add Outputs 中选择添加 `Signal`，不然公式报错
   - 器件 DC operating point
     - `OS("/PM0" "vth")`
     - 需要 Add Outputs 中选择添加 `OP Parameters`，不然公式报错
 
-#### 仿真数据导出与导入
+仿真数据对于每次仿真而言：
+
+- ADE Explore
+  - 默认覆盖每次仿真
+- ADE Assembler
+  - 默认保存最新的 10 组数据 [ref](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/36638/saving-importing-exporting-the-ade-results) 
+
+#### 仿真数据保存、导出与导入
 
 
 Virtuoso 中仿真数据默认存储位置由 asimenv.startup projectDir 这一环境变量设置，默认位置是 `~/simulation`。对于如何修改这一环境变量，以及如何把波形图背景设为白色，可以参考 [cdsenv](SKILL.md#cdsinit-and-cdsenv) 这篇文章。
@@ -135,3 +144,33 @@ Striving for small-signal stability - Loop-Based and Device-Based Algorithms for
 
 - High Performance Simulation
 - 后仿：关闭保存所有电压节点的数据，手动选择需要保存的电压节点
+
+### 其他记录
+
+#### 为不同的仿真组设置不同的 tran 仿真时间
+
+背景介绍：
+
+- 例如，对一指数 VCO 进行 tran 仿真，在 Vctrl=0V 时 VCO 频率约为 1kHz、在 Vctrl=0.5V 时频率约为 1MHz、在 Vctrl=1V 时频率约为 1GHz
+- 又例如，对某 osc 的温度敏感度进行 tran 仿真，在 Temperature=-40℃ 时 osc 频率约为 1kHz、在 Temperature=125℃ 时频率约为 1MHz
+
+此时如果我们为所有情况设置相同的 tran 仿真时长，为确保 1kHz osc 有 10 个周期时，tran 仿真时长应设为 10ms，此时 1MHz 和 1GHz osc 因为信号频率高，tran 仿真中的每一步 step 小，仿真 10ms 所需的时间会远大于 1kHz 的 osc（从 SPICE 原理来说大约是等比例大于，例如 1kHz osc 仿真 10ms 需要 1 分钟，则 1MHz osc 仿真 10ms 需要 1000 分钟）。此时，仿真 10ms 对于高频信号不仅不会获得更多电路信息，反而会严重拖慢 tran 仿真速度。
+
+所以希望为不同的仿真设置合适的 tran 时长，例如，对于上文温度的例子，希望使用 tran 仿真时长 $\text{Time}=0.01\cdot\exp(-0.03\cdot\text{Temperature})$ 由这一函数来大致确定。
+
+介绍完背景后，以前文温度的例子为例，介绍在 Virtuoso ADE Explorer 中的具体实现方法：
+
+![image](https://github.com/user-attachments/assets/200b53f0-b6b1-4fd0-936c-6c3489102719)
+
+1. 在 Design Variables 中创建一个变量，例如上图中命名为 `Tran_Time`
+2. 在 Corners 中设置温度范围，例如 `-40:5:125` 表示从 -40℃ 扫到 125℃，步长为 5℃
+3. 在 Corners 中设置前文提到的 tran 仿真时长关于温度的函数 `0.01*exp(-0.03*temp)`。在 Virtuoso 中 `temp` 是温度的默认变量名 [ref](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/52850/when-setting-temperature-as-a-design-global-variable-it-is-called-an-unknown-parameter-and-a-simulation-error-occurs)
+4. 在 tran Analysis 的设置界面，将仿真时间设为 `VAR("Tran_Time")`，`VAR` 在此处表示将 variable 转换为 ADE 可以接受的数字
+5. 查看仿真结果：
+
+![image](https://github.com/user-attachments/assets/cd7c18aa-c645-45f3-abc8-171aecaaac1e)
+
+
+
+
+
