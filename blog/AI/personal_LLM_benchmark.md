@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时使用过程中，收集选择一些截至 2025 年 4 月的第一梯队 LLM (GPT4.5, Gemini 2.5 Pro, Sonnet 3.7 thinking, grok3-thinking, o1, o3-mini-high, r1, v3-0324) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 MMLU 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些截至 2025 年 4 月的第一梯队 LLM (GPT4.5, Gemini 2.5 Pro, Sonnet 3.7 thinking, grok3-thinking, o1, o3-mini-high, r1, v3-0324) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
 
 ## 一些个人观点
 
@@ -39,10 +39,12 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 ![image](https://github.com/user-attachments/assets/522a1600-971b-4934-94b3-af8fa37a4ac6)
 
-
 2025/03/06：LLM 需要一个推理 FoM 值，类似于 $\log(1/\text{average end time}\cdot\text{average first token time}\cdot\text{average token})\cdot \text{Raw Performance}$ 之类的。QwQ 32B 的推理过程动辄消耗 2 万个 token，不比 preview 版好多少，仍然是刷榜的废物。Groq 之类的硬件加速方案还是有一定前途的，就等 Jensen 下场了。
 
-2025/03/24: 加入 HardQA (SimpleQA 的困难版本，需要阅读大量网页和一定的推理能力才能答对，利用 LLM 自身知识储备几乎不可能答对)。加入 QC (Question with Critical Thinking, 题目就是错的，例如"证明 $\frac{1}{2}=\frac{2}{2+2-1}$"，又例如："Asheville, Akita, Kanazawa 哪个城市没有开过奥运会？")
+2024/09/13, 2025/03/24, 2025/03/30: 加入 HardQA (SimpleQA 的困难版本，需要阅读大量网页和一点点的推理能力才能答对，利用 LLM 自身知识储备几乎不可能答对)。加入 QC (Question with Critical Thinking, 题目就是错的，例如"证明 $\frac{1}{2}=\frac{2}{2+2-1}$"，又例如："Asheville, Akita, Kanazawa 哪个城市没有开过奥运会？")，例如考虑传统选择题形式的类 GPQA 评测 + 填空题形式的类 GPQA 评测 + 没有一个选项正确的选择题形式的类 GPQA 评测。
+
+2025/03/30: Deepseek v3-20250324 和 OpenAI 4oL-20250326 从 benchmark 结果来看应该是用了非常类似的方法。很难想象 Perplexity 和 Cursor 这种产品的估值会如此之高，应用层没有护城河，时间会碾碎一切的。今天闲，再写一点预测吧：Llama 4 通用任务的文字能力(不考虑多模态)非推理水平应该在 Claude 3.7 左右，恐怕是不如 v3-20250324 / Gemini 2 Pro / 4oL-20250326 的。GPT5 和 Claude4 才是真正的 Game Changer，就等下半年体验了，这个预测不准的。
+
 
 ## 纯文本题目列表
 
@@ -60,7 +62,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 正确答案：郴（chēn）
 >
-> 正确情况：Gemini 2 Pro 对对; 2-flash-thinking 错; 4oL 错
+> 正确情况：Gemini 2.5 Pro 对对对; 4oL 错; Sonnet 3.7 thinking 错
 
 > Q: Tea and coffee are available, but liquor, wine or beer (?) not.   are / is
 >
@@ -117,7 +119,9 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 
 > 典型错误：复交同师。基本上只取决对于中文互联网上知识的爬取深入程度和清洗的合理程度，因为这个靠多语言能力翻译没用，同时含有“四校八大”相关的网页内容往往是低质量的。
 > 
-> 正确情况：4oL 对; Sonnet 3.5 错错; Gemini 2 Pro 对; 
+> 正确情况：4oL 对; Sonnet 3.5 错错; Gemini 2 Pro 对;
+>
+> QC 正确情况：Sonnet 3.7 thinking 错
 
 > Q: 顺尔宁是 NSAIDs 吗？泰诺呢？开瑞坦呢？双氯芬酸呢？右美沙芬呢？简单回答，即类似于“是、不是、不是、不是、是”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
 >
@@ -127,13 +131,15 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > Q 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
 >
-> QC 正确情况：grok3 错错; Gemini 2.5 Pro 对; v3-0324 对
+> QC 正确情况：grok3 错错; Gemini 2.5 Pro 对; v3-0324 对; Sonnet 3.7 thinking 错
 
 > Q: 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
 >
 > 正确答案：1700 中心对称, 轴对称; 1700 中心对称, 轴对称; 1900 中心对称, 不轴对称
 
 > Q: 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献. Recommend the three most significant and influential people in the analog EDA field and the digital EDA field, respectively. Just list their names, without introducing their contributions.
+>
+> QC: Razavi 和 Thomas Lee 哪个不是模拟 EDA 领域的专家？
 >
 > 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Thomas Lee, Murmann, Willy 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
 >
@@ -179,7 +185,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
   - 整个页面和搜索问题无关
   - 图片
   - 不同页面间信息矛盾
-  - 
+  - 动态加载的网页，有不同 tab 的但网址相同的网页，例如 lmarena.ai: The (2nd) best LLM on lmarena today?
   - 非常老的网页，现代浏览器的 TLS 版本默认不支持，例如 https://ccf.ee.ntu.edu.tw/~cchen/cadence/simulation.htm
 
 
@@ -201,6 +207,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 
 > 正确答案：[Human Interface](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/50958/whats-the-difference-between-le-commands-and-hi-commands)
 
+> Q: Intel 在 2025 年 2 月 24 日的 CEO 是谁？
 
 ### 知识-推理混合问题
 
@@ -413,7 +420,11 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 ###### Webarena
 
-> Q: 2x2 layout: mathlive + latex code editor (with syntax highlight); mathjax + katex (to compare the rendered output). Enable all the possible package for mathjax and katex. For instance, enable `physics` in mathjax.
+> Q: 2x2 layout: mathlive + latex code editor (with syntax highlight); mathjax + katex (to compare the rendered output). Enable all the possible packages for mathjax and katex. For instance, enable the `physics` package in mathjax.
+>
+> 正确情况：3.7 Sonnet 可用error,  ;   Gemini 2.5 Pro 不可用error  ; 
+
+
 
 > Q: A ping pong game. computer vs computer
 
@@ -713,7 +724,6 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确情况：sonnet 3.7 thinking 错对错; o3-mini 对对错; 2-flash-thinking 错
 
-
 > Q: x87 FPU + GCC. LC0 in decimal? Do not use scientific notation, write out the entire number directly.
 > 
 > ```assembly
@@ -775,7 +785,7 @@ refactor to Cadence Virtuoso SKILL
 > (greet "Charlie")
 > ```
 >
-> 正确情况：Gemini 2 Pro 错; r1 对; grok-3 对; Gemini 2.5 Pro 对
+> 正确情况：Gemini 2 Pro 错; r1 对; grok-3 对; Gemini 2.5 Pro 对; GPT4.5 对
 
 
 #### 专业相关问题
@@ -798,11 +808,19 @@ refactor to Cadence Virtuoso SKILL
 >
 > 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
 >
-> 正确情况： o1 对, 3-opus 半对, 2-flash-thinking 对对对对对, Gemini 2 Pro 半对; Sonnet 3.7 对对
+> 正确情况： o1 对; 3-opus 半对; Gemini 2.5 Pro 对; Sonnet 3.7 对对
 
-> Q: 理想 LC tank 有 τ 吗？从以下几方面思考 1. τ 的定义是什么？2. LC tank 是几阶系统？给出总计 30 个字以内的解答。
+> QC: 理想 LC 的 τ 是什么？给出总计 30 个字以内的解答。
 >
 > 正确答案：没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统
+>
+> 正确情况：GPT4.5 对
+
+> QC: 一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。
+>
+> 正确答案：没有。因为 natural frequency second-order LTI
+>
+> 正确情况：GPT4.5 对
 
 > Q: NMOS 弱反型区电流公式？（不要在最终结果中带 $I_{d0}$ 或 $I_S$ ，写在 latex code block 中）
 >
@@ -810,15 +828,21 @@ refactor to Cadence Virtuoso SKILL
 >
 > 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 对; big-engine-test 对; 3-opus 对
 
+> QC: 试推导 MOSFET 的亚阈值 $r_o=\frac{V_T}{I_{d}} \exp(\frac{V_{ds}}{V_T}-1)$, 其中 $I_d$ 是 MOSFET 目前的亚阈值电流
+>
+> 正确答案：公式就是不对的，应当为 $\frac{V_T}{I_{d}} \left( \exp(\frac{V_{ds}}{V_T})-1 \right)$
+>
+> 正确情况：2-flash-thinking 对; Sonnet 3.7 thinking 对; o3-mini 对但没指出错误
+
 > Q: 随便找一篇专业相关的论文的一大段，令其翻译至中文
 >
 > 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
 
-
-> Q: PCIe 6.0 x8 的双向速度上限？以 GB/s 为单位。
+> Q: NMOS + 一个电阻的 source follower 的 $A_{V_{DD}}$ 是多少？不考虑体效应，但是考虑 CLM
 >
-> 正确答案：[121 GB/s](https://en.wikipedia.org/wiki/PCI_Express#Comparison_table)
-
+> 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$
+>
+> 正确情况：o3-mini-high 对错; Gemini 2.5 Pro 对; Grok3 对
 
 > Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
 >
@@ -827,19 +851,6 @@ refactor to Cadence Virtuoso SKILL
 > 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
 >
 > 正确情况：o3-mini-high 错，Gemini 2.5 Pro 错
-
-> Q: NMOS + 一个电阻的 source follower 的 $A_{V_{DD}}$ 是多少？不考虑体效应，但是考虑 CLM
->
-> 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$
->
-> 正确情况：o3-mini-high 对错; Gemini 2.5 Pro 对; Grok3 对
-
-> Q: 普通的一个 PMOS 和一个 NMOS 的 CMOS inverter，和 Transistor Stacking (两个 PMOS 串联 + 两个 NMOS 串联，所有 MOSFET 的栅接在一起作为输入) 的 CMOS inverter 有什么区别？一句话总结最关键的内容。
->
-> 参考答案：降低了 CMOS logic 的亚阈值漏电流（静态功耗/静态电流），但牺牲了开关速度和驱动能力（延迟和输入电容），并增加了面积。（增加了输出节点到电源/地的阻抗，提高了抗噪声能力？）
->
-> 正确情况：Sonnet 3.7 对对对; Gemini 2 Pro 对; enigma 对; centaur 对
-
 
 #### 其他
 
@@ -850,7 +861,7 @@ refactor to Cadence Virtuoso SKILL
 >
 > 正确答案：都可以
 >
-> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错), 4oL 错, 2-flash-thinking 错错错, o1 错, Gemini 2.5 Pro 错错, grok3 错错错, r1 错, GPT4.5 错
+> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错); 4oL 错; o1 错; Gemini 2.5 Pro 错错; grok3 错错错; r1 错; GPT4.5 错
 
 ### 推理问题
 
@@ -879,11 +890,6 @@ refactor to Cadence Virtuoso SKILL
 > 
 > 正确答案：因为是阻塞赋值，其实是一个 A = E 的 1-bit DFF
 
-> Q: 1 fJ 的能量可以使一个质子加速到多少速度？1 nJ 呢？如果是对于光子呢？ 1 fJ of energy can accelerate a proton to what speed? What about 1 nJ? And what about for photons?
->
-> 正确答案： $1.093 \times 10^6 \text{m/s}=0.0036c$, $2.97\times 10^8\text{m/s}=0.9914c$, $\lambda=199\mathrm{pm}$, $\lambda=0.199\mathrm{fm}$
->
-> 正确情况：2-flash-thinking 对
 
 
 > Q: #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
@@ -909,7 +915,7 @@ refactor to Cadence Virtuoso SKILL
 > 2. 
 > 
 > 
-> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能, o1 超时超时超时, 2-flash-thinking 有时超时, o3-mini-high 超长思考后超时; Gemini 2.5 Pro 对
+> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能; o1 超时超时超时; o3-mini-high 超长思考后超时; Gemini 2.5 Pro 对
 >
 > 本题可以充分测试 max output token (o3-mini 原生的 1M 确实是有用的)
 
@@ -1013,13 +1019,6 @@ refactor to Cadence Virtuoso SKILL
 > 正确答案：Mealy FSM
 > 
 > 正确情况：Sonnet 3.5 对, Gemini 2 Pro 错错错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL 错错, 3-opus 对, 2-flash-thinking 对; Gemini 2.5 Pro 对
-
-
-> QC: 试推导 MOSFET 的亚阈值 $r_o=\frac{V_T}{I_{d}} \exp(\frac{V_{ds}}{V_T}-1)$, 其中 $I_d$ 是 MOSFET 目前的亚阈值电流
->
-> 正确答案：公式就是不对的，应当为 $\frac{V_T}{I_{d}} \left( \exp(\frac{V_{ds}}{V_T})-1 \right)$
->
-> 正确情况：2-flash-thinking 对; Sonnet 3.7 thinking 对; o3-mini 对但没指出错误
 
 ## 评测的小 ideas
 
