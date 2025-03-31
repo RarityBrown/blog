@@ -7,6 +7,8 @@ gsettings set org.gnome.desktop.wm.preferences focus-new-windows 'strict'
 gconftool-2 --set /apps/metacity/general/new_windows_always_on_top --type bool true
 ```
 
+https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/27387/dialogs-come-up-behind-other-windows
+
 如果是 Red Hat 也可以通过 GUI 来设置，但是 CentOS 是不行的。
 
 Applications -> System Tools -> Configuration Editor(gconf-editor / dconf-editor) -> apps -> metacity -> general -> new_windows_always_on_top
