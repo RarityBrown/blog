@@ -65,9 +65,9 @@ nil
 我们在 ADE Explorer 中手动删除刚刚新建的空白条目后，将 `_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() "expr")` 复制到 CIW 窗口下方的输入框内，并 <kbd>Enter</kbd> 执行。可以惊喜地发现，在 ADE Explorer 中，一个新的空白条目被创建了。至此，我们已经成功地完成了第一步——获取了 `Add Outputs` 所对应的 SKILL API。聪明的读者在刚刚删除的过程中，可能会顺便获取了删除 ADE Explorer 输出结果条目的 SKILL API：
 
 ```lisp
-_axlOutputsSetupDeleteSelected(axlOutputsForm4->axlOutputsWidget4)
-_axlShowHideOutputSetupNamedFilterItems(axlOutputsForm4->axlOutputsWidget4 t)
+_axlOutputsSetupDeleteSelected(axlOutputsForm1->axlOutputsWidget1)
 ```
+
 
 #### 第二步（绑定快捷键）
 
@@ -112,6 +112,14 @@ procedure(add_vdc( )
 hisetBindKey("schematics" "Ctrl<Key>d" "add_vdc( ) ")
 ```
 
+### 更复杂的例子
+
+`My_bindkey_functions.il`
+
+```lisp
+
+
+```
 
 ## `.cdsinit` and `.cdsenv`
 
@@ -360,7 +368,6 @@ layout               ySnapSpacing     float   0.005           ; 0.005um typical 
 > 3. descend default open for auto, open in new tab cadence virtuoso
 > 4. default annotation setup (virtuoso transient operating point?)
 > 5. virtuoso 查看仿真实时波形 (How to output signals **during** virtuoso simulation? How to plot transient signals **before** simulation is complete? Virtuoso **real-time** tran waveform plotting?)
-> 6. virtuoso move graphs to an existing window
 > 7. 显示剩余时间 virtuoso show simulation progress status and estimated remaining time (Search again for estimated remaining time specific for ADE Explorer and ADE Assembler)
 > 8. virtuoso copy cellview maestro schematic linking issue
 > 9. auto-save, auto-backup in Cadence Virtuoso
@@ -467,6 +474,8 @@ hiSetFont("label" ?size 16)                      ; simulation font size, greater
 
 hiSetBindKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
 hiSetBindKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+
+; hiSetBindKey("Schematics"  "Ctrl<Key>M" "new_explore_bindkey()")
 
 ; hiSetBindKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/bachelor/huangheqing/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
 ; hiSetBindKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
