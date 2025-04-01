@@ -14,17 +14,16 @@
 
 - https://zhuanlan.zhihu.com/p/372495688
 
-### Real-time tuning & Local Optimization
-
-基本概念：A PCell, short for parameterized cell, is a feature in EDA tools that lets designers create components whose structure depends on specific parameters. For example, you could have a transistor PCell where you can adjust its length and width, and the tool automatically generates the layout based on those settings. This makes it easier to reuse and customize designs without starting from scratch. A PCell is a specific kind of device where there is a schematic view (or symbol view) where the connectivity changes based on a parameter?
-
-https://youtu.be/RG5CjoPcHvs?t=1058
-
 ### 仿真数据
 
-#### 默认设置
+在 Virtuoso 中讨论“保存仿真”时，有三层含义：
 
-仿真数据对于电路而言：
+1. 保存 **Spectre** 的仿真数据，是针对于电路的
+2. 保存 **ADE** 的仿真结果，是针对于每次仿真的
+3. 保存或另存为 **Maestro** 的 Cellview：[ADE Explorer Setup - Save Now and Reuse Later!](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-video-diary-reusing-ade-explorer-test-setup-through-save-and-export)
+
+
+#### ① Spectre 仿真数据对于电路而言
 
 - 默认保存
   - 节点电压
@@ -36,14 +35,30 @@ https://youtu.be/RG5CjoPcHvs?t=1058
     - `OS("/PM0" "vth")`
     - 需要 Add Outputs 中选择添加 `OP Parameters`，不然公式报错
 
-仿真数据对于每次仿真而言：
+#### ② ADE 仿真结果对于每次仿真而言
 
 - ADE Explore
-  - 默认覆盖每次仿真
+  - 默认覆盖每次仿真结果
+  - 使用 [Results->Save](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-exploring-histories) 来手动保存某次 ADE 仿真结果；使用 [Results->Select](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/36638/saving-importing-exporting-the-ade-results) 查看之前保存的仿真结果
+  - 无法保存仿真设置，需要保存仿真设置应使用 ADE Assembler
 - ADE Assembler
-  - 默认保存最新的 10 组数据 [ref](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/36638/saving-importing-exporting-the-ade-results) 
+  - 默认保存最新的 10 组数据 [ref](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/36638/saving-importing-exporting-the-ade-results)
+  - 使用 "鼠标右键->lock" 实现某组数据不覆盖
 
-#### 仿真数据保存、导出与导入
+
+
+#### 仿真数据默认设置、保存、导出与导入
+
+
+
+
+
+
+
+
+
+
+
 
 
 Virtuoso 中仿真数据默认存储位置由 asimenv.startup projectDir 这一环境变量设置，默认位置是 `~/simulation`。对于如何修改这一环境变量，以及如何把波形图背景设为白色，可以参考 [cdsenv](SKILL.md#cdsinit-and-cdsenv) 这篇文章。
@@ -100,6 +115,10 @@ One of the possible reasons can be that 'Save' check box for these signals are n
 
 ## Spectre 仿真类型
 
+### 背景
+
+https://community.cadence.com/cadence_blogs_8/b/cic/posts/spectre-tech-tips-accuracy-101
+
 ### 万物的开山: `dc` simulation
 
 modified nodal analysis
@@ -123,8 +142,11 @@ Striving for small-signal stability - Loop-Based and Device-Based Algorithms for
 ### Spectre 在模拟仿真领域超越 Hspice 的开端: `pss` simulation
 
 
+## Real-time Tuning, Local and Global Optimization
 
+基本概念：A PCell, short for parameterized cell, is a feature in EDA tools that lets designers create components whose structure depends on specific parameters. For example, you could have a transistor PCell where you can adjust its length and width, and the tool automatically generates the layout based on those settings. This makes it easier to reuse and customize designs without starting from scratch. A PCell is a specific kind of device where there is a schematic view (or symbol view) where the connectivity changes based on a parameter?
 
+https://youtu.be/RG5CjoPcHvs?t=1058
 
 
 ## 加快仿真速度 (ADE 和 Spectre 中间的桥梁)
