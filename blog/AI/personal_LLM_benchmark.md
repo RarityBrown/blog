@@ -45,6 +45,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 2025/03/30: Deepseek v3-20250324 和 OpenAI 4oL-20250326 从 benchmark 结果来看应该是用了非常类似的方法。很难想象 Perplexity 和 Cursor 这种产品的估值会如此之高，应用层没有护城河，时间会碾碎一切的。今天闲，再写一点预测吧：Llama 4 通用任务的文字能力(不考虑多模态)非推理水平应该在 Claude 3.7 左右，恐怕是不如 v3-20250324 / Gemini 2 Pro / 4oL-20250326 的。GPT5 和 Claude4 才是真正的 Game Changer，就等下半年体验了，这个预测不准的。
 
+2025/04/06：Qwen3 的 llama4 压力小多了，但是内在压力还是挺大的。如果五六月份发布的 Qwen3 72B 目标是和 ds-v3.0 乃至 Qwen2.5 Max 打平，还是难的，估计今年年末或者明年年初的 Qwen3.5 72B 有戏，如果那时候还发 Dense 的话。但是我认为这个尺寸就是应该发 dense 的，至少 llama4 Scout 的失败会让业界长记性的。
 
 ## 纯文本题目列表
 
@@ -121,7 +122,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 
 > 正确情况：4oL 对; Sonnet 3.5 错错; Gemini 2 Pro 对;
 >
-> QC 正确情况：Sonnet 3.7 thinking 错
+> QC 正确情况：Sonnet 3.7 thinking 错; Gemini 2.5 Pro 错
 
 > Q: 顺尔宁是 NSAIDs 吗？泰诺呢？开瑞坦呢？双氯芬酸呢？右美沙芬呢？简单回答，即类似于“是、不是、不是、不是、是”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
 >
@@ -131,7 +132,13 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > Q 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
 >
-> QC 正确情况：grok3 错错; Gemini 2.5 Pro 对; v3-0324 对; Sonnet 3.7 thinking 错
+> QC 正确情况：grok3 错错; Gemini 2.5 Pro 对; v3-0324 对; Sonnet 3.7 thinking 错错
+
+> QC: Asheville, Akita, Kanazawa 哪个城市没有开过奥运会？
+>
+> 正确答案：都没
+>
+> 正确情况：Sonnet 3.7 对
 
 > Q: 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
 >
@@ -143,9 +150,29 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Thomas Lee, Murmann, Willy 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
 >
-> 参考答案：Analog: **Donald O. Pederson (SPICE)**, Laurence(Larry) Nagel (SPICE), Arthur Richard Newton (SPICE), Ronald A. Rohrer (SPICE),  Ken Kundert (Spectre), Jacob K. White (Spectre), Rob A. Rutenbar, Georges Gielen, ; Digital: **Alberto Sangiovanni-Vincentelli**, Kurt Keutzer (Bell Labs, Synopsys, UCB), Aart de Geus (Synopsys), Robert K. Brayton (UCB), Hugo De Man(IMEC), Giovanni De Micheli, Robert K. Brayton, Ernest S. Kuh (葛守仁) 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
+> 参考答案：
+> 
+> - Analog:
+>   - **Donald O. Pederson (SPICE)**
+>   - Laurence(Larry) Nagel (SPICE)
+>   - Arthur Richard Newton (SPICE)
+>   - Ronald A. Rohrer (SPICE)
+>   - Ken Kundert (Spectre)
+>   - Jacob K. White (Spectre)
+>   - Rob A. Rutenbar
+>   - Georges Gielen
+> - Digital: **Alberto Sangiovanni-Vincentelli**
+>   - Kurt Keutzer (Bell Labs, Synopsys, UCB)
+>   - Aart de Geus (Synopsys)
+>   - Robert K. Brayton (UCB)
+>   - Hugo De Man(IMEC)
+>   - Giovanni De Micheli
+>   - Robert K. Brayton
+>   - Ernest S. Kuh (葛守仁)
+> 
+> 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
 >
-> 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错错
+> Q 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错错
 
 > Q: The release year of IC Compiler 2? When did ICC1 stop updating?
 > 
@@ -183,10 +210,26 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 - 有 Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，包括但不限于
   - 页面内广告等无关信息
   - 整个页面和搜索问题无关
-  - 图片
+  - 非纯文本内容
+    - 图片
+      - 搜索模型的确需要强视觉能力的，例如在 20250406 搜索 "llama 4 maverick vs deepseek v3 0324. Give me a benchmark table, including GPQA etc." Sonar, gpt-4o-search, Gemini 2.5 Pro Grounding, Jina Deep Search 提供的对比表格没有一个是 100% 正确的，而且每次搜索结果非常不稳定，相对来说后两者略好一些。因为 llama 官方的对比表格就是图片。
+    - 非图片网页表格、非图片网页图标
   - 不同页面间信息矛盾
-  - 动态加载的网页，有不同 tab 的但网址相同的网页，例如 lmarena.ai: The (2nd) best LLM on lmarena today?
-  - 非常老的网页，现代浏览器的 TLS 版本默认不支持，例如 https://ccf.ee.ntu.edu.tw/~cchen/cadence/simulation.htm
+  - 非标准网页类型
+    - 动态加载的网页
+      - 有不同 tab 的但网址相同的网页，例如 lmarena.ai: The (2nd) best LLM on lmarena today?
+      - 点击/滚动才展开的评论区
+    - 在线超长 .pdf 文件
+  - 登录墙、付费墙
+    - 这个东西只可能本地解决，靠 OpenAI 一个个去谈是不可能覆盖完全的。
+    - 例如 the speaker of the ISSCC 2014 tutorial 3?
+  - 用户输入笔误
+  - 非常老的网页，现代浏览器的 TLS 版本默认不支持
+    - 例如 https://ccf.ee.ntu.edu.tw/~cchen/cadence/simulation.htm
+  - 以上所有问题的嵌套
+    - 比如 pdf 中的图片、表格
+      - 例如 "Command A gpqa", 在 https://cohere.com/research/papers/command-a-technical-report.pdf 表格中提供了 **50.8** 的标准答案
+    - 登录墙中的评论区
 
 
 > Q: Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
@@ -268,7 +311,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 参考答案：加上 `\begin{gathered}` 或 `\begin{align*}` 等环境
 >
-> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错, grok3 对错; 4oL 错; o3-mini-high 错
+> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错, grok3 对错; 4oL 错; o3-mini-high 错; 
 
 > Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but commands `\if` `\else` `\relax` `\sbox` `\setbox` and `\savebox`, and, packages TikZ, `graphicx` and `calc` are not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
 > 
@@ -320,17 +363,6 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > \verb|line1|  \\  \verb|line2|
 > ```
-
-> Q: I'm trying to typeset text in LaTeX with specific spacing, resembling `\texttt{\textcolor{red}{METAL1}~~~~~~~~\textcolor{blue}{cm1}}`, ensuring the code block maintains an exact width equivalent to eight spaces between the colored words within the `\texttt{}` environment. My current attempts at achieving this have failed, as the multiple spaces collapse into a single space, deviating from the desired output. Can you provide two distinct LaTeX methods to accomplish this precise formatting, demonstrating them within a single code block without additional commentary?
->
-> 典型错误：
->
-> 1. `\texttt{\textcolor{red}{METAL1}\hspace{8em}\textcolor{blue}{cm1}}`. 因为 `\hspace{8em}` 的宽度和 `\texttt{}` 中 8 个连续的 monospace 不一样宽
-> 2. `\texttt{\textcolor{red}{METAL1}\phantom{xxxxxxxx}\textcolor{blue}{cm1}}`. `\phantom` is only supported in math mode
-> 
-> 参考答案：`\textcolor{red}{\texttt{METAL1}} \verb|        | \textcolor{blue}{\texttt{cm1}}`
->
-> 正确情况：grok2 对错错, gemini-exp-1121 错错错错, o1-min 错错错, o1p 错, 4oL 错错错
 
 ###### tikz
 
@@ -424,9 +456,13 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确情况：3.7 Sonnet 可用error,  ;   Gemini 2.5 Pro 不可用error  ; 
 
+> Q: MathJax vs KaTeX Renderer side by side, with a syntax highlight latex input box. **Enable the `physics` package in mathjax.**
+>
+> 正确情况：3.7 Sonnet error; nightwhisper error
 
+> Q: 画一个 2 阶 RC 低通滤波器的电路图和频响图 Draw the schematic and frequency response (mag & phase) of a 2nd order RC low-pass filter. Make it interactive.
 
-> Q: A ping pong game. computer vs computer
+> Q: A circuit schematic editor. Use key `i` to new an instance choosing dialog. The symbol of the circuit component should be drawn correctly
 
 ##### Python 小众库
 
@@ -734,11 +770,11 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >         .long   0
 > ```
 > 
-> 正确答案：`1,290,111,812,442,216`
+> 正确答案：`1,290,111,812,442,216`  `1290892312867076`
 >
-> 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错; Gemini 2.5 Pro 错; o3-mini-high 对
+> 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错; Gemini 2.5 Pro 错; o3-mini-high 对; lunarcall 对
 
-### Lisp (Cadence SKILL)
+##### Lisp (Cadence SKILL)
 
 ```python
 def greet(name):
@@ -818,9 +854,9 @@ refactor to Cadence Virtuoso SKILL
 
 > QC: 一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。
 >
-> 正确答案：没有。因为 natural frequency second-order LTI
+> 正确答案：没有。因为 natural frequency 适用于 second-order LTI
 >
-> 正确情况：GPT4.5 对
+> 正确情况：GPT4.5 对; Sonnet 3.7 错; lunarcall 对; r1 对
 
 > Q: NMOS 弱反型区电流公式？（不要在最终结果中带 $I_{d0}$ 或 $I_S$ ，写在 latex code block 中）
 >
@@ -852,19 +888,6 @@ refactor to Cadence Virtuoso SKILL
 >
 > 正确情况：o3-mini-high 错，Gemini 2.5 Pro 错
 
-#### 其他
-
-> Q: 4.5米, 6米, 20米长的竹竿能否通过高4米宽3米的门？Can poles of 4.5 meters, 6 meters, and 20 meters in length pass through a door 4 meters high and 3 meters wide? Omit the process and give the answer directly, for example, "Yes, No, Yes"          [ref](https://zhuanlan.zhihu.com/p/23434595912)
->
-> 更简单的版本：6米长的队伍能不能通过高4米宽3米的门？ 
-> 
->
-> 正确答案：都可以
->
-> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错); 4oL 错; o1 错; Gemini 2.5 Pro 错错; grok3 错错错; r1 错; GPT4.5 错
-
-### 推理问题
-
 > Q:
 > ```verilog
 > module shiftreg_PA_rev (
@@ -891,6 +914,71 @@ refactor to Cadence Virtuoso SKILL
 > 正确答案：因为是阻塞赋值，其实是一个 A = E 的 1-bit DFF
 
 
+> QC:
+> ```verilog
+> module simple_moore_fsm(
+>     input wire clk,
+>     input wire rst_n,
+>     input wire x,
+>     output reg y
+> );
+>     parameter S0 = 1'b0;
+>     parameter S1 = 1'b1;
+> 
+>     reg current_state, next_state;
+> 
+>     always @(posedge clk or negedge rst_n) begin
+>         if (!rst_n) current_state <= S0;
+>         else        current_state <= next_state;
+>     end
+> 
+>     always @(*) begin
+>         case (current_state)
+>             S0: begin
+>                 if (x) next_state = S1;
+>                 else   next_state = S0;
+>             end
+>             S1: begin
+>                 if (x) next_state = S1;
+>                 else   next_state = S0;
+>             end
+>             default: next_state = S0;
+>         endcase
+>     end
+> 
+>     always @(*) begin
+>         case (current_state)
+>             S0: begin
+>                 if (x) y = 1'b1;
+>                 else   y = 1'b0;
+>             end
+>             S1: begin
+>                 if (x) y = 1'b0;
+>                 else   y = 1'b1;
+>             end
+>             default: y = 1'b0;
+>         endcase
+>     end
+> 
+> endmodule
+> ```
+>
+> 这段代码是 Moore FSM 还是 Mealy FSM？这段代码为什么是 Moore FSM?
+>
+> 正确答案：Mealy FSM
+> 
+> 正确情况：Sonnet 3.5 对; o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL-20250326 对, 3-opus 对, 2-flash-thinking 对; Gemini 2.5 Pro 对; v3-0324 错; stargazer 对
+
+#### 其他
+
+> Q: 4.5米, 6米, 20米长的竹竿能否通过高4米宽3米的门？Can poles of 4.5 meters, 6 meters, and 20 meters in length pass through a door 4 meters high and 3 meters wide? Omit the process and give the answer directly, for example, "Yes, No, Yes"          [ref](https://zhuanlan.zhihu.com/p/23434595912)
+>
+> 更简单的版本：6米长的队伍能不能通过高4米宽3米的门？ 
+> 
+>
+> 正确答案：都可以
+>
+> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错); 4oL 错; o1 错; Gemini 2.5 Pro 错错; grok3 错错错; r1 错; GPT4.5 错
 
 > Q: #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
 >
@@ -963,63 +1051,6 @@ refactor to Cadence Virtuoso SKILL
 >
 > 参考答案：
 
-### 批判性-推理问题
-
-> QC:
-> ```verilog
-> module simple_moore_fsm(
->     input wire clk,
->     input wire rst_n,
->     input wire x,
->     output reg y
-> );
->     parameter S0 = 1'b0;
->     parameter S1 = 1'b1;
-> 
->     reg current_state, next_state;
-> 
->     always @(posedge clk or negedge rst_n) begin
->         if (!rst_n) current_state <= S0;
->         else        current_state <= next_state;
->     end
-> 
->     always @(*) begin
->         case (current_state)
->             S0: begin
->                 if (x) next_state = S1;
->                 else   next_state = S0;
->             end
->             S1: begin
->                 if (x) next_state = S1;
->                 else   next_state = S0;
->             end
->             default: next_state = S0;
->         endcase
->     end
-> 
->     always @(*) begin
->         case (current_state)
->             S0: begin
->                 if (x) y = 1'b1;
->                 else   y = 1'b0;
->             end
->             S1: begin
->                 if (x) y = 1'b0;
->                 else   y = 1'b1;
->             end
->             default: y = 1'b0;
->         endcase
->     end
-> 
-> endmodule
-> ```
->
-> 这段代码是 Moore FSM 还是 Mealy FSM？
->
-> 正确答案：Mealy FSM
-> 
-> 正确情况：Sonnet 3.5 对, Gemini 2 Pro 错错错, o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL 错错, 3-opus 对, 2-flash-thinking 对; Gemini 2.5 Pro 对
-
 ## 评测的小 ideas
 
 ### Bode
@@ -1029,12 +1060,6 @@ refactor to Cadence Virtuoso SKILL
 但是这个图要求我们有大量不同难度的测试集，其中比较容易想到的是数学的评估，因为其客观性比较强，我们可以将横轴取小学6年，中学6年，本科4年，硕士3年，共19各数据点的原创数学试题作为评估，拟合出一些漂亮的数学能力 Bode 图。或是小学奥数+初中奥数+高中奥数等...
 
 ![](https://github.com/user-attachments/assets/3e18c5c2-ea11-467b-bcbf-2a72b52f77e0)
-
-### 批判性思维和综合能力
-
-- 传统选择题形式的类 GPQA 评测 + 填空题形式的类 GPQA 评测 + 没有一个选项正确的选择题形式的类 GPQA 评测
-- 1+1=2: Are you sure? / rethink / recheck
-
 
 ## VLLM 题目列表
 
