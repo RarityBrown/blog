@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时使用过程中，收集选择一些截至 2025 年 4 月的第一梯队 LLM (GPT4.5, Gemini 2.5 Pro, Sonnet 3.7 thinking, grok3-thinking, o1, o3-mini-high, r1, v3-0324) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些截至 2025 年 4 月的第一梯队 LLM (GPT4.5, Gemini 2.5 Pro, Sonnet 3.7 thinking, grok3-thinking, o1-pro, o3-mini-high, r1, v3-0324) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
 
 ## 一些个人观点
 
@@ -41,11 +41,21 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 2025/03/06：LLM 需要一个推理 FoM 值，类似于 $\log(1/\text{average end time}\cdot\text{average first token time}\cdot\text{average token})\cdot \text{Raw Performance}$ 之类的。QwQ 32B 的推理过程动辄消耗 2 万个 token，不比 preview 版好多少，仍然是刷榜的废物。Groq 之类的硬件加速方案还是有一定前途的，就等 Jensen 下场了。
 
-2024/09/13, 2025/03/24, 2025/03/30: 加入 HardQA (SimpleQA 的困难版本，需要阅读大量网页和一点点的推理能力才能答对，利用 LLM 自身知识储备几乎不可能答对)。加入 QC (Question with Critical Thinking, 题目就是错的，例如"证明 $\frac{1}{2}=\frac{2}{2+2-1}$"，又例如："Asheville, Akita, Kanazawa 哪个城市没有开过奥运会？")，例如考虑传统选择题形式的类 GPQA 评测 + 填空题形式的类 GPQA 评测 + 没有一个选项正确的选择题形式的类 GPQA 评测。
+2025/03/24: 加入 HardQA (SimpleQA 的困难版本，需要阅读大量网页和一点点的推理能力才能答对，利用 LLM 自身知识储备几乎不可能答对)。2025/04/11: OpenAI 的 BrowseComp 基本上就是也。更印证了没有一家在解决模型说“不会”的能力，而都是在通过加强模型能力来减轻幻觉的影响。
 
 2025/03/30: Deepseek v3-20250324 和 OpenAI 4oL-20250326 从 benchmark 结果来看应该是用了非常类似的方法。很难想象 Perplexity 和 Cursor 这种产品的估值会如此之高，应用层没有护城河，时间会碾碎一切的。今天闲，再写一点预测吧：Llama 4 通用任务的文字能力(不考虑多模态)非推理水平应该在 Claude 3.7 左右，恐怕是不如 v3-20250324 / Gemini 2 Pro / 4oL-20250326 的。GPT5 和 Claude4 才是真正的 Game Changer，就等下半年体验了，这个预测不准的。
 
 2025/04/06：Qwen3 的 llama4 压力小多了，但是内在压力还是挺大的。如果五六月份发布的 Qwen3 72B 目标是和 ds-v3.0 乃至 Qwen2.5 Max 打平，还是难的，估计今年年末或者明年年初的 Qwen3.5 72B 有戏，如果那时候还发 Dense 的话。但是我认为这个尺寸就是应该发 dense 的，至少 llama4 Scout 的失败会让业界长记性的。
+
+### QC 系列
+
+- 加入 QC (Question with Critical Thinking, 题目就是错的
+  - 例如 "证明 $\frac{1}{2}=\frac{2}{2+2-1}$", "Asheville, Akita, Kanazawa 哪个城市没有开过奥运会？"
+  - 可以考虑传统选择题形式的类 GPQA 评测 + 填空题形式的类 GPQA 评测 + 没有一个选项正确的选择题形式的类 GPQA 评测。
+
+一些类似的项目：
+
+[MATH-Perturb](https://math-perturb.github.io/)
 
 ## 纯文本题目列表
 
@@ -207,13 +217,15 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 ### 困难知识问题 (也许我们可以取名叫 HardQA? )
 
 - LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Deep Research，详见 Jina AI 的 Blog
-- 有 Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，包括但不限于
+- Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，包括但不限于
   - 页面内广告等无关信息
   - 整个页面和搜索问题无关
   - 非纯文本内容
     - 图片
-      - 搜索模型的确需要强视觉能力的，例如在 20250406 搜索 "llama 4 maverick vs deepseek v3 0324. Give me a benchmark table, including GPQA etc." Sonar, gpt-4o-search, Gemini 2.5 Pro Grounding, Jina Deep Search 提供的对比表格没有一个是 100% 正确的，而且每次搜索结果非常不稳定，相对来说后两者略好一些。因为 llama 官方的对比表格就是图片。
+      - 搜索模型的确需要强视觉能力的，例如在 20250406 搜索 "llama 4 maverick vs deepseek v3 0324. Give me a benchmark table, including GPQA etc." Sonar, gpt-4o-search, Gemini 2.5 Pro Grounding, Jina Deep Search 提供的对比表格没有一个是 100% 正确的，而且每次搜索结果非常不稳定，相对来说后两者略好一些。因为 llama 官方的对比表格就是图片，而那时候媒体转载也是直接通过图片，还没有任何成文的纯文本内容。
     - 非图片网页表格、非图片网页图标
+    - 视频
+      - 例如有的视频教程，比如教你怎么在 Word 中实现一个功能
   - 不同页面间信息矛盾
   - 非标准网页类型
     - 动态加载的网页
@@ -230,7 +242,6 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
     - 比如 pdf 中的图片、表格
       - 例如 "Command A gpqa", 在 https://cohere.com/research/papers/command-a-technical-report.pdf 表格中提供了 **50.8** 的标准答案
     - 登录墙中的评论区
-
 
 > Q: Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
 >
@@ -251,6 +262,16 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 正确答案：[Human Interface](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/50958/whats-the-difference-between-le-commands-and-hi-commands)
 
 > Q: Intel 在 2025 年 2 月 24 日的 CEO 是谁？
+>
+> 正确答案：无
+
+> Q: function to get variable type in cadence virtuoso?
+>
+> 正确答案：`type()`
+
+> Q: How to draw a rounded rectangle in originpro?
+>
+> 正确答案：没有简单的方法
 
 ### 知识-推理混合问题
 
@@ -463,6 +484,8 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > Q: 画一个 2 阶 RC 低通滤波器的电路图和频响图 Draw the schematic and frequency response (mag & phase) of a 2nd order RC low-pass filter. Make it interactive.
 
 > Q: A circuit schematic editor. Use key `i` to new an instance choosing dialog. The symbol of the circuit component should be drawn correctly
+
+> Q: 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
 
 ##### Python 小众库
 
@@ -823,70 +846,7 @@ refactor to Cadence Virtuoso SKILL
 >
 > 正确情况：Gemini 2 Pro 错; r1 对; grok-3 对; Gemini 2.5 Pro 对; GPT4.5 对
 
-
-#### 专业相关问题
-
-> Q: 以下这段话有什么根本性的事实错误（正确、不完整、略有不严谨、正确但笼统、正确但过于简单的部分均无需列出与分析）？无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。本文将介绍无机半导体的基本概念、特性以及其在实际应用中的重要性。无机半导体是指由无机材料构成的半导体材料。与有机半导体不同，无机半导体的导电性主要是由其晶体结构和化学成分决定的。具体而言，无机半导体通常是由金属和非金属元素组成的化合物，如二硫化锌、氧化镓等。这些化合物具有特殊的晶体结构，使得它们的电子能带结构在一定温度范围内呈现出半导体的特性。无机半导体的最重要特性之一是能带结构。能带结构决定了材料的导电性质。在无机半导体中，通常存在着价带和导带两个能带。价带中的电子处于较低的能量状态，而导带中的电子处于较高的能量状态。当外界施加电场或加热材料时，一部分价带中的电子会跃迁到导带中，形成自由电子和空穴。这种电子和空穴的运动就是电流的基础。无机半导体的导电性还与掺杂有关。掺杂是指在材料中引入少量的杂质，以改变其导电性质。掺杂可以分为N型和P型两种。在N型掺杂中，引入的杂质具有多余的电子，这些电子可以自由移动，从而增加材料的导电性。而在P型掺杂中，引入的杂质具有少了一个电子的空位，这些空位可以被电子填充，形成空穴，从而增加材料的导电性。N型和P型材料的结合可以形成PN结，这是半导体器件中最基本的结构之一。无机半导体在电子学和光电子学领域有着广泛的应用。例如，半导体二极管是一种常见的电子器件，它利用PN结的特性实现了电流的整流和放大。此外，无机半导体还广泛应用于太阳能电池、激光器、光电探测器等领域。这些应用使得无机半导体成为现代高科技产业的重要基础材料。无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。无机半导体的导电性质与其能带结构和掺杂有关，这使得它成为实现电流控制和光电转换的重要材料。对于人类社会的科技进步和经济发展而言，无机半导体的研究和应用具有重要意义。
-> 
-> 正确答案：
-> - “无机半导体**通常**是由金属和非金属元素组成的化合物”（Si 和 Ge 更通常啊）
-> - “它利用PN结的特性实现了电流的整流和**放大**”
-> - “当外界施加**电场**或加热材料时，一部分价带中的电子会跃迁到导带中”
->   - 这个 o1-mini 认为是错的。虽然在高场强下可能存在碰撞电离（雪崩击穿），对于 PN 结可能存在隧穿效应。但是“电场”用在原文这个语境下，应该是不对的，就是只有热激发、光激发。所以 o1-mini 的观点应该是正确的？我也没看出来
->
-> 无论哪个点都容易被 LLM 遗漏，单独再问 LLM 一次这几句话对不对，往往都能给出正确答案。所以现在的 LLM 大海捞针评估我感觉是很有问题，或者说太简单了（大海捞针的插入针对于人类来说极明显，只能说是“大海捞钢筋”），此处稍微难一点点的“水塘捞细针”都捞不到。Jamba 有提到这个问题，并给出了 effective context window。但是显然，对于这个问题而言 1k 至 4k 左右 token 的 context window 都没有，大致只有 0.1k 的水平。不过这段话摘自公开的百度文库，所以这可能进一步加剧了这种情况，因为搞不好这段话还在训练数据集里。不过震惊的是 yi-lighting 全部答出来了。
->
-> 同时，这题的 prompt 也挺重要的，似乎**哪些**比**什么**会导致 LLM 答得更全。
->
-> 正确情况（使用**什么**作为关键词）：o3-mini-high 1;
-
-> Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？  What is the name of the standard cell corresponding to the logic expression !(AB+C)? How many MOSFETs are required in CMOS logic?
->
-> 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
->
-> 正确情况： o1 对; 3-opus 半对; Gemini 2.5 Pro 对; Sonnet 3.7 对对
-
-> QC: 理想 LC 的 τ 是什么？给出总计 30 个字以内的解答。
->
-> 正确答案：没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统
->
-> 正确情况：GPT4.5 对
-
-> QC: 一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。
->
-> 正确答案：没有。因为 natural frequency 适用于 second-order LTI
->
-> 正确情况：GPT4.5 对; Sonnet 3.7 错; lunarcall 对; r1 对
-
-> Q: NMOS 弱反型区电流公式？（不要在最终结果中带 $I_{d0}$ 或 $I_S$ ，写在 latex code block 中）
->
-> 正确答案： $I_d = \left[ \mu C_{ox} \dfrac{W}{L} (n-1) V_t^2 \right] \exp\left(\dfrac{V_{gs} - V_{TH}}{n V_t}\right) \left(1 - \exp\left(-\dfrac{V_{ds}}{V_t}\right)\right)$
->
-> 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 对; big-engine-test 对; 3-opus 对
-
-> QC: 试推导 MOSFET 的亚阈值 $r_o=\frac{V_T}{I_{d}} \exp(\frac{V_{ds}}{V_T}-1)$, 其中 $I_d$ 是 MOSFET 目前的亚阈值电流
->
-> 正确答案：公式就是不对的，应当为 $\frac{V_T}{I_{d}} \left( \exp(\frac{V_{ds}}{V_T})-1 \right)$
->
-> 正确情况：2-flash-thinking 对; Sonnet 3.7 thinking 对; o3-mini 对但没指出错误
-
-> Q: 随便找一篇专业相关的论文的一大段，令其翻译至中文
->
-> 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
-
-> Q: NMOS + 一个电阻的 source follower 的 $A_{V_{DD}}$ 是多少？不考虑体效应，但是考虑 CLM
->
-> 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$
->
-> 正确情况：o3-mini-high 对错; Gemini 2.5 Pro 对; Grok3 对
-
-> Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
->
-> 正确答案：对于 PMOS 输入的 5T-OTA 有 $A_{VDD}\approx\dfrac{1}{2g_{m3}r_{o,\text{tail}}}  \qquad  A_{VSS}\approx 1$
->
-> 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
->
-> 正确情况：o3-mini-high 错，Gemini 2.5 Pro 错
+##### Verilog (SystemVerilog, Verilog-AMS, etc.)
 
 > Q:
 > ```verilog
@@ -968,6 +928,77 @@ refactor to Cadence Virtuoso SKILL
 > 正确答案：Mealy FSM
 > 
 > 正确情况：Sonnet 3.5 对; o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL-20250326 对, 3-opus 对, 2-flash-thinking 对; Gemini 2.5 Pro 对; v3-0324 错; stargazer 对
+
+
+> Q: Write a Verilog-A model for a 12-input AND gate using a vector input.
+
+
+
+#### 专业相关问题
+
+> Q: 以下这段话有什么根本性的事实错误（正确、不完整、略有不严谨、正确但笼统、正确但过于简单的部分均无需列出与分析）？无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。本文将介绍无机半导体的基本概念、特性以及其在实际应用中的重要性。无机半导体是指由无机材料构成的半导体材料。与有机半导体不同，无机半导体的导电性主要是由其晶体结构和化学成分决定的。具体而言，无机半导体通常是由金属和非金属元素组成的化合物，如二硫化锌、氧化镓等。这些化合物具有特殊的晶体结构，使得它们的电子能带结构在一定温度范围内呈现出半导体的特性。无机半导体的最重要特性之一是能带结构。能带结构决定了材料的导电性质。在无机半导体中，通常存在着价带和导带两个能带。价带中的电子处于较低的能量状态，而导带中的电子处于较高的能量状态。当外界施加电场或加热材料时，一部分价带中的电子会跃迁到导带中，形成自由电子和空穴。这种电子和空穴的运动就是电流的基础。无机半导体的导电性还与掺杂有关。掺杂是指在材料中引入少量的杂质，以改变其导电性质。掺杂可以分为N型和P型两种。在N型掺杂中，引入的杂质具有多余的电子，这些电子可以自由移动，从而增加材料的导电性。而在P型掺杂中，引入的杂质具有少了一个电子的空位，这些空位可以被电子填充，形成空穴，从而增加材料的导电性。N型和P型材料的结合可以形成PN结，这是半导体器件中最基本的结构之一。无机半导体在电子学和光电子学领域有着广泛的应用。例如，半导体二极管是一种常见的电子器件，它利用PN结的特性实现了电流的整流和放大。此外，无机半导体还广泛应用于太阳能电池、激光器、光电探测器等领域。这些应用使得无机半导体成为现代高科技产业的重要基础材料。无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。无机半导体的导电性质与其能带结构和掺杂有关，这使得它成为实现电流控制和光电转换的重要材料。对于人类社会的科技进步和经济发展而言，无机半导体的研究和应用具有重要意义。
+> 
+> 正确答案：
+> - “无机半导体**通常**是由金属和非金属元素组成的化合物”（Si 和 Ge 更通常啊）
+> - “它利用PN结的特性实现了电流的整流和**放大**”
+> - “当外界施加**电场**或加热材料时，一部分价带中的电子会跃迁到导带中”
+>   - 这个 o1-mini 认为是错的。虽然在高场强下可能存在碰撞电离（雪崩击穿），对于 PN 结可能存在隧穿效应。但是“电场”用在原文这个语境下，应该是不对的，就是只有热激发、光激发。所以 o1-mini 的观点应该是正确的？我也没看出来
+>
+> 无论哪个点都容易被 LLM 遗漏，单独再问 LLM 一次这几句话对不对，往往都能给出正确答案。所以现在的 LLM 大海捞针评估我感觉是很有问题，或者说太简单了（大海捞针的插入针对于人类来说极明显，只能说是“大海捞钢筋”），此处稍微难一点点的“水塘捞细针”都捞不到。Jamba 有提到这个问题，并给出了 effective context window。但是显然，对于这个问题而言 1k 至 4k 左右 token 的 context window 都没有，大致只有 0.1k 的水平。不过这段话摘自公开的百度文库，所以这可能进一步加剧了这种情况，因为搞不好这段话还在训练数据集里。不过震惊的是 yi-lighting 全部答出来了。
+>
+> 同时，这题的 prompt 也挺重要的，似乎**哪些**比**什么**会导致 LLM 答得更全。
+>
+> 正确情况（使用**什么**作为关键词）：o3-mini-high 1;
+
+> Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？  What is the name of the standard cell corresponding to the logic expression !(AB+C)? How many MOSFETs are required in CMOS logic?
+>
+> 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
+>
+> 正确情况： o1 对; 3-opus 半对; Gemini 2.5 Pro 对; Sonnet 3.7 对对
+
+> QC: 理想 LC 的 τ 是什么？给出总计 30 个字以内的解答。
+>
+> 正确答案：没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统
+>
+> 正确情况：GPT4.5 对
+
+> QC: 一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。
+>
+> 正确答案：没有。因为 natural frequency 适用于 second-order LTI
+>
+> 正确情况：GPT4.5 对; Sonnet 3.7 错; lunarcall 对; r1 对
+
+> Q: NMOS 弱反型区电流公式？（不要在最终结果中带 $I_{d0}$ 或 $I_S$ ，写在 latex code block 中）
+>
+> 正确答案： $I_d = \left[ \mu C_{ox} \dfrac{W}{L} (n-1) V_t^2 \right] \exp\left(\dfrac{V_{gs} - V_{TH}}{n V_t}\right) \left(1 - \exp\left(-\dfrac{V_{ds}}{V_t}\right)\right)$
+>
+> 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 对; big-engine-test 对; 3-opus 对
+
+> QC: 试推导 MOSFET 的亚阈值 $r_o=\frac{V_T}{I_{d}} \exp(\frac{V_{ds}}{V_T}-1)$, 其中 $I_d$ 是 MOSFET 目前的亚阈值电流
+>
+> 正确答案：公式就是不对的，应当为 $\frac{V_T}{I_{d}} \left( \exp(\frac{V_{ds}}{V_T})-1 \right)$
+>
+> 正确情况：2-flash-thinking 对; Sonnet 3.7 thinking 对; o3-mini 对但没指出错误
+
+> Q: 随便找一篇专业相关的论文的一大段，令其翻译至中文
+>
+> 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
+
+> Q: NMOS + 一个电阻的 source follower 的 $A_{V_{DD}}$ 是多少？不考虑体效应，但是考虑 CLM
+>
+> 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$
+>
+> 正确情况：o3-mini-high 对错; Gemini 2.5 Pro 对; Grok3 对
+
+> Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
+>
+> 正确答案：对于 PMOS 输入的 5T-OTA 有 $A_{VDD}\approx\dfrac{1}{2g_{m3}r_{o,\text{tail}}}  \qquad  A_{VSS}\approx 1$
+>
+> 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
+>
+> 正确情况：o3-mini-high 错，Gemini 2.5 Pro 错
+
+> Q: 最简单的两个电阻一个运放的反相放大器的反馈系数是多少？通过 $A_{CL}=\dfrac{A_{OL}}{1+\beta A_{OL}}$ 计算闭环增益（不要通过 KCL KVL）
 
 #### 其他
 
