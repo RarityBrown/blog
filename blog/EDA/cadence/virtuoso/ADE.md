@@ -149,6 +149,10 @@ Striving for small-signal stability - Loop-Based and Device-Based Algorithms for
 https://youtu.be/RG5CjoPcHvs?t=1058
 
 
+### AMS
+
+
+
 ## 加快仿真速度 (ADE 和 Spectre 中间的桥梁)
 
 ### 通过并行，加快仿真速度
