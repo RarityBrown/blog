@@ -26,9 +26,9 @@ quadrantChart
     quadrant-4 Daily Searching
     
     Grok DS: [0.65, 0.55]
-    Perplexity Pro: [0.7, 0.3]
-    Jina AI DS: [0.85, 0.60]
-    Gemini 2 Pro Grounding: [0.7, 0.1]
+    Perplexity Pro: [0.6, 0.3]
+    Jina AI DS: [0.85, 0.65]
+    Gemini 2.5 Pro Grounding: [0.7, 0.25]
 ```
 
 
