@@ -51,6 +51,10 @@
   - [`tran` 仿真在需要的时间点开启 noise](https://zhuanlan.zhihu.com/p/9915953761)
 - [`tran` 仿真的过程中进行小信号相关的仿真](https://zhuanlan.zhihu.com/p/344932538)
 
+### `dc`
+
+- [`dc` 仿真中查看节点电容](https://zhuanlan.zhihu.com/p/1895118676316909837)
+
 ### `pss`
 
 - [pss 仿真](https://zhuanlan.zhihu.com/p/16816066025)
