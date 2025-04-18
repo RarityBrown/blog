@@ -468,9 +468,9 @@ envLoadFile("~/.cdsenv")                         ;
 hiRegTimer("ddsOpenLibManager()" 1)              ; Delayed automatic opening of lib manager
 hiResizeWindow(window(1) list(100:150 1500:800)) ; Set the CIW window size, 400:150 and 1200:600 are the screen coordinates.
 
-hiSetFont("ciw"   ?size 16)                      ; CIW font size, greater than 16 is not recommended
-hiSetFont("text"  ?size 16)                      ; Toolbar and Menu font size, greater than 16 is not recommended
-hiSetFont("label" ?size 16)                      ; simulation font size, greater than 16 is not recommended
+hiSetFont("ciw"   ?size 14)                      ; CIW font size, greater than 16 is not recommended
+hiSetFont("text"  ?size 14)                      ; Toolbar and Menu font size, greater than 16 is not recommended
+hiSetFont("label" ?size 14)                      ; simulation font size, greater than 16 is not recommended
 
 hiSetBindKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
 hiSetBindKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
