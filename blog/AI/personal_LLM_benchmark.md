@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时使用过程中，收集选择一些截至 2025 年 4 月的第一梯队 LLM (GPT4.5, Gemini 2.5 Pro, Sonnet 3.7 thinking, grok3-thinking, o1-pro, o3-mini-high, r1, v3-0324) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些截至 2025 年 4 月的第一梯队 LLM (GPT4.1, v3-0324; Gemini 2.5 Pro, Sonnet 3.7 thinking, Grok3 thinking, o3, o4-mini-high) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
 
 ## 一些个人观点
 
@@ -46,6 +46,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 2025/03/30: Deepseek v3-20250324 和 OpenAI 4oL-20250326 从 benchmark 结果来看应该是用了非常类似的方法。很难想象 Perplexity 和 Cursor 这种产品的估值会如此之高，应用层没有护城河，时间会碾碎一切的。今天闲，再写一点预测吧：Llama 4 通用任务的文字能力(不考虑多模态)非推理水平应该在 Claude 3.7 左右，恐怕是不如 v3-20250324 / Gemini 2 Pro / 4oL-20250326 的。GPT5 和 Claude4 才是真正的 Game Changer，就等下半年体验了，这个预测不准的。
 
 2025/04/06：Qwen3 的 llama4 压力小多了，但是内在压力还是挺大的。如果五六月份发布的 Qwen3 72B 目标是和 ds-v3.0 乃至 Qwen2.5 Max 打平，还是难的，估计今年年末或者明年年初的 Qwen3.5 72B 有戏，如果那时候还发 Dense 的话。但是我认为这个尺寸就是应该发 dense 的，至少 llama4 Scout 的失败会让业界长记性的。
+
+2025/04/
 
 ### QC 系列
 
@@ -663,8 +665,6 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 > Q: How to print quotes within a node in a Mermaid flowchart? Answer within 1 line in a code block.
 >
-> 典型错误：`A["Node with \"quotes\""]`
->
 > 正确答案：`A["Node with #quot;quotes&quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
 >
 > 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错错; r1 错; Gemini 2.5 Pro 错
@@ -957,12 +957,14 @@ refactor to Cadence Virtuoso SKILL
 > 正确情况： o1 对; 3-opus 半对; Gemini 2.5 Pro 对; Sonnet 3.7 对对
 
 > QC: 理想 LC 的 τ 是什么？给出总计 30 个字以内的解答。
+> What is the τ of an ideal LC? Answer in under 30 words total.
 >
 > 正确答案：没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统
 >
 > 正确情况：GPT4.5 对
 
 > QC: 一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。
+> What is the natural frequency of a first-order RC low-pass filter (not the cutoff frequency)? Answer in under 30 words total.
 >
 > 正确答案：没有。因为 natural frequency 适用于 second-order LTI
 >
