@@ -50,8 +50,14 @@
 #### 仿真数据默认设置、保存、导出与导入
 
 
+在跑大仿真前的 check-list
 
-
+1. 需要的信号是否保存，不需要的信号是否不保存？
+2. 磁盘空间是否足够？`placeholder_file_reserved_for_deletion_in_case_of_emergency1.bin` 文件准备。
+3. 是否跑过短时间的 tran 验证？例如 1ns？
+4. 是否跑过一个扫描点的验证？
+5. 是否保存上次仿真的结果？
+6. 是否保存了 ADE 的状态和原理图的状态，以便于在 virtuoso 无响应时 xkill 而不丢失？
 
 
 
@@ -149,9 +155,15 @@ Striving for small-signal stability - Loop-Based and Device-Based Algorithms for
 https://youtu.be/RG5CjoPcHvs?t=1058
 
 
-### AMS
+### Verilog(AMS) & Verilog-A
 
 
+
+## 加快 ViVA 画图速度
+
+- `ViVA -> Options -> Fast Viewing Support`
+- PSF XL (Real-Time Signal Format, RTSF)
+- https://blog.eetop.cn/blog-6503-27767.html
 
 ## 加快仿真速度 (ADE 和 Spectre 中间的桥梁)
 
@@ -169,7 +181,7 @@ https://youtu.be/RG5CjoPcHvs?t=1058
 ### 直接加快串行仿真速度
 
 - High Performance Simulation
-- 后仿：关闭保存所有电压节点的数据，手动选择需要保存的电压节点
+- 关闭保存所有电压节点的数据，手动选择需要保存的电压节点
 
 ### 其他记录
 
@@ -197,6 +209,6 @@ https://youtu.be/RG5CjoPcHvs?t=1058
 ![image](https://github.com/user-attachments/assets/cd7c18aa-c645-45f3-abc8-171aecaaac1e)
 
 
-
+### 启动时粗略仿真，正常工作时精细仿真
 
 
