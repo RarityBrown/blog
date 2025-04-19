@@ -45,3 +45,5 @@
 个人思考：
 
 dynamic element matching? 
+
+### [Sansen 中文版第50页 源随器幅频特性曲线中尖峰原因](https://www.zhihu.com/question/494496007)
