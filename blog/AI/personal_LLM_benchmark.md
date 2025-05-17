@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时使用过程中，收集选择一些截至 2025 年 4 月的第一梯队 LLM (GPT4.1, v3-0324; Gemini 2.5 Pro, Sonnet 3.7 thinking, Grok3 thinking, o3, o4-mini-high) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些截至 2025 年 4 月的第一梯队 LLM (GPT4.5; Gemini 2.5 Pro, Sonnet 3.7 thinking, ~~Grok3 thinking~~, o3, o4-mini-high) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
 
 ## 一些个人观点
 
@@ -47,7 +47,7 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 2025/04/06：Qwen3 的 llama4 压力小多了，但是内在压力还是挺大的。如果五六月份发布的 Qwen3 72B 目标是和 ds-v3.0 乃至 Qwen2.5 Max 打平，还是难的，估计今年年末或者明年年初的 Qwen3.5 72B 有戏，如果那时候还发 Dense 的话。但是我认为这个尺寸就是应该发 dense 的，至少 llama4 Scout 的失败会让业界长记性的。
 
-2025/04/
+2025/05/01: benchmark 确实是 AI 未来两年内最大的问题。通过 reasoning 刷 AIME, 刷 HLE(评测集里面数学题 40%, 物化生各 10%), 刷 GPQA Diamond (考虑到是四项选择题，现在的正确率看来好像也没那么好刷) 本质上都是为了解决真实世界问题而做准备的考试。这些学科的答案清晰，但是对于 Engineering 和 Social Science 问题则更为复杂。上半年唯一比较满意的 benchmark 是 openai 的 BrowseComp。当然，现在这个问题还没有体现出来，因为 AI 的全方面能力提升似乎还有余量，所以各团队尚未对这些学科针对性的优化。但是到今年年底的时候，reasoning 的红利类似于 FinFET 一样被彻底吃干净的时候，如果仅由 GPQA, AIME 和 HLE 来引导 LLM 下一步的发展方向，只会发展出类似于 AlphaGo 的专用人工智能，而不是通用的。虽然我高度怀疑 Google 内部现在应该是有团队在向哥德巴赫或者黎曼之类的东西发起冲锋的，就像曾经的围棋一样，当这一步成功的时候，数学可能就会比围棋率先走到尽头了。如果 Google 能在 2030 年之前做到，那么世界上将再无 OpenAI。
 
 ### QC 系列
 
@@ -142,11 +142,13 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确答案：不是、不是、不是、是、不是。类似地，取决于中文语料，多语言能力翻译没用。这题可以看出不管是开源还是闭源的模型都有明显蒸馏其他家的模型，对于“顺尔宁”这一项的错误认知往往是“顺尔宁就是布洛芬”
 >
-> Q 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; 4oL 错; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
+> Q 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; *4oL 错*; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
 >
-> QC 正确情况：grok3 错错; Gemini 2.5 Pro 对; v3-0324 对; Sonnet 3.7 thinking 错错
+> QC 正确情况：grok3 错错对; Gemini 2.5 Pro 对; v3-0324 对; Sonnet 3.7 thinking 错错; o3-mini 错
+>
+> 注：非常确定这道题被 OpenAI 拿去做 post-train 了，最新的 4o/4.1 可以答对一模一样的 Q，但是仍然不知道顺尔宁是什么药。
 
-> QC: Asheville, Akita, Kanazawa 哪个城市没有开过奥运会？
+> QC: Asheville, Akita, Kanazawa 和上海哪个城市没有开过奥运会？
 >
 > 正确答案：都没
 >
@@ -233,6 +235,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
     - 动态加载的网页
       - 有不同 tab 的但网址相同的网页，例如 lmarena.ai: The (2nd) best LLM on lmarena today?
       - 点击/滚动才展开的评论区
+      - 折叠或需要翻页的内容，例如 https://github.com/electron/electron/issues/9035
     - 在线超长 .pdf 文件
   - 登录墙、付费墙
     - 这个东西只可能本地解决，靠 OpenAI 一个个去谈是不可能覆盖完全的。
@@ -248,10 +251,6 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > Q: Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
 >
 > 参考答案: [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/)
-
-> Q: customize Word/Powerpoint text highlight colors?
->
-> 正确答案：网上一般认为无法实现，使用 shading 或文本框背景替代，不过无法被 ctrl+h 搜索到。但是其实可以先使用 Font Color - Eyedropper 先添加到 Recent Color 中，再在 Text Highlight Color 选项卡选择 Recent Color
 
 > Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
 >
@@ -275,6 +274,26 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确答案：没有简单的方法
 
+> Q: Packages Explicitly NOT Included in Mathjax `AllPackages` by Default?
+>
+> 正确答案：`physics`, `autoload`, `require`, `setoptions`, (`colorv2`)
+>
+> 参考来源：[所有包](https://docs.mathjax.org/en/latest/input/tex/extensions/index.html), [启用的包](https://github.com/mathjax/MathJax-src/blob/master/ts/input/tex/AllPackages.ts), [参考链接](https://github.com/jupyterlab/jupyter-renderers/issues/229)
+
+### 实践问题（也许我们可以叫 AgentQA？）
+
+> Q: customize Word/Powerpoint text highlight colors?
+>
+> 网上答案：认为无法实现，使用 shading 或文本框背景替代，不过无法被 ctrl+h 搜索到。
+> 
+> 正确答案：先使用 Font Color - Eyedropper 添加到 Recent Color 中，再在 Text Highlight Color 选项卡选择 Recent Color
+
+> Q: How to paste OMML into Word?
+>
+> 网上答案：无
+> 
+> 正确答案：使用 `text/html` 类型的剪贴板，用特定的 html 包裹 OMML
+
 ### 知识-推理混合问题
 
 #### 代码相关
@@ -290,6 +309,12 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 正确答案：No
 >
 > 正确情况：Gemini 2 Pro 错, 4oL 错, Gemini 2.5 Pro 错
+
+> Q: Is the LaTeX syntax for the formula `a \xrightarrow[ \begin{subarray}{c}E[x]=0 \\ a\end{subarray} ]{x} b` completely correct, and will it compile without any errors, given that I have `amsmath` properly installed?
+>
+> 正确答案：No，应当使用 `a \xrightarrow[ {\begin{subarray}{c}E[x]=0 \\ a\end{subarray}} ]{x} b`
+>
+> 正确情况：Gemini 2.5 Pro 错; o3 错 (但是提到正确写法); o4-mini-high 错
 
 > Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
 >
@@ -308,7 +333,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > }
 > ```
 >
-> 正确情况：o3-mini-high 错; Gemini 2.5 Pro 半对
+> 正确情况：o3-mini-high 错; Gemini 2.5 Pro 半对; Qwen3 235B 错; 
 
 > Q: Draw a cross using `\rule` in latex. The commands `\hfil`, `\vbox`, `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\centerline`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
 >
@@ -334,7 +359,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 参考答案：加上 `\begin{gathered}` 或 `\begin{align*}` 等环境
 >
-> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错, grok3 对错; 4oL 错; o3-mini-high 错; 
+> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错, grok3 对错; 4oL 错; o3-mini-high 错; Qwen3 对
 
 > Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but commands `\if` `\else` `\relax` `\sbox` `\setbox` and `\savebox`, and, packages TikZ, `graphicx` and `calc` are not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
 > 
@@ -360,6 +385,12 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 参考答案：`\pmb{\boldsymbol{\tau_{Y}}} \boldsymbol{\pmb{\tau_{Y}}}`
 >
 > 正确情况：4oL 错; grok3 错; o3-mini-high 错; Gemini 2 Pro 对
+
+> Q: How to create a text box with a red border and transparent background in LaTeX? The `\fcolorbox{red}{white}{$\frac{1}{2}$}` is available and what I want, but the background color of it is white. `\tcbox`, `\newtcbox`, TikZ, and mdframed are not available. I don't need environments like `\begin{document}` and so on, just the most crucial part is fine.
+>
+> 参考答案：`{\color{red}\boxed{\color{black}\frac{1}{2}}}`
+>
+> 正确情况：Gemini 2.5 Pro 半对
 
 ###### MathJax / KaTeX
 
@@ -473,21 +504,111 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > \end{circuitikz}
 > ```
 
-###### Webarena
+##### Webarena & 前端
 
-> Q: 2x2 layout: mathlive + latex code editor (with syntax highlight); mathjax + katex (to compare the rendered output). Enable all the possible packages for mathjax and katex. For instance, enable the `physics` package in mathjax.
->
-> 正确情况：3.7 Sonnet 可用error,  ;   Gemini 2.5 Pro 不可用error  ; 
-
-> Q: MathJax vs KaTeX Renderer side by side, with a syntax highlight latex input box. **Enable the `physics` package in mathjax.**
->
-> 正确情况：3.7 Sonnet error; nightwhisper error
+###### 基础知识 + 前端代码
 
 > Q: 画一个 2 阶 RC 低通滤波器的电路图和频响图 Draw the schematic and frequency response (mag & phase) of a 2nd order RC low-pass filter. Make it interactive.
 
 > Q: A circuit schematic editor. Use key `i` to new an instance choosing dialog. The symbol of the circuit component should be drawn correctly
 
 > Q: 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
+
+> Q: An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
+
+> Q: Simulate the movement of multiple positive and negative charged particles within a square
+
+> Q: Real-time microphone spectrum FFT, with historical data also displayed. So color should be used as intensity, with one axis being frequency and the other being time.
+
+> Q: 
+
+```tsx
+// src/App.tsx
+import React, { useEffect, useRef, useState } from 'react';
+import katex from 'katex';
+import 'katex/dist/katex.min.css';
+import 'katex/dist/contrib/mhchem.js';
+
+function UltraMinimalKatexMhchem() {
+  const [latexInput, setLatexInput] = useState('\\ce{H2O}+\\sin x');
+  const katexOutputRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const outputElement = katexOutputRef.current;
+    if (outputElement) {
+      try {
+        katex.render(latexInput, outputElement, {
+          displayMode: true,
+          throwOnError: false,
+        });
+        outputElement.style.color = 'inherit';
+      } catch (error) {
+        outputElement.textContent = 'Error';
+        outputElement.style.color = 'red';
+      }
+    }
+  }, [latexInput]);
+
+  return (
+    <div>
+      <div
+        ref={katexOutputRef}
+        style={{
+          margin: '10px 0',
+          fontSize: '1.3em',
+          textAlign: 'center',
+        }}
+      ></div>
+      <textarea
+        rows={3}
+        value={latexInput}
+        onChange={(e) => setLatexInput(e.target.value)}
+        placeholder="Input"
+        style={{
+          fontFamily: 'monospace',
+          fontSize: '14px',
+          display: 'block',
+          width: '90%',
+          maxWidth: '600px',
+          margin: '10px auto',
+          padding: '5px',
+        }}
+      />
+    </div>
+  );
+}
+
+export default UltraMinimalKatexMhchem;
+```
+
+katex 的 `mhchem` 没有生效，现在显示的 `\ce` 是红色的报错模式。如果把临时将代码中 throwOnError 设为 true 时，console 会报错  `ParseError: KaTeX parse error: Undefined control sequence: \ce at position 1: \ce{H2O}`。已知信息：
+
+- 用最新稳定版的 vite 来开发一个 electron + react 应用，`vite.config.js` 的配置是项目生成时自动创建的默认配置，没有修改过
+- KaTeX 用的是最新稳定版，正确安装，并只安装一个版本。其他 katex 功能都是正常的，如 `\sin x`
+- "node_modules/katex/dist/contrib/mhchem.js" 确实存在，"node_modules/katex/contrib/mhchem.js" 也存在，但是换用 import 'katex/contrib/mhchem.js' 了以后 react 应用反而直接报错了，至少现在不报错
+- `(window as any).katex = katex;` 放在导入 js 之前也试过了，没用。
+
+正确答案：`import 'katex/dist/contrib/mhchem.mjs';`
+
+###### 库的使用
+
+> Q: A modern browser technology playground: Showcase all emerging, fancy, modern browser technologies. Do not consider compatibility issues at all.
+
+> Q: A simple mathjax v3 CHTML demo with ams macros and physics macros enabled.
+
+> Q: 2x2 layout: mathlive + latex code editor (with syntax highlight); mathjax + katex (to compare the rendered output). Enable all the possible packages for mathjax and katex. For instance, enable the `physics` package in mathjax.
+
+> Q: MathJax vs KaTeX Renderer side by side, with a syntax highlight latex input box. **Enable the `physics` package in mathjax.**
+
+> Q: Editor Playground to try out Monaco, CodeMirror and Ace editor side by side. Sync the code among the three. Dark theme + light theme. Language: LaTeX (with syntax highlighting)
+
+###### 纯 UI 展示
+
+> Q: Bing replica
+
+> Q: An online office word
+
+> Q: A hex (binary) editor
 
 ##### Python 小众库
 
@@ -521,8 +642,6 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >     d += elm.Ground().at(R3.end) # or d += elm.Ground().at(R4.start)
 > d.draw()
 > ```
-
-
 
 > Q: 这是电容的一阶时间常数电路图，画一个电感的，和电容的图并排放置
 >
