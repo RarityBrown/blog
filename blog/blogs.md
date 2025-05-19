@@ -12,19 +12,38 @@
 ### 国内
 
 - 王志华 @ 清华大学
+  - 方向：模拟/射频
   - [微博](https://weibo.com/u/2629974681)
   - 微信公众号 王老先生的酒肆絮语
 - 贾海昆 @ 清华大学
+  - 方向：模拟/射频
   - [微博](https://weibo.com/u/1707010014)
   - 微信公众号 haikun01
   - [知乎](https://www.zhihu.com/people/hai_kun)
 - 路延 @ 清华大学
+  - 方向：模拟/射频
   - 微信公众号 延路的笔记
+- 涂锋斌 @ 香港科技大学
+  - 方向：数字/体系结构
+  - [知乎](https://www.zhihu.com/people/fengbintu)
+- 范益波 @ 复旦大学
+  - 方向：数字/体系结构
+  - [知乎](https://www.zhihu.com/people/ybfan)
+
 
 ## 工程师
 
-- Sigma Delta / 固推铁球
+- 夏晶晶 @ 海思
+  - 方向：数字/体系结构
+  - [知乎](https://www.zhihu.com/people/xia-jing-jing-57)
+- Sigma Delta
+  - 方向：模拟/射频
+  - [知乎]https://www.zhihu.com/people/sigma-delta)
+  - 小红书
+  - 微信公众号 固推铁球
 - 日心说
+  - 方向：模拟/射频
+
 
 ## 学生
 
