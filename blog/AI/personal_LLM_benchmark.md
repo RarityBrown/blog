@@ -2,7 +2,7 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时使用过程中，收集选择一些截至 2025 年 4 月的第一梯队 LLM (GPT4.5; Gemini 2.5 Pro, Sonnet 3.7 thinking, ~~Grok3 thinking~~, o3, o4-mini-high) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些截至 2025 年 6 月的第一梯队 LLM (GPT4.5; Gemini 2.5 Pro, Opus 4 thinking, o3, o4-mini-high, R1-0528) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
 
 ## 一些个人观点
 
@@ -175,7 +175,8 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >   - Jacob K. White (Spectre)
 >   - Rob A. Rutenbar
 >   - Georges Gielen
-> - Digital: **Alberto Sangiovanni-Vincentelli**
+> - Digital:
+>   - **Alberto Sangiovanni-Vincentelli**
 >   - Kurt Keutzer (Bell Labs, Synopsys, UCB)
 >   - Aart de Geus (Synopsys)
 >   - Robert K. Brayton (UCB)
@@ -220,33 +221,34 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 ### 困难知识问题 (也许我们可以取名叫 HardQA? )
 
-- LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Deep Research，详见 Jina AI 的 Blog
-- Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，包括但不限于
-  - 页面内广告等无关信息
-  - 整个页面和搜索问题无关
-  - 非纯文本内容
-    - 图片
-      - 搜索模型的确需要强视觉能力的，例如在 20250406 搜索 "llama 4 maverick vs deepseek v3 0324. Give me a benchmark table, including GPQA etc." Sonar, gpt-4o-search, Gemini 2.5 Pro Grounding, Jina Deep Search 提供的对比表格没有一个是 100% 正确的，而且每次搜索结果非常不稳定，相对来说后两者略好一些。因为 llama 官方的对比表格就是图片，而那时候媒体转载也是直接通过图片，还没有任何成文的纯文本内容。
-    - 非图片网页表格、非图片网页图标
-    - 视频
-      - 例如有的视频教程，比如教你怎么在 Word 中实现一个功能
-  - 不同页面间信息矛盾
-  - 非标准网页类型
-    - 动态加载的网页
-      - 有不同 tab 的但网址相同的网页，例如 lmarena.ai: The (2nd) best LLM on lmarena today?
-      - 点击/滚动才展开的评论区
-      - 折叠或需要翻页的内容，例如 https://github.com/electron/electron/issues/9035
-    - 在线超长 .pdf 文件
-  - 登录墙、付费墙
-    - 这个东西只可能本地解决，靠 OpenAI 一个个去谈是不可能覆盖完全的。
-    - 例如 the speaker of the ISSCC 2014 tutorial 3?
-  - 用户输入笔误
+LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Deep Research，详见 Jina AI 的 Blog。Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，包括但不限于
+
+- **无关、干扰、矛盾信息**
+  - 页面内广告等无关信息、整个页面和搜索问题无关或低密度信息、不同页面间信息矛盾
+- **非纯文本内容**
+  - 图片：搜索模型的确需要强视觉能力的，例如在 20250406 搜索 "llama 4 maverick vs deepseek v3 0324. Give me a benchmark table, including GPQA etc." Sonar, gpt-4o-search, Gemini 2.5 Pro Grounding, Jina Deep Search 提供的对比表格没有一个是 100% 正确的，而且每次搜索结果非常不稳定，相对来说后两者略好一些。因为 llama 官方的对比表格就是图片，而那时候媒体转载也是直接通过图片，还没有任何成文的纯文本内容。
+  - 网页表格、图表
+  - 视频：例如有的视频教程，比如教你怎么在 Word 中实现一个功能
+- **非标准网页类型**
+  - 动态加载的网页
+    - 不同 tab 但网址相同的网页（例如 `lmarena.ai: The (2nd) best LLM on lmarena today?`）
+    - 点击/滚动才展开的评论区
+    - 折叠或需要翻页的内容（例如 `https://github.com/electron/electron/issues/9035`）
+  - 在线超长 .pdf 文件
+  - 登录墙、付费墙：只可能本地解决，靠一个个去谈不可能覆盖完全
+    - 例如查询 `the speaker of the ISSCC 2014 tutorial 3?`
   - 非常老的网页，现代浏览器的 TLS 版本默认不支持
-    - 例如 https://ccf.ee.ntu.edu.tw/~cchen/cadence/simulation.htm
-  - 以上所有问题的嵌套
-    - 比如 pdf 中的图片、表格
-      - 例如 "Command A gpqa", 在 https://cohere.com/research/papers/command-a-technical-report.pdf 表格中提供了 **50.8** 的标准答案
-    - 登录墙中的评论区
+    - 例如 `https://ccf.ee.ntu.edu.tw/~cchen/cadence/simulation.htm`
+- **用户侧问题**
+  - 用户输入笔误
+  - 用户输入的无效信息（这个在经典的 Benchmark 也可以体现一些，有题目里是有无效信息的）
+  - 用户需求理解，例如 "Alternatives to Manus AI" 其实用户想搜 General Purpose AI Agents，但是现在搜出来都是 MS Copilot 之类的。
+- **嵌套问题**：以上所有问题的嵌套
+  - 例如 PDF 中的图片、表格
+    - 案例：搜索 `Command A gpqa`，标准答案 **50.8** 在 `https://cohere.com/research/papers/command-a-technical-report.pdf` 的表格中
+  - 例如登录墙中的评论区
+
+
 
 > Q: Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
 >
@@ -279,6 +281,8 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 正确答案：`physics`, `autoload`, `require`, `setoptions`, (`colorv2`)
 >
 > 参考来源：[所有包](https://docs.mathjax.org/en/latest/input/tex/extensions/index.html), [启用的包](https://github.com/mathjax/MathJax-src/blob/master/ts/input/tex/AllPackages.ts), [参考链接](https://github.com/jupyterlab/jupyter-renderers/issues/229)
+
+> Q: 
 
 ### 实践问题（也许我们可以叫 AgentQA？）
 
@@ -1059,9 +1063,10 @@ refactor to Cadence Virtuoso SKILL
 > 
 > 正确答案：
 > - “无机半导体**通常**是由金属和非金属元素组成的化合物”（Si 和 Ge 更通常啊）
+> - “如**二硫**化锌、氧化镓等”
 > - “它利用PN结的特性实现了电流的整流和**放大**”
 > - “当外界施加**电场**或加热材料时，一部分价带中的电子会跃迁到导带中”
->   - 这个 o1-mini 认为是错的。虽然在高场强下可能存在碰撞电离（雪崩击穿），对于 PN 结可能存在隧穿效应。但是“电场”用在原文这个语境下，应该是不对的，就是只有热激发、光激发。所以 o1-mini 的观点应该是正确的？我也没看出来
+>   - 虽然在高场强下可能存在碰撞电离（雪崩击穿），对于 PN 结可能存在隧穿效应。但是“电场”用在原文这个语境下，是不对的，就是只有热激发、光激发。
 >
 > 无论哪个点都容易被 LLM 遗漏，单独再问 LLM 一次这几句话对不对，往往都能给出正确答案。所以现在的 LLM 大海捞针评估我感觉是很有问题，或者说太简单了（大海捞针的插入针对于人类来说极明显，只能说是“大海捞钢筋”），此处稍微难一点点的“水塘捞细针”都捞不到。Jamba 有提到这个问题，并给出了 effective context window。但是显然，对于这个问题而言 1k 至 4k 左右 token 的 context window 都没有，大致只有 0.1k 的水平。不过这段话摘自公开的百度文库，所以这可能进一步加剧了这种情况，因为搞不好这段话还在训练数据集里。不过震惊的是 yi-lighting 全部答出来了。
 >
@@ -1069,25 +1074,22 @@ refactor to Cadence Virtuoso SKILL
 >
 > 正确情况（使用**什么**作为关键词）：o3-mini-high 1;
 
+<!-- 太简单了，淘汰
 > Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？  What is the name of the standard cell corresponding to the logic expression !(AB+C)? How many MOSFETs are required in CMOS logic?
 >
 > 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
 >
-> 正确情况： o1 对; 3-opus 半对; Gemini 2.5 Pro 对; Sonnet 3.7 对对
+> 正确情况： o1 对; 3-opus 半对; Gemini 2.5 Pro 对; Sonnet 3.7 对对; R1-0528 对
+-->
 
-> QC: 理想 LC 的 τ 是什么？给出总计 30 个字以内的解答。
-> What is the τ of an ideal LC? Answer in under 30 words total.
+<!-- 太简单了，淘汰
+> QC: 理想 LC 的 τ 是什么？一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。
+> What is the τ of an ideal LC? What is the natural frequency of a first-order RC low-pass filter (not the cutoff frequency)? Answer in under 30 words total.
 >
-> 正确答案：没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统
+> 正确答案：没有、没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统；因为 natural frequency 适用于 second-order LTI
 >
-> 正确情况：GPT4.5 对
-
-> QC: 一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。
-> What is the natural frequency of a first-order RC low-pass filter (not the cutoff frequency)? Answer in under 30 words total.
->
-> 正确答案：没有。因为 natural frequency 适用于 second-order LTI
->
-> 正确情况：GPT4.5 对; Sonnet 3.7 错; lunarcall 对; r1 对
+> 正确情况：GPT4.5 对; Sonnet 3.7 错; Sonnet 4 对
+-->
 
 > Q: NMOS 弱反型区电流公式？（不要在最终结果中带 $I_{d0}$ 或 $I_S$ ，写在 latex code block 中）
 >
@@ -1105,11 +1107,13 @@ refactor to Cadence Virtuoso SKILL
 >
 > 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
 
+<!-- 太简单了，淘汰
 > Q: NMOS + 一个电阻的 source follower 的 $A_{V_{DD}}$ 是多少？不考虑体效应，但是考虑 CLM
 >
-> 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$
+> 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$ 或 $\frac{g_{ds}}{g_m+g_{ds}+\frac{1}{R_S}}$
 >
 > 正确情况：o3-mini-high 对错; Gemini 2.5 Pro 对; Grok3 对
+-->
 
 > Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
 >
