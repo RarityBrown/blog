@@ -49,6 +49,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 2025/05/01: benchmark 确实是 AI 未来两年内最大的问题。通过 reasoning 刷 AIME, 刷 HLE(评测集里面数学题 40%, 物化生各 10%), 刷 GPQA Diamond (考虑到是四项选择题，现在的正确率看来好像也没那么好刷) 本质上都是为了解决真实世界问题而做准备的考试。这些学科的答案清晰，但是对于 Engineering 和 Social Science 问题则更为复杂。上半年唯一比较满意的 benchmark 是 openai 的 BrowseComp。当然，现在这个问题还没有体现出来，因为 AI 的全方面能力提升似乎还有余量，所以各团队尚未对这些学科针对性的优化。但是到今年年底的时候，reasoning 的红利类似于 FinFET 一样被彻底吃干净的时候，如果仅由 GPQA, AIME 和 HLE 来引导 LLM 下一步的发展方向，只会发展出类似于 AlphaGo 的专用人工智能，而不是通用的。虽然我高度怀疑 Google 内部现在应该是有团队在向哥德巴赫或者黎曼之类的东西发起冲锋的，就像曾经的围棋一样，当这一步成功的时候，数学可能就会比围棋率先走到尽头了。如果 Google 能在 2030 年之前做到，那么世界上将再无 OpenAI。
 
+2025/06/01: 一个月过去了。Claude 4 Opus 来了，而 o4 还很遥远；Gemini Diffusion 和 gpt-image-1 来了，而全模态输入输出还很遥远。如果 Gemini 3 无法引领 Benchmark 分数进一步进步，下半年恐怕只有应用层面创新的 GPT5 了。Autoregressive 确实是快到头了，Sudoku-Bench 和 ascii-art 等等一系列顶着 Autoregressive 打的 benchmark 越来越多才是好事；当然，这个我也早有体会，比如让 AI 解一个 5-OTA + CS 的二级运放的 PSRR 之类的问题也是因为这个完全不行 。AGI 或是全方面超越人类的 ASI 不可能通过纯文字实现的，所以即使证明出哥猜也不是 AGI/ASI，不然 AlphaGo 就是一种 ASI 了。顺便再来接着 0501 的碎碎念，喷一下 Benchmark 过于注重理科而轻视工科的问题，是是非非曲曲折折，unspoken rules 让 AI 摇摆不定。
+
 ### QC 系列
 
 - 加入 QC (Question with Critical Thinking, 题目就是错的
