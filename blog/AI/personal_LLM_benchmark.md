@@ -235,8 +235,9 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
     - 点击/滚动才展开的评论区
     - 折叠或需要翻页的内容（例如 `https://github.com/electron/electron/issues/9035`）
   - 在线超长 .pdf 文件
-  - 登录墙、付费墙：只可能本地解决，靠一个个去谈不可能覆盖完全
-    - 例如查询 `the speaker of the ISSCC 2014 tutorial 3?`
+  - 隐藏的网页、登录墙、付费墙：只可能本地解决，靠一个个去谈不可能覆盖完全
+    - 用户可以通过推理实现隐藏网页的查看，例如找到一个 `https://example.com/article13` 用户可能会直接输入 url 去看看 `https://example.com/` 和 `https://example.com/article14` 网页上有不有相关的内容
+    - 例如查询 `the speaker of the ISSCC 2014 tutorial 3?`；现在 OpenAI 之类的只是和新闻媒体在谈，这种学术等等完全不可能
   - 非常老的网页，现代浏览器的 TLS 版本默认不支持
     - 例如 `https://ccf.ee.ntu.edu.tw/~cchen/cadence/simulation.htm`
 - **用户侧问题**
@@ -267,6 +268,10 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 > Q: Intel 在 2025 年 2 月 24 日的 CEO 是谁？
 >
 > 正确答案：无
+
+> Q: The latest sub-version for Cadence Virtuoso 6.1.8 and Virtuoso 23.1?
+>
+> 正确答案：[ISR34](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-icadvm20-1-isr34-and-ic6-1-8-isr34-now-available), [ISR14](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-ic23-1-isr-14-now-available)
 
 > Q: function to get variable type in cadence virtuoso?
 >
