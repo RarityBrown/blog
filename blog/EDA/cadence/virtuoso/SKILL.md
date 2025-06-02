@@ -330,20 +330,21 @@ auCore.misc          annotationSetupFileList string "./.cadence/dfII/annotationS
 ; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
 
 ;;;;;;;;;;;;;;;;;; VIVA
-; viva.rectGraph       background       string  "white"        ; for older version
-viva.graphFrame      background       string  "white"        ; for IC6.1.8 IC23.1 
-viva.trace           lineThickness    string  "thick"
-; viva.trace           lineStyle        string  "dashed"
-viva.horizMarker     font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.horizMarker     interceptStyle   string  "on"
-viva.vertMarker      font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.vertMarker      interceptStyle   string  "on"
-viva.pointMarker     font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.axis            font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.traceLegend     font             string  "Default,15,-1,5,75,0,0,0,0,0"
+; viva.rectGraph           background       string  "white"        ; for older version
+viva.graphFrame           background       string  "white"        ; for IC6.1.8 IC23.1 
+viva.trace                lineThickness    string  "thick"
+; viva.trace                lineStyle        string  "solid"      ; Dot, dashed, etc.
+asimenv.plotting          useDisplayDrf    boolean nil          ; for tsmc pdk only. SMIC and others don't need this line. see https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/41208/dotted-lines-by-default-in-viva https://www.edaboard.com/threads/how-to-change-the-default-in-ade-cadence.378231/ https://joeyaochou.wordpress.com/2015/04/08/cadence-virtuoso-learning-note/ https://gist.github.com/02015678/783ad36389fe3b7aa8cd https://bbs.eetop.cn/thread-959872-4-1.html https://bbs.eetop.cn/thread-917244-1-1.html https://bbs.eetop.cn/thread-664788-1-1.html
+viva.horizMarker          font             string  "Default,15,-1,5,75,0,0,0,0,0"
+viva.horizMarker          interceptStyle   string  "on"
+viva.vertMarker           font             string  "Default,15,-1,5,75,0,0,0,0,0"
+viva.vertMarker           interceptStyle   string  "on"
+viva.pointMarker          font             string  "Default,15,-1,5,75,0,0,0,0,0"
+viva.axis                 font             string  "Default,15,-1,5,75,0,0,0,0,0"
+viva.traceLegend          font             string  "Default,15,-1,5,75,0,0,0,0,0"
 
 ;;;;;;;;;;;;;;;;;; 
-ui    defaultEditorBackgroundColor    string  "#2F2F2F"       ; schematic / layout black background to gray
+ui    defaultEditorBackgroundColor    string  "#2F2F2F"       ; schematic / layout black background to vscode gray
 ui    ciwCmdInputLines                int     4
 
 ;;;;;;;;;;;;;;;;;; schematic
@@ -353,9 +354,8 @@ schematic            srcSolderOnCrossover cyclic "ignored"   ; ignore solder dot
 graphic              balloonOn        boolean t               ; ?enable the info balloon by default
 
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
-layout               xSnapSpacing     float   0.005           ; 0.005um typical for 40nm node
-layout               ySnapSpacing     float   0.005           ; 0.005um typical for 40nm node
-; todo, layoutXL?
+layout               xSnapSpacing     float   0.005           ; 0.005um is typical for 28~55nm nodes
+layout               ySnapSpacing     float   0.005           ; 0.005um is typical for 28~55nm nodes
 
 ; backup and autosave setting, todo
 ```
@@ -374,6 +374,7 @@ layout               ySnapSpacing     float   0.005           ; 0.005um typical 
 > 10. Cadence Virtuoso Schematic (sch.oa) to visio
 >   1. https://blog.sina.com.cn/s/blog_5cf90fbc0101dll9.html
 >   2. https://www.edaboard.com/threads/schematic-circuit-plot-from-cadence-virtuoso.390368/
+> 11. license 连续调用问题 https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/49602/virtuoso-license-issue-status-code--5
 
 
 自动建立工艺 gmoverid 查找表，自动扫出工艺转移特性曲线等
