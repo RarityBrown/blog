@@ -257,6 +257,12 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 >
 > 参考答案: [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/)
 
+> Q: Alternatives to cursor app?
+>
+> 参考答案：Windsurf, VSCode + Copilot, Trae
+>
+> 典型错误：Codeium, Zed Editor
+
 > Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
 >
 > 典型错误：`vlog -work work +acc=r *.v`
@@ -300,10 +306,16 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 > 正确答案：先使用 Font Color - Eyedropper 添加到 Recent Color 中，再在 Text Highlight Color 选项卡选择 Recent Color
 
 > Q: How to paste OMML into Word?
->
+
 > 网上答案：无
 > 
 > 正确答案：使用 `text/html` 类型的剪贴板，用特定的 html 包裹 OMML
+
+> Q: 在 iPhone 14 中从底部小横条上划并迅速松开（所以不是 App Switcher 或 Spotlight），完成两下这个操作后会回到哪个界面？
+>
+> 正确答案：第一次上划会关闭当前应用，回到主屏幕 Home Screen；第二次上划会从当前主屏幕页面回到第一页（最左侧的）主屏幕
+>
+> 正确情况：Sonnet 3.7 对; r1-0528 错; Gemini 2.5 Pro 错
 
 ### 知识-推理混合问题
 
