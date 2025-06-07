@@ -8,18 +8,32 @@ gconftool-2 --set /apps/metacity/general/new_windows_always_on_top --type bool t
 ```
 
 https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/27387/dialogs-come-up-behind-other-windows
+https://support1.cadence.com/public/docs/content/11612426.html
+http://support.cadence.com/wps/mypoc/cos?uri=deeplinkmin:ViewSolution;solutionNumber=11612426
 
 如果是 Red Hat 也可以通过 GUI 来设置，但是 CentOS 是不行的。
 
 Applications -> System Tools -> Configuration Editor(gconf-editor / dconf-editor) -> apps -> metacity -> general -> new_windows_always_on_top
 
 
-| 操作系统版本               | GNOME 版本 | 窗口管理器 |
-| -------------------------- | ---------- | ---------- |
-| Red Hat Enterprise Linux 6 | GNOME 2    | Metacity   |
-| Red Hat Enterprise Linux 7 | GNOME 3.22 | Mutter     |
-| Red Hat Enterprise Linux 8 | GNOME 3.28 | Mutter     |
-| Red Hat Enterprise Linux 9 | GNOME 40   | Mutter     |
-| CentOS 6                   | GNOME 2    | Metacity   |
-| CentOS 7                   | GNOME 3.22 | Mutter     |
-| CentOS Stream 8            | Varies     |            |
+<!--
+virtuoso dialogs come up behind other windows. I'm using RHEL 7.9 with GNOME 3.28. `dconf-editor` and `gconf-editor` are not installed, and I don't have suto permission.
+
+```
+gsettings set org.gnome.shell.overrides attach-modal-dialogs false
+gsettings set org.gnome.mutter attach-modal-dialogs false
+gsettings set org.gnome.shell attach-modal-dialogs false
+gsettings set org.gnome.desktop.wm.preferences focus-new-windows 'strict'
+gsettings set org.gnome.desktop.wm.preferences focus-mode 'click'
+```
+-->
+
+| 操作系统版本                 | GNOME 版本                                  | 窗口管理器 |
+| :--------------------------- | :------------------------------------------ | :--------- |
+| Red Hat Enterprise Linux 6 / CentOS 6 | GNOME 2.28                                  | Metacity   |
+| Red Hat Enterprise Linux 7 / CentOS 7 | GNOME 3.28 (从 RHEL/CentOS 7.6 开始)        | Mutter     |
+| Red Hat Enterprise Linux 8   | GNOME 3.28 (8.0) 至 GNOME 3.32 (8.1 及以后) | Mutter     |
+| Red Hat Enterprise Linux 9   | GNOME 40                                    | Mutter     |
+| CentOS Stream 8              | GNOME 3.32.2                                | Mutter     |
+| CentOS Stream 9              | GNOME 40                                    | Mutter     |
+| CentOS Stream 10             | GNOME 47                                    | Mutter     |
