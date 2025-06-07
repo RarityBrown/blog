@@ -169,14 +169,21 @@ https://youtu.be/RG5CjoPcHvs?t=1058
 
 ### 通过并行，加快仿真速度
 
-![image](https://github.com/user-attachments/assets/ff5b9ea0-56b7-4378-9cf8-2e94e66c9052)
+![image](https://github.com/user-attachments/assets/c5a9fc80-0a1e-4097-b4a3-469090ad1411)
 
-- Max. Jobs 和 CPU units 建议设置为一样
-  - 这个设置的上限不应多于 logical CPU cores (更为保守的做法是不多于 physical CPU cores)
-  - 可使用 `lscpu | awk '/Core\(s\) per socket/{cores=$4} /Socket\(s\):/{sockets=$2} END{print cores * sockets}'` 来获取 physical CPU cores 数量
-  - 关于 logical or physical CPU cores 和 hyperthreading 的内容，可参见 [1](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/40006/aps-better-hyperthreading-on-or-off-on-the-machine) [2](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/16464/hardware-for-best-simulation-performance) [3](https://community.cadence.com/cadence_blogs_8/b/cic/posts/spectre-optimizing-spectre-aps-performance) 
-- 可以将自己的 Job Policy 保存，例如保存为 `My_jobpolicy`，可以通过 [cdsenv](SKILL.md#cdsinit-and-cdsenv) 来实现每次启动 Virtuoso 时的自动设置。
-- 其他一些选项，比如 IC6.1.8 引入的 LSCS (Large Scale Compute Server) 只有大公司里面才能用得到。[3](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-part-1-let-s-have-fun-with-ade-debugging)
+- Job Policy Name: 可以将自己的 Job Policy 保存，例如保存为 `My_jobpolicy`，可以通过 [cdsenv](SKILL.md#cdsinit-and-cdsenv) 来实现每次启动 Virtuoso 时的自动设置。
+  - 如果使用 Maestro 下的 LSCS 则需要设置两个 rule，见绿框
+- **Setup**
+  - Job Control Mode
+    - LSCS (绿框部分): Large-Scale Compute Server, IC6.1.8 引入。一般是多机组服务器使用，常见于公司。[3](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-part-1-let-s-have-fun-with-ade-debugging)
+    - ICRP (蓝框部分)
+  - Max. Jobs
+    - 和 CPU units 建议设置为一样。这个设置的上限不应多于 logical CPU cores (更为保守的做法是不多于 physical CPU cores)
+    - 可使用 `lscpu | awk '/Core\(s\) per socket/{cores=$4} /Socket\(s\):/{sockets=$2} END{print cores * sockets}'` 来获取 physical CPU cores 数量
+    - 关于 logical or physical CPU cores 和 hyperthreading 的内容，可参见 [1](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/40006/aps-better-hyperthreading-on-or-off-on-the-machine) [2](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/16464/hardware-for-best-simulation-performance) [3](https://community.cadence.com/cadence_blogs_8/b/cic/posts/spectre-optimizing-spectre-aps-performance) 
+- **Timeouts (in Secs.)**
+  - 保持默认
+
 
 ### 直接加快串行仿真速度
 
