@@ -1,6 +1,6 @@
 # Blogs
 
-集成电路领域老师和学生们的自媒体
+集成电路领域老师、工程师和学生们的自媒体
 
 ## 老师
 
@@ -8,17 +8,20 @@
 
 - Shahriar Shahramian @ Bell Labs
   - [YouTube](https://www.youtube.com/@TheSignalPath)
+- Ali Hijimiri
 
 ### 国内
 
-|        | 任职         | 方向          | 微博                                   | 知乎                                           | 微信公众号         | 小红书 |
-| ------ | ------------ | ------------- | -------------------------------------- | ---------------------------------------------- | ------------------ | ------ |
-| 王志华 | 清华大学     | 模拟/射频     | [微博](https://weibo.com/u/2629974681) |                                                | 王老先生的酒肆絮语 |        |
-| 贾海昆 | 清华大学     | 模拟/射频     | [微博](https://weibo.com/u/1707010014) | [知乎](https://www.zhihu.com/people/hai_kun)   | haikun01           |        |
-| 路延   | 清华大学     | 模拟/射频     |                                        |                                                | 延路的笔记         |        |
-| 涂锋斌 | 香港科技大学 | 数字/体系结构 |                                        | [知乎](https://www.zhihu.com/people/fengbintu) |                    |        |
-| 范益波 | 复旦大学     | 数字/体系结构 |                                        | [知乎](https://www.zhihu.com/people/ybfan)     |                    |        |
 
+|        | 任职         | 方向          | 微博                                             | 知乎                                                       | 微信公众号         | 小红书                                                       | BiliBili                                         |
+| ------ | ------------ | ------------- | ------------------------------------------------ | ---------------------------------------------------------- | ------------------ | ------------------------------------------------------------ | ------------------------------------------------ |
+| 王志华 | 清华大学     | 模拟/射频     | [王志华_茌平](https://weibo.com/u/2629974681)    |                                                            | 王老先生的酒肆絮语 |                                                              |                                                  |
+| 贾海昆 | 清华大学     | 模拟/射频     | [永远的haikun01](https://weibo.com/u/1707010014) | [hai-kun](https://www.zhihu.com/people/hai_kun)            | haikun01           | [haikun](https://www.xiaohongshu.com/user/profile/60520e890000000001004bef) |                                                  |
+| 路延   | 清华大学     | 模拟/射频     |                                                  |                                                            | 延路的笔记         |                                                              |                                                  |
+| 刘晓光 | 南方科技大学 | 模拟/射频     |                                                  | [刘晓光](https://www.zhihu.com/people/liuxiaoguangsustech) |                    | [刘晓光](https://www.xiaohongshu.com/user/profile/5f8c670a0000000001005d18) |                                                  |
+| 聂凯明 | 天津大学     | 模拟/射频     |                                                  |                                                            |                    |                                                              | [nksunmoon](https://space.bilibili.com/23086025) |
+| 涂锋斌 | 香港科技大学 | 数字/体系结构 |                                                  | [涂锋斌](https://www.zhihu.com/people/fengbintu)           |                    |                                                              |                                                  |
+| 范益波 | 复旦大学     | 数字/体系结构 |                                                  | [一波](https://www.zhihu.com/people/ybfan)                 |                    |                                                              |                                                  |
 
 ## 工程师
 
@@ -26,6 +29,7 @@
 | ----------- | ---- | ------------- | ---- | ----------------------------------------------------- | ---------- | -------- |
 | 夏晶晶      | 海思 | 数字/体系结构 |      | [知乎](https://www.zhihu.com/people/xia-jing-jing-57) |            |          |
 | Sigma Delta |      | 模拟/射频     |      | [知乎](https://www.zhihu.com/people/sigma-delta)      | 固推铁球   | 固推铁球 |
+| 李虹江      | Apple | 数字        |      | [知乎](https://www.zhihu.com/people/li-hong-jiang-54) |       |         |
 
 ## 学生
 
