@@ -321,9 +321,11 @@ spectre.turboOpts    uniMode          string  "APS"          ; to use spectre AP
 
 ;;;;;;;;;;;;;;;;;; ADE XL (ADE Explorer)
 ;;; Why ADEXL instead of ADE Explorer: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/52576/how-to-set-default-corners-in-maestro
-adexl.icrpStartup    defaultJobPolicy string "My_jobpolicy"  ; My jobs parallelization policy
-adexl.gui            defaultCorners   string "./corners/corners_6.sdb" ; IC6.1.8-64b.500.19. see https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/49271/load-corners-csv-file-skill-function
-; adexl.gui            defaultCorners   string "./corners/corners_6.csv" ; IC6.1.8-64b.500.20
+; adexl.icrpStartup    defaultJobPolicy           string "My_jobpolicy"        ; My jobs parallelization policy
+; maestro.lscs         defaultNetlistingJobPolicy string "LSCS_NetJob_Policy"  ; or use the LSCS instead of the ICRP
+; maestro.lscs         defaultSimulationJobPolicy string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP
+; adexl.gui            defaultCorners             string "./corners/corners_6.sdb" ; IC6.1.8-64b.500.19. see https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/49271/load-corners-csv-file-skill-function
+; adexl.gui            defaultCorners             string "./corners/corners_6.csv" ; IC6.1.8-64b.500.20
 
 ;;;;;;;;;;;;;;;;;;
 auCore.misc          annotationSetupFileList string "./.cadence/dfII/annotationSetups/My_annoSetup.as"
