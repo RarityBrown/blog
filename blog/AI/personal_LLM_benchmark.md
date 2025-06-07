@@ -295,7 +295,11 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 >
 > 参考来源：[所有包](https://docs.mathjax.org/en/latest/input/tex/extensions/index.html), [启用的包](https://github.com/mathjax/MathJax-src/blob/master/ts/input/tex/AllPackages.ts), [参考链接](https://github.com/jupyterlab/jupyter-renderers/issues/229)
 
-> Q: 
+> Q: Quantus, Raphael, StarRC, RaptorX, RaptorH, Exalto, EMX, xRC and xACT. Which are Cadence's? Which are Synopsys's?
+>
+> QX: Help me research the Quantus, Raphael, StarRC, RaptorX, RaptorH, Exalto, EMX, Calibre xRC, Calibre xACT, and then sort them into tables.
+>
+> 正确答案：Cadence: Quantus, EMX (acquired); Synopsys: Raphael, StarRC, RaptorX (acquired), RaptorH (acquired), Exalto (acquired)
 
 ### 实践问题（也许我们可以叫 AgentQA？）
 
@@ -537,11 +541,19 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 > Q: 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
 
+> Q: An interactive s-plane where left-clicking adds poles and right-clicking adds zeros. The s-plane uses log-log coordinate axes (with engineering notation for tick marks, such as 1k, 2k, 1M, 1G) to represent the real and imaginary parts. Plot the frequency response H(jω) in real-time (including magnitude response, phase response, DC gain, GBW, phase margin, and other information). 
+
 > Q: An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
+>
+> 正确情况：Sonnet 3.7 错
 
 > Q: Simulate the movement of multiple positive and negative charged particles within a square
 
 > Q: Real-time microphone spectrum FFT, with historical data also displayed. So color should be used as intensity, with one axis being frequency and the other being time.
+>
+> 正确情况：Sonnet 4 对; r1-0528 错
+
+
 
 > Q: 
 
@@ -937,7 +949,7 @@ katex 的 `mhchem` 没有生效，现在显示的 `\ce` 是红色的报错模式
 > 
 > 正确答案：`1,290,111,812,442,216`  `1290892312867076`
 >
-> 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错; Gemini 2.5 Pro 错; o3-mini-high 对; lunarcall 对
+> 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错; Gemini 2.5 Pro 错错; o3-mini-high 对; lunarcall 对
 
 ##### Lisp (Cadence SKILL)
 
@@ -1015,7 +1027,7 @@ refactor to Cadence Virtuoso SKILL
 > 
 > 正确答案：因为是阻塞赋值，其实是一个 A = E 的 1-bit DFF
 
-
+<!-- 太简单了，淘汰
 > QC:
 > ```verilog
 > module simple_moore_fsm(
@@ -1070,7 +1082,7 @@ refactor to Cadence Virtuoso SKILL
 > 正确答案：Mealy FSM
 > 
 > 正确情况：Sonnet 3.5 对; o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL-20250326 对, 3-opus 对, 2-flash-thinking 对; Gemini 2.5 Pro 对; v3-0324 错; stargazer 对
-
+-->
 
 > Q: Write a Verilog-A model for a 12-input AND gate using a vector input.
 
