@@ -136,7 +136,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 
 > 正确情况：4oL 对; Sonnet 3.5 错错; Gemini 2 Pro 对;
 >
-> QC 正确情况：Sonnet 3.7 thinking 错; Gemini 2.5 Pro 错
+> QC 正确情况：Sonnet 3.7 thinking 错; Gemini 2.5 Pro 错; kingfall 错
 
 > Q: 顺尔宁是 NSAIDs 吗？泰诺呢？开瑞坦呢？双氯芬酸呢？右美沙芬呢？简单回答，即类似于“是、不是、不是、不是、是”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
 >
@@ -146,7 +146,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > Q 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; *4oL 错*; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
 >
-> QC 正确情况：grok3 错错对; Gemini 2.5 Pro 对; v3-0324 对; Sonnet 3.7 thinking 错错; o3-mini 错
+> QC 正确情况：grok3 错错对; Gemini 2.5 Pro 对; v3-0324 对; Sonnet 3.7 thinking 错错; o3-mini 错; kingfall 对
 >
 > 注：非常确定这道题被 OpenAI 拿去做 post-train 了，最新的 4o/4.1 可以答对一模一样的 Q，但是仍然不知道顺尔宁是什么药。
 
@@ -177,10 +177,12 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >   - Jacob K. White (Spectre)
 >   - Rob A. Rutenbar
 >   - Georges Gielen
+>   - Alberto Sangiovanni-Vincentelli
 > - Digital:
->   - **Alberto Sangiovanni-Vincentelli**
+>   - Alberto Sangiovanni-Vincentelli
 >   - Kurt Keutzer (Bell Labs, Synopsys, UCB)
 >   - Aart de Geus (Synopsys)
+>   - Phil Moorby (Verilog)
 >   - Robert K. Brayton (UCB)
 >   - Hugo De Man(IMEC)
 >   - Giovanni De Micheli
@@ -189,7 +191,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 
 > 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
 >
-> Q 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错错
+> Q 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错错; Kingfall 对
 
 > Q: The release year of IC Compiler 2? When did ICC1 stop updating?
 > 
@@ -201,11 +203,11 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 
 > Q: Apart from the Logitech MX Master, recommend **two** mice with a side scroll wheel. Only the name is needed, no description.
 >
-> 参考答案：Kensington Pro Fit Ergo Vertical Wireless Trackball; Keychron M6 Wireless; rapoo mt760l; DeLUX M913GX
+> 参考答案：Kensington Pro Fit Ergo Vertical Wireless Trackball; Keychron M6 Wireless; rapoo mt760l; DeLUX M913GX; Mad Catz R.A.T. 8+
 > 
 > 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse, Microsoft Surface Precision Mouse, MX Anywhere
 >
-> 正确情况：4oL 错, Sonnet 3.7 错错, Sonnet 3.7 thinking 错错, GPT4.5 错
+> 正确情况：4oL 错, Sonnet 3.7 错错, Sonnet 3.7 thinking 错错, GPT4.5 错; Kingfall 半对
 
 > Q: Verilog 中 `always @(posedge clk, negedge rst_n)` 和 `always @(posedge clk or negedge rst_n)` 哪个更好？为什么？好像和 Verilog 标准也有关系？
 > 
@@ -335,7 +337,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 >
 > 正确答案：No
 >
-> 正确情况：Gemini 2 Pro 错, 4oL 错, Gemini 2.5 Pro 错
+> 正确情况：Gemini 2 Pro 错, 4oL 错, Gemini 2.5 Pro 错, Kingfall 错
 
 > Q: Is the LaTeX syntax for the formula `a \xrightarrow[ \begin{subarray}{c}E[x]=0 \\ a\end{subarray} ]{x} b` completely correct, and will it compile without any errors, given that I have `amsmath` properly installed?
 >
@@ -541,7 +543,9 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 > Q: 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
 
-> Q: An interactive s-plane where left-clicking adds poles and right-clicking adds zeros. The s-plane uses log-log coordinate axes (with engineering notation for tick marks, such as 1k, 2k, 1M, 1G) to represent the real and imaginary parts. Plot the frequency response H(jω) in real-time (including magnitude response, phase response, DC gain, GBW, phase margin, and other information). 
+> Q: An interactive s-plane where left-clicking adds poles (for a physically realizable system, if poles are not real, they should be automatically added in conjugate pairs), and right-clicking adds zeros. The s-plane uses log-log coordinate axes (tick marks use engineering notation, e.g., 1k, 2k, 1M, 1G) to represent the real and imaginary parts. Plot the frequency response H(jω) in real-time (including magnitude response, phase response, DC gain, GBW, phase margin, and other information).
+>
+> 正确情况：o3 半对; 
 
 > Q: An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
 >
@@ -821,7 +825,7 @@ katex 的 `mhchem` 没有生效，现在显示的 `\ce` 是红色的报错模式
 >
 > 正确答案：`A["Node with #quot;quotes&quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
 >
-> 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错错; r1 错; Gemini 2.5 Pro 错
+> 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错错; r1 错; Gemini 2.5 Pro 错; Kingfall 对
 >
 > 正确情况 RAG：gpt-4o-search-preview-high 对对; sonar 对
 >
@@ -872,7 +876,7 @@ katex 的 `mhchem` 没有生效，现在显示的 `\ce` 是红色的报错模式
 >
 > 正确答案：`Send('{{}``\``')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
 >
-> 正确情况：Gemini 2 Pro 错错, o3-mini-high 错对错错, o3-mini 错错对, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错, Gemini 2.5 Pro 对错,
+> 正确情况：Gemini 2 Pro 错错, o3-mini-high 错对错错, o3-mini 错错对, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错, Gemini 2.5 Pro 对错, Kingfall 对
 >
 > 正确情况 RAG：sonar-pro-high 错错
 
@@ -1148,11 +1152,13 @@ refactor to Cadence Virtuoso SKILL
 
 > Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
 >
-> 正确答案：对于 PMOS 输入的 5T-OTA 有 $A_{VDD}\approx\dfrac{1}{2g_{m3}r_{o,\text{tail}}}  \qquad  A_{VSS}\approx 1$
+> 正确答案 PMOS：$A_{VDD}\approx\dfrac{1}{2g_{m3}r_{o,\text{tail}}}  \qquad  A_{VSS}\approx 1$
 >
+> 正确答案 NMOS: $A_{VDD}=\frac{(1 + 2R_5(g_{ds1,2} + g_{m1,2}))(g_{m3,4} + g_{ds3,4})}{g_{ds1,2} + (1 + 2r_{o,\text{tail}}(g_{ds1,2} + g_{m1,2}))(g_{m3,4} + g_{ds3,4})} \approx 1 \implies \text{PSRR}^+\approx g_{m1,2}(r_{o1,2}||r_{o3,4})$
+> 
 > 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
 >
-> 正确情况：o3-mini-high 错，Gemini 2.5 Pro 错
+> 正确情况：o3-mini-high 错，Gemini 2.5 Pro 错, kingfall 错, r1-0528 半对
 
 > Q: 最简单的两个电阻一个运放的反相放大器的反馈系数是多少？通过 $A_{CL}=\dfrac{A_{OL}}{1+\beta A_{OL}}$ 计算闭环增益（不要通过 KCL KVL）
 
