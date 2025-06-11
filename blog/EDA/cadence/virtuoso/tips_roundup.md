@@ -6,9 +6,10 @@
 - [用 `.scs` 文件实现批量引用同一工艺角下的 mos, res, cap](https://zhuanlan.zhihu.com/p/588659964)
 - [用 `.scs` 文件保存 model 批量引用](https://blog.csdn.net/qq_33599939/article/details/122505894#11scsmodel_19)
 
-### analogLib & rfLib
+### analogLib & rfLib & ahdlLib
 
-
+- vpulse / ipulse: https://optics.eee.nottingham.ac.uk/wiki/Vlsi:Cadence_Tips
+- cccs: https://zhuanlan.zhihu.com/p/673455481
 
 ### SKILL &  `.cshrc`, `.cdsinit`, `.cdsenv`
 
