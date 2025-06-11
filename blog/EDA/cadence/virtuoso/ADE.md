@@ -169,6 +169,8 @@ https://youtu.be/RG5CjoPcHvs?t=1058
 
 ### 通过并行，加快仿真速度
 
+#### Job Policy
+
 ![image](https://github.com/user-attachments/assets/c5a9fc80-0a1e-4097-b4a3-469090ad1411)
 
 - Job Policy Name: 可以将自己的 Job Policy 保存，例如保存为 `My_jobpolicy`，可以通过 [cdsenv](SKILL.md#cdsinit-and-cdsenv) 来实现每次启动 Virtuoso 时的自动设置。
@@ -184,13 +186,19 @@ https://youtu.be/RG5CjoPcHvs?t=1058
 - **Timeouts (in Secs.)**
   - 保持默认
 
+#### 同时前后仿 (同时仿真多个 config)
+
+ADE Assembler -> Global variable 右键 -> add config sweep 
+
+参考 [1](https://zhuanlan.zhihu.com/p/6580714389)
 
 ### 直接加快串行仿真速度
 
 - High Performance Simulation
 - 关闭保存所有电压节点的数据，手动选择需要保存的电压节点
+  - 待研究（目前看下来好像在大于某特定值的情况下，画图速度会严重降低，不知道是和什么硬件设置相关）
 
-### 其他记录
+### 其他方式
 
 #### 为不同的仿真组设置不同的 tran 仿真时间
 
