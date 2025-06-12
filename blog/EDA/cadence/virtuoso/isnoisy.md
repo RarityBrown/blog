@@ -2,7 +2,7 @@
 
 ### 正文
 
-本文是一篇小文章，记录如何在 Virtuoso ADE Explorer 中同时一次性仿真 tran with tran noise 和 tran without tran noise 的两种情况。如果您对 ADE Explorer 尚不熟悉，欢迎阅读[介绍](#ADE.md)。
+本文是一篇小文章，记录如何在 Virtuoso ADE Explorer 中同时一次性仿真 tran with tran noise 和 tran without tran noise 的两种情况。如果您对 ADE Explorer 尚不熟悉，欢迎阅读[介绍](ADE.md)。
 
 - 首先，参考 [`tran` 仿真在需要的时间点开启 noise, by 小试牛刀](https://zhuanlan.zhihu.com/p/9915953761) 可知，在 tran 仿真中，有一个 isnoisy 的参数 (`param`)，可以动态的设置 tran noise 的开关。
 - 其次，参考 [Maestro 快速仿真实用教程 - 3.3 选择仿真器, by 干饭睡觉真君](https://www.analog-life.com/2025/02/improve-simulation-efficiency-with-cadence-maestro/#header-id-9) 可知，在 tran 仿真中，可以通过 `VAR("")` 的方式来进行动态调整 tran 仿真设置
