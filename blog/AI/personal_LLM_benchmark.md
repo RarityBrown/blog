@@ -241,13 +241,18 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 在线超长 .pdf 文件
   - 隐藏的网页、登录墙、付费墙：只可能本地解决，靠一个个去谈不可能覆盖完全
     - 用户可以通过推理实现隐藏网页的查看，例如找到一个 `https://example.com/article13` 用户可能会直接输入 url 去看看 `https://example.com/` 和 `https://example.com/article14` 网页上有不有相关的内容
-    - 例如查询 `the speaker of the ISSCC 2014 tutorial 3?`；现在 OpenAI 之类的只是和新闻媒体在谈，这种学术等等完全不可能
+    - 例如查询 `the speaker of the ISSCC 2014 tutorial 3?`；现在 OpenAI 之类的只是和新闻媒体在谈，这种学术等等完全不可能一个个谈下来的，比如需要 license 才能查看的文档等等。所以最好的方式还是用户侧，而不是服务商的容器中
   - 非常老的网页，现代浏览器的 TLS 版本默认不支持
     - 例如 `https://ccf.ee.ntu.edu.tw/~cchen/cadence/simulation.htm`
 - **用户侧问题**
   - 用户输入笔误
   - 用户输入的无效信息（这个在经典的 Benchmark 也可以体现一些，有题目里是有无效信息的）
-  - 用户需求理解，例如 "Alternatives to Manus AI" 其实用户想搜 General Purpose AI Agents，但是现在搜出来都是 MS Copilot 之类的。
+  - 用户需求理解，例如 "Alternatives to Manus AI" 其实用户想搜 General Purpose AI Agents，但是现在搜出来都是 MS Copilot 之类的
+- **搜索方式问题**
+  - 非英语的搜索结果反而好于英语搜索结果
+    - 例如“pdk 中的 mac 管是什么？”全网只有三个中文网页 [1](https://blog.csdn.net/weixin_42310516/article/details/133688562), [2](https://bbs.eetop.cn/thread-890470-1-1.html), [3](https://bbs.eetop.cn/thread-861115-2-1.html) (还有一个是许多程序员认为的低质量网页 csdn) 提到了答案，而英文搜索反而找不到信息
+  - 使用传统搜索引擎的筛选进行搜索
+    - 例如 site:example.com, "exact_match_with_qutoes"，在 2015 年的新闻
 - **嵌套问题**：以上所有问题的嵌套
   - 例如 PDF 中的图片、表格
     - 案例：搜索 `Command A gpqa`，标准答案 **50.8** 在 `https://cohere.com/research/papers/command-a-technical-report.pdf` 的表格中
