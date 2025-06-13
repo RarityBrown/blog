@@ -10,9 +10,7 @@
 
 类比软件开发，ADE 是 IDE，而 Spectre 是 compiler
 
-关于 ADE 的技巧：
-
-- https://zhuanlan.zhihu.com/p/372495688
+非常建议您阅读[干饭睡觉真君](https://www.analog-life.com/2025/02/improve-simulation-efficiency-with-cadence-maestro/)对于 ADE Explorer & ADE Assembler 的详细介绍。对于一些技巧性的内容可以参考[电波一号](https://zhuanlan.zhihu.com/p/372495688)的介绍。
 
 ### 仿真数据
 
@@ -136,6 +134,10 @@ modified nodal analysis
   - `step`:
   - `maxstep`: 本次 `tran` 所允许的最大步长。当我们不希望 spectre 在电路进入稳态后 step 越来越大，而一直小于一个最大 step 值
   - `minstep`: 
+- param
+  - tran noise
+    - 
+
 
 ### 小信号的王者: `ac` simulation
 
@@ -143,7 +145,7 @@ modified nodal analysis
 
 Striving for small-signal stability - Loop-Based and Device-Based Algorithms for Stability Analysis of Linear Analog Circuits in the Frequency Domain
 
-### sp
+### `sp`
 
 ### Spectre 在模拟仿真领域超越 Hspice 的开端: `pss` simulation
 
