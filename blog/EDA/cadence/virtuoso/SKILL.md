@@ -477,6 +477,10 @@ hiSetFont("label" ?size 14)                      ; simulation font size, greater
 
 hiSetBindKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
 hiSetBindKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hiSetBindKey("Layout"     "<Key>F1"    "printf(\"Help disabled\")")
+hiSetBindKey("Schematics" "<Key>F1"    "printf(\"Help disabled\")")
+hiSetBindKey("Symbol"     "<Key>F1"    "printf(\"Help disabled\")")
+
 
 ; hiSetBindKey("Schematics"  "Ctrl<Key>M" "new_explore_bindkey()")
 
@@ -484,7 +488,6 @@ hiSetBindKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSess
 ; hiSetBindKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
 
 ; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
-
 ```
 
 
