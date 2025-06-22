@@ -37,3 +37,7 @@ gsettings set org.gnome.desktop.wm.preferences focus-mode 'click'
 | CentOS Stream 8              | GNOME 3.32.2                                | Mutter     |
 | CentOS Stream 9              | GNOME 40                                    | Mutter     |
 | CentOS Stream 10             | GNOME 47                                    | Mutter     |
+
+
+> todo: 如何在没有管理员权限的情况下在 GNOME 中安装 Dash to Panel？
+
