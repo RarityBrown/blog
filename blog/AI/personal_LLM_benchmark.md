@@ -195,7 +195,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 > Q: The release year of IC Compiler 2? When did ICC1 stop updating?
 > 
-> 正确答案：2014, 2016
+> 正确答案：2014, 2016?
 >
 > 正确情况：gemini-exp-1121 对对, Sonnet 3.5 对.不会.
 
@@ -223,6 +223,16 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确答案：EUV 镜头，RMS=0.02nm
 
+> Q: Intel 在 2025 年 2 月 24 日的 CEO 是谁？
+>
+> 正确答案：无
+
+> Q: 中国国内目前排名前20的医院里，前身是教会医院的有哪些？超级简单回答。例如 “是：仁济、浙一、华西、华山...；不是：北大三院、积水潭、中山、瑞金...”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
+>
+> 正确答案：是教会医院：北京协和、中国医大一院、仁济、瑞金、浙二、武汉协和、湘雅、华西；不是教会医院：301、北大一院、北大三院、中山、华山、浙一、郑大一附院、武汉同济、湘雅二院、中山一院、南方医院、西京。参考[2023复旦版排名](https://rank.cn-healthcare.com/fudan/national-general) (2024年11月发布)
+>
+> 正确情况：Gemini 2.5 Pro w Google 对
+
 ### 困难知识问题 (也许我们可以取名叫 HardQA? )
 
 LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Deep Research，详见 Jina AI 的 Blog。Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，包括但不限于
@@ -238,31 +248,68 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
     - 不同 tab 但网址相同的网页（例如 `lmarena.ai: The (2nd) best LLM on lmarena today?`）
     - 点击/滚动才展开的评论区
     - 折叠或需要翻页的内容（例如 `https://github.com/electron/electron/issues/9035`）
+    - 知乎文章的登录框
   - 在线超长 .pdf 文件
   - 隐藏的网页、登录墙、付费墙：只可能本地解决，靠一个个去谈不可能覆盖完全
     - 用户可以通过推理实现隐藏网页的查看，例如找到一个 `https://example.com/article13` 用户可能会直接输入 url 去看看 `https://example.com/` 和 `https://example.com/article14` 网页上有不有相关的内容
     - 例如查询 `the speaker of the ISSCC 2014 tutorial 3?`；现在 OpenAI 之类的只是和新闻媒体在谈，这种学术等等完全不可能一个个谈下来的，比如需要 license 才能查看的文档等等。所以最好的方式还是用户侧，而不是服务商的容器中
   - 非常老的网页，现代浏览器的 TLS 版本默认不支持
     - 例如 `https://ccf.ee.ntu.edu.tw/~cchen/cadence/simulation.htm`
-- **用户侧问题**
+- **用户侧**
   - 用户输入笔误
   - 用户输入的无效信息（这个在经典的 Benchmark 也可以体现一些，有题目里是有无效信息的）
   - 用户需求理解，例如 "Alternatives to Manus AI" 其实用户想搜 General Purpose AI Agents，但是现在搜出来都是 MS Copilot 之类的
-- **搜索方式问题**
+- **搜索方式**
   - 非英语的搜索结果反而好于英语搜索结果
     - 例如“pdk 中的 mac 管是什么？”全网只有三个中文网页 [1](https://blog.csdn.net/weixin_42310516/article/details/133688562), [2](https://bbs.eetop.cn/thread-890470-1-1.html), [3](https://bbs.eetop.cn/thread-861115-2-1.html) (还有一个是许多程序员认为的低质量网页 csdn) 提到了答案，而英文搜索反而找不到信息
   - 使用传统搜索引擎的筛选进行搜索
     - 例如 site:example.com, "exact_match_with_qutoes"，在 2015 年的新闻
-- **嵌套问题**：以上所有问题的嵌套
+- **嵌套**：以上所有情况的嵌套
   - 例如 PDF 中的图片、表格
     - 案例：搜索 `Command A gpqa`，标准答案 **50.8** 在 `https://cohere.com/research/papers/command-a-technical-report.pdf` 的表格中
   - 例如登录墙中的评论区
 
-
-
 > Q: Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
 >
-> 参考答案: [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/)
+> 参考答案: [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/), [Minimax](https://agent.minimax.io/)
+
+> Q: search with quotes “tsmchome”. Based on online information, infer the folder structure. Show me the results in an output format similar to the `tree` command.
+>
+> 参考答案：
+
+```
+TSMCHOME/
+├── digital/
+│   ├── Front_End/
+│   │   ├── timing_power_noise/
+│   │   │   ├── NLDM/
+│   │   │   │   ├── tcbn65gplus_200a/
+│   │   │   │   ├── tcbn40lpbwp_200a/
+│   │   │   │   ├── tcbn28hpcplusbwp30p140_180a/
+│   │   │   │   ├── tpdn65gpgv2od3_sd_200a/
+│   │   │   │   ├── tcbn65gplus_140b/
+│   │   │   │   └── [various process node libraries]/
+│   │   │   └── CCS/
+│   │   │       └── tcbn28hpcplusbwp30p140hvt_180a/
+│   │   └── verilog/
+│   │       └── [Verilog source files]
+│   ├── Back_End/
+│       ├── lef/
+│       │   ├── tcb018gbwp7t_270a/
+│       │   │   ├── lef/
+│       │   │   │   └── tcb018gbwp7t_5lm.lef
+│       │   │   └── techfiles/
+│       │   ├── tcbn65gplus_200a/
+│       │   │   └── lef/
+│       │   │       └── tcbn65gplus_9lmT2.lef
+│       │   └── tcbn16ffcllbwp16p90pm_100a/
+│       │       └── lef/
+│       │           └── tcbn16ffcllbwp16p90pm.lef
+│       └── milkyway/
+│           └── tcbn65gplus_200a/
+│               └── techfiles/
+│                   └── tsmcn65_9lmT2
+```
 
 > Q: Alternatives to cursor app?
 >
@@ -279,10 +326,6 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 > Q: "hiFormDone" 函数中的 hi 是什么意思？
 > 
 > 正确答案：[Human Interface](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/50958/whats-the-difference-between-le-commands-and-hi-commands)
-
-> Q: Intel 在 2025 年 2 月 24 日的 CEO 是谁？
->
-> 正确答案：无
 
 > Q: The latest sub-version for Cadence Virtuoso 6.1.8 and Virtuoso 23.1?
 >
@@ -307,6 +350,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 > QX: Help me research the Quantus, Raphael, StarRC, RaptorX, RaptorH, Exalto, EMX, Calibre xRC, Calibre xACT, and then sort them into tables.
 >
 > 正确答案：Cadence: Quantus, EMX (acquired); Synopsys: Raphael, StarRC, RaptorX (acquired), RaptorH (acquired), Exalto (acquired)
+
 
 ### 实践问题（也许我们可以叫 AgentQA？）
 
