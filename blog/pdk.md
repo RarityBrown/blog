@@ -509,11 +509,11 @@ TSMCHOME
 
   <!-- Row 2: Alternative options -->
   <g id="row2">
-    <!-- s (Col 2) -->
+    <!-- pb (Col 2) -->
     <rect x="135" y="240" width="110" height="55" class="block" />
-    <text x="190" y="267.5" class="block-text">s</text>
+    <text x="190" y="267.5" class="block-text">pb</text>
     <rect x="135" y="300" width="110" height="45" class="explanation-box" />
-    <text x="190" y="322.5" class="explanation-text" dominant-baseline="middle">SRAM</text>
+    <text x="190" y="322.5" class="explanation-text" dominant-baseline="middle">IO</text>
 
     <!-- hpm (Col 4) -->
     <rect x="385" y="240" width="110" height="55" class="block" />
@@ -554,27 +554,33 @@ TSMCHOME
 
   <!-- Row 3: More alternative options -->
   <g id="row3">
+    <!-- s (Col 2) -->
+    <rect x="135" y="375" width="110" height="55" class="block" />
+    <text x="190" y="402.5" class="block-text">s</text>
+    <rect x="135" y="435" width="110" height="45" class="explanation-box" />
+    <text x="190" y="457.5" class="explanation-text" dominant-baseline="middle">SRAM</text>
+
     <!-- hpl (Col 4) -->
     <rect x="385" y="375" width="110" height="55" class="block" />
     <text x="440" y="402.5" class="block-text">hpl</text>
     <rect x="385" y="435" width="110" height="45" class="explanation-box" />
     <text x="440" y="452.5" class="explanation-text">
-    <tspan x="440">High-Performance</tspan>
-    <tspan x="440" dy="1.2em">Low Power</tspan>
+      <tspan x="440">High-Performance</tspan>
+      <tspan x="440" dy="1.2em">Low Power</tspan>
     </text>
+
+    <!-- "None" (Col 7) -->
+    <rect x="760" y="375" width="110" height="55" class="block-none" />
+    <text x="815" y="402.5" class="block-text-none">None</text>
+    <rect x="760" y="435" width="110" height="45" class="explanation-box" />
+    <text x="815" y="457.5" class="explanation-text" dominant-baseline="middle">Default: 9-Track</text>
+
+    <!-- 40 (Col 8) -->
+    <rect x="885" y="375" width="110" height="55" class="block" />
+    <text x="940" y="402.5" class="block-text">40</text>
+    <rect x="885" y="435" width="110" height="45" class="explanation-box" />
+    <text x="940" y="457.5" class="explanation-text" dominant-baseline="middle">Gate Length: 40nm</text>
   </g>
-
-  <!-- "None" (Col 7) -->
-  <rect x="760" y="375" width="110" height="55" class="block-none" />
-  <text x="815" y="402.5" class="block-text-none">None</text>
-  <rect x="760" y="435" width="110" height="45" class="explanation-box" />
-  <text x="815" y="457.5" class="explanation-text" dominant-baseline="middle">Default: 9-Track</text>
-
-  <!-- 40 (Col 8) -->
-  <rect x="885" y="375" width="110" height="55" class="block" />
-  <text x="940" y="402.5" class="block-text">40</text>
-  <rect x="885" y="435" width="110" height="45" class="explanation-box" />
-  <text x="940" y="457.5" class="explanation-text" dominant-baseline="middle">Gate Length: 40nm</text>
 </svg>
 
 
