@@ -16,3 +16,6 @@
 
 [Gender & racial diversity of USA employees at semiconductor companies : r/dataisbeautiful (reddit.com)](https://www.reddit.com/r/dataisbeautiful/comments/1accvcl/gender_racial_diversity_of_usa_employees_at/)
 
+UCB 专业情况：
+
+[Women in Engineering :) : r/UBC](https://www.reddit.com/r/UBC/comments/149kwps/women_in_engineering/)
