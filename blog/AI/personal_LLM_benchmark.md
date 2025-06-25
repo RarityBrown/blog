@@ -243,6 +243,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 图片：搜索模型的确需要强视觉能力的，例如在 20250406 搜索 "llama 4 maverick vs deepseek v3 0324. Give me a benchmark table, including GPQA etc." Sonar, gpt-4o-search, Gemini 2.5 Pro Grounding, Jina Deep Search 提供的对比表格没有一个是 100% 正确的，而且每次搜索结果非常不稳定，相对来说后两者略好一些。因为 llama 官方的对比表格就是图片，而那时候媒体转载也是直接通过图片，还没有任何成文的纯文本内容。
   - 网页表格、图表
   - 视频：例如有的视频教程，比如教你怎么在 Word 中实现一个功能
+    - 这一点 Google 做得不错了，YouTube 视频字幕可以低幻觉作为参考资料，但是视频画面仍然是一个问题
 - **非标准网页类型**
   - 动态加载的网页
     - 不同 tab 但网址相同的网页（例如 `lmarena.ai: The (2nd) best LLM on lmarena today?`）
@@ -260,10 +261,14 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 用户输入的无效信息（这个在经典的 Benchmark 也可以体现一些，有题目里是有无效信息的）
   - 用户需求理解，例如 "Alternatives to Manus AI" 其实用户想搜 General Purpose AI Agents，但是现在搜出来都是 MS Copilot 之类的
 - **搜索方式**
-  - 非英语的搜索结果反而好于英语搜索结果
-    - 例如“pdk 中的 mac 管是什么？”全网只有三个中文网页 [1](https://blog.csdn.net/weixin_42310516/article/details/133688562), [2](https://bbs.eetop.cn/thread-890470-1-1.html), [3](https://bbs.eetop.cn/thread-861115-2-1.html) (还有一个是许多程序员认为的低质量网页 csdn) 提到了答案，而英文搜索反而找不到信息
+  - 一般大家认为 Google, 英文的搜索方式，往往会优于 Bing, 中文的搜索方式。但是当搜索结果不理想时，是否能够主动切换搜索方式？例如下文的几个例子：
+    - 非英语的搜索结果反而好于英语搜索结果
+      - 例如 `pdk 中的 mac 管是什么？` 全网只有三个中文网页 [1](https://blog.csdn.net/weixin_42310516/article/details/133688562), [2](https://bbs.eetop.cn/thread-890470-1-1.html), [3](https://bbs.eetop.cn/thread-861115-2-1.html) (其中还有一个是许多程序员认为的低质量网页 csdn) 提到了答案，而英文搜索反而找不到信息
+    - Google 的搜索质量反而不如 Bing
+      - 例如 `ipdk_crn28hpc+` 和 `iPDK_CRN28HPL` 由于两搜索引擎对于 `_` 的处理方式不同，Bing 的搜索结果要显著好于 Google
   - 使用传统搜索引擎的筛选进行搜索
     - 例如 site:example.com, "exact_match_with_qutoes"，在 2015 年的新闻
+
 - **嵌套**：以上所有情况的嵌套
   - 例如 PDF 中的图片、表格
     - 案例：搜索 `Command A gpqa`，标准答案 **50.8** 在 `https://cohere.com/research/papers/command-a-technical-report.pdf` 的表格中
@@ -271,7 +276,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 > Q: Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
 >
-> 参考答案: [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/), [Minimax](https://agent.minimax.io/)
+> 参考答案: [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/), [Minimax](https://agent.minimax.io/), [flowith](https://flowith.io/), [suna](https://www.suna.so/)
 
 > Q: search with quotes “tsmchome”. Based on online information, infer the folder structure. Show me the results in an output format similar to the `tree` command.
 >
