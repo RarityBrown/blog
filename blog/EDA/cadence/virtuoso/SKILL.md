@@ -272,11 +272,6 @@ layout hierarchical boolean t
 layout abstractViewName string "schematic"
 layout cellNameMapFile string "$PDK/cell_map.txt"
 
-; 字体渲染优化
-graphic xfont string "-adobe-courier-medium-r-normal--14-*-*-*-*-*-iso8859-1"
-graphic antiAlias boolean t
-layout textRendering string "vector"
-
 ; HSPICE 集成配置
 asimenv options hspiceCmd string "hspice -mt 8"
 asimenv hspice include string "$PDK/hspice.include"
@@ -320,7 +315,7 @@ spectre.turboOpts    uniMode          string  "APS"          ; to use spectre AP
 ; spectre              numThreads       int     16           ; memory and multithreading config, todo
 
 ;;;;;;;;;;;;;;;;;; ADE XL (ADE Explorer)
-;;; Why ADEXL instead of ADE Explorer: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/52576/how-to-set-default-corners-in-maestro
+;;; Why ADE XL instead of ADE Explorer: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/52576/how-to-set-default-corners-in-maestro
 ; adexl.icrpStartup    defaultJobPolicy           string "My_jobpolicy"        ; My jobs parallelization policy
 ; maestro.lscs         defaultNetlistingJobPolicy string "LSCS_NetJob_Policy"  ; or use the LSCS instead of the ICRP
 ; maestro.lscs         defaultSimulationJobPolicy string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP
@@ -328,11 +323,12 @@ spectre.turboOpts    uniMode          string  "APS"          ; to use spectre AP
 ; adexl.gui            defaultCorners             string "./corners/corners_6.csv" ; IC6.1.8-64b.500.20
 
 ;;;;;;;;;;;;;;;;;;
-auCore.misc          annotationSetupFileList string "./.cadence/dfII/annotationSetups/My_annoSetup.as"
+; auCore.misc          annotationSetupFileList string "./.cadence/dfII/annotationSetups/My_annoSetup.as"
 ; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
 
 ;;;;;;;;;;;;;;;;;; VIVA
 ; viva.rectGraph           background       string  "white"        ; for older version
+; viva.graph                antiAlias        string  ?
 viva.graphFrame           background       string  "white"        ; for IC6.1.8 IC23.1 
 viva.trace                lineThickness    string  "thick"
 ; viva.trace                lineStyle        string  "solid"      ; Dot, dashed, etc.
@@ -346,14 +342,16 @@ viva.axis                 font             string  "Default,15,-1,5,75,0,0,0,0,0
 viva.traceLegend          font             string  "Default,15,-1,5,75,0,0,0,0,0"
 
 ;;;;;;;;;;;;;;;;;; 
-ui    defaultEditorBackgroundColor    string  "#2F2F2F"       ; schematic / layout black background to vscode gray
-ui    ciwCmdInputLines                int     4
+ui    defaultEditorBackgroundColor         string  "#2F2F2F"       ; schematic / layout black background to vscode gray
+ui    ciwCmdInputLines                     int     4
 
 ;;;;;;;;;;;;;;;;;; schematic
 schematic            srcSolderOnCrossover cyclic "ignored"   ; ignore solder dot cross over warning
 
 ;;;;;;;;;;;;;;;;;; graphic
-graphic              balloonOn        boolean t               ; ?enable the info balloon by default
+; graphic              balloonOn        boolean t               ; ?enable the info balloon by default
+graphic              selectPartialVia boolean t               ; https://bbs.eetop.cn/thread-972920-1-1.html
+graphic             displayResolution string  "Very High"
 
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
 layout               xSnapSpacing     float   0.005           ; 0.005um is typical for 28~55nm nodes
