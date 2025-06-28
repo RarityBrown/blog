@@ -55,9 +55,11 @@
 - [`tran` 仿真结束后延长仿真时间，不重新从头开始仿真——“断点续仿”](https://zhuanlan.zhihu.com/p/142714596)
 - [`tran` 仿真时的 Dynamic Parameter](https://zhuanlan.zhihu.com/p/392505085)
   - [`tran` 仿真在需要的时间点开启 noise](https://zhuanlan.zhihu.com/p/9915953761)
+  - [`tran` 仿真中同时仿真 w/ & w/o tran noise 的情况](isnoisy.md)
+  - [`tran` 仿真中动态调整仿真精度](https://community.cadence.com/cadence_blogs_8/b/cic/posts/dynamically-changing-spectre-x-solver-settings)
 - [`tran` 仿真的过程中进行小信号相关的仿真](https://zhuanlan.zhihu.com/p/344932538)
 - [`tran` 仿真的过程中保存指定时刻的工作点](https://zhuanlan.zhihu.com/p/26505281718)
-- [`tran` 仿真中同时仿真 w/ & w/o tran noise 的情况](isnoisy.md)
+
 
 ### `dc`
 
