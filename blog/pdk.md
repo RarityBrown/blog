@@ -266,6 +266,8 @@ Directory structure:
 
 `tcbn28hpcplusbwp7t30p140
 
+> https://zhuanlan.zhihu.com/p/5873231713
+
 ```
 TSMCHOME
 └── digital
