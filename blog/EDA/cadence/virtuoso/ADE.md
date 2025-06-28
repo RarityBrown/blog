@@ -136,7 +136,7 @@ modified nodal analysis
   - `minstep`: 
 - param
   - tran noise
-    - 
+    - isnoisy
 
 
 ### 小信号的王者: `ac` simulation
@@ -149,6 +149,12 @@ Striving for small-signal stability - Loop-Based and Device-Based Algorithms for
 
 ### Spectre 在模拟仿真领域超越 Hspice 的开端: `pss` simulation
 
+### Spectre Fast SPICE, RF SPICE
+
+- *Getting The Most Out Of Spectre*
+  - Getting The Most Out Of Spectre APS
+  - Getting the Most Out of Spectre X
+  - [Getting the Most out of Spectre X-RF and APS-RF - YouTube](https://www.youtube.com/watch?v=MwgguyM_kP8)
 
 ## Real-time Tuning, Local and Global Optimization
 
