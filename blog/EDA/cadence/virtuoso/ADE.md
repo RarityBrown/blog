@@ -232,6 +232,9 @@ ADE Assembler -> Global variable 右键 -> add config sweep
 ![image](https://github.com/user-attachments/assets/cd7c18aa-c645-45f3-abc8-171aecaaac1e)
 
 
-### 启动时粗略仿真，正常工作时精细仿真
+#### 
 
-
+- 启动时粗略仿真，正常工作时精细仿真
+  - APS: https://m0nkey.cn/2020/03/experience-sharing-with-spectre-x-spectre-191-simulator/
+  - Spectre X: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/47915/dynamic-tolerance-with-spectre-x
+- isnoisy
