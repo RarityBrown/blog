@@ -51,6 +51,8 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 2025/06/01: 一个月过去了。Claude 4 Opus 来了，而 o4 还很遥远；Gemini Diffusion 和 gpt-image-1 来了，而全模态输入输出还很遥远。如果 Gemini 3 无法引领 Benchmark 分数进一步进步，下半年恐怕只有应用层面创新的 GPT5 了。Autoregressive 确实是快到头了，Sudoku-Bench 和 ascii-art 等等一系列顶着 Autoregressive 打的 benchmark 越来越多才是好事；当然，这个我也早有体会，比如让 AI 解一个 5-OTA + CS 的二级运放的 PSRR 之类的问题也是因为这个完全不行 。AGI 或是全方面超越人类的 ASI 不可能通过纯文字实现的，所以即使证明出哥猜也不是 AGI/ASI，不然 AlphaGo 就是一种 ASI 了。顺便再来接着 0501 的碎碎念，喷一下 Benchmark 过于注重理科而轻视工科的问题，是是非非曲曲折折，unspoken rules 让 AI 摇摆不定。
 
+2025/07/05: 直至今日，所有 Agents 都还不堪大用。输入能力：context 能力、现场学习能力、视觉能力；输出能力：鼠标操作。
+
 ### QC 系列
 
 - 加入 QC (Question with Critical Thinking, 题目就是错的
@@ -184,7 +186,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >   - Aart de Geus (Synopsys)
 >   - Phil Moorby (Verilog)
 >   - Robert K. Brayton (UCB)
->   - Hugo De Man(IMEC)
+>   - Hugo De Man (IMEC)
 >   - Giovanni De Micheli
 >   - Robert K. Brayton
 >   - Ernest S. Kuh (葛守仁)
@@ -336,7 +338,9 @@ TSMCHOME/
 
 > Q: The latest sub-version for Cadence Virtuoso 6.1.8 and Virtuoso 23.1?
 >
-> 正确答案：[ISR34](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-icadvm20-1-isr34-and-ic6-1-8-isr34-now-available), [ISR14](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-ic23-1-isr-14-now-available)
+> 正确答案：[ISR34](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-icadvm20-1-isr34-and-ic6-1-8-isr34-now-available), 当然如果你再细一点，可以发现有 [ISR36](https://bbs.eetop.cn/thread-991360-1-1.html), 不过这个要非常细，这些链接也是可以的 [1](https://www.nulledfrm.com/threads/cadence-virtuoso-ic06-18-360-linux.133645/#post-815659)[2](https://dl4all.org/software/graphics-design/866023-cadence-virtuoso-ic0618360-linux.html)[3](https://downloadly.ir/software/engineering-specialized/cadence-ic-design-virtuoso/)[4](https://www.iranhack.com/forum/forum/%D9%86%D8%B1%D9%85-%D8%A7%D9%81%D8%B2%D8%A7%D8%B1/188483-cadence-virtuoso-ic06-18-360-linux)[5](https://bbs.eetop.cn/thread-991360-1-1.html)[6](https://bbs.eetop.cn/thread-984059-1-1.html); [ISR14](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-ic23-1-isr-14-now-available), 这个的话官方确实就是最新，"IC23.10.130" 尚可搜到，14 就搜不到了。
+
+
 
 > Q: function to get variable type in cadence virtuoso?
 >
@@ -358,6 +362,9 @@ TSMCHOME/
 >
 > 正确答案：Cadence: Quantus, EMX (acquired); Synopsys: Raphael, StarRC, RaptorX (acquired), RaptorH (acquired), Exalto (acquired)
 
+> Q: I want to create something similar to Cadence Virtuoso ViVA. Which one should I use among ECharts with lttb, Plotly.js, or uPlot?
+>
+> 答案：Grok 3 DeeperSearch, Plotly.js > ECharts > uPlot; OpenAI o4-mini DR, uPlot > ECharts > Plotly.js; Perplexity DR, uPlot > ECharts = Plotly.js; Gemini 2.5 flash DR, uPlot > Plotly.js > ECharts 
 
 ### 实践问题（也许我们可以叫 AgentQA？）
 
