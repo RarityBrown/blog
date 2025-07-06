@@ -29,7 +29,9 @@ quadrantChart
     Perplexity Pro: [0.6, 0.3]
     Jina AI DS v1: [0.85, 0.65]
     Jina AI DS v2-r1-based: [0.25, 0.65]
-    Gemini 2.5 Pro Grounding: [0.7, 0.25]
+    Gemini 2.5 Pro Grounding Pre: [0.7, 0.25]
+    Gemini 2.5 Pro Grounding: [0.7, 0.45]
+    Grok DerS: [0.85, 0.75]
 ```
 
 
