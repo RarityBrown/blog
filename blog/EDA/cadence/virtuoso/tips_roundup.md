@@ -103,7 +103,7 @@
 - [通过 `value` 和 `cross` 函数，给定横/纵坐标的值，得到纵/横坐标的值，y(x), x(y)](https://zhuanlan.zhihu.com/p/10093779489)
 - [IC23.1 仿真结果 VIVA 曲线图背景调整成白色](https://zhuanlan.zhihu.com/p/8242343475)
 - [Calculator 基本操作](https://zhuanlan.zhihu.com/p/461911657)
-- [bus A to D](https://zhuanlan.zhihu.com/p/607779887)
+- [bus A to D](https://zhuanlan.zhihu.com/p/607779887), 注: 应为“菜单栏中的 measurements”，而不是右键信号显示的 measurement
 
 
 # Ref
