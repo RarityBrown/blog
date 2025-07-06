@@ -354,9 +354,13 @@ graphic              selectPartialVia boolean t               ; https://bbs.eeto
 graphic             displayResolution string  "Very High"
 
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
-layout               xSnapSpacing     float   0.005           ; 0.005um is typical for 28~55nm nodes
-layout               ySnapSpacing     float   0.005           ; 0.005um is typical for 28~55nm nodes
-
+layout               xSnapSpacing        float   0.005           ; 0.005um is typical for 28~55nm nodes
+layout               ySnapSpacing        float   0.005           ; 0.005um is typical for 28~55nm nodes
+layout               displayPinNames     boolean t               ; ref: https://blog.csdn.net/d_pcb66/article/details/143432838
+layout               labelHeight         float 0.07
+layout               labelFonStyle       cyclic “roman”
+layout               pinTextSameLayer    boolean t
+layout               pinTextPurposeNames string  "pin"
 ; backup and autosave setting, todo
 ```
 
