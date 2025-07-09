@@ -340,8 +340,6 @@ TSMCHOME/
 >
 > 正确答案：[ISR34](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-icadvm20-1-isr34-and-ic6-1-8-isr34-now-available), 当然如果你再细一点，可以发现有 [ISR36](https://bbs.eetop.cn/thread-991360-1-1.html), 不过这个要非常细，这些链接也是可以的 [1](https://www.nulledfrm.com/threads/cadence-virtuoso-ic06-18-360-linux.133645/#post-815659)[2](https://dl4all.org/software/graphics-design/866023-cadence-virtuoso-ic0618360-linux.html)[3](https://downloadly.ir/software/engineering-specialized/cadence-ic-design-virtuoso/)[4](https://www.iranhack.com/forum/forum/%D9%86%D8%B1%D9%85-%D8%A7%D9%81%D8%B2%D8%A7%D8%B1/188483-cadence-virtuoso-ic06-18-360-linux)[5](https://bbs.eetop.cn/thread-991360-1-1.html)[6](https://bbs.eetop.cn/thread-984059-1-1.html); [ISR14](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-ic23-1-isr-14-now-available), 这个的话官方确实就是最新，"IC23.10.130" 尚可搜到，14 就搜不到了。
 
-
-
 > Q: function to get variable type in cadence virtuoso?
 >
 > 正确答案：`type()`
@@ -349,6 +347,10 @@ TSMCHOME/
 > Q: How to draw a rounded rectangle in originpro?
 >
 > 正确答案：没有简单的方法
+
+> Q: virtuoso schematic lock placement. not in layout view or locking the file. but locking instance positions in schematic view. answer within 50 words.
+>
+> 正确答案：no you can't
 
 > Q: Packages Explicitly NOT Included in Mathjax `AllPackages` by Default?
 >
@@ -605,6 +607,8 @@ TSMCHOME/
 > Q: A circuit schematic editor. Use key `i` to new an instance choosing dialog. The symbol of the circuit component should be drawn correctly
 
 > Q: 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
+>
+> 正确情况：gpt-4.1 对
 
 > Q: An interactive s-plane where left-clicking adds poles (for a physically realizable system, if poles are not real, they should be automatically added in conjugate pairs), and right-clicking adds zeros. The s-plane uses log-log coordinate axes (tick marks use engineering notation, e.g., 1k, 2k, 1M, 1G) to represent the real and imaginary parts. Plot the frequency response H(jω) in real-time (including magnitude response, phase response, DC gain, GBW, phase margin, and other information).
 >
@@ -614,12 +618,19 @@ TSMCHOME/
 >
 > 正确情况：Sonnet 3.7 错
 
-> Q: Simulate the movement of multiple positive and negative charged particles within a square
+> Q: Simulate the movement of multiple positive and negative charged particles within a square, with an electric field pointing to the right and a magnetic field pointing into the screen. The interaction forces between each particle need to be considered.
 
 > Q: Real-time microphone spectrum FFT, with historical data also displayed. So color should be used as intensity, with one axis being frequency and the other being time.
 >
 > 正确情况：Sonnet 4 对; r1-0528 错
 
+> Q: Draw svg of transmission gate in mosfets and symbol without any fancy ui or color, without further introduction, so just two simple svgs.
+>
+> 正确情况：none
+
+> Q: 帮我把这个改一些不兼容的语法后，部署一下，要求和原来完全保持一致    https://observablehq.com/@mbostock/smith-chart
+>
+> 正确情况：opus 4 错
 
 
 > Q: 
