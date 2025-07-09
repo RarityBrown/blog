@@ -349,19 +349,20 @@ ui    ciwCmdInputLines                     int     4
 schematic            srcSolderOnCrossover cyclic "ignored"   ; ignore solder dot cross over warning
 
 ;;;;;;;;;;;;;;;;;; graphic
-; graphic              balloonOn        boolean t               ; ?enable the info balloon by default
-graphic              selectPartialVia boolean t               ; https://bbs.eetop.cn/thread-972920-1-1.html
-graphic             displayResolution string  "Very High"
-
+graphic              balloonOn           boolean t               ; ?enable the info balloon by default
+graphic              selectPartialVia    boolean t               ; https://bbs.eetop.cn/thread-972920-1-1.html
+graphic   protectedObjHighlightHaloWidth string  "thin"
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
+layout               displayResolution   string  "Very High"
 layout               xSnapSpacing        float   0.005           ; 0.005um is typical for 28~55nm nodes
 layout               ySnapSpacing        float   0.005           ; 0.005um is typical for 28~55nm nodes
 layout               displayPinNames     boolean t               ; ref: https://blog.csdn.net/d_pcb66/article/details/143432838
-layout               labelHeight         float 0.07
-layout               labelFonStyle       cyclic “roman”
+layout               labelHeight         float   0.07
+layout               labelFonStyle       cyclic  "roman"
 layout               pinTextSameLayer    boolean t
 layout               pinTextPurposeNames string  "pin"
-; backup and autosave setting, todo
+
+;;;;;;;;;;;;;;;;;; backup and autosave setting, todo
 ```
 
 
@@ -479,18 +480,146 @@ hiSetFont("label" ?size 14)                      ; simulation font size, greater
 
 hiSetBindKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
 hiSetBindKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+
+; hiSetBindKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/user/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
+; hiSetBindKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
+; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
+
+; auto load Layout bindkey
+```
+
+**Layout bindkey 快捷功能**
+
+```lisp
+
+; ref, https://sites.google.com/site/yeagerengineering/cadence/bindkeys
 hiSetBindKey("Layout"     "<Key>F1"    "printf(\"Help disabled\")")
 hiSetBindKey("Schematics" "<Key>F1"    "printf(\"Help disabled\")")
 hiSetBindKey("Symbol"     "<Key>F1"    "printf(\"Help disabled\")")
+hiSetBindKey("Schematics" "Space"      "if(hiGetCurrentWindow()->cellView->mode != \"r\" then geChangeEditMode(\"r\") else geChangeEditMode(\"a\"))")
+hiSetBindKey("Layout"     "Space"      "if(hiGetCurrentWindow()->cellView->mode != \"r\" then geChangeEditMode(\"r\") else geChangeEditMode(\"a\"))")
+hiSetBindKey("Symbol"     "Space"      "if(hiGetCurrentWindow()->cellView->mode != \"r\" then geChangeEditMode(\"r\") else geChangeEditMode(\"a\"))")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ref, https://sites.google.com/site/yeagerengineering/cadence/bindkeys
+PO_layer=list("PO" "drawing")
+M1_layer=list("M1" "drawing")
+M2_layer=list("M2" "drawing")
+M3_layer=list("M3" "drawing")
+M4_layer=list("M4" "drawing")
+M5_layer=list("M5" "drawing")
+M6_layer=list("M6" "drawing")
+M7_layer=list("M7" "drawing")
+M8_layer=list("M8" "drawing")
+M9_layer=list("M9" "drawing")
+AP_layer=list("AP" "drawing")
+
+;; Set entry layer
+hiSetBindKey("Layout" "Shift<Key>`" "leSetEntryLayer(PO_layer)")
+hiSetBindKey("Layout" "Shift<Key>1" "leSetEntryLayer(M1_layer)")
+hiSetBindKey("Layout" "Shift<Key>2" "leSetEntryLayer(M2_layer)")
+hiSetBindKey("Layout" "Shift<Key>3" "leSetEntryLayer(M3_layer)")
+hiSetBindKey("Layout" "Shift<Key>4" "leSetEntryLayer(M4_layer)")
+hiSetBindKey("Layout" "Shift<Key>5" "leSetEntryLayer(M5_layer)")
+hiSetBindKey("Layout" "Shift<Key>6" "leSetEntryLayer(M6_layer)")
+hiSetBindKey("Layout" "Shift<Key>7" "leSetEntryLayer(M7_layer)")
+hiSetBindKey("Layout" "Shift<Key>8" "leSetEntryLayer(M8_layer)")
+hiSetBindKey("Layout" "Shift<Key>9" "leSetEntryLayer(M9_layer)")
+hiSetBindKey("Layout" "Shift<Key>0" "leSetEntryLayer(AP_layer)")
+
+;; Toggle metal layer visibility
+hiSetBindKey("Layout" "Ctrl<Key>`" "leSetLayerVisible(PO_layer not(leIsLayerVisible(PO_layer))) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl<Key>1" "leSetLayerVisible(M1_layer not(leIsLayerVisible(M1_layer))) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl<Key>2" "leSetLayerVisible(M2_layer not(leIsLayerVisible(M2_layer))) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl<Key>3" "leSetLayerVisible(M3_layer not(leIsLayerVisible(M3_layer))) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl<Key>4" "leSetLayerVisible(M4_layer not(leIsLayerVisible(M4_layer))) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl<Key>5" "leSetLayerVisible(M5_layer not(leIsLayerVisible(M5_layer))) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl<Key>6" "leSetLayerVisible(M6_layer not(leIsLayerVisible(M6_layer))) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl<Key>7" "leSetLayerVisible(M7_layer not(leIsLayerVisible(M7_layer))) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl<Key>8" "leSetLayerVisible(M8_layer not(leIsLayerVisible(M8_layer))) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl<Key>9" "leSetLayerVisible(M9_layer not(leIsLayerVisible(M9_layer))) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl<Key>0" "leSetLayerVisible(AP_layer not(leIsLayerVisible(AP_layer))) hiRedraw()")
+
+;; Set only one metal layer visible
+hiSetBindKey("Layout" "Ctrl Shift<Key>`" "leSetEntryLayer(PO_layer) leSetAllLayerVisible(nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>1" "leSetEntryLayer(M1_layer) leSetAllLayerVisible(nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>2" "leSetEntryLayer(M2_layer) leSetAllLayerVisible(nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>3" "leSetEntryLayer(M3_layer) leSetAllLayerVisible(nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>4" "leSetEntryLayer(M4_layer) leSetAllLayerVisible(nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>5" "leSetEntryLayer(M5_layer) leSetAllLayerVisible(nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>6" "leSetEntryLayer(M6_layer) leSetAllLayerVisible(nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>7" "leSetEntryLayer(M7_layer) leSetAllLayerVisible(nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>8" "leSetEntryLayer(M8_layer) leSetAllLayerVisible(nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>9" "leSetEntryLayer(M9_layer) leSetAllLayerVisible(nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>0" "leSetEntryLayer(AP_layer) leSetAllLayerVisible(nil) hiRedraw()")
 
 
-; hiSetBindKey("Schematics"  "Ctrl<Key>M" "new_explore_bindkey()")
 
-; hiSetBindKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/bachelor/huangheqing/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
-; hiSetBindKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
+M1_pin_layer=list("M1" "pin")
+M2_pin_layer=list("M2" "pin")
+M3_pin_layer=list("M3" "pin")
+M4_pin_layer=list("M4" "pin")
+M5_pin_layer=list("M5" "pin")
+M6_pin_layer=list("M6" "pin")
+M7_pin_layer=list("M7" "pin")
+M8_pin_layer=list("M8" "pin")
+M9_pin_layer=list("M9" "pin")
 
-; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
+;; Make pin layers visible
+hiSetBindKey("Layout" "Ctrl Shift<Key>p" "leSetEntryLayer(M1_pin_layer) leSetEntryLayer(M2_pin_layer) leSetEntryLayer(M3_pin_layer) leSetEntryLayer(M4_pin_layer) leSetEntryLayer(M5_pin_layer) leSetEntryLayer(M6_pin_layer) leSetEntryLayer(M7_pin_layer) leSetEntryLayer(M8_pin_layer) leSetEntryLayer(M9_pin_layer) hiRedraw()")
+
+;; Toggle text layer visibility
+hiSetBindKey("Layout" "Ctrl Shift<Key>T" "leSetLayerVisible(text_layer not(leIsLayerVisible(text_layer))) hiRedraw()")
+
+
+;; Toggle all layers visibility
+hiSetBindKey("Layout" "Ctrl<Key>q" "leSetAllLayerVisible(t) hiRedraw()")
+; hiSetBindKey("Layout" "Ctrl<Key>q" "leSetAllLayerVisible(t) leSetLayerVisible(Mx_layer nil) hiRedraw()")
+hiSetBindKey("Layout" "Ctrl Shift<Key>q" "leSetAllLayerVisible(nil) hiRedraw()")
+
+
+;; Connectivity check
+;;
+;; Supported operations are:
+;; Mark net
+;; Unmark net
+;;
+hiSetBindKey("Layout" "Ctrl <Key>[" "leHiMarkNet(nil)")
+hiSetBindKey("Layout" "Ctrl <Key>]" "leHiUnmarkNet(nil)")
+hiSetBindKey("Layout" "Ctrl Shift<Key>]" "leHiUnmarkNetAll(nil)")
+;;----------------
+;; Misc Shortcuts
+;;----------------
+; XL Probe using `
+hiSetBindKey("Layout" "<Key>`" "lxHiProbe()")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+
+
+
+
+;;;;;;;;;; Use scroll wheel to change width of metals. ref: ;;;;;;;;;;;;
+;;;;;;;;;; https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/33730/change-path-width-with-bindkey, https://www.youtube.com/watch?v=S1vAW0UmOzI, https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/16029/cadence-5-change-path-width-with-bindkey, 
+deltaWidth=0.01
+procedure(changeWidth(delta)
+  foreach(shp geGetSelSet()
+    shp~>width = shp~>width + delta
+  )
+  print(car(geGetSelSet())~>width)
+)
+
+hiSetBindKey("Layout" "Ctrl Shift<Btn4Down>" "changeWidth(deltaWidth)")
+hiSetBindKey("Layout" "Ctrl Shift<Btn5Down>" "changeWidth(-deltaWidth)")
+; todo: minWidth = techGetSpacingRule(techFile layer "minWidth"), deltaWidth check
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+setof(obj geGetSelSet() obj~>objType==\"path\")~>width = 1.30
+
 ```
+
 
 
 
@@ -603,6 +732,12 @@ Example: `frequency( v( "/net12" ) ) => 12kHZ` Returns a number representing the
       )
     )
   )
+```
+
+### 其他示例
+
+```lisp
+value(VT("/op")-VT("/om") "mcparamset" 141 )   ; Plot trace for a single monte carlo run in calculator. ref https://sites.google.com/site/yeagerengineering/cadence/plotting
 ```
 
 #### 基本语法：`defun`, `cond`
