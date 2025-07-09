@@ -12,7 +12,7 @@ SKILL++ 是一种增强型方言，具有词法作用域和一等函数等特性
 选用 lisp 的原因除了历史原因，可能也包括 lisp 的数值计算能力，例如 [LdBeth](https://www.zhihu.com/question/622919986/answer/3222931638) 提到的 $\operatorname{atanh}(1.2 + 20000000i)=\frac{\pi}{2}j$ 这一计算精度问题。
 
 > [!NOTE]
-> YouTube 上有基于 IC6.1.8 的官方培训 SKILL [视频](https://www.youtube.com/playlist?list=PLjRIBQDeKyRqWp8Uyk6gIYmRSE2ltCX3s)，可以说是公开内容中最好的 SKILL 培训资料。
+> YouTube 上有基于 IC6.1.8 的官方培训 SKILL [视频](https://www.youtube.com/playlist?list=PLjRIBQDeKyRqWp8Uyk6gIYmRSE2ltCX3s)，可以说是公开内容中最好的 SKILL 培训资料。例如，其中有关于 Virtuoso 自定义快捷键 bindkey 的[内容](https://www.youtube.com/watch?v=rnWVlb4o6kA).
 
 OCEAN 是专门用于 Virtuoso ADE 仿真和分析的 SKILL 子函数集。OCEAN 专注于仿真任务，如运行多工艺角仿真、预/后仿真处理、批处理仿真、管理输出结果。仿真后的数据分析可以使用 Calculator，也可以通过 OCEAN 自动化完成在 Calculator 中需要手动完成的任务。所以 Calculator 中的所有函数的帮助文档其实都在 `oceanref.pdf` 中。
 
@@ -74,14 +74,14 @@ _axlOutputsSetupDeleteSelected(axlOutputsForm1->axlOutputsWidget1)
 直接在 CIW 中依次输入
 
 ```lisp
-hiSetBindKey("explorer"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
-hiSetBindKey("assembler" "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hidKey("explorer"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hidKey("assembler" "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
 ```
 
 CIW 中 <kbd>Enter</kbd> 执行，返回 `t` 即意味着设置成功。我们有两种方式确认：
 
 1. 直接在 ADE Explorer 中 <kbd>Ctrl</kbd> + <kbd>N</kbd> 看看有不有新条目生成
-2. 通过在 CIW 菜单栏中的 `Option` - `Bindkeys...` 打开图形化的 "Bindkeys Editor" 窗口检查。未来我们也可以直接在 "Bindkeys Editor" 中图形化地设置 bindkey，而不直接使用 `hiSetBindKey()` 函数
+2. 通过在 CIW 菜单栏中的 `Option` - `Bindkeys...` 打开图形化的 "Bindkeys Editor" 窗口检查。未来我们也可以直接在 "Bindkeys Editor" 中图形化地设置 bindkey，而不直接使用 `hidKey()` 函数
 
 至此，我们已经完成了在 Virtuoso 中找到一个命令的 SKILL API 并将其设置为快捷键的全部流程。如果我们想要在 Virtuoso 每次启动时可以自动绑定 <kbd>Ctrl</kbd> + <kbd>N</kbd> 作为 `Add Outputs` 的快捷键则需要用到 `.cdsinit` 和 `.cdsenv`：
 
@@ -89,16 +89,16 @@ CIW 中 <kbd>Enter</kbd> 执行，返回 `t` 即意味着设置成功。我们�
 
 
 ```lisp
-hiSetBindKey("adexl"      "<Key>F5" "axlRunSimulation()")
-hiSetBindKey("adegxl"     "<Key>F5" "axlRunSimulation()")
-hiSetBindKey("Schematics" "<Key>F5" "axlRunSimulation()")
-hiSetBindKey("explorer"   "<Key>F5" "axlRunSimulation()")
-hiSetBindKey("assembler"  "<Key>F5" "axlRunSimulation()")
+hidKey("adexl"      "<Key>F5" "axlRunSimulation()")
+hidKey("adegxl"     "<Key>F5" "axlRunSimulation()")
+hidKey("Schematics" "<Key>F5" "axlRunSimulation()")
+hidKey("explorer"   "<Key>F5" "axlRunSimulation()")
+hidKey("assembler"  "<Key>F5" "axlRunSimulation()")
 ; sevNetlistAndRun() in ADE L
 
 
 sevNetlistAndRun(sevSession(hiGetCurrentWindow()))
-hiSetBindKey("Schematics" "<Key>F5" "(sevRunEngine (_axlGetExplorerSevSession (_axlGetCurrentSessionDontFail)))")
+hidKey("Schematics" "<Key>F5" "(sevRunEngine (_axlGetExplorerSevSession (_axlGetCurrentSessionDontFail)))")
 ```
 
 
@@ -109,7 +109,7 @@ hiSetBindKey("Schematics" "<Key>F5" "(sevRunEngine (_axlGetExplorerSevSession (_
 procedure(add_vdc( )
    schHicreateInst( ?libraryName "AnalogLib" ?cellName "vdc" ?viewName "symbol" )
 )
-hisetBindKey("schematics" "Ctrl<Key>d" "add_vdc( ) ")
+hidKey("schematics" "Ctrl<Key>d" "add_vdc( ) ")
 ```
 
 ### 更复杂的例子
@@ -427,14 +427,14 @@ drcRules = list(
 )
 
 ; schematic 和 layout 快捷键自定义
-hiSetBindKey("Schematic" "Ctrl<Key>W" "schCheckSave()")
-hiSetBindKey("Schematic" "<Key>F2"    "schAddInstance()")
-hiSetBindKey("Schematic" "<Key>F5"    "schStartSim()")
-hiSetBindKey("Layout"    "Ctrl<Key>G" "geCreatePath()")
-hiSetBindKey("Layout"    "<Key>F3"    "geZoomIn()")
-hiSetBindKey("Layout"    "<Key>F4"    "geZoomOut()")
-hiSetBindKey("Layout"    "Alt<Key>M"  "mergeShapes()")
-hiSetBindKey("Layout" "Ctrl<Key>s" "leHiSave()")      ; 绑定保存版图快捷键
+hidKey("Schematic" "Ctrl<Key>W" "schCheckSave()")
+hidKey("Schematic" "<Key>F2"    "schAddInstance()")
+hidKey("Schematic" "<Key>F5"    "schStartSim()")
+hidKey("Layout"    "Ctrl<Key>G" "geCreatePath()")
+hidKey("Layout"    "<Key>F3"    "geZoomIn()")
+hidKey("Layout"    "<Key>F4"    "geZoomOut()")
+hidKey("Layout"    "Alt<Key>M"  "mergeShapes()")
+hidKey("Layout" "Ctrl<Key>s" "leHiSave()")      ; 绑定保存版图快捷键
 
 ; 绑定自定义版图密度检查函数
 procedure(checkDensity()
@@ -444,7 +444,7 @@ procedure(checkDensity()
         printf("Metal1 density: %.2f%%\n" densCalc*100)
     )
 )
-hiSetBindKey("Layout" "Ctrl<Key>D" "checkDensity()")
+hidKey("Layout" "Ctrl<Key>D" "checkDensity()")
 
 ; 参数化单元配置
 pcDefinePCell(
@@ -478,150 +478,17 @@ hiSetFont("ciw"   ?size 14)                      ; CIW font size, greater than 1
 hiSetFont("text"  ?size 14)                      ; Toolbar and Menu font size, greater than 16 is not recommended
 hiSetFont("label" ?size 14)                      ; simulation font size, greater than 16 is not recommended
 
-hiSetBindKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
-hiSetBindKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hidKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hidKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
 
-; hiSetBindKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/user/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
-; hiSetBindKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
+; hidKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/user/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
+; hidKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
 ; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
 
 ; auto load Layout bindkey
 ```
 
-**Layout bindkey 快捷功能**
-
-```lisp
-
-; ref, https://sites.google.com/site/yeagerengineering/cadence/bindkeys
-hiSetBindKey("Layout"     "<Key>F1"    "printf(\"Help disabled\")")
-hiSetBindKey("Schematics" "<Key>F1"    "printf(\"Help disabled\")")
-hiSetBindKey("Symbol"     "<Key>F1"    "printf(\"Help disabled\")")
-hiSetBindKey("Schematics" "Space"      "if(hiGetCurrentWindow()->cellView->mode != \"r\" then geChangeEditMode(\"r\") else geChangeEditMode(\"a\"))")
-hiSetBindKey("Layout"     "Space"      "if(hiGetCurrentWindow()->cellView->mode != \"r\" then geChangeEditMode(\"r\") else geChangeEditMode(\"a\"))")
-hiSetBindKey("Symbol"     "Space"      "if(hiGetCurrentWindow()->cellView->mode != \"r\" then geChangeEditMode(\"r\") else geChangeEditMode(\"a\"))")
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ref, https://sites.google.com/site/yeagerengineering/cadence/bindkeys
-PO_layer=list("PO" "drawing")
-M1_layer=list("M1" "drawing")
-M2_layer=list("M2" "drawing")
-M3_layer=list("M3" "drawing")
-M4_layer=list("M4" "drawing")
-M5_layer=list("M5" "drawing")
-M6_layer=list("M6" "drawing")
-M7_layer=list("M7" "drawing")
-M8_layer=list("M8" "drawing")
-M9_layer=list("M9" "drawing")
-AP_layer=list("AP" "drawing")
-
-;; Set entry layer
-hiSetBindKey("Layout" "Shift<Key>`" "leSetEntryLayer(PO_layer)")
-hiSetBindKey("Layout" "Shift<Key>1" "leSetEntryLayer(M1_layer)")
-hiSetBindKey("Layout" "Shift<Key>2" "leSetEntryLayer(M2_layer)")
-hiSetBindKey("Layout" "Shift<Key>3" "leSetEntryLayer(M3_layer)")
-hiSetBindKey("Layout" "Shift<Key>4" "leSetEntryLayer(M4_layer)")
-hiSetBindKey("Layout" "Shift<Key>5" "leSetEntryLayer(M5_layer)")
-hiSetBindKey("Layout" "Shift<Key>6" "leSetEntryLayer(M6_layer)")
-hiSetBindKey("Layout" "Shift<Key>7" "leSetEntryLayer(M7_layer)")
-hiSetBindKey("Layout" "Shift<Key>8" "leSetEntryLayer(M8_layer)")
-hiSetBindKey("Layout" "Shift<Key>9" "leSetEntryLayer(M9_layer)")
-hiSetBindKey("Layout" "Shift<Key>0" "leSetEntryLayer(AP_layer)")
-
-;; Toggle metal layer visibility
-hiSetBindKey("Layout" "Ctrl<Key>`" "leSetLayerVisible(PO_layer not(leIsLayerVisible(PO_layer))) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl<Key>1" "leSetLayerVisible(M1_layer not(leIsLayerVisible(M1_layer))) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl<Key>2" "leSetLayerVisible(M2_layer not(leIsLayerVisible(M2_layer))) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl<Key>3" "leSetLayerVisible(M3_layer not(leIsLayerVisible(M3_layer))) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl<Key>4" "leSetLayerVisible(M4_layer not(leIsLayerVisible(M4_layer))) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl<Key>5" "leSetLayerVisible(M5_layer not(leIsLayerVisible(M5_layer))) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl<Key>6" "leSetLayerVisible(M6_layer not(leIsLayerVisible(M6_layer))) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl<Key>7" "leSetLayerVisible(M7_layer not(leIsLayerVisible(M7_layer))) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl<Key>8" "leSetLayerVisible(M8_layer not(leIsLayerVisible(M8_layer))) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl<Key>9" "leSetLayerVisible(M9_layer not(leIsLayerVisible(M9_layer))) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl<Key>0" "leSetLayerVisible(AP_layer not(leIsLayerVisible(AP_layer))) hiRedraw()")
-
-;; Set only one metal layer visible
-hiSetBindKey("Layout" "Ctrl Shift<Key>`" "leSetEntryLayer(PO_layer) leSetAllLayerVisible(nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>1" "leSetEntryLayer(M1_layer) leSetAllLayerVisible(nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>2" "leSetEntryLayer(M2_layer) leSetAllLayerVisible(nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>3" "leSetEntryLayer(M3_layer) leSetAllLayerVisible(nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>4" "leSetEntryLayer(M4_layer) leSetAllLayerVisible(nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>5" "leSetEntryLayer(M5_layer) leSetAllLayerVisible(nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>6" "leSetEntryLayer(M6_layer) leSetAllLayerVisible(nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>7" "leSetEntryLayer(M7_layer) leSetAllLayerVisible(nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>8" "leSetEntryLayer(M8_layer) leSetAllLayerVisible(nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>9" "leSetEntryLayer(M9_layer) leSetAllLayerVisible(nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>0" "leSetEntryLayer(AP_layer) leSetAllLayerVisible(nil) hiRedraw()")
-
-
-
-M1_pin_layer=list("M1" "pin")
-M2_pin_layer=list("M2" "pin")
-M3_pin_layer=list("M3" "pin")
-M4_pin_layer=list("M4" "pin")
-M5_pin_layer=list("M5" "pin")
-M6_pin_layer=list("M6" "pin")
-M7_pin_layer=list("M7" "pin")
-M8_pin_layer=list("M8" "pin")
-M9_pin_layer=list("M9" "pin")
-
-;; Make pin layers visible
-hiSetBindKey("Layout" "Ctrl Shift<Key>p" "leSetEntryLayer(M1_pin_layer) leSetEntryLayer(M2_pin_layer) leSetEntryLayer(M3_pin_layer) leSetEntryLayer(M4_pin_layer) leSetEntryLayer(M5_pin_layer) leSetEntryLayer(M6_pin_layer) leSetEntryLayer(M7_pin_layer) leSetEntryLayer(M8_pin_layer) leSetEntryLayer(M9_pin_layer) hiRedraw()")
-
-;; Toggle text layer visibility
-hiSetBindKey("Layout" "Ctrl Shift<Key>T" "leSetLayerVisible(text_layer not(leIsLayerVisible(text_layer))) hiRedraw()")
-
-
-;; Toggle all layers visibility
-hiSetBindKey("Layout" "Ctrl<Key>q" "leSetAllLayerVisible(t) hiRedraw()")
-; hiSetBindKey("Layout" "Ctrl<Key>q" "leSetAllLayerVisible(t) leSetLayerVisible(Mx_layer nil) hiRedraw()")
-hiSetBindKey("Layout" "Ctrl Shift<Key>q" "leSetAllLayerVisible(nil) hiRedraw()")
-
-
-;; Connectivity check
-;;
-;; Supported operations are:
-;; Mark net
-;; Unmark net
-;;
-hiSetBindKey("Layout" "Ctrl <Key>[" "leHiMarkNet(nil)")
-hiSetBindKey("Layout" "Ctrl <Key>]" "leHiUnmarkNet(nil)")
-hiSetBindKey("Layout" "Ctrl Shift<Key>]" "leHiUnmarkNetAll(nil)")
-;;----------------
-;; Misc Shortcuts
-;;----------------
-; XL Probe using `
-hiSetBindKey("Layout" "<Key>`" "lxHiProbe()")
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-
-
-
-
-
-
-;;;;;;;;;; Use scroll wheel to change width of metals. ref: ;;;;;;;;;;;;
-;;;;;;;;;; https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/33730/change-path-width-with-bindkey, https://www.youtube.com/watch?v=S1vAW0UmOzI, https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/16029/cadence-5-change-path-width-with-bindkey, 
-deltaWidth=0.01
-procedure(changeWidth(delta)
-  foreach(shp geGetSelSet()
-    shp~>width = shp~>width + delta
-  )
-  print(car(geGetSelSet())~>width)
-)
-
-hiSetBindKey("Layout" "Ctrl Shift<Btn4Down>" "changeWidth(deltaWidth)")
-hiSetBindKey("Layout" "Ctrl Shift<Btn5Down>" "changeWidth(-deltaWidth)")
-; todo: minWidth = techGetSpacingRule(techFile layer "minWidth"), deltaWidth check
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-setof(obj geGetSelSet() obj~>objType==\"path\")~>width = 1.30
-
-```
-
-
-
+更多关于 layout 中的 bindkey 详见 [Layout.md](layout.md)
 
 #### 常见问题
 
