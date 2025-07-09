@@ -1,8 +1,23 @@
 # Calibre
 
+## General
+
+> https://www.kaixinspace.com/calibre-tips/
+
+```shell
+setenv MGC_CALIBRE_DRC_RUNSET_FILE ./.calibre.drc
+setenv MGC_CALIBRE_LVS_RUNSET_FILE ./.calibre.lvs
+setenv MGC_CALIBRE_PEX_RUNSET_FILE ./.calibre.rcx
+# https://sites.google.com/site/yeagerengineering/cadence/calibre
+```
+
+in Virtuoso CIW: `setShellEnvVar()`
+
+
 ## DRC
 
 - [Calibre 检查特定规则 DRC 或 Density DRC](https://zhuanlan.zhihu.com/p/1925245051493151687)
+- Calibre `DRC Options - Include - Include Rule Statements` 填入 `EXCLUDE CELL cell_name` 忽略部分 instance 后执行 DRC
 
 ## LVS
 
