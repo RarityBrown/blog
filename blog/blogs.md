@@ -32,6 +32,7 @@
 | 网名         | 任职 / 在读         | 方向          | Blog                                          | 微博 | 知乎                                                        | 微信公众号 | 小红书   |
 | ------------ | ------------------- | ------------- | --------------------------------------------- | ---- | ----------------------------------------------------------- | ---------- | -------- |
 | 夏晶晶       | 海思                | 数字/体系结构 |                                               |      | [知乎](https://www.zhihu.com/people/xia-jing-jing-57)       |            |          |
+| 温戈         | AMD                 | 数字/体系结构 |                                               |      | [温戈](https://www.zhihu.com/people/Wingo.Wang)             |            |          |
 | Sigma Delta  |                     | 模拟/射频     |                                               |      | [知乎](https://www.zhihu.com/people/sigma-delta)            | 固推铁球   | 固推铁球 |
 | 李虹江       | Apple               | 数字/体系结构 |                                               |      | [知乎](https://www.zhihu.com/people/li-hong-jiang-54)       |            |          |
 | 宇文青霜     |                     |               |                                               |      | [宇文青霜](https://www.zhihu.com/people/yu-wen-qing-shuang) |            |          |
