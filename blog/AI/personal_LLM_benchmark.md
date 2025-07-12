@@ -235,6 +235,10 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确情况：Gemini 2.5 Pro w Google 对
 
+> Can gemini-cli read audio, pdf and docx files (not talking about gemini api, but gemini-cli)? answer within 50 words.
+>
+> 正确答案：yes, yes, no
+
 ### 困难知识问题 (也许我们可以取名叫 HardQA? )
 
 LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Deep Research，详见 Jina AI 的 Blog。Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，包括但不限于
@@ -263,7 +267,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - **用户侧**
   - 用户输入笔误
   - 用户输入的无效信息（这个在经典的 Benchmark 也可以体现一些，有题目里是有无效信息的）
-  - 用户需求理解，例如 "Alternatives to Manus AI" 其实用户想搜 General Purpose AI Agents，但是现在搜出来都是 MS Copilot 之类的
+  - 用户需求理解，例如 "Alternatives to Manus AI" 其实用户想搜 General Purpose AI Agents，例如 convergence AI, runner H，但是现在搜出来都是 MS Copilot 之类的
 - **搜索方式**
   - 一般大家认为 Google, 英文的搜索方式，往往会优于 Bing, 中文的搜索方式。但是当搜索结果不理想时，是否能够主动切换搜索方式？例如下文的几个例子：
     - 非英语的搜索结果反而好于英语搜索结果
@@ -364,9 +368,16 @@ TSMCHOME/
 >
 > 正确答案：Cadence: Quantus, EMX (acquired); Synopsys: Raphael, StarRC, RaptorX (acquired), RaptorH (acquired), Exalto (acquired)
 
+> Q: Do TSMC Shanghai fab and Nanjing fab offer MPW shuttles? Answer within 50 words. Don't tell me you're not sure, I'm very sure the definite answer is online (it might not be a direct answer, but after synthesizing the information, it's enough for you to make a definite judgment), so your final answer will be something like Shanghai: No, Nanjing: Yes. Note, this is just an example of the answer format, and is not necessarily the correct answer.
+>
+> 正确答案：Shanghai Fab10 yes; Nanjing Fab16 no. ref: [2025 TSMC CyberShuttle Service Plan](http://www.szicc.org.cn/attachment/0/80/80748/1230778.pdf)
+
 > Q: I want to create something similar to Cadence Virtuoso ViVA. Which one should I use among ECharts with lttb, Plotly.js, or uPlot?
 >
 > 答案：Grok 3 DeeperSearch, Plotly.js > ECharts > uPlot; OpenAI o4-mini DR, uPlot > ECharts > Plotly.js; Perplexity DR, uPlot > ECharts = Plotly.js; Gemini 2.5 flash DR, uPlot > Plotly.js > ECharts 
+
+> Q: 中英文搜索针对小众领域代码的 LLM benchmarks。一般的 code benchmark for LLM 都是大众的 C++, Python, Javascript 之类的。但是有很多小众代码领域，包括但不限于 SystemVerilog, LaTeX, CMake, AHK, PowerShell, Assembly, Lisp, tcl 等小众代码有什么 benchmark 吗？例如，针对 Verilog 有 VerilogEval, RTLLM, [scale-lab/MetRex](https://github.com/scale-lab/MetRex), [ProtocolLLM](https://arxiv.org/abs/2506.07945)（在最终报告中不要再提及这些了）; 针对 LaTeX 的 [TeXpert](https://arxiv.org/abs/2506.16990), [vTikZ](https://arxiv.org/abs/2505.04670); 针对全面的有 [McEval](https://mceval.github.io/)。不要背景、意义、挑战与解决方案之类的空话。
+
 
 ### 实践问题（也许我们可以叫 AgentQA？）
 
