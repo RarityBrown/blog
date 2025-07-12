@@ -58,6 +58,8 @@ quadrantChart
 
 free LLMs
 
+https://github.com/LLM-Red-Team
+
 |                                                              |              | Speed | Max output token |
 | ------------------------------------------------------------ | ------------ | ----- | ---------------- |
 | [copilot](https://copilot.microsoft.com/)                    | o3-mini-high |       | > 10k            |
