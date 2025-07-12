@@ -260,11 +260,13 @@
 
 ## TSMC
 
+上海集成电路技术与产业促进中心 (SHICC) 提供的 MPW pdk 泄露过，在闲鱼上可以买到 70% 左右全的老版本 tsmc 28nm pdk
+
 ### Digital
 
 Directory structure:
 
-`tcbn28hpcplusbwp7t30p140
+`tcbn28hpcplusbwp7t30p140`
 
 > https://zhuanlan.zhihu.com/p/5873231713
 
