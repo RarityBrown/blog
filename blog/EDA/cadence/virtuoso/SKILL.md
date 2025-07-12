@@ -349,9 +349,9 @@ ui    ciwCmdInputLines                     int     4
 schematic            srcSolderOnCrossover cyclic "ignored"   ; ignore solder dot cross over warning
 
 ;;;;;;;;;;;;;;;;;; graphic
-graphic              balloonOn           boolean t               ; ?enable the info balloon by default
+; graphic              balloonOn           boolean t               ; ?enable the info balloon by default
 graphic              selectPartialVia    boolean t               ; https://bbs.eetop.cn/thread-972920-1-1.html
-graphic   protectedObjHighlightHaloWidth string  "thin"
+graphic   protectedObjHighlightHaloWidth string  "thin"          ; https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/37203/layout-xl-how-to-set-default-options-for-selection-protection
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
 layout               displayResolution   string  "Very High"
 layout               xSnapSpacing        float   0.005           ; 0.005um is typical for 28~55nm nodes
@@ -480,6 +480,11 @@ hiSetFont("label" ?size 14)                      ; simulation font size, greater
 
 hidKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
 hidKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+
+hiSetBindKey("Schematics" "<Btn4Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 1.25)")
+hiSetBindKey("Schematics" "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 0.8)")
+hiSetBindKey("Layout"     "<Btn4Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 1.25)")
+hiSetBindKey("Layout"     "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 0.8)")
 
 ; hidKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/user/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
 ; hidKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
