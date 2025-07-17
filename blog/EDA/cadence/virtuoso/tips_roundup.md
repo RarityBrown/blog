@@ -2,9 +2,12 @@
 
 ## Library & File & PDK
 
+- [Library Manager 中的虚拟组合库](https://www.kaixinspace.com/creat-virtuoso-combine-library/)
+- [Copy library, cell 和 cellview](https://www.kaixinspace.com/virtuoso-copy/)
 - [文件书签 / 文件收藏](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [用 `.scs` 文件实现批量引用同一工艺角下的 mos, res, cap](https://zhuanlan.zhihu.com/p/588659964)
 - [用 `.scs` 文件保存 model 批量引用](https://blog.csdn.net/qq_33599939/article/details/122505894#11scsmodel_19)
+- [多 PDK 联合仿真 - MTS (Multi-Technology-Simulation)](https://zhuanlan.zhihu.com/p/1927021838178975825)
 
 ### analogLib & rfLib & ahdlLib
 
@@ -32,11 +35,6 @@
 - [通过 SKILL 实现无 GUI 的命令操作，以及自动化 streamout 的 GDS 导出](https://zhuanlan.zhihu.com/p/6010155066)
 - [Net trace manager 版图快速定位](https://zhuanlan.zhihu.com/p/13366999517)
 - [Layout 常见快捷键](https://zhuanlan.zhihu.com/p/28770741048)
-
-合集：
-
-- [Virtuoso 版图小技巧](https://www.kaixinspace.com/virtuoso-tips/)
-
 
 ## ADE
 
@@ -92,8 +90,6 @@
 - [config 简介：修改结构参数，在不改动PIN的情况下更换电路元件；模拟后仿寄生电容以及设计其他参数](https://zhuanlan.zhihu.com/p/614286236)
 - [Spectre 后仿中端口 (bus) 数目过多导致网表生成失败问题的 .cdf 保存及 Python 脚本辅助解决](https://zhuanlan.zhihu.com/p/9576555642)
 
-## Others
-
 
 
 ## VIVA & Calculator
@@ -105,7 +101,10 @@
 - [Calculator 基本操作](https://zhuanlan.zhihu.com/p/461911657)
 - [bus A to D](https://zhuanlan.zhihu.com/p/607779887), 注: 应为“菜单栏中的 measurements”，而不是右键信号显示的 measurement
 
+## Others
 
-# Ref
+合集：
 
-https://zhuanlan.zhihu.com/p/672788607
+- [Virtuoso 版图小技巧](https://www.kaixinspace.com/virtuoso-tips/)
+- https://zhuanlan.zhihu.com/p/672788607
+- https://www.cnblogs.com/yeungchie/category/1776599.html
