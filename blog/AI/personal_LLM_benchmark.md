@@ -284,7 +284,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 > Q: Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
 >
-> 参考答案: [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/), [Minimax](https://agent.minimax.io/), [flowith](https://flowith.io/), [suna](https://www.suna.so/)
+> 参考答案: [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [flowith](https://flowith.io/), [suna](https://www.suna.so/), [Minimax](https://agent.minimax.io/), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/)
 
 > Q: search with quotes “tsmchome”. Based on online information, infer the folder structure. Show me the results in an output format similar to the `tree` command.
 >
@@ -367,6 +367,10 @@ TSMCHOME/
 > QX: Help me research the Quantus, Raphael, StarRC, RaptorX, RaptorH, Exalto, EMX, Calibre xRC, Calibre xACT, and then sort them into tables.
 >
 > 正确答案：Cadence: Quantus, EMX (acquired); Synopsys: Raphael, StarRC, RaptorX (acquired), RaptorH (acquired), Exalto (acquired)
+
+> Q: What is the newer version of ICADVM20.1, and what is the older version of ICADVM18.1? (ISR is just a minor version number, no need to mention it, do not mention any versions related to ISR, I only want the major versions)
+>
+> 正确答案：ICADV12.3, IC23.1
 
 > Q: Do TSMC Shanghai fab and Nanjing fab offer MPW shuttles? Answer within 50 words. Don't tell me you're not sure, I'm very sure the definite answer is online (it might not be a direct answer, but after synthesizing the information, it's enough for you to make a definite judgment), so your final answer will be something like Shanghai: No, Nanjing: Yes. Note, this is just an example of the answer format, and is not necessarily the correct answer.
 >
@@ -615,33 +619,31 @@ TSMCHOME/
 
 > Q: 画一个 2 阶 RC 低通滤波器的电路图和频响图 Draw the schematic and frequency response (mag & phase) of a 2nd order RC low-pass filter. Make it interactive.
 
+> Q: 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
+
 > Q: A circuit schematic editor. Use key `i` to new an instance choosing dialog. The symbol of the circuit component should be drawn correctly
 
-> Q: 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
->
-> 正确情况：gpt-4.1 对
-
 > Q: An interactive s-plane where left-clicking adds poles (for a physically realizable system, if poles are not real, they should be automatically added in conjugate pairs), and right-clicking adds zeros. The s-plane uses log-log coordinate axes (tick marks use engineering notation, e.g., 1k, 2k, 1M, 1G) to represent the real and imaginary parts. Plot the frequency response H(jω) in real-time (including magnitude response, phase response, DC gain, GBW, phase margin, and other information).
->
-> 正确情况：o3 半对; 
+
+> Q: Smith chart, polar coordinates charts (Γ Plane and Impedance Plane), Cartesian coordinates charts (Γ Plane and Impedance Plane) one-to-one interactive correspondence + contour, with real-time incident and reflected wave demonstration.      An interactive Smith chart explorer with corresponding polar and Cartesian charts with contours for both the Γ plane and impedance plane. The charts should be synchronized one-to-one. Plus real-time incident and reflected wave demonstration.
+
+> Q: A replica of wavedrom in D3.js (real-time rendering + syntax highlighting for code)
+
+> Q: create a replica of cadence virtuoso viva using D3. 1. Multiple stripes (share the same x axis, share or not share the same y axis, configurable), multiple subwins (called configurable grid view in software engineering?) should be supported. 2. shift+scroll, ctrl+scroll, <kbd>v<kbd> and <kbd>h<kbd> should be supported. 3. right-click to set each axis (log, linear, etc.), and to set line styles should be supported. 4. performance optimization for millions of data points
 
 > Q: An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
->
-> 正确情况：Sonnet 3.7 错
 
 > Q: Simulate the movement of multiple positive and negative charged particles within a square, with an electric field pointing to the right and a magnetic field pointing into the screen. The interaction forces between each particle need to be considered.
 
-> Q: Real-time microphone spectrum FFT, with historical data also displayed. So color should be used as intensity, with one axis being frequency and the other being time.
->
-> 正确情况：Sonnet 4 对; r1-0528 错
+> Q: Build a real-time microphone spectrum FFT, with historical data also displayed. Use color as intensity, with one axis being frequency and the other being time. Place the historical maximum, sub-maximum, current maximum, and sub-maximum values in real-time on the plane. And add a 3d chart side by side, use z axis to represent the intensity instead of color, x and y as frequency and time.
+
+> Q: Build a plotting app to draw the graph of Math.random(x)*(Math.sin(x) + Math.random(x)), with a total of 20,000 points, where x in [0,50), refreshing the random data every 5 seconds. Time and display how long it takes to refresh the data and redraw the plot each time. Supports cursor-centric zoom on the x-axis using the mouse wheel, with no zoom on the y-axis. Choose any plot lib you'd like, the only goal is to be fast. > NOTE: For accurate timing, measure the full operation. Since some UI updates are asynchronous, stop the timer in a completion callback or post-render hook, not immediately after the dispatch call. This avoids measuring only the initial synchronous task, capturing the true, user-experienced duration from start to final render. Meanwhile, use a red and a green light to indicate the start and completion of rendering for user confirmation.
+
+> Q: A full-size keyboard tester. Once a key is pressed, the corresponding virtual key permanently changes color to indicate it is working, rather than temporarily highlighting.
 
 > Q: Draw svg of transmission gate in mosfets and symbol without any fancy ui or color, without further introduction, so just two simple svgs.
->
-> 正确情况：none
 
 > Q: 帮我把这个改一些不兼容的语法后，部署一下，要求和原来完全保持一致    https://observablehq.com/@mbostock/smith-chart
->
-> 正确情况：opus 4 错
 
 
 > Q: 
@@ -733,6 +735,14 @@ katex 的 `mhchem` 没有生效，现在显示的 `\ce` 是红色的报错模式
 > Q: An online office word
 
 > Q: A hex (binary) editor
+
+###### WebGL & WebGPU
+
+> Q: Four WebGL demos arranged in a 2x2 grid. The top row contains 2D WebGL demos: on the left, a @react-three demo; on the right, a pure WebGL demo. The bottom row contains 3D WebGL demos: on the left, aa @react-three demo; on the right, a pure WebGL demo.
+
+> Q: An interactive test page comparing the rendering performance of WebGPU and WebGL2. Demands a certain pressure on gpu; don't have both tests come out at 60 fps.
+
+> Q: Wrap a multi-page PDF onto an ellipsoid, and let the user scroll through the PDF in real time with the mouse wheel instead of scaling the ellipsoid.
 
 ##### Python 小众库
 
