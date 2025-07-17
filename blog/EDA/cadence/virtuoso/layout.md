@@ -162,5 +162,24 @@ hiSetBindKey("Layout" "<Key>`" "lxHiProbe()")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ```
 
+使用方向键来移动对象
 
+```lisp
+procedure(MyMoveSelected(deltax deltay)
+  let((xform)
+    xform = list(deltax:deltay "R0" 1)
+    foreach(obj geGetSelSet() dbMoveFig(obj nil xform))
+  )
+)
+
+hiSetBindKey("Layout" "Left"  "MyMoveSelected(-1 0)")
+hiSetBindKey("Layout" "Right" "MyMoveSelected(1 0)")
+hiSetBindKey("Layout" "Up"    "MyMoveSelected(0 1)")
+hiSetBindKey("Layout" "Down"  "MyMoveSelected(0 -1)")
+
+hiSetBindKey("Layout" "Ctrl<Key>Left"  "MyMoveSelected(-0.1 0)")
+hiSetBindKey("Layout" "Ctrl<Key>Right" "MyMoveSelected(0.1 0)")
+hiSetBindKey("Layout" "Ctrl<Key>Up"    "MyMoveSelected(0 0.1)")
+hiSetBindKey("Layout" "Ctrl<Key>Down"  "MyMoveSelected(0 -0.1)")
+```
 
