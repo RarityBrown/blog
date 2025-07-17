@@ -260,7 +260,13 @@
 
 ## TSMC
 
-上海集成电路技术与产业促进中心 (SHICC) 提供的 MPW pdk 泄露过，在闲鱼上可以买到 70% 左右全的老版本 tsmc 28nm pdk
+上海集成电路技术与产业促进中心 (SHICC) 和 TSMC 签 NDA 的 pdk 泄露过，所以在闲鱼上可以买到 70% 左右全的老版本 tsmc 28nm pdk，也有一些同款的[免费资源](https://mp.weixin.qq.com/s/eEymBHAeKTUs6YYu8YyLrw)分享
+
+resource: 
+
+> TSMC reference flow 12.0
+> TSMC AMS Reference Flow 2.0
+> TN28CLDR002_2_2.pdf (20231229)
 
 ### Digital
 
@@ -269,6 +275,7 @@ Directory structure:
 `tcbn28hpcplusbwp7t30p140`
 
 > https://zhuanlan.zhihu.com/p/5873231713
+> 
 
 ```
 TSMCHOME
