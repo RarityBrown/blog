@@ -1,0 +1,26 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;; Personal .cdsinit ;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+envLoadFile("~/.cdsenv")                         ; 
+
+hiRegTimer("ddsOpenLibManager()" 1)              ; Delayed automatic opening of lib manager
+hiResizeWindow(window(1) list(100:150 1500:800)) ; Set the CIW window size, 400:150 and 1200:600 are the screen coordinates.
+
+hiSetFont("ciw"   ?size 14)                      ; CIW font size, greater than 16 is not recommended
+hiSetFont("text"  ?size 14)                      ; Toolbar and Menu font size, greater than 16 is not recommended
+hiSetFont("label" ?size 14)                      ; simulation font size, greater than 16 is not recommended
+
+hidKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hidKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+
+hiSetBindKey("Schematics" "<Btn4Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 1.25)")
+hiSetBindKey("Schematics" "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 0.8)")
+hiSetBindKey("Layout"     "<Btn4Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 1.25)")
+hiSetBindKey("Layout"     "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 0.8)")
+
+; hidKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/user/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
+; hidKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
+; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
+
+; auto load Layout bindkey
