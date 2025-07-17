@@ -42,7 +42,7 @@ CIW 中并不像 Bash 或 PowerShell 一样，可以使用 `clear` 命令清屏�
 我们想在 [ADE Explorer](ADE.md) 中自定义 <kbd>Ctrl</kbd> + <kbd>N</kbd> 快捷键，来实现右侧工具栏中的 `Add Outputs` 添加一个空白的 expr 条目，这样我们就不需要每次移动鼠标点击才能添加仿真结果。我们主要需要干两件事：
 
 - **第一步**：知道 ADE Explorer 的图形界面中 `Add Outputs` 按钮所对应的 Virtuoso SKILL API（因为上文提到，所有操作都有对应的 SKILL API）
-- **第二步**：将快捷键 <kbd>Ctrl</kbd> + <kbd>N</kbd> 绑定到第一步中找到的 API 上
+- **第二步**：将快捷键 <kbd>Ctrl</kbd> + <kbd>N</kbd> 绑定 "bind" 到第一步中找到的 API 上
 
 #### 第一步 (获得 Virtuoso SKILL API)：
 
@@ -124,6 +124,7 @@ hidKey("schematics" "Ctrl<Key>d" "add_vdc( ) ")
 ## `.cdsinit` and `.cdsenv`
 
 > https://github.com/DavidZemon/CadenceProject
+> https://zhuanlan.zhihu.com/p/1928128293611234007
 
 
 其实 SKILL 对于用户最常用的功能就是设置 `.cdsinit` 和 `.cdsenv`：
@@ -256,8 +257,6 @@ graphic cursorStyle string "cross"         ; 十字光标样式
 schematic srcSolderOnCrossover cyclic "ignored"   ; ignore cross over of wires in schematic
 schematic srcInstOverlapValue  int    30          ; default = 10
 schematic schDynamicNetHilightColorMemNet string "black"
-schematic srcSolderOnCrossover cyclic "ignored"  ; ignore cross over of wires in schematic
-schematic srcInstOverlapValue int 30  ; default = 10
 
 maestro.gui textColorForSpecNearInResults string "purple"
 
@@ -303,67 +302,7 @@ envSetVal("drcenv.setup" "ruleFile" 'string "/pdk/drc/calibre.drc")
 envSetVal("lvsenv.setup" "ruleFile" 'string "/pdk/lvs/calibre.lvs")
 ```
 
-**自用模板**：
-
-```lisp
-;;;;;;;;;;;;;;;;;; lib manager
-cdsLibManager.main   showCategoriesOn boolean t              ; lib manager shows categories
-cdsLibManager.main   showFilesOn      boolean t              ; lib manager shows files
-
-;;;;;;;;;;;;;;;;;; spectre
-spectre.turboOpts    uniMode          string  "APS"          ; to use spectre APS by default. or "Spectre X"
-; spectre              numThreads       int     16           ; memory and multithreading config, todo
-
-;;;;;;;;;;;;;;;;;; ADE XL (ADE Explorer)
-;;; Why ADE XL instead of ADE Explorer: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/52576/how-to-set-default-corners-in-maestro
-; adexl.icrpStartup    defaultJobPolicy           string "My_jobpolicy"        ; My jobs parallelization policy
-; maestro.lscs         defaultNetlistingJobPolicy string "LSCS_NetJob_Policy"  ; or use the LSCS instead of the ICRP
-; maestro.lscs         defaultSimulationJobPolicy string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP
-; adexl.gui            defaultCorners             string "./corners/corners_6.sdb" ; IC6.1.8-64b.500.19. see https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/49271/load-corners-csv-file-skill-function
-; adexl.gui            defaultCorners             string "./corners/corners_6.csv" ; IC6.1.8-64b.500.20
-
-;;;;;;;;;;;;;;;;;;
-; auCore.misc          annotationSetupFileList string "./.cadence/dfII/annotationSetups/My_annoSetup.as"
-; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
-
-;;;;;;;;;;;;;;;;;; VIVA
-; viva.rectGraph           background       string  "white"        ; for older version
-; viva.graph                antiAlias        string  ?
-viva.graphFrame           background       string  "white"        ; for IC6.1.8 IC23.1 
-viva.trace                lineThickness    string  "thick"
-; viva.trace                lineStyle        string  "solid"      ; Dot, dashed, etc.
-asimenv.plotting          useDisplayDrf    boolean nil          ; for tsmc pdk only. SMIC and others don't need this line. see https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/41208/dotted-lines-by-default-in-viva https://www.edaboard.com/threads/how-to-change-the-default-in-ade-cadence.378231/ https://joeyaochou.wordpress.com/2015/04/08/cadence-virtuoso-learning-note/ https://gist.github.com/02015678/783ad36389fe3b7aa8cd https://bbs.eetop.cn/thread-959872-4-1.html https://bbs.eetop.cn/thread-917244-1-1.html https://bbs.eetop.cn/thread-664788-1-1.html
-viva.horizMarker          font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.horizMarker          interceptStyle   string  "on"
-viva.vertMarker           font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.vertMarker           interceptStyle   string  "on"
-viva.pointMarker          font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.axis                 font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.traceLegend          font             string  "Default,15,-1,5,75,0,0,0,0,0"
-
-;;;;;;;;;;;;;;;;;; 
-ui    defaultEditorBackgroundColor         string  "#2F2F2F"       ; schematic / layout black background to vscode gray
-ui    ciwCmdInputLines                     int     4
-
-;;;;;;;;;;;;;;;;;; schematic
-schematic            srcSolderOnCrossover cyclic "ignored"   ; ignore solder dot cross over warning
-
-;;;;;;;;;;;;;;;;;; graphic
-; graphic              balloonOn           boolean t               ; ?enable the info balloon by default
-graphic              selectPartialVia    boolean t               ; https://bbs.eetop.cn/thread-972920-1-1.html
-graphic   protectedObjHighlightHaloWidth string  "thin"          ; https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/37203/layout-xl-how-to-set-default-options-for-selection-protection
-;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
-layout               displayResolution   string  "Very High"
-layout               xSnapSpacing        float   0.005           ; 0.005um is typical for 28~55nm nodes
-layout               ySnapSpacing        float   0.005           ; 0.005um is typical for 28~55nm nodes
-layout               displayPinNames     boolean t               ; ref: https://blog.csdn.net/d_pcb66/article/details/143432838
-layout               labelHeight         float   0.07
-layout               labelFonStyle       cyclic  "roman"
-layout               pinTextSameLayer    boolean t
-layout               pinTextPurposeNames string  "pin"
-
-;;;;;;;;;;;;;;;;;; backup and autosave setting, todo
-```
+- 个人模板详见 [.cdsenv](.cdsenv)
 
 
 还有一些 virtuoso 用着不爽的点等待解决 todo：
@@ -391,17 +330,8 @@ layout               pinTextPurposeNames string  "pin"
 
 ```scheme
 load("<calibre_install_dir>/xxx/caliber.skl")         ; 加载 Calibre 接口
-load("./scripts/my_script.il")                        ; 当前工作目录下的 scripts 文件夹
-load("~/scripts/my_script.il")                        ; 用户 home 目录下的 scripts 文件夹
-
-
-; 自动加载工艺设计套件
-ddGetObj("TSMC65LP")
+ddGetObj("TSMC65LP") ; 自动加载工艺设计套件
 drLoadDrf("$PDK_HOME/display.drf")
-; 注册自定义验证脚本
-load("~/scripts/drc_custom.il")
-
-
 ddRegPathtoCDS("/proj/pdk/tsmc65lp")
 ddRegPathtoCDS("/proj/analog_lib")
 ddRegPathtoCDS("/proj/digital_lib")
@@ -466,34 +396,8 @@ setSkillPath('("/home/user/skill_scripts"))
 load("debug_toolkit.il")
 ```
 
-**自用模板**：
-
-```lisp
-envLoadFile("~/.cdsenv")                         ; 
-
-hiRegTimer("ddsOpenLibManager()" 1)              ; Delayed automatic opening of lib manager
-hiResizeWindow(window(1) list(100:150 1500:800)) ; Set the CIW window size, 400:150 and 1200:600 are the screen coordinates.
-
-hiSetFont("ciw"   ?size 14)                      ; CIW font size, greater than 16 is not recommended
-hiSetFont("text"  ?size 14)                      ; Toolbar and Menu font size, greater than 16 is not recommended
-hiSetFont("label" ?size 14)                      ; simulation font size, greater than 16 is not recommended
-
-hidKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
-hidKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
-
-hiSetBindKey("Schematics" "<Btn4Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 1.25)")
-hiSetBindKey("Schematics" "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 0.8)")
-hiSetBindKey("Layout"     "<Btn4Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 1.25)")
-hiSetBindKey("Layout"     "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 0.8)")
-
-; hidKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/user/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
-; hidKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
-; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
-
-; auto load Layout bindkey
-```
-
-更多关于 layout 中的 bindkey 详见 [Layout.md](layout.md)
+- 我的个人模板详见 [.cdsinit](.cdsinit)
+- 更多关于 layout 中的 bindkey 详见 [Layout.md](layout.md) (待整理，合并)
 
 #### 常见问题
 
