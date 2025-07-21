@@ -1,17 +1,19 @@
 # Layout
 
+
+
 ## 值得注意的默认 bindkey
 
 ---
 
-- bindkey 操作：鼠标选中后按 **<kbd>H</kbd>** 键，移动鼠标 <kbd>Enter</kbd> 确定间距位置，使用 <kbd>.</kbd> 键等距复制
+- bindkey 操作：鼠标选中对象后按 **<kbd>H</kbd>** 键，移动鼠标 <kbd>Enter</kbd> 确定间距位置，使用 <kbd>.</kbd> 键等距复制
 - SKILL 函数接口： `leHiRepeatCopy()`
 
 ![Carnac_KELL412Uaj](https://github.com/user-attachments/assets/55762eab-8066-46b6-80cb-9067e8afb2ce)
 
 ---
 
-- bindkey 操作：鼠标选中后按 **<kbd>Shift</kbd> + <kbd>c</kbd>** 键，左键框选区域删除
+- bindkey 操作：鼠标选中对象后按 **<kbd>Shift</kbd> + <kbd>c</kbd>** 键，左键框选区域删除
 - SKILL 函数接口： `leHiChop()`
 
 ---
@@ -19,7 +21,9 @@
 - bindkey 操作：在 <kbd>p</kbd> 的画线状态下，按住 **<kbd>Ctrl</kbd> + <kbd>Shift</kbd>** 键，**滚动**鼠标滚轮调整线宽
 - SKILL 函数接口： `weScaleMagnifierOrIncreaseWidth()`, `weScaleMagnifierOrDecreaseWidth()`
 
-可以通过 `envSetVal("layout" "_weMfgGridWidthIncrement" 'int 2)` 修改步长，更多讨论详见 [Change path width with bindkey](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/33730/change-path-width-with-bindkey)
+可以通过 `envSetVal("layout" "_weMfgGridWidthIncrement" 'int 2)` 修改滚轮的步长，更多讨论详见 [Change path width with bindkey](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/33730/change-path-width-with-bindkey)
+
+（怎么获取内部定义？） https://grok.com/chat/18a8e340-83c2-4b31-ace8-c49b263ea55f
 
 但是 Virtuoso 没有默认的 bindkey 去修改已经画完的 path width，我们可以自己定义：
 
@@ -42,9 +46,6 @@ hiSetBindKey("Layout" "Ctrl Shift<Btn5Down>" "changeWidth(-deltaWidth)")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ```
 
-https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/16029/cadence-5-change-path-width-with-bindkey
-
-
 
 > ref:
 > 
@@ -52,11 +53,27 @@ https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/16029
 > - https://www.youtube.com/watch?v=S1vAW0UmOzI
 > - https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/16029/cadence-5-change-path-width-with-bindkey
 > - https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/58733/skill-code-to-change-metal-width
+> - https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/64664/looking-for-skill-or-bindkey-to-change-wire-width-based-on-list-of-width-while-doing-wire-command
 
 
 ---
 
 ## 值得添加的 bindkey
+
+---
+
+Edit - Select - Set Selection Protection: 类似于 Powerpoint right click an object - lock(L) 的功能
+
+避免在 layout layer 很多的情况下，鼠标拖动和选择物体时的误操作
+
+```lisp
+hiSetBindKey("Layout"     "F1"           "geHiSetSelProtectionEF()")
+hiSetBindKey("Layout"     "Ctrl<Key>F1"  "geHiUnsetSelProtectionEF()")
+```
+
+---
+
+使用快捷键切换 active layer 和 visible layer
 
 ```lisp
 
@@ -162,16 +179,19 @@ hiSetBindKey("Layout" "<Key>`" "lxHiProbe()")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ```
 
+---
+
 使用方向键来移动对象
 
 ```lisp
-procedure(MyMoveSelected(deltax deltay)
+procedure(MyMoveSelected(deltax deltay)     ; ref: https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/36295/bindkey-to-move-selected-object
   let((xform)
     xform = list(deltax:deltay "R0" 1)
     foreach(obj geGetSelSet() dbMoveFig(obj nil xform))
   )
 )
 
+; todo: get the current scaling scale auto adjust the distance
 hiSetBindKey("Layout" "Left"  "MyMoveSelected(-1 0)")
 hiSetBindKey("Layout" "Right" "MyMoveSelected(1 0)")
 hiSetBindKey("Layout" "Up"    "MyMoveSelected(0 1)")
@@ -183,3 +203,6 @@ hiSetBindKey("Layout" "Ctrl<Key>Up"    "MyMoveSelected(0 0.1)")
 hiSetBindKey("Layout" "Ctrl<Key>Down"  "MyMoveSelected(0 -0.1)")
 ```
 
+---
+
+## 
