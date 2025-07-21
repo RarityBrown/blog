@@ -7,9 +7,20 @@ gsettings set org.gnome.desktop.wm.preferences focus-new-windows 'strict'
 gconftool-2 --set /apps/metacity/general/new_windows_always_on_top --type bool true
 ```
 
+ref:
+
+```url
+https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/30670/virtuoso-new--cell-view-window-display-at-the-bottom
 https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/27387/dialogs-come-up-behind-other-windows
 https://support1.cadence.com/public/docs/content/11612426.html
 http://support.cadence.com/wps/mypoc/cos?uri=deeplinkmin:ViewSolution;solutionNumber=11612426
+https://blog.csdn.net/weixin_42767056/article/details/88714594
+https://bbs.eetop.cn/thread-328477-1-1.html
+https://bbs.eetop.cn/thread-484212-1-1.html
+https://bbs.eetop.cn/thread-889813-1-1.html
+https://bbs.eetop.cn/thread-893222-1-1.html
+https://bbs.eetop.cn/thread-908468-1-1.html
+```
 
 如果是 Red Hat 也可以通过 GUI 来设置，但是 CentOS 是不行的。
 
