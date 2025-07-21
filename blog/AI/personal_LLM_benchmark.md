@@ -629,7 +629,16 @@ TSMCHOME/
 
 > Q: A replica of wavedrom in D3.js (real-time rendering + syntax highlighting for code)
 
-> Q: create a replica of cadence virtuoso viva using D3. 1. Multiple stripes (share the same x axis, share or not share the same y axis, configurable), multiple subwins (called configurable grid view in software engineering?) should be supported. 2. shift+scroll, ctrl+scroll, <kbd>v<kbd> and <kbd>h<kbd> should be supported. 3. right-click to set each axis (log, linear, etc.), and to set line styles should be supported. 4. performance optimization for millions of data points
+> Q: 
+Build a replica of cadence virtuoso viva using D3.js
+1. Multiple stripes (share the same x axis, share or not share the same y axis, configurable), multiple subwins (called configurable grid view in software engineering?) should be supported. 
+2. shift+scroll, ctrl+scroll to zoom in and out on the x and y axis; <kbd>f<kbd> to fit
+3. <kbd>v<kbd> and <kbd>h<kbd> should be supported. <kbd>v<kbd> creates a vertical marker which is a vertical line spanning all stripes on the same subwin that intersects the waveform on the same subwin, allowing to read the x-axis value at a specific point; <kbd>h<kbd> key creates a horizontal marker which is a horizontal line that intersects the waveform on one stripe, enabling to identify the points at which the signal reaches a specific y-axis value.
+4. right-click to set each axis (log, linear, etc.), and to set line styles (thickness, etc.) should be supported. 
+5. performance optimization for millions of data points
+
+
+ 
 
 > Q: An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
 
@@ -739,6 +748,7 @@ katex 的 `mhchem` 没有生效，现在显示的 `\ce` 是红色的报错模式
 ###### WebGL & WebGPU
 
 > Q: Four WebGL demos arranged in a 2x2 grid. The top row contains 2D WebGL demos: on the left, a @react-three demo; on the right, a pure WebGL demo. The bottom row contains 3D WebGL demos: on the left, aa @react-three demo; on the right, a pure WebGL demo.
+An interactive test page comparing the rendering performance of WebGPU and WebGL2. Demands a certain pressure on gpu; don't have both tests come out at 60 fps.
 
 > Q: An interactive test page comparing the rendering performance of WebGPU and WebGL2. Demands a certain pressure on gpu; don't have both tests come out at 60 fps.
 
@@ -1338,6 +1348,11 @@ refactor to Cadence Virtuoso SKILL
 > Q: Given $y^n + \frac{L_3}{L_2}y - 1 = 0, \text{where} 1<n<2, 0.01<\frac{L_3}{L_2}<100$. How to approximate the analytical solution of $y$? The final approximate analytical solution should avoid case discussion and transcendental functions. Within the range of $1<n<2, 0.01<\frac{L_3}{L_2}<100$, the error of the approximate solution should be controlled within 5%, and the solution should be as concise as possible while ensuring accuracy.
 >
 > 参考答案：
+
+
+## Agent 能力测试
+
+Q: 世界 500 强中的行业分布，搜索后做成 pie chart，同时提供一份 csv 表格，包含公司英文名、中文名、行业、Revenues 和 Profits
 
 ## 评测的小 ideas
 
