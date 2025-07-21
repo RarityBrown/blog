@@ -2,7 +2,10 @@
 
 ## Library & File & PDK
 
-- [Library Manager 中的虚拟组合库](https://www.kaixinspace.com/creat-virtuoso-combine-library/)
+- Library Manager 中的组合库和整理库
+  - https://www.kaixinspace.com/creat-virtuoso-combine-library/
+  - https://www.cnblogs.com/yeungchie/p/13520120.html
+  - https://community.cadence.com/cadence_blogs_8/b/cic/posts/things-you-didn-t-know-about-virtuoso-library-manager
 - [Copy library, cell 和 cellview](https://www.kaixinspace.com/virtuoso-copy/)
 - [文件书签 / 文件收藏](https://www.xiaohongshu.com/user/profile/60bce751000000000101e227)
 - [用 `.scs` 文件实现批量引用同一工艺角下的 mos, res, cap](https://zhuanlan.zhihu.com/p/588659964)
