@@ -24,3 +24,4 @@ hiSetBindKey("Layout"     "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow()
 ; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
 
 ; auto load Layout bindkey
+; dbSetAutoSave()
