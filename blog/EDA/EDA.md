@@ -23,9 +23,14 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 
 或者说，行业软件开源和免费才是一个小众而稀有的名词？Adobe, Intuit, Autodesk 这些行业软件本就是高度闭源并收费的。似乎除了 CS 行业，to B 天然意味着闭源和收费，所以为什么 GCC 或是 Linux 一直能维持开源才是值得探究的。
 
+另一个和传统软件行业不同的是，EDA 的用户侧对新版的追求非常不强烈。2016 年版的 EDA 软件有大把人还在用，而十年前 to C 的软件到现在是基本上不可用的状态。
+
 开发者视角：
 
 - 当一个持有 Open Source 精神和关注 UX 的开发者进入 EDA 圈子，最终却是离去：详见 [Digital-IDE](https://github.com/Digital-EDA/Digital-IDE) 开发者的[感悟](https://www.zhihu.com/question/1890410020828575085/answer/1917651711587230283)
+
+## Domestic EDAs
+
 
 
 ## Niche EDAs
@@ -70,13 +75,22 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 拧巴和别扭的分享精神：请原谅我在这里用两个口语词汇，我实在是找不到更恰当的词语去形容这种分享精神了。EETOP 上分享者往往喜欢用 "$ynop$y$" "C家" "T$MC" 这种反 SEO 方式让自己不被搜索引擎索引。猜测可能是有两个目的，一是让 EETOP 可以活得久一点，不至于被告，这样大家可以
 
 
-
-https://bbs.eetop.cn/thread-988224-1-35.html
-https://bbs.eetop.cn/thread-889064-1-60.html
-https://bbs.eetop.cn/thread-981512-1-18.html
 https://bbs.eetop.cn/thread-675329-1-2.html
+https://bbs.eetop.cn/thread-889064-1-60.html
+https://bbs.eetop.cn/thread-971651-1-8.html
+https://bbs.eetop.cn/thread-981512-1-18.html
+https://bbs.eetop.cn/thread-988224-1-35.html
 原来这里应该有个好东西：http://bbs.eetop.cn/thread-879031-1-1.html
 
 ## Installing
 
-至少使用 RHEL8.4 以上的版本，安装新版 EDA，正如 [Synopsys](https://www.synopsys.com/support/licensing-installation-computeplatforms/compute-platforms/compute-platforms-roadmap.html) 和 [Cadence](https://www.cadence.com/en_US/home/support/computing-platform-support/support-road-map-2023x-2026x.html) 要求的那样
+至少使用 RHEL8.4 以上的 RHEL8 版本，安装 2025 版 EDA，正如 [Synopsys](https://www.synopsys.com/support/licensing-installation-computeplatforms/compute-platforms/compute-platforms-roadmap.html), [Cadence](https://www.cadence.com/en_US/home/support/computing-platform-support/support-road-map-2023x-2026x.html) 以及 [Calibre](https://calibre.mentorcloudservices.com/docs/Calibre_OS_Roadmap.htm) 要求的那样
+
+
+- Cadence
+  - Virtuoso IC25.1 base: https://bbs.eetop.cn/thread-992365-1-1.html
+  - Virtuoso IC23.1 base: https://bbs.eetop.cn/thread-951724-1-3.html; https://bbs.eetop.cn/thread-960760-1-2.html
+  - Virtuoso IC23.1 ISR13: https://bbs.eetop.cn/thread-987799-1-3.html (ISR11: [1](https://bbs.eetop.cn/thread-985337-1-13.html))
+  - Virtuoso IC6.1.8 ISR36: https://bbs.eetop.cn/thread-991316-1-1.html (ISR34: [1](https://bbs.eetop.cn/thread-986436-1-27.html) [2](https://bbs.eetop.cn/thread-981601-1-21.html))
+- Siemens
+  - Calibre 2025_1_16: https://bbs.eetop.cn/thread-985333-1-1.html
