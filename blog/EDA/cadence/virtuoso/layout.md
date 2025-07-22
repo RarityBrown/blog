@@ -62,25 +62,59 @@ hiSetBindKey("Layout" "Ctrl Shift<Btn5Down>" "changeWidth(-deltaWidth)")
 
 ---
 
-Edit - Select - Set Selection Protection: 类似于 Powerpoint right click an object - lock(L) 的功能
+**对象保护（锁定）** Edit - Select - Set Selection Protection: 类似于 Powerpoint right click an object - lock(L) 的锁定功能
 
 避免在 layout layer 很多的情况下，鼠标拖动和选择物体时的误操作
 
 ```lisp
-hiSetBindKey("Layout"     "F1"           "geHiSetSelProtectionEF()")
-hiSetBindKey("Layout"     "Ctrl<Key>F1"  "geHiUnsetSelProtectionEF()")
+hiSetBindKey("Layout"     "F1"           "if( geGetSelSet() then geHiSetSelProtectionEF() else geHiUnsetSelProtectionEF() )")
 ```
 
 ---
 
-使用快捷键切换 active layer 和 visible layer
+**使用方向键来移动对象**
 
 ```lisp
+procedure(MyMoveSelected(deltax deltay)     ; ref: https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/36295/bindkey-to-move-selected-object
+  let((xform)
+    xform = list(deltax:deltay "R0" 1)
+    foreach(obj geGetSelSet() dbMoveFig(obj nil xform))    ; Don't move the fig, if the selected obj is label pin. Bacause the label will move with the path, and this for loop will move pins twice. 
+  )
+)
 
+procedure( movingUnit()
+  let( ( ( windowId hiGetCurrentWindow() ) bBox width )
+    bBox = hiGetViewBBox( windowId )
+    width = xCoord( upperRight( bBox ) ) - xCoord( lowerLeft( bBox ) )
+
+    (cond
+      ((lessp width 16) 0.005)  ; todo, get the real grid width
+      ((lessp width 80) 0.01)
+      ((lessp width 160) 0.05)
+      ((lessp width 320) 0.2)
+      ((lessp width 640) 0.4)
+      (t 1.0)
+    )
+  )
+)
+
+hiSetBindKey("Layout" "Left"  "MyMoveSelected(-10*movingUnit() 0)")
+hiSetBindKey("Layout" "Right" "MyMoveSelected(10*movingUnit() 0)")
+hiSetBindKey("Layout" "Up"    "MyMoveSelected(0 10*movingUnit())")
+hiSetBindKey("Layout" "Down"  "MyMoveSelected(0 -10*movingUnit())")
+
+hiSetBindKey("Layout" "Ctrl<Key>Left"  "MyMoveSelected(-movingUnit() 0)")
+hiSetBindKey("Layout" "Ctrl<Key>Right" "MyMoveSelected(movingUnit() 0)")
+hiSetBindKey("Layout" "Ctrl<Key>Up"    "MyMoveSelected(0 movingUnit())")
+hiSetBindKey("Layout" "Ctrl<Key>Down"  "MyMoveSelected(0 -movingUnit())")
+```
+
+---
+
+**使用快捷键切换 active layer 和 visible layer**
+
+```lisp
 ; ref, https://sites.google.com/site/yeagerengineering/cadence/bindkeys
-hidKey("Layout"     "<Key>F1"    "printf(\"Help disabled\")")
-hiSetBindKey("Schematics" "<Key>F1"    "printf(\"Help disabled\")")
-hiSetBindKey("Symbol"     "<Key>F1"    "printf(\"Help disabled\")")
 hiSetBindKey("Schematics" "Space"      "if(hiGetCurrentWindow()->cellView->mode != \"r\" then geChangeEditMode(\"r\") else geChangeEditMode(\"a\"))")
 hiSetBindKey("Layout"     "Space"      "if(hiGetCurrentWindow()->cellView->mode != \"r\" then geChangeEditMode(\"r\") else geChangeEditMode(\"a\"))")
 hiSetBindKey("Symbol"     "Space"      "if(hiGetCurrentWindow()->cellView->mode != \"r\" then geChangeEditMode(\"r\") else geChangeEditMode(\"a\"))")
@@ -181,28 +215,5 @@ hiSetBindKey("Layout" "<Key>`" "lxHiProbe()")
 
 ---
 
-使用方向键来移动对象
-
-```lisp
-procedure(MyMoveSelected(deltax deltay)     ; ref: https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/36295/bindkey-to-move-selected-object
-  let((xform)
-    xform = list(deltax:deltay "R0" 1)
-    foreach(obj geGetSelSet() dbMoveFig(obj nil xform))
-  )
-)
-
-; todo: get the current scaling scale auto adjust the distance
-hiSetBindKey("Layout" "Left"  "MyMoveSelected(-1 0)")
-hiSetBindKey("Layout" "Right" "MyMoveSelected(1 0)")
-hiSetBindKey("Layout" "Up"    "MyMoveSelected(0 1)")
-hiSetBindKey("Layout" "Down"  "MyMoveSelected(0 -1)")
-
-hiSetBindKey("Layout" "Ctrl<Key>Left"  "MyMoveSelected(-0.1 0)")
-hiSetBindKey("Layout" "Ctrl<Key>Right" "MyMoveSelected(0.1 0)")
-hiSetBindKey("Layout" "Ctrl<Key>Up"    "MyMoveSelected(0 0.1)")
-hiSetBindKey("Layout" "Ctrl<Key>Down"  "MyMoveSelected(0 -0.1)")
-```
-
----
 
 ## 
