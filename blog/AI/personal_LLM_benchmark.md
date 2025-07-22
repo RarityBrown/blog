@@ -148,15 +148,9 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > Q 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; *4oL 错*; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
 >
-> QC 正确情况：grok3 错错对; Gemini 2.5 Pro 对; v3-0324 对; Sonnet 3.7 thinking 错错; o3-mini 错; kingfall 对
+> QC 正确情况：grok3 错错对; Gemini 2.5 Pro 对; v3-0324 对对; Sonnet 3.7 thinking 错错错; o3-mini 错; kingfall 对
 >
 > 注：非常确定这道题被 OpenAI 拿去做 post-train 了，最新的 4o/4.1 可以答对一模一样的 Q，但是仍然不知道顺尔宁是什么药。
-
-> QC: Asheville, Akita, Kanazawa 和上海哪个城市没有开过奥运会？
->
-> 正确答案：都没
->
-> 正确情况：Sonnet 3.7 对
 
 > Q: 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
 >
@@ -166,7 +160,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > QC: Razavi 和 Thomas Lee 哪个不是模拟 EDA 领域的专家？
 >
-> 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Thomas Lee, Murmann, Willy 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
+> 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Paul R. Gray, Thomas Lee, Bob Pease, Murmann, Willy 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
 >
 > 参考答案：
 > 
@@ -258,7 +252,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
     - 点击/滚动才展开的评论区
     - 折叠或需要翻页的内容（例如 `https://github.com/electron/electron/issues/9035`）
     - 知乎文章的登录框
-  - 在线超长 .pdf 文件
+  - 在线超长 .pdf 文件，通过 pdf.js 加载的在线 pdf 文件
   - 隐藏的网页、登录墙、付费墙：只可能本地解决，靠一个个去谈不可能覆盖完全
     - 用户可以通过推理实现隐藏网页的查看，例如找到一个 `https://example.com/article13` 用户可能会直接输入 url 去看看 `https://example.com/` 和 `https://example.com/article14` 网页上有不有相关的内容
     - 例如查询 `the speaker of the ISSCC 2014 tutorial 3?`；现在 OpenAI 之类的只是和新闻媒体在谈，这种学术等等完全不可能一个个谈下来的，比如需要 license 才能查看的文档等等。所以最好的方式还是用户侧，而不是服务商的容器中
@@ -276,7 +270,6 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
       - 例如 `ipdk_crn28hpc+` 和 `iPDK_CRN28HPL` 由于两搜索引擎对于 `_` 的处理方式不同，Bing 的搜索结果要显著好于 Google
   - 使用传统搜索引擎的筛选进行搜索
     - 例如 site:example.com, "exact_match_with_qutoes"，在 2015 年的新闻
-
 - **嵌套**：以上所有情况的嵌套
   - 例如 PDF 中的图片、表格
     - 案例：搜索 `Command A gpqa`，标准答案 **50.8** 在 `https://cohere.com/research/papers/command-a-technical-report.pdf` 的表格中
@@ -284,7 +277,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 > Q: Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
 >
-> 参考答案: [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [flowith](https://flowith.io/), [suna](https://www.suna.so/), [Minimax](https://agent.minimax.io/), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/)
+> 参考答案: [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [flowith](https://flowith.io/), [suna](https://www.suna.so/), [Minimax](https://agent.minimax.io/), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/)
 
 > Q: search with quotes “tsmchome”. Based on online information, infer the folder structure. Show me the results in an output format similar to the `tree` command.
 >
@@ -326,15 +319,11 @@ TSMCHOME/
 
 > Q: Alternatives to cursor app?
 >
-> 参考答案：Windsurf, VSCode + Copilot, Trae
->
-> 典型错误：Codeium, Zed Editor
+> 参考答案：Windsurf, Trae, Kiro, VSCode + Copilot   (典型错误：Codeium, Zed Editor)
 
 > Q: The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
 >
-> 典型错误：`vlog -work work +acc=r *.v`
-> 
-> 正确答案：`project compileoutofdate`
+> 正确答案：`project compileoutofdate`    (典型错误：`vlog -work work +acc=r *.v`)
 
 > Q: "hiFormDone" 函数中的 hi 是什么意思？
 > 
@@ -350,7 +339,7 @@ TSMCHOME/
 
 > Q: How to draw a rounded rectangle in originpro?
 >
-> 正确答案：没有简单的方法
+> 正确答案：there is no simple way
 
 > Q: virtuoso schematic lock placement. not in layout view or locking the file. but locking instance positions in schematic view. answer within 50 words.
 >
@@ -372,9 +361,15 @@ TSMCHOME/
 >
 > 正确答案：ICADV12.3, IC23.1
 
-> Q: Do TSMC Shanghai fab and Nanjing fab offer MPW shuttles? Answer within 50 words. Don't tell me you're not sure, I'm very sure the definite answer is online (it might not be a direct answer, but after synthesizing the information, it's enough for you to make a definite judgment), so your final answer will be something like Shanghai: No, Nanjing: Yes. Note, this is just an example of the answer format, and is not necessarily the correct answer.
+> Q: Do TSMC Shanghai fab and Nanjing fab offer MPW shuttles? Answer within 50 words. Don't tell me you're not sure, I'm very sure the definite answer is online (it might not be a direct answer, but after synthesizing the information, it's enough for you to make a definite judgment), so your final answer will be something like Shanghai: No, Nanjing: Yes. Note that this is just an example of the answer format, and is not necessarily the correct answer.
 >
 > 正确答案：Shanghai Fab10 yes; Nanjing Fab16 no. ref: [2025 TSMC CyberShuttle Service Plan](http://www.szicc.org.cn/attachment/0/80/80748/1230778.pdf)
+
+> Q: A comparative table summarizing the performance of Claude Sonnet 3.5 (aka the old Sonnet 3.5), Sonnet 3.6 (aka the Sonnet 3.5 new), Sonnet 3.7, Sonnet 4 on the SWE-bench Verified.
+>
+> 正确答案：pass@1: 33%, 49%, 62.3%, 72.7%; thinking: N/A, N/A, 70.3%, 80.2%
+
+半开放问题：
 
 > Q: I want to create something similar to Cadence Virtuoso ViVA. Which one should I use among ECharts with lttb, Plotly.js, or uPlot?
 >
@@ -409,793 +404,7 @@ TSMCHOME/
 
 也许可以搞一个代码复现测试 testbench，将已有的代码提供给 LLM，使用文字描述后，开启一个新 context，使用文字复现已有代码。测试了代码理解能力和代码编写能力，也方便自动化。
 
-##### LaTeX 相关
-
-###### LaTeX
-
-> Q: `A{\scriptstyle{\boxed{A}}}A` box 中的 A 会变小吗？   In the LaTeX expression `A{\scriptstyle{\boxed{A}}}A`, is the boxed "A" rendered smaller? Yes/No without any further explanation.
->
-> 正确答案：No
->
-> 正确情况：Gemini 2 Pro 错, 4oL 错, Gemini 2.5 Pro 错, Kingfall 错
-
-> Q: Is the LaTeX syntax for the formula `a \xrightarrow[ \begin{subarray}{c}E[x]=0 \\ a\end{subarray} ]{x} b` completely correct, and will it compile without any errors, given that I have `amsmath` properly installed?
->
-> 正确答案：No，应当使用 `a \xrightarrow[ {\begin{subarray}{c}E[x]=0 \\ a\end{subarray}} ]{x} b`
->
-> 正确情况：Gemini 2.5 Pro 错; o3 错 (但是提到正确写法); o4-mini-high 错
-
-> Q: `\xrightarrow[p+q = a+b+c]{x+y+z = m+n}` How to align at the `=`?
->
-> 参考答案：
->
-> ```latex
-> \xrightarrow[
->   \hspace{-2em}\phantom{x+y+z} p+q = a+b+c \hspace{-2em}\phantom{m+n}
-> ]{
->   \hspace{-2em}\phantom{p+q} x+y+z = m+n \hspace{-2em}\phantom{a+b+c}
-> } \\
-> \xrightarrow[
->   \mathrel{\rlap{p+q}\phantom{x+y+z}}=\mathrel{\phantom{a+b+c}\llap{a+b+c}} 
-> ]{
->   \mathrel{\rlap{x+y+z}\phantom{x+y+z}}=\mathrel{\phantom{a+b+c}\llap{m+n}}
-> }
-> ```
->
-> 正确情况：o3-mini-high 错; Gemini 2.5 Pro 半对; Qwen3 235B 错; 
-
-> Q: Draw a cross using `\rule` in latex. The commands `\hfil`, `\vbox`, `\raisebox`, `\rotatebox`, `\makebox`, `\vspace`, `\centerline`, `\noindent`, `\put`, `\par` and `tabular` are not allowed. Width and length of the arms of the cross are 1em and 6em.
->
-> 参考答案：
-> 
-> ```latex
-> \rule{1em}{6em}            \hspace{-3.5em}         \rule[+2.5em]{6em}{1em}
-> \rule{6em}{1em}            \kern{-3.5em}           \rule[-2.5em]{1em}{6em}
-> \rule[-2.5em]{1em}{6em}    \kern{-3.5em}           \rule{6em}{1em}
-> \rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}          \rule[-0.5em]{6em}{1em}  % laps? \smash?
-> ```
->
-> 正确情况：Gemini 2.5 Pro 对
-
-> Q:
-> 
-> ```latex
-> \[
-> \begin{cases} l\ddot{\theta}=g\sin\theta-\ddot{x}\cos\theta  \\ y=x+l_0\sin\theta+n \end{cases} \xRightarrow{\displaystyle \theta \sim 0} \begin{cases} l\ddot{\theta}=g\theta-\ddot{x}  \\ y=x+l_0\theta+n \end{cases} % How to add a new line here?
-> \xRightarrow{\displaystyle \mathcal{L}} \begin{cases} Y = \dfrac{(l-l_0)s^2 - g}{s^2(Mls^2-(M+m)g)}(U + R) + N \end{cases}
-> \]
-> ```
->
-> 参考答案：加上 `\begin{gathered}` 或 `\begin{align*}` 等环境
->
-> 正确情况：Gemini 2 Pro 对, Sonnet 3.5 错错, grok3 对错; 4oL 错; o3-mini-high 错; Qwen3 对
-
-> Q: The `\rightarrow`, `\xrightarrow{}` and `\uparrow` are commands available in LaTeX, but how to achieve `\xuparrow{}`, a lengthened vertical arrow with text *beside* it, analogous to how `\xrightarrow[\begin{cases}1\\2\end{cases}]{\begin{gather}x+y \\ \sin +\sum \\ x+y+z \end{gather}}` creates a lengthened horizontal arrow with text *above* and *below* it. `amsmath` and `mathtools` are available, but commands `\if` `\else` `\relax` `\sbox` `\setbox` and `\savebox`, and, packages TikZ, `graphicx` and `calc` are not.  (Hint: `\left.\vphantom{#1}\right\uparrow` to achieve extensible arrow.)
-> 
-> 参考答案：
->
-> ```latex
-> \newcommand{\xuparrow}[2][]{
->     \hspace{0.3em}{\scriptstyle{#1}}\hspace{-0.3em}
->     \left.\vphantom{#1#2}\right\uparrow
->     \hspace{-0.3em}{\scriptstyle{#2}}\hspace{0.3em}
-> }
->
-> A \xuparrow[\begin{cases}1\\2\\3\\4\\5\\6\\7\end{cases}]{\begin{aligned}x+y \\ \sin +\sum_i \\ x+y+z \end{aligned}} B
-> ```
-> 
-
-> Q: Why the `\scriptstyle` does not work for `\scriptstyle{\scriptstyle{\scriptstyle\begin{cases}A \\B+\sum_i \end{cases}+\scriptstyle\begin{aligned}1\\2\\3\end{aligned}}}`? How to make it work without applying `\scriptstyle` to every individual lines?
-> 
-> 参考答案：目前来看没办法。只能通过 `\scriptsize` 模拟实现。`\mathchoice` `\crampedclap` `\forcedscriptstyle` 等命令也无用。
-
-> Q: How to make $\boldsymbol{\tau_{Y}}$ even bolder without any other formatting change and without `\usepackage{bm}`? Answer within 1 line in a code block.
->
-> 参考答案：`\pmb{\boldsymbol{\tau_{Y}}} \boldsymbol{\pmb{\tau_{Y}}}`
->
-> 正确情况：4oL 错; grok3 错; o3-mini-high 错; Gemini 2 Pro 对
-
-> Q: How to create a text box with a red border and transparent background in LaTeX? The `\fcolorbox{red}{white}{$\frac{1}{2}$}` is available and what I want, but the background color of it is white. `\tcbox`, `\newtcbox`, TikZ, and mdframed are not available. I don't need environments like `\begin{document}` and so on, just the most crucial part is fine.
->
-> 参考答案：`{\color{red}\boxed{\color{black}\frac{1}{2}}}`
->
-> 正确情况：Gemini 2.5 Pro 半对
-
-###### MathJax / KaTeX
-
-> Q: Create a code block containing all possible methods for inserting a new line within a `\texttt` in LaTeX, ensuring compatibility with Mathjax/Katex.
->
-> 典型错误：
->
-> ```latex
-> \texttt{line1 \\       line2}
-> \texttt{line1 \newline line2}
-> \texttt{line1 \cr      line2}
-> \begin{verbatim}
-> line1
-> line2
-> \end{verbatim}
-> ```
->
-> 正确答案：There is no direct way, some alternative ways are
-> 
-> ```latex
-> \begin{array}{l}  \texttt{line1} \\  \texttt{line2}  \end{array}
-> 
-> \begin{aligned}   \texttt{line1} \\  \texttt{line2}  \end{aligned}
->
-> \verb|line1|  \\  \verb|line2|
-> ```
-
-###### tikz
-
-> Q: use CircuiTikz to draw a basic common source without bias or ac coupling
->
-> 参考答案：
->
-> ```latex
-> \ctikzset{
-> 	bipoles/thickness=1,  % \ctikzset{resistors/thickness=1}
-> 	monopoles/ground/thickness/.initial=1,
-> 	monopoles/ground/connectionthickness/.initial=1,
-> 	monopoles/tground/thickness/.initial=1,
-> 	transistors/thickness=1.618,
-> 	% \ctikzset{transistors/scale=1.2}
-> 	resistors/scale=0.75,
-> 	capacitors/scale=0.65,
-> 	transistors/arrow pos=end,
-> 	tripoles/mos style/arrows,
-> 	tripoles/pmos style/emptycircle,
-> 	resistors/zigzag hook/.code={\pgfsetroundcap\pgfsetroundjoin},
-> 	resistors/zigzag stub=0.02,
-> }
-> 
-> \begin{circuitikz}[american, line width=1.6pt]
->     % \draw (0,0)                                   node[nmos, font=\sffamily\bfseries] (M1)  {M1};
-> 	    % \draw (0,0)                                   node[nmos] (M1)  {\textbf{\fontfamily{phv}\selectfont M1}};
->     \draw (0,0)                                   node[nmos] (M1)  {\textbf{\fontspec{Segoe UI}M1}};
->     \draw (M1.gate)    to [short, -o]   ++(-1,0)  node[left]       {$V_{in}$};
->     \draw (M1.source)                             node[tlground]   {};
->     \draw (M1.drain)   to [R=$R_D$]     ++(0,2)   node[tground]    {$V_{DD}$};
->     \draw (M1.drain)   to [short, *-o]  ++(1,0)   node[right]      {$V_{out}$};
-> \end{circuitikz}
-> ```
-
-
-> Q: use CircuiTikz to draw a basic two-stage amplifier in CMOS with differential input and common source output
->
-> 参考答案：
->
-> ```latex
-> \begin{circuitikz}[american, line width=1.6pt]
-> 	\draw[help lines] (0,0) grid (6,6);
-> 	
-> 	% Stage 1: Differential pair with current mirror load
-> 	\draw
-> 	(0,4) node [pmos, xscale=-1] (M3) {\ctikzflipx{$M_3$}}
-> 	(2,4) node [pmos] (M4) {$M_4$}
-> 	(M3.source) -- ++(0,0.2) coordinate (vdd1)
-> 	(M4.source) -- ++(0,0.2) coordinate (vdd2)
-> 	% (vdd1) -- (vdd2)
-> 	(M4.gate) -- (M3.gate)
-> 	(M4.gate) |- (M3.drain);
-> 	
-> 	\draw
-> 	(0,2) node [nmos] (M1) {$M_1$}
-> 	(2,2) node [nmos, xscale=-1] (M2) {\ctikzflipx{$M_2$}}
-> 	(M1.drain) -- (M3.drain)
-> 	(M2.drain) -- (M4.drain)
-> 	(M1.gate) to[short, -o] ++(-0.2,0) node[left] {$V_{in}^-$}
-> 	(M2.gate) to[short, -o] ++(0.2,0) node[right] {$V_{in}^+$};
-> 	
-> 	\draw
-> 	($(M1.source)!0.5!(M2.source)$) ++(0,-0.5) node[nmos, anchor=drain] (M5) {$M_5$} % Corrected: Anchor at drain
-> 	(M5.source) -- ++(0,-0.2) coordinate (gnd1)
-> 	(M1.source) -| (M5.drain)
-> 	(M2.source) -| (M5.drain)
-> 	(M5.gate) to[short, -o] ++(-0.5,0) node[left] {$V_{bias1}$};
-> 	
-> 	% Stage 2: Common source amplifier
-> 	\draw
-> 	(6,0) node [nmos] (M6) {$M_6$}
-> 	(6,4) node [pmos] (M7) {$M_7$}
-> 	(M7.source) -- ++(0,0.2) coordinate (vdd3)
-> 	(vdd1) -- (vdd3) node[above] {VDD} % VDD track
-> 	(M6.source) -- ++(0,-0.2) coordinate (gnd2)
-> 	(gnd1) -- (gnd2) node[below] {GND} % GND track
-> 	(M6.gate) to[short, -o] ++(-0.7,0) node[left] {$V_{bias2}$}
-> 	(M6.drain) -- (M7.drain)
-> 	(M6.drain) -- ++(0, 1.23) to[short, -o] ++(1,0) node[right] {$V_{out}$};
-> 	
-> 	% connect two stage
-> 	\draw (M4.drain) |- ++(1,-0.23) coordinate (Vo1) -- ++(1/3,0)  to[R=Rz] ++(4/3,0) to[C=Cc] ++(4/3,0);
-> 	\draw (Vo1) |- (M7.gate);
-> \end{circuitikz}
-> ```
-
-##### Webarena & 前端
-
-###### 基础知识 + 前端代码
-
-> Q: 画一个 2 阶 RC 低通滤波器的电路图和频响图 Draw the schematic and frequency response (mag & phase) of a 2nd order RC low-pass filter. Make it interactive.
-
-> Q: 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
-
-> Q: A circuit schematic editor. Use key `i` to new an instance choosing dialog. The symbol of the circuit component should be drawn correctly
-
-> Q: An interactive s-plane where left-clicking adds poles (for a physically realizable system, if poles are not real, they should be automatically added in conjugate pairs), and right-clicking adds zeros. The s-plane uses log-log coordinate axes (tick marks use engineering notation, e.g., 1k, 2k, 1M, 1G) to represent the real and imaginary parts. Plot the frequency response H(jω) in real-time (including magnitude response, phase response, DC gain, GBW, phase margin, and other information).
-
-> Q: Smith chart, polar coordinates charts (Γ Plane and Impedance Plane), Cartesian coordinates charts (Γ Plane and Impedance Plane) one-to-one interactive correspondence + contour, with real-time incident and reflected wave demonstration.      An interactive Smith chart explorer with corresponding polar and Cartesian charts with contours for both the Γ plane and impedance plane. The charts should be synchronized one-to-one. Plus real-time incident and reflected wave demonstration.
-
-> Q: A replica of wavedrom in D3.js (real-time rendering + syntax highlighting for code)
-
-> Q: 
-Build a replica of cadence virtuoso viva using D3.js
-1. Multiple stripes (share the same x axis, share or not share the same y axis, configurable), multiple subwins (called configurable grid view in software engineering?) should be supported. 
-2. shift+scroll, ctrl+scroll to zoom in and out on the x and y axis; <kbd>f<kbd> to fit
-3. <kbd>v<kbd> and <kbd>h<kbd> should be supported. <kbd>v<kbd> creates a vertical marker which is a vertical line spanning all stripes on the same subwin that intersects the waveform on the same subwin, allowing to read the x-axis value at a specific point; <kbd>h<kbd> key creates a horizontal marker which is a horizontal line that intersects the waveform on one stripe, enabling to identify the points at which the signal reaches a specific y-axis value.
-4. right-click to set each axis (log, linear, etc.), and to set line styles (thickness, etc.) should be supported. 
-5. performance optimization for millions of data points
-
-
- 
-
-> Q: An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
-
-> Q: Simulate the movement of multiple positive and negative charged particles within a square, with an electric field pointing to the right and a magnetic field pointing into the screen. The interaction forces between each particle need to be considered.
-
-> Q: Build a real-time microphone spectrum FFT, with historical data also displayed. Use color as intensity, with one axis being frequency and the other being time. Place the historical maximum, sub-maximum, current maximum, and sub-maximum values in real-time on the plane. And add a 3d chart side by side, use z axis to represent the intensity instead of color, x and y as frequency and time.
-
-> Q: Build a plotting app to draw the graph of Math.random(x)*(Math.sin(x) + Math.random(x)), with a total of 20,000 points, where x in [0,50), refreshing the random data every 5 seconds. Time and display how long it takes to refresh the data and redraw the plot each time. Supports cursor-centric zoom on the x-axis using the mouse wheel, with no zoom on the y-axis. Choose any plot lib you'd like, the only goal is to be fast. > NOTE: For accurate timing, measure the full operation. Since some UI updates are asynchronous, stop the timer in a completion callback or post-render hook, not immediately after the dispatch call. This avoids measuring only the initial synchronous task, capturing the true, user-experienced duration from start to final render. Meanwhile, use a red and a green light to indicate the start and completion of rendering for user confirmation.
-
-> Q: A full-size keyboard tester. Once a key is pressed, the corresponding virtual key permanently changes color to indicate it is working, rather than temporarily highlighting.
-
-> Q: Draw svg of transmission gate in mosfets and symbol without any fancy ui or color, without further introduction, so just two simple svgs.
-
-> Q: 帮我把这个改一些不兼容的语法后，部署一下，要求和原来完全保持一致    https://observablehq.com/@mbostock/smith-chart
-
-
-> Q: 
-
-```tsx
-// src/App.tsx
-import React, { useEffect, useRef, useState } from 'react';
-import katex from 'katex';
-import 'katex/dist/katex.min.css';
-import 'katex/dist/contrib/mhchem.js';
-
-function UltraMinimalKatexMhchem() {
-  const [latexInput, setLatexInput] = useState('\\ce{H2O}+\\sin x');
-  const katexOutputRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const outputElement = katexOutputRef.current;
-    if (outputElement) {
-      try {
-        katex.render(latexInput, outputElement, {
-          displayMode: true,
-          throwOnError: false,
-        });
-        outputElement.style.color = 'inherit';
-      } catch (error) {
-        outputElement.textContent = 'Error';
-        outputElement.style.color = 'red';
-      }
-    }
-  }, [latexInput]);
-
-  return (
-    <div>
-      <div
-        ref={katexOutputRef}
-        style={{
-          margin: '10px 0',
-          fontSize: '1.3em',
-          textAlign: 'center',
-        }}
-      ></div>
-      <textarea
-        rows={3}
-        value={latexInput}
-        onChange={(e) => setLatexInput(e.target.value)}
-        placeholder="Input"
-        style={{
-          fontFamily: 'monospace',
-          fontSize: '14px',
-          display: 'block',
-          width: '90%',
-          maxWidth: '600px',
-          margin: '10px auto',
-          padding: '5px',
-        }}
-      />
-    </div>
-  );
-}
-
-export default UltraMinimalKatexMhchem;
-```
-
-katex 的 `mhchem` 没有生效，现在显示的 `\ce` 是红色的报错模式。如果把临时将代码中 throwOnError 设为 true 时，console 会报错  `ParseError: KaTeX parse error: Undefined control sequence: \ce at position 1: \ce{H2O}`。已知信息：
-
-- 用最新稳定版的 vite 来开发一个 electron + react 应用，`vite.config.js` 的配置是项目生成时自动创建的默认配置，没有修改过
-- KaTeX 用的是最新稳定版，正确安装，并只安装一个版本。其他 katex 功能都是正常的，如 `\sin x`
-- "node_modules/katex/dist/contrib/mhchem.js" 确实存在，"node_modules/katex/contrib/mhchem.js" 也存在，但是换用 import 'katex/contrib/mhchem.js' 了以后 react 应用反而直接报错了，至少现在不报错
-- `(window as any).katex = katex;` 放在导入 js 之前也试过了，没用。
-
-正确答案：`import 'katex/dist/contrib/mhchem.mjs';`
-
-###### 库的使用
-
-> Q: A modern browser technology playground: Showcase all emerging, fancy, modern browser technologies. Do not consider compatibility issues at all.
-
-> Q: A simple mathjax v3 CHTML demo with ams macros and physics macros enabled.
-
-> Q: 2x2 layout: mathlive + latex code editor (with syntax highlight); mathjax + katex (to compare the rendered output). Enable all the possible packages for mathjax and katex. For instance, enable the `physics` package in mathjax.
-
-> Q: MathJax vs KaTeX Renderer side by side, with a syntax highlight latex input box. **Enable the `physics` package in mathjax.**
-
-> Q: Editor Playground to try out Monaco, CodeMirror and Ace editor side by side. Sync the code among the three. Dark theme + light theme. Language: LaTeX (with syntax highlighting)
-
-###### 纯 UI 展示
-
-> Q: Bing replica
-
-> Q: An online office word
-
-> Q: A hex (binary) editor
-
-###### WebGL & WebGPU
-
-> Q: Four WebGL demos arranged in a 2x2 grid. The top row contains 2D WebGL demos: on the left, a @react-three demo; on the right, a pure WebGL demo. The bottom row contains 3D WebGL demos: on the left, aa @react-three demo; on the right, a pure WebGL demo.
-An interactive test page comparing the rendering performance of WebGPU and WebGL2. Demands a certain pressure on gpu; don't have both tests come out at 60 fps.
-
-> Q: An interactive test page comparing the rendering performance of WebGPU and WebGL2. Demands a certain pressure on gpu; don't have both tests come out at 60 fps.
-
-> Q: Wrap a multi-page PDF onto an ellipsoid, and let the user scroll through the PDF in real time with the mouse wheel instead of scaling the ellipsoid.
-
-##### Python 小众库
-
-> Q: 在 R3 的左侧，即 R4 的下侧，添加一个接地符号
->
-> ```python
-> import schemdraw
-> import schemdraw.elements as elm
-> 
-> with schemdraw.Drawing() as d:
->     d += elm.Resistor().label('R1')
->     d += elm.Resistor().label('R2').down()
->     d += elm.Resistor().label('R3').left()
->     d += elm.Resistor().label('R4').up()
-> d.draw()
-> ```
-> 
-> 参考答案：
->
-> ```python
-> import schemdraw
-> import schemdraw.elements as elm
-> 
-> with schemdraw.Drawing() as d:
->     d += elm.Resistor().label('R1')
->     d += elm.Resistor().label('R2').down()
->     R3 = elm.Resistor().label('R3').left()
->     d += R3
->     d += elm.Resistor().label('R4').up()
->     
->     d += elm.Ground().at(R3.end) # or d += elm.Ground().at(R4.start)
-> d.draw()
-> ```
-
-> Q: 这是电容的一阶时间常数电路图，画一个电感的，和电容的图并排放置
->
-> ```python
-> import schemdraw
-> import schemdraw.elements as elm
-> 
-> with schemdraw.Drawing() as d:
->  d.add(elm.Ground())
->  d.add(elm.SourceV().label('$V_{in}$'))
->  d.add(elm.Switch(action='close').right().label('S'))
->  d.add(elm.Resistor().right().label('$R$'))
->  d.add(elm.Dot(open=True).label('$V_{out}$'))
->  d.add(elm.Capacitor().down().label('$C$'))
->  d.add(elm.Ground())
-> 
->  d.draw()
-> ```
->
-> 参考答案：
->
-> ```python
-> import schemdraw
-> import schemdraw.elements as elm
-> 
-> with schemdraw.Drawing() as d:
->     d += (elm.Ground())
->     d += (elm.SourceV().label('$V_{in}$'))
->     d += (elm.Switch(action='close').right().label('S'))
->     d += (elm.Resistor().right().label('$R$'))
->     d += (elm.Dot(open=True).label('$V_{out}$'))
->     d += (elm.Capacitor().down().label('$C$'))
->     d += (elm.Ground())
->     
->     d.move(3, 0)
->     
->     d += (elm.Ground())
->     d += (elm.SourceV().label('$V_{in}$'))
->     d += (elm.Switch(action='close').right().label('S'))
->     d += (elm.Inductor().right().label('$L$'))
->     d += (elm.Dot(open=True).label('$V_{out}$'))
->     d += (elm.Resistor().down().label('$R$'))
->     d += (elm.Ground())
->     
->     d.draw()
-> ```
->
-> 正确情况：o1错,
->
-> 两个关键点：1. `d.move(3, 0)` 2. RC, LR 的顺序
-
-
-> Q: 这是电压源激励的一阶电路，在同一幅图下面画上电流源激励的一阶电路
->
-> ```python
-> import schemdraw
-> import schemdraw.elements as elm
-> 
-> with schemdraw.Drawing() as d:
->     d += (elm.Ground())
->     d += (elm.SourceV().label('$V_{in}$'))
->     d += (elm.Switch(action='close').right().label('S'))
->     d += (elm.Resistor().right().label('$R$'))
->     d += (elm.Dot(open=True).label('$V_{out}$'))
->     d += (elm.Capacitor().down().label('$C$'))
->     d += (elm.Ground())
->     
->     d.move(3, 0)
->     
->     d += (elm.Ground())
->     d += (elm.SourceV().label('$V_{in}$'))
->     d += (elm.Switch(action='close').right().label('S'))
->     d += (elm.Inductor().right().label('$L$'))
->     d += (elm.Dot(open=True).label('$V_{out}$'))
->     d += (elm.Resistor().down().label('$R$'))
->     d += (elm.Ground())
->     
->     d.draw()
-> ```
->
-> 参考答案：
->
-> ```python
-> import schemdraw
-> import schemdraw.elements as elm
-> 
-> with schemdraw.Drawing() as d:
->     d += (elm.Ground())
->     d += (elm.SourceV().label('$V_{in}$'))
->     d += (elm.Switch(action='close').right().label('S'))
->     d += (elm.Resistor().right().label('$R$'))
->     d += (elm.Dot(open=True).label('$V_{out}$'))
->     d += (elm.Capacitor().down().label('$C$'))
->     d += (elm.Ground())
->     d.move(3, 0)
->     d += (elm.Ground())
->     d += (elm.SourceV().label('$V_{in}$'))
->     d += (elm.Switch(action='close').right().label('S'))
->     d += (elm.Inductor().right().label('$L$'))
->     d += (elm.Dot(open=True).label('$V_{out}$'))
->     d += (elm.Resistor().down().label('$R$'))
->     d += (elm.Ground())
-> 
->     d.move(-15, -5)
->     
->     d += (elm.Ground())
->     d += (elm.SourceI().label('$I_{in}$'))
->     d += (elm.Switch(action='close').right().label('S'))
->     d += (elm.Dot())
->     d += (R1 := elm.Resistor().down().label('$R$'))
->     d += (elm.Ground())
->     d += (elm.Line().right().at(R1.start))
->     d += (elm.Dot(open=True).label('$V_{out}$'))
->     d += (elm.Capacitor().down().label('$C$'))
->     d += (elm.Ground())
->     d.move(3, 0)
->     d += (elm.Ground())
->     d += (elm.SourceI().label('$I_{in}$'))
->     d += (elm.Switch(action='close').right().label('S'))
->     d += (elm.Dot())
->     d += (R2 := elm.Resistor().down().label('$R$'))
->     d += (elm.Ground())
->     d += (elm.Line().right().at(R2.start))
->     d += (elm.Dot(open=True).label('$V_{out}$'))
->     d += (elm.Inductor().down().label('$L$'))
->     d += (elm.Ground())
->     
->     d.draw()
-> ```
-
-##### MATLAB
-
-> Q: Make `15/9*1e-12` symbolic without any error in matlab within one line. Your answer should be simple.
->
-> 典型错误：`expr = sym(15/9 * 1e-12);` 结果有浮点误差
-> 
-> 正确答案：`expr = 15/9*str2sym('10^(-12)');` 或 `sym(15)/sym(9)*sym(1e-12)` 之类把 1e-12 单独拿出来
-
-##### Mermaid
-
-> Q: How to print quotes within a node in a Mermaid flowchart? Answer within 1 line in a code block.
->
-> 正确答案：`A["Node with #quot;quotes&quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
->
-> 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错错; r1 错; Gemini 2.5 Pro 错; Kingfall 对
->
-> 正确情况 RAG：gpt-4o-search-preview-high 对对; sonar 对
->
-> 思考：泛化和对齐未必是好事，也可能增加幻觉（gemini-exp-1114 小概率答对）；说“不会”的能力，目前主流方向是让模型强到没有不会的问题；模型应知道何时调用搜索，如何参考信源
-
-
-> Q: 第几行代码不符合 Mermaid 语法要求，会导致报错？直接简单回答行号，例如，"2, 30, 31"
-> 
-> ```
-> graph TD
->     subgraph Attempt 4: \genfrac and Prime Symbol
->         V[Use \genfrac or similar construct] --> W(Build vertical arrow with text)
->         W --> X[Consider using prime symbol (') for arrowhead]
->         X --> Y[Probably won't look like an up arrow]
->         AC[Use \left\uparrow and \vphantom to control height] --> AD(Test this approach)
->         AD --> AE[\left and \right are for delimiters, \uparrow has fixed sizes]
->         AE --> AF[Doesn't stretch infinitely, chooses from available sizes]
->     end
-> 
->     subgraph Attempt 7: \stackrel, \underset, \overset
->         AG[Consider \stackrel] --> AH(For stacking symbols *over* each other)
->         AH --> AI[User wants text *beside* the arrow]
->         AI --> AJ[\underset and \overset place text above/below]
->         AU[Use \vcenter to center arrow and text] --> AV(Create box with arrow and text side-by-side)
->         AV --> AW[\vcenter centers them vertically, but arrow doesn't lengthen]
->         AW --> AX[Arrow height should match text height]
->         BA --> BB[How to implement without graphicx/TikZ?]
->         BB --> BC[Use \vphantom{#1} to get text height]
->         BC --> BD[But how to stretch arrow vertically?]
->         BE[Arrowhead (\uparrow)] --> BF(Vertical shaft (rule) matching text height)
->         BG --> BH[Standard \uparrow is a compound character]
->         BH --> BI[Break into parts or extend shaft?]
->         BI --> BJ["Draw" arrow: vertical rule + arrowhead]
->         BO --> BP[Use \setbox, \ht, \dp, \dimen, \mkern, \llap]
->         BP --> BQ[Final Code: \newcommand{\xuparrow}[1]{% \setbox0=\hbox{$\scriptstyle#1$}% \dimen0=\ht0 \advance\dimen0 by \dp0 \mathrel{\uparrow\mkern-5mu\rule[-.7ex]{0.4pt}{\dimen0}\llap{$\scriptstyle#1$}}% }]
->         BQ --> BR[Explanation of the code and its limitations]
->         BR --> BS[Acknowledge approximation and need for fine-tuning]
->     end
-> 
->     BS --> Final[Final Answer: \boxed{\xuparrow}]
-> ```
->
-> 正确答案：4, 7, 11, 14, 16, 19, 21, 26, 31
-
-##### AHK
-
-> Q: How to send the string "{`\`" (one left brace + one backtick + one backslash + one backtick) in ahkv2 using the `Send` function? Answer within 1 line in a code block.
->
-> 正确答案：`Send('{{}``\``')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
->
-> 正确情况：Gemini 2 Pro 错错, o3-mini-high 错对错错, o3-mini 错错对, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错, Gemini 2.5 Pro 对错, Kingfall 对
->
-> 正确情况 RAG：sonar-pro-high 错错
-
-
-> Q: two ways to simplify this
-> 
-> ```ahk
-> #Requires AutoHotkey >=2.0
->    :?*:1/:: {
->        Send '\frac{{}1{}}{{}{}}{Left 1}'
->    }
->    :?*:2/:: {
->        Send '\frac{{}2{}}{{}{}}{Left 1}'
->    }
->    :?*:3/:: {
->        Send '\frac{{}3{}}{{}{}}{Left 1}'
->    }
->    ; ...
->    :?*:9/:: {
->        Send '\frac{{}9{}}{{}{}}{Left 1}'
->    }
-> ```
->
-> 参考答案：
->
-> ```ahk
-> #Requires AutoHotkey >=2.0
-> 
-> loop 9 {
->     num := A_Index
->     Hotstring(":?*:" . num . "/", "\frac{{}" . num . "{}}}{{}{}}{Left 1}")
-> }
->
-> #Include RegExHotstring.ahk ; https://github.com/8LWXpg/RegExHotstring/blob/master/RegExHotstring.ahk
-> RegExHotstring("(\d+)/", "\frac{{}$1{}}{{}{}}{Left 1}", "?*")
-> ```
-
-
-##### PowerShell
-
-> Q: How to create a clipboard entry and specify the data type as `text/html` (implemented in PowerShell)? For example, the string "<html><body><sub>x</sub></body></html>", if I copy it directly in the Notepad, I get a `text/plain` clipboard entry.
->
-> 正确答案：[CF_HTML](https://learn.microsoft.com/en-us/windows/win32/dataxchg/html-clipboard-format) header info + [System.Windows.Forms.Clipboard Class](https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.clipboard) 实现。
->
-> 参考答案（最简实现）：
->
-> ```powershell
-> Add-Type -AssemblyName System.Windows.Forms
-> 
-> # Note: The HTML/mime specification requires <!--StartFragment--> and <!--EndFragment-->
-> $html = "<html><body><!--StartFragment--><sub>x</sub><!--EndFragment--></body></html>"
-> 
-> # Place the string on the clipboard using the "HTML Format" identifier:
-> [System.Windows.Forms.Clipboard]::SetData("HTML Format", $html)
-> ```
-
-##### Assembly
-
-> Q: `.long   -1559429120` to hex
->
-> 正确答案：`0xA30D0000`
->
-> 正确情况：sonnet 3.7 thinking 错对错; o3-mini 对对错; 2-flash-thinking 错
-
-> Q: x87 FPU + GCC. LC0 in decimal? Do not use scientific notation, write out the entire number directly.
-> 
-> ```assembly
-> .LC0:
->         .long   -1559429120
->         .long   -1834274295
->         .long   16433
->         .long   0
-> ```
-> 
-> 正确答案：`1,290,111,812,442,216`  `1290892312867076`
->
-> 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错; Gemini 2.5 Pro 错错; o3-mini-high 对; lunarcall 对
-
-##### Lisp (Cadence SKILL)
-
-```python
-def greet(name):
-  if name == "Alice":
-    print("Hello, Alice!")
-  elif name == "Bob":
-    print("Hi, Bob!")
-  else:
-    print("Hello, stranger!")
-
-greet("Alice")
-greet("Bob")
-greet("Charlie")
-```
-
-refactor to Cadence Virtuoso SKILL
-
-> 参考答案：
-> 
-> ```lisp
-> (defun greet (name)
->   (cond
->     ((equal name "Alice") 
->      (print "Hello, Alice!")
->      )
->     ((equal name "Bob") 
->      (print "Hi, Bob!")
->      )
->     (t
->      (print "Hello, stranger!")
->      )
->   )
-> ) 
-> (procedure (greet name)
->   (case name
->     ("Alice" (printf "Hello, Alice!\n")    )
->     ("Bob"   (printf "Hi, Bob!\n")         )
->     (t       (printf "Hello, stranger!\n") )
->   )
-> )
-> 
-> (greet "Alice")
-> (greet "Bob")
-> (greet "Charlie")
-> ```
->
-> 正确情况：Gemini 2 Pro 错; r1 对; grok-3 对; Gemini 2.5 Pro 对; GPT4.5 对
-
-##### Verilog (SystemVerilog, Verilog-AMS, etc.)
-
-> Q:
-> ```verilog
-> module shiftreg_PA_rev (
->     output reg A, 
->     input E, clk, rst
-> );
->     reg B, C, D;
->     always @ (posedge clk, posedge rst) begin
->         if (rst == 1'b1) begin A = 0; B = 0; C = 0; D = 0; end
->         else begin
->             D = E;
->             C = D;
->             B = C;
->             A = B;
->         end
->     end
-> endmodule
-> ```
-> 
-> Schematic of this code?
->
-> 典型错误：4-bit 的 serial shift regs。因为 module 名称也具有误导性。
-> 
-> 正确答案：因为是阻塞赋值，其实是一个 A = E 的 1-bit DFF
-
-<!-- 太简单了，淘汰
-> QC:
-> ```verilog
-> module simple_moore_fsm(
->     input wire clk,
->     input wire rst_n,
->     input wire x,
->     output reg y
-> );
->     parameter S0 = 1'b0;
->     parameter S1 = 1'b1;
-> 
->     reg current_state, next_state;
-> 
->     always @(posedge clk or negedge rst_n) begin
->         if (!rst_n) current_state <= S0;
->         else        current_state <= next_state;
->     end
-> 
->     always @(*) begin
->         case (current_state)
->             S0: begin
->                 if (x) next_state = S1;
->                 else   next_state = S0;
->             end
->             S1: begin
->                 if (x) next_state = S1;
->                 else   next_state = S0;
->             end
->             default: next_state = S0;
->         endcase
->     end
-> 
->     always @(*) begin
->         case (current_state)
->             S0: begin
->                 if (x) y = 1'b1;
->                 else   y = 1'b0;
->             end
->             S1: begin
->                 if (x) y = 1'b0;
->                 else   y = 1'b1;
->             end
->             default: y = 1'b0;
->         endcase
->     end
-> 
-> endmodule
-> ```
->
-> 这段代码是 Moore FSM 还是 Mealy FSM？这段代码为什么是 Moore FSM?
->
-> 正确答案：Mealy FSM
-> 
-> 正确情况：Sonnet 3.5 对; o1-mini 对对, llama-3.1-405b / 3.3-70b 对对对对, 4oL-20250326 对, 3-opus 对, 2-flash-thinking 对; Gemini 2.5 Pro 对; v3-0324 错; stargazer 对
--->
-
-> Q: Write a Verilog-A model for a 12-input AND gate using a vector input.
-
-
+对于一些小众的代码问题详见个人的小众代码[测试集](NicheBench.md)
 
 #### 专业相关问题
 
@@ -1272,7 +481,6 @@ refactor to Cadence Virtuoso SKILL
 > Q: 4.5米, 6米, 20米长的竹竿能否通过高4米宽3米的门？Can poles of 4.5 meters, 6 meters, and 20 meters in length pass through a door 4 meters high and 3 meters wide? Omit the process and give the answer directly, for example, "Yes, No, Yes"          [ref](https://zhuanlan.zhihu.com/p/23434595912)
 >
 > 更简单的版本：6米长的队伍能不能通过高4米宽3米的门？ 
-> 
 >
 > 正确答案：都可以
 >
@@ -1300,11 +508,21 @@ refactor to Cadence Virtuoso SKILL
 > 1. 因为第一个1必是正号，所以其实就是通过五个1、两个4、一个5、一个8、两个9（所有数字不应全部用上）来加减得到个位是 4 的一个数字，可以凑 4 + 0 , 14 + 0, 24 + 0, 34 + 0, 44 + 0
 > 2. 
 > 
-> 
-> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能; o1 超时超时超时; o3-mini-high 超长思考后超时; Gemini 2.5 Pro 对
+> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能; o1 超时超时超时; o3-mini-high 超长思考后超时; Gemini 2.5 Pro 对对
 >
 > 本题可以充分测试 max output token (o3-mini 原生的 1M 确实是有用的)
 
+> Q: 0.4646018366... 这个无理数对应的符号表示结果是什么？例如 0.1415926... 的符号表示结果是 \pi-3。0.4646018366... 这个数据在我给你的有效位数内没有任何的四舍五入错误
+>
+> 正确答案： $\frac{5-\pi}{4}$
+>
+> 正确情况：Gemini 2.5 Pro 错错错; o3 错; o4-mini 错; grok-4 超时
+
+> Q: 2025 年 7 月 22 日的农历和 2003 年 7 月 27 日的农历是同一天吗？
+>
+> 正确答案：都是六月廿八
+>
+> 正确情况：Gemini 2.5 Pro 错错; o3 错
 
 > Q: $\left[ \mu C_{ox} \frac{W}{L_2} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{S2} - V_{TH2}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_D - V_{S2}}{V_T} \right) \right)=\left[ \mu C_{ox} \frac{W}{L_3} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{TH3}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_{S2}}{V_T} \right) \right)$ 除了 $V_{S2}$ 不知道，别的都已知，且 $V_{TH2}=V_{TH3}=V_{TH}$ ，求 $V_{S2}$
 >
@@ -1353,6 +571,8 @@ refactor to Cadence Virtuoso SKILL
 ## Agent 能力测试
 
 Q: 世界 500 强中的行业分布，搜索后做成 pie chart，同时提供一份 csv 表格，包含公司英文名、中文名、行业、Revenues 和 Profits
+
+Q: 用 mathjax 4 的版本构建一个在线数学编辑器
 
 ## 评测的小 ideas
 
