@@ -52,10 +52,9 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 加密原理 FlexLM → FlexNet
 
 
-- TerraWilly, 业内俗称"T神": [Github](https://github.com/TerraWilly), [EETOP](https://blog.eetop.cn/space-uid-1764513.html) (或[EETOP](https://blog.eetop.cn/willyterra))
-  - https://github.com/BinaryHackerLab
-  - TEAM_EFA@YAHOO.COM
-  - 但是貌似可能有两个 TEAM EFA？具体还没研究明白
+- TerraWilly, 业内俗称"T神": [Github](https://github.com/TerraWilly), [EETOP](https://blog.eetop.cn/space-uid-1764513.html), [看雪](https://bbs.kanxue.com/homepage-post-830221-1.htm); [TEAM_EFA](https://github.com/BinaryHackerLab)@YAHOO.COM 的重要成员，逆向专家，对 FlexNet 有着非常深的研究。~~从商业的角度建议 Flexera 年薪五百万给他聘过去~~
+  - [SynopsysLicenseMakerMod](https://bbs.eetop.cn/thread-985077-1-1.html)
+  - [SynopsysMonoSlayer](https://bbs.eetop.cn/thread-962956-1-1.html) [2](https://bbs.eetop.cn/thread-978013-9-1.html): 用于 Linux 平台下的 Synopsys
 - xbwpc: Github [repo](https://github.com/xbwpc/EDA_FeatureColle), [EETOP](https://blog.eetop.cn/856100)
   - scl_keygen 过时了，不再需要工具算号了；直接 patch，license 文件批量替换文本即可 [ref](https://bbs.eetop.cn/forum.php?mod=redirect&goto=findpost&ptid=983358&pid=11397884)
 - [open-CAD](https://bbs.eetop.cn/thread-863823-1-1.html)
@@ -70,6 +69,17 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
     - pubkey_java
 - https://alllicenseparser.com/engineering-db/flexlm/
 
+
+https://github.com/xpww
+
+```bash
+cd /eda/synopsys/scl/2024.09
+./pubkey_verify -y
+./synopsys_checksum -y
+./SynopsysMonoSlayer -a
+```
+
+
 破解的攻与防：
 
 拧巴和别扭的分享精神：请原谅我在这里用两个口语词汇，我实在是找不到更恰当的词语去形容这种分享精神了。EETOP 上分享者往往喜欢用 "$ynop$y$" "C家" "T$MC" 这种反 SEO 方式让自己不被搜索引擎索引。猜测可能是有两个目的，一是让 EETOP 可以活得久一点，不至于被告，这样大家可以
@@ -80,17 +90,26 @@ https://bbs.eetop.cn/thread-889064-1-60.html
 https://bbs.eetop.cn/thread-971651-1-8.html
 https://bbs.eetop.cn/thread-981512-1-18.html
 https://bbs.eetop.cn/thread-988224-1-35.html
+https://bbs.eetop.cn/thread-992392-1-1.html
 原来这里应该有个好东西：http://bbs.eetop.cn/thread-879031-1-1.html
 
 ## Installing
 
 至少使用 RHEL8.4 以上的 RHEL8 版本，安装 2025 版 EDA，正如 [Synopsys](https://www.synopsys.com/support/licensing-installation-computeplatforms/compute-platforms/compute-platforms-roadmap.html), [Cadence](https://www.cadence.com/en_US/home/support/computing-platform-support/support-road-map-2023x-2026x.html) 以及 [Calibre](https://calibre.mentorcloudservices.com/docs/Calibre_OS_Roadmap.htm) 要求的那样
 
-
+- Synopsys
+  - Synopsys Corporate Licensing (SCL), License Manager, https://bbs.eetop.cn/thread-985857-1-1.html
+  - VCS vW-2024.09-SP1: https://www.0daydown.com/06/2938634.html
+  - Verdi vW-2024.09-SP1: https://www.0daydown.com/06/2937248.html
 - Cadence
   - Virtuoso IC25.1 base: https://bbs.eetop.cn/thread-992365-1-1.html
   - Virtuoso IC23.1 base: https://bbs.eetop.cn/thread-951724-1-3.html; https://bbs.eetop.cn/thread-960760-1-2.html
   - Virtuoso IC23.1 ISR13: https://bbs.eetop.cn/thread-987799-1-3.html (ISR11: [1](https://bbs.eetop.cn/thread-985337-1-13.html))
-  - Virtuoso IC6.1.8 ISR36: https://bbs.eetop.cn/thread-991316-1-1.html (ISR34: [1](https://bbs.eetop.cn/thread-986436-1-27.html) [2](https://bbs.eetop.cn/thread-981601-1-21.html))
+  - Virtuoso IC6.1.8 ISR36: https://www.0daydown.com/03/2833851.html (ISR36: [0](https://bbs.eetop.cn/thread-991316-1-1.html) ISR34: [1](https://bbs.eetop.cn/thread-986436-1-27.html) [2](https://bbs.eetop.cn/thread-981601-1-21.html))
+  - EMX
+  - Xcelium 24.03.001: https://www.0daydown.com/08/2542782.html
 - Siemens
   - Calibre 2025_1_16: https://bbs.eetop.cn/thread-985333-1-1.html
+
+
+https://blog.csdn.net/weixin_43444334/article/details/147316674
