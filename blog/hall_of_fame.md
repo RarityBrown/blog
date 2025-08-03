@@ -16,12 +16,12 @@
 
 1. 模拟 IC 的圈子可以说是从 Physics / CS 之类起家的，近些年才细化的（edit: 现在觉得这句话废话，IC 总共发明也没 100 年）
 2. 查了一下祖师爷 Donald Pederson，才知道确实是个厉害的人物，可惜啊，反而近年来在普通学生群体中知名度挺低的，可能也和行业日新月异有关系吧。从成果上讲，说是模拟 EDA 领域第一人也不为过；从徒子徒孙上讲，那简直就是模拟 IC 的学界始祖
-3. 学校张rx老师说，Razavi 教得太好了，导致学生都不会思考了，所以学生都不怎么有名，好像也有道理😂；许h老师说 Razavi 的学生好像一直很少，有大把的时间和学生高强度讨论；小红书上甚至看到说 Razavi 最近心情不好，可能是研究没有进展😂
-4. Razavi 的学生 Jri Lee 李致毅老师在 [BiliBili](https://space.bilibili.com/1629031600) 和 YouTube 有账号，从繁体字评论推测 BiliBili 是本人在维护而不是转载。Academic Tree 中的信息更新不及时，现在李志毅在台大，Google 了一下发现老师好像有点涉嫌丑闻，不过台大目前还没处理，以及 Bilibili 账号仍在更新，我们可以认为其学术水平是没问题的。反而是 YouTube 账号可能因为这个原因，更新和评论情况都不如 BiliBili。唉，Schrödinger
+3. 有老师说，Razavi 教得太好了，导致学生都不会思考了，所以学生都不怎么有名，好像也有道理😂；还有老师说 Razavi 的学生好像一直很少，有大把的时间和学生高强度讨论；小红书上甚至看到说 Razavi 最近心情不好，可能是研究没有进展😂
+4. Razavi 的学生 Jri Lee 李致毅老师在 [BiliBili](https://space.bilibili.com/1629031600) 和 YouTube 有账号，是本人在维护而不是转载。Academic Tree 中的信息更新不及时，现在李致毅在台大，Google 了一下发现老师好像有点杂事，不过 Bilibili 账号至今仍在更新的，其学术水平毫无疑问是没问题的。反而是 YouTube 账号可能因为一些原因，更新和评论情况都不如 BiliBili。唉，Schrödinger
 5. 其他还知道的一些老师
-    1. 最左边写 gm/id 设计方法 2017 的 Murmann 老师，最近从 Stanford 到夏威夷大学取养老去了
+    1. 最左边写 gm/id 设计方法 2017 的 Murmann 老师，最近从 Stanford 到夏威夷大去养老去了
     2. 最右边最近去世的 Sansen 老师，Sansen 还有一本 *Circuit of Life* 的短篇自传，感觉老了以后读这篇自传感触会很深吧。又因为发现 Sansen 有唯一徒子的唯一徒孙是个华人名，一查，清本的，现在居然也是蹭上 AI 了，害
-    3. 因为一些~~不方便说~~的原因，彻底知道了中间位置 UCLA 的 Abidi，这样看来有机会和 Donald Pederson 扯上关系😂
+    3. 因为一些原因，彻底知道了中间位置 UCLA 的 Abidi，这样看来有机会和 Donald Pederson 扯上关系😂
   
 一个类似的网站是 Caltech 的 [Bruce A. Wooley - CHIC](https://chic.caltech.edu/genealogy/bruce-a-wooley/)，怎么把 Hajimiri 放这么上面，把 Razavi 放这么下面，哦原来就是 Hajimiri CHIC 课题组的网站，怪不得，笑死。不过这样的话为啥没把 Thomas Lee 给放进去
 
