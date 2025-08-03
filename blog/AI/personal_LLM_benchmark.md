@@ -53,6 +53,24 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 
 2025/07/05: 直至今日，所有 Agents 都还不堪大用。输入能力：context 能力、现场学习能力、视觉能力；输出能力：鼠标操作。
 
+2025/08/03：写在 GPT5 发布前夕。
+
+```mermaid
+radar-beta
+  axis logic["Logic (AGI ≈ 95% IMO)"], lk["Logic+Knowledge (AGI ≈ 95% HLE + SWE-bench + MMMU-Pro)"], k["Knowledge (AGI ≈ 95% SimpleQA)"]
+  axis e["Physical World Common Sense & Embodied Cognition (AGI ≈ 95% ARC-AGI-1/2/3 + ?)"]
+  axis Long["Long-term Memory & Planning (AGI ≈ ?)"]
+  axis Le["Real-time, on-site, few-shot learning ability (AGI ≈ ?)"]
+  axis La["Real-life language ability: replying to IM messages, socializing, joke telling (AGI ≈ ?)"]  %% https://arxiv.org/pdf/2405.20956
+
+  curve Experts["SOTA Human Experts"]{90, 90, 90, 90, 90, 90, 90}
+  curve LLM["Current SOTA LLMs (estimation for GPT5)"]{80, 40, 50, 20, 10, 25, 10}
+  curve Average["Average Human"]{20, 20, 20, 75, 60, 50, 85}
+
+  max 100
+  min 0
+```
+
 ### QC 系列
 
 - 加入 QC (Question with Critical Thinking, 题目就是错的
@@ -119,12 +137,17 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 >
 > 参考答案：
 > 
-> 1. 脑筋急转弯、谜语、双关；
-> 2. 纯语言难以理解的、必须用到多模态的问题
->     - 视觉：文本视觉模式识别 (Look-and-say sequence), 竹竿问题, 用 tikz, svg, python 等画图
+> 1. 脑筋急转弯、谜语、双关、笑话；
+> 2. 可纯文本描述但是难以理解，对于人类来说需用到多模态的问题
+>     - 视觉、空间知觉：
+>       - 2D
+>         - 文本视觉模式识别 (Look-and-say sequence)
+>         - 用 tikz, svg, python, ASCII 等画图
+>         - 纯文本描述的数独、棋类
+>         - ARC-AGI
+>       - 3D
+>         - 竹竿问题
 >     - 听觉: 发音, 谐音梗, 双语笑话
-> 
-> 正确情况：Gemini 2 Pro 基本上是 SOTA
 
 ### 知识问题（类似于 SimpleQA ）
 
@@ -163,9 +186,11 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Paul R. Gray, Thomas Lee, Bob Pease, Murmann, Willy 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
 >
 > 参考答案：
-> 
+>
+> - General
+>   - Pat Pistilli
 > - Analog:
->   - **Donald O. Pederson (SPICE)**
+>   - Donald O. Pederson (SPICE)
 >   - Laurence(Larry) Nagel (SPICE)
 >   - Arthur Richard Newton (SPICE)
 >   - Ronald A. Rohrer (SPICE)
@@ -185,7 +210,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >   - Robert K. Brayton
 >   - Ernest S. Kuh (葛守仁)
 > 
-> 其中加粗项为必答项，其他项有提到一两个且没有提到 Razavi, Moore 等离谱答案则可以认为正确
+> 没有提到 Razavi, Moore 等离谱答案则可以认为正确 https://wadmes.github.io/2019/12/11/EDA-family-tree/
 >
 > Q 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错错; Kingfall 对
 
@@ -369,7 +394,13 @@ TSMCHOME/
 >
 > 正确答案：pass@1: 33%, 49%, 62.3%, 72.7%; thinking: N/A, N/A, 70.3%, 80.2%
 
-半开放问题：
+> Q: TSMC 28nm price @ europractice in 2025? Just tell me how much for only 1 square millimeter. And answer within 100 words. I’m absolutely sure you can get the answer without email or online price calculator.
+>
+> 正确答案：[€10609](https://europractice-ic.com/schedules-prices-2025/)
+
+
+
+**半开放问题：**
 
 > Q: I want to create something similar to Cadence Virtuoso ViVA. Which one should I use among ECharts with lttb, Plotly.js, or uPlot?
 >
@@ -431,14 +462,12 @@ TSMCHOME/
 > 正确情况： o1 对; 3-opus 半对; Gemini 2.5 Pro 对; Sonnet 3.7 对对; R1-0528 对
 -->
 
-<!-- 太简单了，淘汰
 > QC: 理想 LC 的 τ 是什么？一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。
 > What is the τ of an ideal LC? What is the natural frequency of a first-order RC low-pass filter (not the cutoff frequency)? Answer in under 30 words total.
 >
 > 正确答案：没有、没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统；因为 natural frequency 适用于 second-order LTI
 >
 > 正确情况：GPT4.5 对; Sonnet 3.7 错; Sonnet 4 对
--->
 
 > Q: NMOS 弱反型区电流公式？（不要在最终结果中带 $I_{d0}$ 或 $I_S$ ，写在 latex code block 中）
 >
@@ -456,13 +485,11 @@ TSMCHOME/
 >
 > 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
 
-<!-- 太简单了，淘汰
 > Q: NMOS + 一个电阻的 source follower 的 $A_{V_{DD}}$ 是多少？不考虑体效应，但是考虑 CLM
 >
 > 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$ 或 $\frac{g_{ds}}{g_m+g_{ds}+\frac{1}{R_S}}$
 >
 > 正确情况：o3-mini-high 对错; Gemini 2.5 Pro 对; Grok3 对
--->
 
 > Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
 >
@@ -572,7 +599,18 @@ TSMCHOME/
 
 Q: 世界 500 强中的行业分布，搜索后做成 pie chart，同时提供一份 csv 表格，包含公司英文名、中文名、行业、Revenues 和 Profits
 
-Q: 用 mathjax 4 的版本构建一个在线数学编辑器
+Q: 用 mathjax 4 的版本构建一个在线数学编辑器，展示一些新支持的功能
+
+Q: 以下这些总共 7 个股票，给我他们五个五年（即 2025-2020 ... 2005-2000）和五个三年的增长率以及减掉各自大盘的增长率。做成可视化。
+
+| 公司 (Company)                      | 国家/地区 (Country) | 主要交易所 (Primary Exchange)     | 主要代码 (Primary Ticker) | 主要指数 (Major Indices) | 美股交易所 (US Exchange) | 美股代码 (US Ticker) |
+| :---------------------------------- | :------------------ | :-------------------------------- | :------------------------ | :----------------------- | :----------------------- | :------------------- |
+| **施耐德电气 (Schneider Electric)** | 法国 🇫🇷             | 泛欧交易所巴黎站 (Euronext Paris) | **SU.PA**                 | CAC 40, EURO STOXX 50    | OTC (场外交易)           | **SBGSY** (ADR)      |
+| **西门子 (Siemens)**                | 德国 🇩🇪             | 法兰克福证交所 (Xetra)            | **SIE.DE**                | DAX, EURO STOXX 50       | OTC (场外交易)           | **SIEGY** (ADR)      |
+| **ABB**                             | 瑞士 🇨🇭             | 瑞士证交所 (SIX Swiss Exchange)   | **ABBN.SW**               | SMI (Swiss Market Index) | **NYSE** (纽交所)        | **ABB** (普通股)     |
+| **伊顿 (Eaton)**                    | 爱尔兰/美国 🇮🇪/🇺🇸   | **NYSE** (纽约证交所)             | **ETN**                   | S&P 500, S&P 100         | **NYSE** (纽交所)        | **ETN** (普通股)     |
+
+哦对，另外再加一个科华数据
 
 ## 评测的小 ideas
 
