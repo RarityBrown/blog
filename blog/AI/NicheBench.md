@@ -599,21 +599,24 @@ Output Waveform Specifications: V_HIGH: 1.0 V; V_LOW: 0.0 V; Rise Time: 50 ps; F
 <details>
 <summary>基础知识 + 普通前端代码</summary>
 
-  
+
+###### 物理模拟
+
+- 画一个 2 阶 RC 低通滤波器的电路图和频响图 Draw the schematic and frequency response (mag & phase) of a 2nd order RC low-pass filter. Make it interactive.
+- 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
+- An interactive s-plane where left-clicking adds poles (for a physically realizable system, if poles are not real, they should be automatically added in conjugate pairs), and right-clicking adds zeros. The s-plane uses log-log coordinate axes (tick marks use engineering notation, e.g., 1k, 2k, 1M, 1G) to represent the real and imaginary parts. Plot the frequency response H(jω) in real-time (including magnitude response, phase response, DC gain, GBW, phase margin, and other information).
+- Smith chart, polar coordinates charts (Γ Plane and Impedance Plane), Cartesian coordinates charts (Γ Plane and Impedance Plane) one-to-one interactive correspondence + contour, with real-time incident and reflected wave demonstration.      An interactive Smith chart explorer with corresponding polar and Cartesian charts with contours for both the Γ plane and impedance plane. The charts should be synchronized one-to-one. Plus real-time incident and reflected wave demonstration.
+- An interactive phase array demo
+
+- An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
+- Simulate the movement of multiple positive and negative charged particles within a square, with an electric field pointing to the right and a magnetic field pointing into the screen. The interaction forces between each particle need to be considered.
+- Build a real-time microphone spectrum visualizer, with historical data also displayed. Use color as intensity, with one axis being frequency and the other being time. Place the historical maximum, sub-maximum, current maximum, and sub-maximum values in real-time on the plane. And add a 3d chart side by side, use z axis to represent the intensity instead of color, x and y as frequency and time without three.js.
 
 
+###### 普通开发
 
-> Q: 画一个 2 阶 RC 低通滤波器的电路图和频响图 Draw the schematic and frequency response (mag & phase) of a 2nd order RC low-pass filter. Make it interactive.
-
-> Q: 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
-
-> Q: A circuit schematic editor. Use key `i` to new an instance choosing dialog. The symbol of the circuit component should be drawn correctly
-
-> Q: An interactive s-plane where left-clicking adds poles (for a physically realizable system, if poles are not real, they should be automatically added in conjugate pairs), and right-clicking adds zeros. The s-plane uses log-log coordinate axes (tick marks use engineering notation, e.g., 1k, 2k, 1M, 1G) to represent the real and imaginary parts. Plot the frequency response H(jω) in real-time (including magnitude response, phase response, DC gain, GBW, phase margin, and other information).
-
-> Q: Smith chart, polar coordinates charts (Γ Plane and Impedance Plane), Cartesian coordinates charts (Γ Plane and Impedance Plane) one-to-one interactive correspondence + contour, with real-time incident and reflected wave demonstration.      An interactive Smith chart explorer with corresponding polar and Cartesian charts with contours for both the Γ plane and impedance plane. The charts should be synchronized one-to-one. Plus real-time incident and reflected wave demonstration.
-
-> Q: A replica of wavedrom in D3.js (real-time rendering + syntax highlighting for code)
+- A replica of wavedrom in D3.js (real-time rendering + syntax highlighting for code)
+- A circuit schematic editor. Use key `i` to new an instance choosing dialog. The symbol of the circuit component should be drawn correctly
 
 > Q: 
 Build a replica of cadence virtuoso viva using D3.js
@@ -623,24 +626,32 @@ Build a replica of cadence virtuoso viva using D3.js
 4. right-click to set each axis (log, linear, etc.), and to set line styles (thickness, etc.) should be supported. 
 5. performance optimization for millions of data points
 
-
-
-> Q: An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
-
-> Q: Simulate the movement of multiple positive and negative charged particles within a square, with an electric field pointing to the right and a magnetic field pointing into the screen. The interaction forces between each particle need to be considered.
-
-> Q: Build a real-time microphone spectrum visualizer, with historical data also displayed. Use color as intensity, with one axis being frequency and the other being time. Place the historical maximum, sub-maximum, current maximum, and sub-maximum values in real-time on the plane. And add a 3d chart side by side, use z axis to represent the intensity instead of color, x and y as frequency and time without three.js.
-
-> Q: Build a plotting app to draw the graph of Math.random(x)*(Math.sin(x) + Math.random(x)), with a total of 20,000 points, where x in [0,50), refreshing the random data every 5 seconds. Time and display how long it takes to refresh the data and redraw the plot each time. Supports cursor-centric zoom on the x-axis using the mouse wheel, with no zoom on the y-axis. Choose any plot lib you'd like, the only goal is to be fast. > NOTE: For accurate timing, measure the full operation. Since some UI updates are asynchronous, stop the timer in a completion callback or post-render hook, not immediately after the dispatch call. This avoids measuring only the initial synchronous task, capturing the true, user-experienced duration from start to final render. Meanwhile, use a red and a green light to indicate the start and completion of rendering for user confirmation.
-
 > Q: A full-size keyboard tester. Once a key is pressed, the corresponding virtual key permanently changes color to indicate it is working, rather than temporarily highlighting.
-
-> Q: Draw svg of transmission gate in mosfets and symbol without any fancy ui or color, without further introduction, so just two simple svgs.
 
 > Q: 帮我把这个改一些不兼容的语法后，部署一下，要求和原来完全保持一致    https://observablehq.com/@mbostock/smith-chart
 
 
-> Q: 
+
+
+##### 库的使用
+
+<details>
+<summary>库的使用</summary>
+
+
+- A modern browser technology playground: Showcase all emerging, fancy, modern browser technologies. Do not consider compatibility issues at all.
+- A *minimalistic* milkdown (a **WYSIWYG** markdown editor) demo      or: vditor
+- A simple mathjax v3 CHTML demo with ams macros and physics macros enabled.
+- MathJax vs KaTeX Renderer side by side, with a syntax highlight latex input box. **Enable the `physics` package in mathjax.**
+- 2x2 layout: mathlive + latex code editor (with syntax highlight); mathjax + katex (to compare the rendered output). Enable all the possible packages for mathjax and katex. For instance, enable the `physics` package in mathjax.
+- An interactive jsPDF + PDF.js pdf preview + iframe pdf preview demo
+- An interactive GoJS + GSAP demo
+- A real-time rendering mermaid diagram demo with a syntax highlighting code editor
+- A demo for Shiki vs Prism.js vs Highlight.js side by side with minimalistic UI. I'm mainly looking at the actual comparison demo between the three, not superficial things like comparison tables or comparison section. Language: Verilog, tcl and lisp, with a code input area where users can modify the code or the code types. Dark theme + light theme, unify the syntax highlighting scheme.
+- A minimalistic LaTeX syntax highlighting demo using monaco and @shikijs/monaco
+- Editor Playground to try out Monaco, CodeMirror and Ace editor side by side. Sync the code among the three. Dark theme + light theme. It would be best to unify the syntax highlighting scheme and font size in the editor.
+- Build a plotting app to draw the graph of Math.random(x)*(Math.sin(x) + Math.random(x)), with a total of 20,000 points, where x in [0,50), refreshing the random data every 5 seconds. Time and display how long it takes to refresh the data and redraw the plot each time. Supports cursor-centric zoom on the x-axis using the mouse wheel, with no zoom on the y-axis. Choose any plot lib you'd like, the only goal is to be fast. > NOTE: For accurate timing, measure the full operation. Since some UI updates are asynchronous, stop the timer in a completion callback or post-render hook, not immediately after the dispatch call. This avoids measuring only the initial synchronous task, capturing the true, user-experienced duration from start to final render. Meanwhile, use a red and a green light to indicate the start and completion of rendering for user confirmation.
+
 
 ```tsx
 // src/App.tsx
@@ -712,25 +723,6 @@ katex 的 `mhchem` 没有生效，现在显示的 `\ce` 是红色的报错模式
 
 </details>
 
-##### 库的使用
-
-<details>
-<summary>库的使用</summary>
-
-  
-
-
-> Q: A modern browser technology playground: Showcase all emerging, fancy, modern browser technologies. Do not consider compatibility issues at all.
-
-> Q: A simple mathjax v3 CHTML demo with ams macros and physics macros enabled.
-
-> Q: 2x2 layout: mathlive + latex code editor (with syntax highlight); mathjax + katex (to compare the rendered output). Enable all the possible packages for mathjax and katex. For instance, enable the `physics` package in mathjax.
-
-> Q: MathJax vs KaTeX Renderer side by side, with a syntax highlight latex input box. **Enable the `physics` package in mathjax.**
-
-> Q: Editor Playground to try out Monaco, CodeMirror and Ace editor side by side. Sync the code among the three. Dark theme + light theme. Language: LaTeX (with syntax highlighting)
-
-
 ###### WebGL & WebGPU
 
 > Q: Four WebGL demos arranged in a 2x2 grid. The top row contains 2D WebGL demos: on the left, a @react-three demo; on the right, a pure WebGL demo. The bottom row contains 3D WebGL demos: on the left, aa @react-three demo; on the right, a pure WebGL demo.
@@ -747,11 +739,12 @@ An interactive test page comparing the rendering performance of WebGPU and WebGL
 <details>
 <summary>纯 UI 展示</summary>
 
-> Q: Bing replica
-
-> Q: An online office word
-
-> Q: A hex (binary) editor
+- Bing replica
+- An online office word
+- A hex (binary) editor
+- Draw svg of transmission gate in mosfets and symbol without any fancy ui or color, without further introduction, so just two simple svgs.
+- Build an interactive 3D bicycle (not a rotating 2D model. I want a real 3D model with thickness.)
+- Build an interactive planar MOSFET 3d model with 2 fingers
 
 </details>
 
