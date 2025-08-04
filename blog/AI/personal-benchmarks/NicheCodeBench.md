@@ -1,4 +1,4 @@
-## My Personal Niche (Programming) Language Benchmark
+## My Personal Niche Programming Language Benchmark
 
 Including:
 
@@ -606,7 +606,7 @@ Output Waveform Specifications: V_HIGH: 1.0 V; V_LOW: 0.0 V; Rise Time: 50 ps; F
 - 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
 - An interactive s-plane where left-clicking adds poles (for a physically realizable system, if poles are not real, they should be automatically added in conjugate pairs), and right-clicking adds zeros. The s-plane uses log-log coordinate axes (tick marks use engineering notation, e.g., 1k, 2k, 1M, 1G) to represent the real and imaginary parts. Plot the frequency response H(jω) in real-time (including magnitude response, phase response, DC gain, GBW, phase margin, and other information).
 - Smith chart, polar coordinates charts (Γ Plane and Impedance Plane), Cartesian coordinates charts (Γ Plane and Impedance Plane) one-to-one interactive correspondence + contour, with real-time incident and reflected wave demonstration.      An interactive Smith chart explorer with corresponding polar and Cartesian charts with contours for both the Γ plane and impedance plane. The charts should be synchronized one-to-one. Plus real-time incident and reflected wave demonstration.
-- An interactive phase array demo
+- An interactive phased array demo
 
 - An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
 - Simulate the movement of multiple positive and negative charged particles within a square, with an electric field pointing to the right and a magnetic field pointing into the screen. The interaction forces between each particle need to be considered.
@@ -743,8 +743,8 @@ An interactive test page comparing the rendering performance of WebGPU and WebGL
 - An online office word
 - A hex (binary) editor
 - Draw svg of transmission gate in mosfets and symbol without any fancy ui or color, without further introduction, so just two simple svgs.
-- Build an interactive 3D bicycle (not a rotating 2D model. I want a real 3D model with thickness.)
-- Build an interactive planar MOSFET 3d model with 2 fingers
+- An interactive 3D bicycle (not a 2D model in 3D space. I want a real 3D bicycle with thickness.)   ref: https://ciechanow.ski/bicycle/
+- An interactive planar MOSFET 3d model with 2 fingers
 
 </details>
 
