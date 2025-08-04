@@ -65,9 +65,11 @@ radar-beta
   min 0
 ```
 
-2025/08/04: 自己 2025/08/03 (Jagged Performance) 和 2024/11/21 (替代难度) 两个想法和 Jason Wei [不谋而合](https://youtu.be/twXsAiTINO0)还是很高兴的。但是 2025/02/07 这个小众语料的预测应该是和 OpenAI 相反了，OpenAI 内部应该还是[重视](https://youtu.be/twXsAiTINO0?t=2131)这些的。另外，我今天才知道 Jason Wei 是 SimpleQA 和 BrowseComp 这两个我很欣赏的 benchmark 的一作。
+2025/08/04: 自己 2025/08/03 (Jagged Performance) 和 2024/11/21 (替代难度) 两个想法和 Jason Wei [不谋而合](https://youtu.be/twXsAiTINO0)还是很高兴的。但是 2025/02/07 这个小众语料的预测应该是和 OpenAI 相反了，OpenAI 内部应该还是[重视](https://youtu.be/twXsAiTINO0?t=2131)这些的。[asymmetry of verification](https://www.jasonwei.net/blog/asymmetry-of-verification-and-verifiers-law) 这个观点是我之前完全没有想到的，之前只想到了 verification，没想到 asymmetry。另外，我今天才知道 Jason Wei 是 SimpleQA 和 BrowseComp 这两个我很欣赏的 benchmark 的一作。
 
-2025/08/05: 看来泛化能力只是一个美化的谎言，2025 年 OpenAI 还是官方钦定英语 Benchmark 效果[最好](https://youtu.be/twXsAiTINO0?t=1864)。Chinese 的数据点很特殊，不知道为什么。
+2025/08/05: 看来泛化能力只是一个美化的谎言，2025 年 OpenAI 还是官方钦定英语 Benchmark 效果[最好](https://youtu.be/twXsAiTINO0?t=1864)；Chinese 的数据点很特殊，不知道为什么。昨天小众语料的想法也是这个的体现。
+
+2025/08/05：又想到了这个 2025/03/06 的 FoM 值问题。模型总参数量、激活参数量、总输出长度、并行推理个数 这四个数据可以推出所谓的模型 "推理 Benchmark FoM"；再加上训练数据量应该可以推出 "训练 FoM"
 
 ## 评测的小 ideas
 
