@@ -19,6 +19,45 @@ hiSetBindKey("Schematics" "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow()
 hiSetBindKey("Layout"     "<Btn4Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 1.25)")
 hiSetBindKey("Layout"     "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 0.8)")
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;; layout bindkey ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+hiSetBindKey("Layout"     "F1"           "if( geGetSelSet() then geHiSetSelProtectionEF() else geHiUnsetSelProtectionEF() )")
+
+procedure(MyMoveSelected(deltax deltay)     ; ref: https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/36295/bindkey-to-move-selected-object
+  let((xform)
+    xform = list(deltax:deltay "R0" 1)
+    foreach(obj geGetSelSet() dbMoveFig(obj nil xform))    ; Don't move the fig, if the selected obj is label pin. Bacause the label will move with the path, and this for loop will move pins twice. 
+  )
+)
+procedure( movingUnit()
+  let( ( ( windowId hiGetCurrentWindow() ) bBox width )
+    bBox = hiGetViewBBox( windowId )
+    width = xCoord( upperRight( bBox ) ) - xCoord( lowerLeft( bBox ) )
+
+    (cond
+      ((lessp width 16) 0.005)  ; todo, get the real grid width
+      ((lessp width 80) 0.01)
+      ((lessp width 160) 0.05)
+      ((lessp width 320) 0.2)
+      ((lessp width 640) 0.4)
+      (t 1.0)
+    )
+  )
+)
+hiSetBindKey("Layout" "Left"  "MyMoveSelected(-10*movingUnit() 0)")
+hiSetBindKey("Layout" "Right" "MyMoveSelected(10*movingUnit() 0)")
+hiSetBindKey("Layout" "Up"    "MyMoveSelected(0 10*movingUnit())")
+hiSetBindKey("Layout" "Down"  "MyMoveSelected(0 -10*movingUnit())")
+hiSetBindKey("Layout" "Ctrl<Key>Left"  "MyMoveSelected(-movingUnit() 0)")
+hiSetBindKey("Layout" "Ctrl<Key>Right" "MyMoveSelected(movingUnit() 0)")
+hiSetBindKey("Layout" "Ctrl<Key>Up"    "MyMoveSelected(0 movingUnit())")
+hiSetBindKey("Layout" "Ctrl<Key>Down"  "MyMoveSelected(0 -movingUnit())")
+
+
+
 ; hidKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/user/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
 ; hidKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
 ; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
