@@ -25,11 +25,14 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 
 另一个和传统软件行业不同的是，EDA 的用户侧对新版的追求非常不强烈。2016 年版的 EDA 软件有大把人还在用，而十年前 to C 的软件到现在是基本上不可用的状态。
 
+在 EDA 开发者看来，软件实现功能以支持 tapeout 比可维护性更重要，最近看到一个 ADI 开源的 [Verilog-A Model Rule Enforcer](https://github.com/analogdevicesinc/vampyre)，整个一个 8000 行的 python 来解决。不过虽说是 ADI，其实也只有一个 Geoffrey Coram 老工程师在单打独斗。
+
+
+
 一些观点和视角：
 
 - 开发者视角：当一个持有 Open Source 精神和关注 UX 的开发者进入 EDA 圈子，最终却是离去：详见 [Digital-IDE](https://github.com/Digital-EDA/Digital-IDE) 开发者的[感悟](https://www.zhihu.com/question/1890410020828575085/answer/1917651711587230283)
 - 学术界视角：Are open source digital design flows ready for mainstream? by Frank K. Gürkaynak, ETH Zürich. [slide](https://mos-ak.org/bruges_2024/publication/8_Gurkaynak_ESSERC_2024_ETHZ_pulp.pdf)
-
 
 ## Domestic EDAs
 
