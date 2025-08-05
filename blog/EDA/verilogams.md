@@ -6,7 +6,7 @@ Docs:
 - [Verilog-A/MS — Documentation](https://verilogams.com/index.html)
 - [Download Verilog-AMS (Analog/Mixed-Signal) - Accellera Systems Initiative](https://www.accellera.org/downloads/standards/v-ams)
 - Cadence Verilog-AMS Language Reference (`verilogamsref.pdf`)
-
+- [dwarning/VA-Models: Verilog-A simulation models](https://github.com/dwarning/VA-Models)
 
 ### A simple digital stimulus written in Verilog-AMS
 
