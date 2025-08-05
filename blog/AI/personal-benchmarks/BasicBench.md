@@ -2,7 +2,8 @@
 
 考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
 
-同时，在平时使用过程中，收集选择一些截至 2025 年 6 月的第一梯队 LLM (GPT4.5; Gemini 2.5 Pro, Opus 4 thinking, o3, o4-mini-high, R1-0528) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
+同时，在平时使用过程中，收集选择一些第一梯队 LLM (GPT-5, Gemini 2.5 Pro, Opus 4 thinking, Grok 4) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分，edit: 结果没一个满分，栽在图形上了)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
+
 
 
 ### QC 系列
@@ -86,6 +87,9 @@
 ### 知识问题（类似于 SimpleQA ）
 
 LLM without RAG 可能答对，LLM with RAG 几乎必对
+
+考虑到 SimpleQA 已经存在数据集泄露或过拟合的[情况](https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507/discussions/4)，自建类 SimpleQA 数据集还是非常有意义的，比如 [ACG-SimpleQA](https://github.com/prnake/ACG-SimpleQA)
+
 
 > Q: 上海四校八大？
 >
