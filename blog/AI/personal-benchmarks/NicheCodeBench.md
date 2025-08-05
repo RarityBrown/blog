@@ -606,8 +606,8 @@ Output Waveform Specifications: V_HIGH: 1.0 V; V_LOW: 0.0 V; Rise Time: 50 ps; F
 - 二阶系统阶跃响应减幅振荡示意图，同时画出系统 bode 图。把 Damping Ratio (ζ) 和 Natural Frequency (ωn) 做成可调的。用 mathjax 实时显示系统函数
 - An interactive s-plane where left-clicking adds poles (for a physically realizable system, if poles are not real, they should be automatically added in conjugate pairs), and right-clicking adds zeros. The s-plane uses log-log coordinate axes (tick marks use engineering notation, e.g., 1k, 2k, 1M, 1G) to represent the real and imaginary parts. Plot the frequency response H(jω) in real-time (including magnitude response, phase response, DC gain, GBW, phase margin, and other information).
 - Smith chart, polar coordinates charts (Γ Plane and Impedance Plane), Cartesian coordinates charts (Γ Plane and Impedance Plane) one-to-one interactive correspondence + contour, with real-time incident and reflected wave demonstration.      An interactive Smith chart explorer with corresponding polar and Cartesian charts with contours for both the Γ plane and impedance plane. The charts should be synchronized one-to-one. Plus real-time incident and reflected wave demonstration.
-- An interactive phased array demo
-
+- An interactive phased array demo.
+- An **interactive** demo for **principles** of BLDC and PMSM. So having only fancy animations is not enough and lengthy theoretical text is useless.
 - An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
 - Simulate the movement of multiple positive and negative charged particles within a square, with an electric field pointing to the right and a magnetic field pointing into the screen. The interaction forces between each particle need to be considered.
 - Build a real-time microphone spectrum visualizer, with historical data also displayed. Use color as intensity, with one axis being frequency and the other being time. Place the historical maximum, sub-maximum, current maximum, and sub-maximum values in real-time on the plane. And add a 3d chart side by side, use z axis to represent the intensity instead of color, x and y as frequency and time without three.js.
@@ -651,7 +651,8 @@ Build a replica of cadence virtuoso viva using D3.js
 - A minimalistic LaTeX syntax highlighting demo using monaco and @shikijs/monaco
 - Editor Playground to try out Monaco, CodeMirror and Ace editor side by side. Sync the code among the three. Dark theme + light theme. It would be best to unify the syntax highlighting scheme and font size in the editor.
 - Build a plotting app to draw the graph of Math.random(x)*(Math.sin(x) + Math.random(x)), with a total of 20,000 points, where x in [0,50), refreshing the random data every 5 seconds. Time and display how long it takes to refresh the data and redraw the plot each time. Supports cursor-centric zoom on the x-axis using the mouse wheel, with no zoom on the y-axis. Choose any plot lib you'd like, the only goal is to be fast. > NOTE: For accurate timing, measure the full operation. Since some UI updates are asynchronous, stop the timer in a completion callback or post-render hook, not immediately after the dispatch call. This avoids measuring only the initial synchronous task, capturing the true, user-experienced duration from start to final render. Meanwhile, use a red and a green light to indicate the start and completion of rendering for user confirmation.
-
+- A minimalistic KaTeX demo with `mhchem` enabled.
+  - 正确情况：opus-4 都不行，让我很震惊。看来 Agent 确实是必经之路。
 
 ```tsx
 // src/App.tsx
@@ -721,16 +722,18 @@ katex 的 `mhchem` 没有生效，现在显示的 `\ce` 是红色的报错模式
 
 正确答案：`import 'katex/dist/contrib/mhchem.mjs';`
 
+
+
 </details>
 
 ###### WebGL & WebGPU
 
-> Q: Four WebGL demos arranged in a 2x2 grid. The top row contains 2D WebGL demos: on the left, a @react-three demo; on the right, a pure WebGL demo. The bottom row contains 3D WebGL demos: on the left, aa @react-three demo; on the right, a pure WebGL demo.
+- An interactive (adjustable input points for FFT, configurable zero-padding, configurable input waveform, etc.) 1D FFT demo using WebGPU. Display performance metrics.
+  - 2d ref: https://barthpaleologue.github.io/Blog/posts/ocean-simulation-webgpu/
+- Four WebGL demos arranged in a 2x2 grid. The top row contains 2D WebGL demos: on the left, a @react-three demo; on the right, a pure WebGL demo. The bottom row contains 3D WebGL demos: on the left, aa @react-three demo; on the right, a pure WebGL demo.
 An interactive test page comparing the rendering performance of WebGPU and WebGL2. Demands a certain pressure on gpu; don't have both tests come out at 60 fps.
-
-> Q: An interactive test page comparing the rendering performance of WebGPU and WebGL2. Demands a certain pressure on gpu; don't have both tests come out at 60 fps.
-
-> Q: Wrap a multi-page PDF onto an ellipsoid, and let the user scroll through the PDF in real time with the mouse wheel instead of scaling the ellipsoid.
+- An interactive test page comparing the rendering performance of WebGPU and WebGL2. Demands a certain pressure on gpu; don't have both tests come out at 60 fps.
+- Wrap a multi-page PDF onto an ellipsoid, and let the user scroll through the PDF in real time with the mouse wheel instead of scaling the ellipsoid.
 
 </details>
 
