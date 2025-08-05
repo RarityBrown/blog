@@ -101,7 +101,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 <summary>可简单验证问题</summary>
 
 
-##### 普通问题
+##### 英文普通问题
 
 - The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
   - 正确答案：`project compileoutofdate`    (典型错误：`vlog -work work +acc=r *.v`)
@@ -130,6 +130,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确情况：Gemini 2.5 Pro w Google 对
 - Can the latest version of gemini-cli read audio, pdf and docx files (not talking about gemini api, but gemini-cli)? answer within 50 words.
   - 正确答案：yes, yes, no
+
+##### 中文普通问题
 
 
 
@@ -164,7 +166,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 ##### 能不能搜到
 
-这类问题 Google 会很占优势
+这类问题 Google 会很占优势。比如在 Qwen-Image 发布半小时内搜索，Gemini 2.5 Pro 就显著比 o3, opus-4 好。
 
 ##### 普通问题
 
