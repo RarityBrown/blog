@@ -18,6 +18,6 @@ gpt-oss 的发布，从硬件角度讲，我个人认为最关键的是 MXFP4。
 
 以下是一些观点：
 
-- Huawei 别说追上 Nvidia，距离 AMD 还有不少距离
-- 现在 OpenAI 等企业的话语权已经可以深入到 Microsoft, Nvidia, AMD 等公司的 spec 定义阶段了，所以 IC 本质上还是做他人嫁衣啊
+- Huawei 别说追上 Nvidia，距离 [AMD](https://huggingface.co/amd/DeepSeek-R1-MXFP4-Preview) 还有不少距离。当然，我个人认为 TSMC 不给代工仍然是造成这个距离的主要原因。
+- 现在 OpenAI 等企业的话语权已经可以深入到 Microsoft, Nvidia, AMD 等公司的 GPU spec 定义阶段了，所以 IC 本质上还是做他人嫁衣啊
 - MXFP4 的[标准](https://www.opencompute.org/documents/ocp-microscaling-formats-mx-v1-0-spec-final-pdf)也不是 IEEE 最先确定了，而是 opencompute 来决定了。FP8 这个故事已经发生过一次了，有一点互联网思维战胜硬件工程师思维的感觉。
