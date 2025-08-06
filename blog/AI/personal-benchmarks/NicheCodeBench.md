@@ -746,8 +746,12 @@ An interactive test page comparing the rendering performance of WebGPU and WebGL
 - An online office word
 - A hex (binary) editor
 - Draw svg of transmission gate in mosfets and symbol without any fancy ui or color, without further introduction, so just two simple svgs.
-- An interactive 3D bicycle (not a 2D model in 3D space. I want a real 3D bicycle with thickness.)   ref: https://ciechanow.ski/bicycle/
+- An interactive 3D bicycle (not a 2D model in 3D space. I want a real 3D bicycle with thickness.)                 ref: https://ciechanow.ski/bicycle/
+- An interactive SVG introduction. Unlike raster images, SVGs can be embedded directly into HTML, allowing their elements, such as <circle> and <rect>, to be styled and animated with CSS and JavaScript. The guide explains fundamental shapes and emphasizes using the viewBox attribute to ensure graphics are truly scalable. It also demonstrates how to use presentational attributes like stroke and stroke-dasharray to create dynamic effects, such as self-drawing animations, making it a powerful tool for web development.                   ref: https://www.joshwcomeau.com/svg/friendly-introduction-to-svg/
 - An interactive planar MOSFET 3d model with 2 fingers
+
+also demonstrates how to use presentational attributes like stroke and stroke-dasharray to create dynamic effects, such as self-drawing animations, making it a powerful tool for web development.
+
 
 </details>
 
