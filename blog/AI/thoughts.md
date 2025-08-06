@@ -50,12 +50,15 @@ OpenAI 的 Operator 和 Deep Research 从目前的能力上来看还是做题，
 2025/08/03：写在 GPT5 发布前夕。
 
 ```mermaid
+---
+title: "Benchmarks that can be output as text"
+---
 radar-beta
-  axis logic["Logic (AGI ≈ 95% IMO)"], lk["Logic+Knowledge (AGI ≈ 95% HLE + SWE-bench + MMMU-Pro)"], k["Knowledge (AGI ≈ 95% SimpleQA)"]
-  axis e["Physical World Common Sense & Embodied Cognition (AGI ≈ 95% ARC-AGI-1/2/3 + ?)"]
+  axis logic["Logic (AGI ≈ 95% IMO)"], lk["Logic+Knowledge (AGI ≈ 95% HLE + MMMU-Pro + SciCode + terminal-bench)"], k["Knowledge (AGI ≈ 95% SimpleQA)"]
+  axis e["Physical World Common Sense & Embodied Cognition (AGI ≈ 95% ARC-AGI-1/2/3 + SimpleBench)"]
   axis Long["Long-term Memory & Planning (AGI ≈ ?)"]
-  axis Le["Real-time, on-site, few-shot learning ability (AGI ≈ ?)"]
-  axis La["Real-life language ability: replying to IM messages, socializing, joke telling (AGI ≈ ?)"]  %% https://arxiv.org/pdf/2405.20956
+  axis Le["Real-time, on-site, few-shot learning ability & tool use (AGI ≈ ? + 95% BrowseComp + τ²-Bench)"]
+  axis La["Real-life language ability (socializing): replying to IM messages, gift picking, joke telling, bilingual pun (AGI ≈ ?)"]  %% https://arxiv.org/pdf/2405.20956
 
   curve Experts["SOTA Human Experts"]{90, 90, 90, 90, 90, 90, 90}
   curve LLM["Current SOTA LLMs (estimation for GPT5)"]{80, 40, 50, 20, 10, 25, 10}
@@ -70,6 +73,8 @@ radar-beta
 2025/08/05: 看来泛化能力只是一个美化的谎言，2025 年 OpenAI 还是官方钦定英语 Benchmark 效果[最好](https://youtu.be/twXsAiTINO0?t=1864)；Chinese 的数据点很特殊，不知道为什么。昨天小众语料的想法也是这个的体现。
 
 2025/08/05：又想到了这个 2025/03/06 的 FoM 值问题。模型总参数量、激活参数量、总输出长度、并行推理个数 这四个数据可以推出所谓的模型 "推理 Benchmark FoM"；再加上训练数据量应该可以推出 "训练 FoM"
+
+2025/08/06: gpt-oss 基本上就是一个做题模型，还基本上只会数学题（HLE 里面一半都是数学题）。开源部分中有价值的是 harmony 和 mxfp4，其他没有任何价值。benchmark 相较于 Qwen 的两个 MoE 也只是有来有回罢了。OpenAI 应该是把可以赚钱的部分（HLE SOTA 和 coding）留给 GPT5 了。另外，我们需要一个 Humanity Last Benchmarks 组，来涵盖所有方面的知识。华为没有成为中国的 groq 还是有点遗憾的。
 
 ## 评测的小 ideas
 
