@@ -127,7 +127,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：yes, yes, no
 - Claude Opus 4 SimpleQA result? answer within 20 words.      Please refer to more sources.
   - 正确答案：[32.3%](https://www.kaggle.com/benchmarks/openai/simpleqa)。这题其实网上有一个更容易搜到的错误[信息](https://huggingface.co/datasets/smolagents/results/viewer/2024-12-26/train?f[model_id][value]=%27anthropic%2Fclaude-opus-4-20250514%27)，容易误导这些 search model
-
+- The best LLM on LMarena's search arena today?
+  - 正确答案：o3-search
 
 ##### 中文普通问题
 
@@ -170,6 +171,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 ##### 普通问题
 
+- Give me four Qwen-2.5VL-based ocr models (not Qwen2.5-VL itself or ocr models based on Qwen2-VL). Answer within 100 words.
+  - 参考答案： 7B based: [reducto/RolmOCR](https://huggingface.co/reducto/RolmOCR), [DocTron-hub/DocTron-Formula](https://github.com/DocTron-hub/DocTron-Formula), 3B based: [chatdoc-com/OCRFlux](https://github.com/chatdoc-com/OCRFlux), [nanonets/Nanonets-OCR-s](https://huggingface.co/nanonets/Nanonets-OCR-s)
 - I want to create something similar to Cadence Virtuoso ViVA. Which one should I use among ECharts with lttb, Plotly.js, or uPlot?
   - 答案：Grok 3 DeeperSearch, Plotly.js > ECharts > uPlot; OpenAI o4-mini DR, uPlot > ECharts > Plotly.js; Perplexity DR, uPlot > ECharts = Plotly.js; Gemini 2.5 flash DR, uPlot > Plotly.js > ECharts 
 - 中英文搜索针对小众领域代码的 LLM benchmarks。一般的 code benchmark for LLM 都是大众的 C++, Python, Javascript 之类的。但是有很多小众代码领域，包括但不限于 SystemVerilog, LaTeX, CMake, AHK, PowerShell, Assembly, Lisp, tcl 等小众代码有什么 benchmark 吗？例如，针对 Verilog 有 VerilogEval, RTLLM, [scale-lab/MetRex](https://github.com/scale-lab/MetRex), [ProtocolLLM](https://arxiv.org/abs/2506.07945)（在最终报告中不要再提及这些了）; 针对 LaTeX 的 [TeXpert](https://arxiv.org/abs/2506.16990), [vTikZ](https://arxiv.org/abs/2505.04670); 针对全面的有 [McEval](https://mceval.github.io/)。不要背景、意义、挑战与解决方案之类的空话。
