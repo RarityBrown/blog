@@ -129,6 +129,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：[32.3%](https://www.kaggle.com/benchmarks/openai/simpleqa)。这题其实网上有一个更容易搜到的错误[信息](https://huggingface.co/datasets/smolagents/results/viewer/2024-12-26/train?f[model_id][value]=%27anthropic%2Fclaude-opus-4-20250514%27)，容易误导这些 search model
 - The best LLM on LMarena's search arena today?
   - 正确答案：o3-search
+- Create a comparison table of FP8 & FP4 FLOPS for A100, H200, RTX5090, B200
+
 
 ##### 中文普通问题
 
@@ -136,9 +138,9 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：是教会医院：北京协和、中国医大一院、仁济、瑞金、浙二、武汉协和、湘雅、华西；不是教会医院：301、北大一院、北大三院、中山、华山、浙一、郑大一附院、武汉同济、湘雅二院、中山一院、南方医院、西京。参考[2023复旦版排名](https://rank.cn-healthcare.com/fudan/national-general) (2024年11月发布)
   - 正确情况：Gemini 2.5 Pro w Google 对
 
-##### No, you can't 问题
+##### "No" 问题
 
-- How to draw a rounded rectangle in originpro? version: 2025a
+- How to draw a rounded rectangle in originpro?  version: 2025a
   - 正确答案：there is no simple way; 2025b 以后[可以了](https://www.originlab.com/doc/Origin-Help/Create-Draw-Objects)
 - virtuoso schematic lock placement. not in layout view or locking the file. but locking instance positions in schematic view. answer within 50 words.
   - 正确答案：no you can't
@@ -146,6 +148,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：there is no simple way
 - General method to insert newlines that works across all Mermaid chart types? (for the latest version of Mermaid)
   - 正确答案：no you can't. 比如 Gantt 图完全[不支持](https://github.com/mermaid-js/mermaid/issues/5140)
+- Besides Blackwell GPUs, Instinct MI350 Series, and Microsoft Maia 100, what else has **native hardware** support for MXFP4?
+  - 正确答案：No more (August 2025)   或者 [Synopsys ARC VPX DSP IP](https://www.synopsys.com/articles/narrow-precision-data-types-embedded-ai.html) 勉强可以算？
 
 </details>
 
