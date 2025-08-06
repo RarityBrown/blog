@@ -1,9 +1,11 @@
 # Memory
 
-
 > The future of memory chip technology by micron
 
 中提到的 Wafer-to-Wafer alignment 3D-SOC 很震惊啊。
+
+- [micron-intro-to-memory-presentation.pdf](https://www.micron.com/content/dam/micron/educatorhub/intro-to-memory/micron-intro-to-memory-presentation.pdf)
+- [micron-intro-to-memory-packaging-presentation.pdf](https://www.micron.com/content/dam/micron/educatorhub/intro-to-memory-packaging/micron-intro-to-memory-packaging-presentation.pdf)
 
 ## DRAM
 
