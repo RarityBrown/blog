@@ -149,44 +149,28 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >   - Ernest S. Kuh (葛守仁)
 > 
 > 没有提到 Razavi, Moore 等离谱答案则可以认为正确 https://wadmes.github.io/2019/12/11/EDA-family-tree/
->
+> 
 > Q 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错错; Kingfall 对
 
-> Q: The release year of IC Compiler 2? When did ICC1 stop updating?
-> 
-> 正确答案：2014, 2016?
->
-> 正确情况：gemini-exp-1121 对对, Sonnet 3.5 对.不会.
 
-> Q: 除了 Logitech MX Master，推荐**两**款有侧向滚轮的鼠标。仅需要名字，无需介绍
-> 
-> Q: Apart from the Logitech MX Master, recommend **two** mice with a side scroll wheel. Only the name is needed, no description.
->
-> 参考答案：Kensington Pro Fit Ergo Vertical Wireless Trackball; Keychron M6 Wireless; rapoo mt760l; DeLUX M913GX; Mad Catz R.A.T. 8+
-> 
-> 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse, Microsoft Surface Precision Mouse, MX Anywhere
->
-> 正确情况：4oL 错, Sonnet 3.7 错错, Sonnet 3.7 thinking 错错, GPT4.5 错; Kingfall 半对
-
-> Q: Verilog 中 `always @(posedge clk, negedge rst_n)` 和 `always @(posedge clk or negedge rst_n)` 哪个更好？为什么？好像和 Verilog 标准也有关系？
-> 
-> 正确答案(by perplexity)：The use of commas in Verilog sensitivity lists is a feature introduced in the Verilog-2001 standard. This change provides an alternative syntax to the traditional "or" keyword used in Verilog-1995, offering a more intuitive and consistent approach to specifying multiple signals in the sensitivity list. The comma-separated sensitivity list does not add new functionality compared to the "or" keyword. It simply provides an alternative, more readable syntax. Many developers prefer the comma-separated style as it aligns better with other list-based constructs in Verilog and other programming languages.
->
-> 正确情况：gemini-exp-1114 错错对对; Sonnet 3.7 错; o1 半对
-
-> Q: Considering support for various devices (Windows, Mac, Android, iOS without requiring any extra installation, Linux can be ignored), please choose two CJK sans-serif fonts for me?
->
-> 正确答案：没有
-
-> Q: 地球上最光滑的人造物是什么？
->
-> 正确答案：EUV 镜头，RMS=0.02nm
-
-> Q: Intel 在 2025 年 2 月 24 日的 CEO 是谁？
->
-> 正确答案：无
-
-
+- Q: The release year of IC Compiler 2? When did ICC1 stop updating?
+  - 正确答案：2014, 2016?
+  - 正确情况：gemini-exp-1121 对对, Sonnet 3.5 对.不会.
+- Q: 除了 Logitech MX Master，推荐**两**款有侧向滚轮的鼠标。仅需要名字，无需介绍   Apart from the Logitech MX Master, recommend **two** mice with a side scroll wheel. Only the name is needed, no description.
+  - 参考答案：Kensington Pro Fit Ergo Vertical Wireless Trackball; Keychron M6 Wireless; rapoo mt760l; DeLUX M913GX; Mad Catz R.A.T. 8+
+  - 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse, Microsoft Surface Precision Mouse, MX Anywhere
+  - 正确情况：4oL 错, Sonnet 3.7 错错, Sonnet 3.7 thinking 错错, GPT4.5 错; Kingfall 半对
+- Q: Verilog 中 `always @(posedge clk, negedge rst_n)` 和 `always @(posedge clk or negedge rst_n)` 哪个更好？为什么？好像和 Verilog 标准也有关系？
+  - 正确答案(by perplexity)：The use of commas in Verilog sensitivity lists is a feature introduced in the Verilog-2001 standard. This change provides an alternative syntax to the traditional "or" keyword used in Verilog-1995, offering a more intuitive and consistent approach to specifying multiple signals in the sensitivity list. The comma-separated sensitivity list does not add new functionality compared to the "or" keyword. It simply provides an alternative, more readable syntax. Many developers prefer the comma-separated style as it aligns better with other list-based constructs in Verilog and other programming languages.
+  - 正确情况：gemini-exp-1114 错错对对; Sonnet 3.7 错; o1 半对
+- Q: Considering support for various devices (Windows, Mac, Android, iOS without requiring any extra installation, Linux can be ignored), please choose two CJK sans-serif fonts for me?
+  - 正确答案：没有
+- Q: 地球上最光滑的人造物是什么？
+  - 正确答案：EUV 镜头，RMS=0.02nm
+- Intel 在 2025 年 2 月 24 日的 CEO 是谁？
+  - 正确答案：无
+- function to get variable type in cadence virtuoso?
+  - 正确答案： `type()`
 
 ### 知识-推理混合问题
 
