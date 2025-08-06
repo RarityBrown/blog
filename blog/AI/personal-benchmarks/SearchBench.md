@@ -45,9 +45,9 @@ Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，
   - 静态内容
     - 图片：搜索模型的确需要强视觉能力的
       - 例如在 20250406 搜索 "llama 4 maverick vs deepseek v3 0324. Give me a benchmark table, including GPQA etc." Sonar, gpt-4o-search, Gemini 2.5 Pro Grounding, Jina Deep Search 提供的对比表格没有一个是 100% 正确的，而且每次搜索结果非常不稳定，相对来说后两者略好一些。因为 llama 官方的对比表格就是图片，而那时候媒体转载也是直接通过图片，还没有任何成文的纯文本内容。
-      - 又例如“中国博士历年延毕率”
+      - 例如“中国博士历年延毕率”
     - 网页表格、图表
-    - OpenAI 的是 Agent，我还不确定合不合理。
+    - OpenAI 给出的答案是 Agent，我还不确定合不合理。
   - 动态内容
     - 视频：例如有的视频教程，比如教你怎么在 Word 中实现一个功能
       - 这一点 Google 做得不错了，YouTube 视频字幕可以低幻觉作为参考资料，但是视频画面仍然是一个问题
@@ -61,7 +61,7 @@ Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，
       - 折叠或需要翻页的内容（例如 `https://github.com/electron/electron/issues/9035`）
       - 知乎文章的登录框
       - 人机验证码
-    - OpenAI 的[答案](https://youtu.be/twXsAiTINO0?t=567)是 Agent。这是正确的，因为本质上只有这种 Agent 的方式可以实现通用性，只要人能过去的地方 Agent 理论上都能过去，而不是一个个去写规则。但是速度目前还是一个问题（也就是 vLLM 的问题），这个问题 Agent 需要 10 分钟，而有经验的相关人类应该 1 分钟以内就可以解决。
+    - OpenAI 的[答案](https://youtu.be/twXsAiTINO0?t=567)是 Agent。我认为这是正确的，因为本质上只有这种 Agent 的方式可以实现通用性，只要人能过去的地方 Agent 理论上都能过去，而不是一个个去写规则。但是速度目前还是一个问题（也就是 vLLM 的问题），这个问题 Agent 需要 10 分钟，而有经验的相关人类应该 1 分钟以内就可以解决。
   - 在线超长 .pdf 文件，通过 pdf.js 加载的在线 pdf 文件；超大型网页
     - 例如 `https://www.spec.org/cpu2017/results/cpu2017/` `https://github.com/kaisugi/gpt4_vocab_list/blob/main/o200k_base_vocab_list.txt`
   - 隐藏的网页、登录墙、付费墙：只可能本地解决，靠一个个去谈不可能覆盖完全
@@ -109,11 +109,9 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：[Human Interface](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/50958/whats-the-difference-between-le-commands-and-hi-commands)
 - The latest sub-version for Cadence Virtuoso 6.1.8 and Virtuoso 23.1?
   - [ISR34](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-icadvm20-1-isr34-and-ic6-1-8-isr34-now-available), 当然如果你再细一点，可以发现有 [ISR36](https://bbs.eetop.cn/thread-991360-1-1.html), 不过这个要非常细，这些链接也是可以的 [1](https://www.nulledfrm.com/threads/cadence-virtuoso-ic06-18-360-linux.133645/#post-815659)[2](https://dl4all.org/software/graphics-design/866023-cadence-virtuoso-ic0618360-linux.html)[3](https://downloadly.ir/software/engineering-specialized/cadence-ic-design-virtuoso/)[4](https://www.iranhack.com/forum/forum/%D9%86%D8%B1%D9%85-%D8%A7%D9%81%D8%B2%D8%A7%D8%B1/188483-cadence-virtuoso-ic06-18-360-linux)[5](https://bbs.eetop.cn/thread-991360-1-1.html)[6](https://bbs.eetop.cn/thread-984059-1-1.html); [ISR14](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-ic23-1-isr-14-now-available), 这个的话官方确实就是最新，"IC23.10.130" 尚可搜到，14 就搜不到了。
-- function to get variable type in cadence virtuoso?
-  - `type()`
-- Packages Explicitly NOT Included in Mathjax `AllPackages` by Default?
+- Packages Explicitly NOT Included in Mathjax3 `AllPackages` by Default?
   - 正确答案：`physics`, `autoload`, `require`, `setoptions`, (`colorv2`)
-  - 参考来源：[所有包](https://docs.mathjax.org/en/latest/input/tex/extensions/index.html), [启用的包](https://github.com/mathjax/MathJax-src/blob/master/ts/input/tex/AllPackages.ts), [参考链接](https://github.com/jupyterlab/jupyter-renderers/issues/229)
+  - 参考来源：[所有包](https://docs.mathjax.org/en/v3.2/input/tex/extensions/), [启用的包](https://github.com/mathjax/MathJax-src/blob/3.2.2/ts/input/tex/AllPackages.ts), [参考链接](https://github.com/jupyterlab/jupyter-renderers/issues/229)         
 - What is the newer version of ICADVM20.1, and what is the older version of ICADVM18.1? (ISR is just a minor version number, no need to mention it, do not mention any versions related to ISR, I only want the major versions)
   - 正确答案：ICADV12.3, IC23.1
 - Do TSMC Shanghai fab and Nanjing fab offer MPW shuttles? Answer within 50 words. Don't tell me you're not sure, I'm very sure the definite answer is online (it might not be a direct answer, but after synthesizing the information, it's enough for you to make a definite judgment), so your final answer will be something like Shanghai: No, Nanjing: Yes. Note that this is just an example of the answer format, and is not necessarily the correct answer.
@@ -125,15 +123,17 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - Quantus, Raphael, StarRC, RaptorX, RaptorH, Exalto, EMX, xRC and xACT. Which are Cadence's? Which are Synopsys's?
   - 正确答案：Cadence: Quantus, EMX (acquired); Synopsys: Raphael, StarRC, RaptorX (acquired), RaptorH (acquired), Exalto (acquired)
   - 半开放版本: Help me research the Quantus, Raphael, StarRC, RaptorX, RaptorH, Exalto, EMX, Calibre xRC, Calibre xACT, and then sort them into tables.
-- 中国国内目前排名前20的医院里，前身是教会医院的有哪些？超级简单回答。例如 “是：仁济、浙一、华西、华山...；不是：北大三院、积水潭、中山、瑞金...”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
-  - 正确答案：是教会医院：北京协和、中国医大一院、仁济、瑞金、浙二、武汉协和、湘雅、华西；不是教会医院：301、北大一院、北大三院、中山、华山、浙一、郑大一附院、武汉同济、湘雅二院、中山一院、南方医院、西京。参考[2023复旦版排名](https://rank.cn-healthcare.com/fudan/national-general) (2024年11月发布)
-  - 正确情况：Gemini 2.5 Pro w Google 对
 - Can the latest version of gemini-cli read audio, pdf and docx files (not talking about gemini api, but gemini-cli)? answer within 50 words.
   - 正确答案：yes, yes, no
+- Claude Opus 4 SimpleQA result? answer within 20 words.      Please refer to more sources.
+  - 正确答案：[32.3%](https://www.kaggle.com/benchmarks/openai/simpleqa)。这题其实网上有一个更容易搜到的错误[信息](https://huggingface.co/datasets/smolagents/results/viewer/2024-12-26/train?f[model_id][value]=%27anthropic%2Fclaude-opus-4-20250514%27)，容易误导这些 search model
+
 
 ##### 中文普通问题
 
-
+- 中国国内目前排名前20的医院里，前身是教会医院的有哪些？超级简单回答。例如 “是：仁济、浙一、华西、华山...；不是：北大三院、积水潭、中山、瑞金...”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
+  - 正确答案：是教会医院：北京协和、中国医大一院、仁济、瑞金、浙二、武汉协和、湘雅、华西；不是教会医院：301、北大一院、北大三院、中山、华山、浙一、郑大一附院、武汉同济、湘雅二院、中山一院、南方医院、西京。参考[2023复旦版排名](https://rank.cn-healthcare.com/fudan/national-general) (2024年11月发布)
+  - 正确情况：Gemini 2.5 Pro w Google 对
 
 ##### No, you can't 问题
 
