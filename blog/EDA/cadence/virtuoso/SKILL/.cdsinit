@@ -11,8 +11,8 @@ hiSetFont("ciw"   ?size 14)                      ; CIW font size, greater than 1
 hiSetFont("text"  ?size 14)                      ; Toolbar and Menu font size, greater than 16 is not recommended
 hiSetFont("label" ?size 14)                      ; simulation font size, greater than 16 is not recommended
 
-hidKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
-hidKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hiSetBindKey("explorer"   "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
+hiSetBindKey("assembler"  "Ctrl<Key>N" "_axlAddOutputByTypeCB(_axlGetCurrentSessionDontFail() \"expr\")")
 
 hiSetBindKey("Schematics" "<Btn4Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 1.25)")
 hiSetBindKey("Schematics" "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 0.8)")
