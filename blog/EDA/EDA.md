@@ -33,6 +33,7 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 
 - 开发者视角：当一个持有 Open Source 精神和关注 UX 的开发者进入 EDA 圈子，最终却是离去：详见 [Digital-IDE](https://github.com/Digital-EDA/Digital-IDE) 开发者的[感悟](https://www.zhihu.com/question/1890410020828575085/answer/1917651711587230283)
 - 学术界视角：Are open source digital design flows ready for mainstream? by Frank K. Gürkaynak, ETH Zürich. [slide](https://mos-ak.org/bruges_2024/publication/8_Gurkaynak_ESSERC_2024_ETHZ_pulp.pdf)
+- IC infra 从业人员分享：https://icinfra.cn/
 
 ## Domestic EDAs
 
