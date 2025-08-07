@@ -588,6 +588,72 @@ Output Waveform Specifications: V_HIGH: 1.0 V; V_LOW: 0.0 V; Rise Time: 50 ps; F
 
 正确情况：Gemini 2.5 Pro 错错; Grok 4 错; Opus 4 错
 
+```verilog
+`include "constants.vams"
+`include "disciplines.vams"
+
+module decimator_data_stimuli (CLK, D);
+    // Port declarations
+    input             CLK;
+    output     [12:0] D;
+    electrical        CLK;
+    electrical [12:0] D;
+    
+    // Parameters
+    parameter real    V_HIGH    = 1.0;
+    parameter real    V_LOW     = 0.0;
+    parameter real    rise_time = 50e-12;
+    parameter real    fall_time = 50e-12;
+    parameter integer seed      = 12345; // Fixed seed for reproducibility
+    
+    // Internal variables
+    integer cycle_count;
+    integer pattern_value;
+    integer random_seed;
+    integer i;
+    real vth;
+    real clk_prev;
+    
+    analog begin
+        @ (initial_step) begin
+            cycle_count = 0;
+            pattern_value = 0;
+            random_seed = seed; // Initialize random seed
+            clk_prev = V(CLK);
+            vth = (V_HIGH + V_LOW) / 2;
+        end
+        
+        @ (cross(V(CLK) - vth, -1)) begin  // Detect falling edge of CLK
+            if (cycle_count < 240) begin   // Generate pattern based on cycle count
+                if (cycle_count < 80) begin
+                    // Cycles 0-79: Up-counter
+                    pattern_value = cycle_count;
+                end
+                else if (cycle_count < 160) begin
+                    // Cycles 80-159: Pseudo-random using $dist_uniform
+                    pattern_value = $dist_uniform(random_seed, 0, 8191); // 0 to 2^13-1
+                end
+                else begin
+                    // Cycles 160-239: Down-counter starting from 13'h1FFF
+                    pattern_value = 13'h1FFF - (cycle_count - 160);      // After 240 cycles, hold the final value (which would be 13'h1FB0)
+                end
+
+                cycle_count = cycle_count + 1;  // Increment cycle counter
+            end
+        end
+    end
+
+    genvar bit; 
+    generate   // Generate output voltages with specified rise/fall times
+        for (bit = 0; bit < 13; bit = bit + 1) 
+            analog begin
+                V(D[bit]) <+ transition(((pattern_value >> bit) & 1) ? V_HIGH : V_LOW, 0, rise_time, fall_time);
+            end
+    endgenerate
+
+endmodule
+```
+
 </details>
 
 ### Niche code within widely-used languages
