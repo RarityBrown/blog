@@ -101,7 +101,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 <summary>可简单验证问题</summary>
 
 
-##### 英文普通问题
+##### 英文语境普通问题
 
 - The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
   - 正确答案：`project compileoutofdate`    (典型错误：`vlog -work work +acc=r *.v`)
@@ -129,10 +129,11 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：[32.3%](https://www.kaggle.com/benchmarks/openai/simpleqa)。这题其实网上有一个更容易搜到的错误[信息](https://huggingface.co/datasets/smolagents/results/viewer/2024-12-26/train?f[model_id][value]=%27anthropic%2Fclaude-opus-4-20250514%27)，容易误导这些 search model
 - The best LLM on LMarena's search arena today?
   - 正确答案：o3-search
-- Create a comparison table of FP8 & FP4 FLOPS for A100, H200, RTX5090, B200
+- Create a comparison table of FP16, FP8 and FP4 dense + sparse PFLOPS for A100, H200, RTX5090, B200
+- USNO 的计时精度是世界上最高吗？世界上第二高的是谁呢？
+  - 应该不是的，但是懒得研究了。
 
-
-##### 中文普通问题
+##### 中文语境普通问题
 
 - 中国国内目前排名前20的医院里，前身是教会医院的有哪些？超级简单回答。例如 “是：仁济、浙一、华西、华山...；不是：北大三院、积水潭、中山、瑞金...”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
   - 正确答案：是教会医院：北京协和、中国医大一院、仁济、瑞金、浙二、武汉协和、湘雅、华西；不是教会医院：301、北大一院、北大三院、中山、华山、浙一、郑大一附院、武汉同济、湘雅二院、中山一院、南方医院、西京。参考[2023复旦版排名](https://rank.cn-healthcare.com/fudan/national-general) (2024年11月发布)
@@ -171,7 +172,11 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 ##### 能不能搜到
 
-这类问题 Google 会很占优势。比如在 Qwen-Image 发布半小时内搜索，Gemini 2.5 Pro 就显著比 o3, opus-4 好。
+这类问题 Google 会很占优势。比如在 Qwen-Image 发布半小时内搜索，Gemini 2.5 Pro 就显著比 o3, opus-4 好。perplexity 也很厉害，目前不知道他们为什么看上去比 Bing 还牛，和 CF 喷他们有关系吗...
+
+
+- aad08s040g? answer within 100 words.
+
 
 ##### 普通问题
 
