@@ -282,27 +282,21 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 本题可以充分测试 max output token (o3-mini 原生的 1M 确实是有用的)
 
-> Q: 0.4646018366... 这个无理数对应的符号表示结果是什么？例如 0.1415926... 的符号表示结果是 \pi-3。0.4646018366... 这个数据在我给你的有效位数内没有任何的四舍五入错误
->
-> 正确答案： $\frac{5-\pi}{4}$
->
-> 正确情况：Gemini 2.5 Pro 错错错; o3 错; o4-mini 错; grok-4 超时
 
-> Q: 2025 年 7 月 22 日的农历和 2003 年 7 月 27 日的农历是同一天吗？
->
-> 正确答案：都是六月廿八
->
-> 正确情况：Gemini 2.5 Pro 错错; o3 错
+- 0.4646018366... 这个无理数对应的符号表示结果是什么？例如 0.1415926... 的符号表示结果是 \pi-3。0.4646018366... 这个数据在我给你的有效位数内没有任何的四舍五入错误
+  - 正确答案： $\frac{5-\pi}{4}$
+- 2025 年 7 月 22 日的农历和 2003 年 7 月 27 日的农历是同一天吗？
+  - 正确答案：都是六月廿八
+- https://www.zhihu.com/question/640357173/answer/3380518541
+
 
 > Q: $\left[ \mu C_{ox} \frac{W}{L_2} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{S2} - V_{TH2}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_D - V_{S2}}{V_T} \right) \right)=\left[ \mu C_{ox} \frac{W}{L_3} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{TH3}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_{S2}}{V_T} \right) \right)$ 除了 $V_{S2}$ 不知道，别的都已知，且 $V_{TH2}=V_{TH3}=V_{TH}$ ，求 $V_{S2}$
 >
 > 正确答案：下一题
 
-
 > Q: $V_{S2} = V_T\ln(\frac{1}{x})\quad\text{with}\quad x^{1/n} = \frac{L_2}{L_3}(1-x)$ 和 $V_{S2} = nV_T\ln(\frac{1}{x})\quad\text{with}\quad x^n + \frac{L_3}{L_2}x - 1 = 0$ 两个 $V_{S2}$ 的表达式等价吗？
 >
 > 正确答案：等价。令 $x_2=x_1^{1/n}$ 即可。
-
 
 > Q: Solve $y^n + \frac{L_3}{L_2}y - 1 = 0$ analytically in a closed-form, where $1<n<2$. Solution should not be numerical nor approximate (such as series expansion). The solution does exist.
 >
@@ -311,7 +305,6 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 正确?答案：$y=\left\{\frac{1}{\frac{L_3}{L_2}(n-1)}\,W\!\Biggl[\frac{n}{n-1}\Bigl(\frac{L_3}{L_2}\Bigr)^{-\frac{n}{n-1}}\Biggr]\right\}^{\frac1{n-1}}=1 - \frac{1}{n}\frac{L_3}{L_2} + \frac{(3-n)}{2n^2}\left(\frac{L_3}{L_2}\right)^2 - \frac{(n^2-5n+10)}{6n^3}\left(\frac{L_3}{L_2}\right)^3 + ...$
 >
 > 正确情况：grok3 thinking 不会; qwq 32b 不会; o3-mini 对
-
 
 > Q: What is the relationship between the transcendental equation $x=x^{m}+q$ and the Lambert W function?
 >
