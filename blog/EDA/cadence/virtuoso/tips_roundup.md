@@ -12,6 +12,12 @@
 - [用 `.scs` 文件保存 model 批量引用](https://blog.csdn.net/qq_33599939/article/details/122505894#11scsmodel_19)
 - [多 PDK 联合仿真 - MTS (Multi-Technology-Simulation)](https://zhuanlan.zhihu.com/p/1927021838178975825)
 
+建议文件路径 (todo):
+
+`virtuoso -log ../log/cds20250101.log` 启动
+
+
+
 ### analogLib & rfLib & ahdlLib
 
 - vpulse / ipulse: https://optics.eee.nottingham.ac.uk/wiki/Vlsi:Cadence_Tips
