@@ -576,15 +576,13 @@ Q: Write a function for me in Cadence SKILL: For an input less than 16, return 0
 
 Q: 
 
-Write a Verilog-A 13-Bit Synchronous Pattern Generator: This module generates a finite, 240-cycle digital pattern on a 13-bit output bus, D[12:0].
+Write a Verilog-AMS 13-Bit Synchronous Pattern Generator: This module generates a finite, 240-cycle digital pattern on a 13-bit output bus, `D[12:0]`, without any comment.
 
-Ports: CLK: Electrical Input. D[12:0]: Electrical Output.
+The module is synchronous and updates its output state on the falling edge of the `CLK` input. The clock input threshold (vth) is defined as (V_HIGH+V_LOW)/2. It generates a 240-cycle pattern, after which the output holds the final state.
 
-The module is synchronous and updates its output state on the falling edge of the CLK input. The clock input threshold (vth) is defined as (V_HIGH+V_LOW)/2. It generates a 240-cycle pattern, after which the output holds the final state.
+Generated Pattern Sequence: Cycles 0-79: An up-counter, from 0 to 79; Cycles 80-159: A 13-bit pseudo-random value. The sequence must be reproducible (i.e., generated from a fixed seed); Cycles 160-239: A down-counter for 80 cycles, starting from 13-bit all ones.
 
-Generated Pattern Sequence: Cycles 0-79: An up-counter, from 13'd0 to 13'd79; Cycles 80-159: A 13-bit pseudo-random value. The sequence must be reproducible (i.e., generated from a fixed seed); Cycles 160-239: A down-counter for 80 cycles, starting from 13'h1FFF (all ones).
-
-Output Waveform Specifications: V_HIGH: 1.0 V; V_LOW: 0.0 V; Rise Time: 50 ps; Fall Time: 50 ps
+Output Waveform Specifications: V_HIGH: 1.0 V; V_LOW: 0.0 V; rise_time = fall_time = 50 ps
 
 正确情况：Gemini 2.5 Pro 错错; Grok 4 错; Opus 4 错
 
