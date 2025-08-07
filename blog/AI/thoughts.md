@@ -76,6 +76,8 @@ radar-beta
 
 2025/08/06: gpt-oss 基本上就是一个做题模型，还基本上只会数学题（HLE 里面一半都是数学题）。开源部分中有价值的是 harmony 和 mxfp4，其他没有任何价值。benchmark 相较于 Qwen 的两个 MoE 也只是有来有回罢了。OpenAI 应该是把可以赚钱的部分（HLE SOTA 和 coding）留给 GPT5 了。另外，我们需要一个 Humanity Last Benchmarks 组，来涵盖所有方面的知识。华为没有成为中国的 groq 还是有点遗憾的。
 
+2025/08/08: gpt-5 平平无奇，没有 Apple 的命，得了 Apple 的病。HLE 和 Grok4 一个分；SWE 八月底被 Claude 碾压，彻彻底底碾压，gpt-5 w/o thinking 50+ 而 opus next? w/o thinking 80+。做题也不行，coding 也不行。或者说 claude 和 gemini 稳了，gemini 3 flash 一定是一个远好于 gpt-5-mini 且仅略逊于 gpt-5 一点（真的只有 small margin）的模型。
+
 ## 评测的小 ideas
 
 ### Bode
