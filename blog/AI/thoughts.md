@@ -78,6 +78,8 @@ radar-beta
 
 2025/08/08: gpt-5 平平无奇，没有 Apple 的命，得了 Apple 的病。HLE 和 Grok4 一个分；SWE 八月底被 Claude 碾压，彻彻底底碾压，gpt-5 w/o thinking 50+ 而 opus next? w/o thinking 80+。做题也不行，coding 也不行。或者说 claude 和 gemini 稳了，gemini 3 flash 一定是一个远好于 gpt-5-mini 且仅略逊于 gpt-5 一点（真的只有 small margin）的模型。
 
+2025/08/08: 在 gpt-5 上试了几个非常小众的例子。悲伤地说，LLM 所追求的更广通用性将在 Gemini 3.0 pro 终结了。工程上一切都是 tradeoff 啊。
+
 ## 评测的小 ideas
 
 ### Bode
