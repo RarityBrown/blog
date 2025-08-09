@@ -151,6 +151,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：no you can't. 比如 Gantt 图完全[不支持](https://github.com/mermaid-js/mermaid/issues/5140)
 - Besides Blackwell GPUs, Instinct MI350 Series, and Microsoft Maia 100, what else has **native hardware** support for MXFP4?
   - 正确答案：No more (August 2025)   或者 [Synopsys ARC VPX DSP IP](https://www.synopsys.com/articles/narrow-precision-data-types-embedded-ai.html) 勉强可以算？
+- How to stop airpods from automatically connecting to windows 11 without 1.manually unpairing 2.affecting other connected BT devices 3.coding in powershell
+  - 正确答案：no you can't.     [1](https://learn.microsoft.com/en-us/answers/questions/4174413/dont-connect-to-bluetooth-automatically-which-are) 和 [2](https://learn.microsoft.com/en-us/answers/questions/4163051/airpods-pro-automatically-connecting-to-laptop-whe) 都是官方的错误信息。
 
 </details>
 
