@@ -8,7 +8,9 @@
 
 - Shahriar Shahramian @ Bell Labs
   - [YouTube](https://www.youtube.com/@TheSignalPath)
-- Ali Hijimiri
+- Ali Hijimiri @ Caltech
+  - YouTube
+
 
 ### 国内
 
@@ -24,7 +26,7 @@
 | 涂锋斌 | 香港科技大学 | 数字/体系结构 |                                                  | [涂锋斌](https://www.zhihu.com/people/fengbintu)           |                    |                                                              |                                                  |
 | 范益波 | 复旦大学     | 数字/体系结构 |                                                  | [一波](https://www.zhihu.com/people/ybfan)                 |                    |                                                              |                                                  |
 
-
+注：只展示老师主动公开真实身份的账号。
 
 ## 工程师 / 学生
 
@@ -51,7 +53,7 @@
 - [Teruteru的学习笔记](https://teruteru.space/) <!-- 47.100.52.206 teru.space --> 
 - [Alvin's Stage](https://alvinrolling.github.io/): This is Alvin’s blog about Digital IC Design skills and tricks.
 - [Mis Circuitos - Learning electronics together](https://miscircuitos.com/): 一个中途换专业学模拟 IC 的外国人 Alberto
-
+- [raytroop](https://raytroop.github.io/)
 
 
 
