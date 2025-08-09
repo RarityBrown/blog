@@ -1,5 +1,12 @@
 # Linux Setting to Make Virtuoso Handy
 
+
+- 关闭 GNOME 所有动画效果?
+- 重启后自动启动目录?
+
+
+---
+
 virtuoso 弹出窗口不在顶层
 
 ```bash
