@@ -8,19 +8,19 @@
 <summary>Models</summary>
 
 - Domain-specific LLMs (One-stop search + LLM answer APIs)
-  - https://docs.perplexity.ai/getting-started/models
-  - https://app.linkup.so/playground?example=deepSourcedAnswer
-  - https://docs.exa.ai/reference/answer
-  - https://liner.com/features/ai-search
-  - https://jina.ai/deepsearch/
-  - https://documentation.you.com/api-modes/search-api
+  - [Perplexity](https://docs.perplexity.ai/getting-started/models)
+  - [Linkup](https://app.linkup.so/playground?example=deepSourcedAnswer)
+  - [Exa](https://docs.exa.ai/reference/answer)
+  - [Liner](https://liner.com/features/ai-search)
+  - [Jina](https://jina.ai/deepsearch/)
+  - [You](https://documentation.you.com/api-modes/search-api)
 - General LLMs with search + browse tool
-  - https://ai.google.dev/gemini-api/docs/google-search
-  - https://ai.google.dev/gemini-api/docs/url-context
-  - https://platform.openai.com/docs/guides/tools-web-search
-  - https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/web-search-tool
-  - https://docs.x.ai/docs/guides/live-search
-  - https://openrouter.ai/docs/features/web-search
+  - [Gemini](https://ai.google.dev/gemini-api/docs/google-search) based on Google
+  - [Gemini url context](https://ai.google.dev/gemini-api/docs/url-context)
+  - [OpenAI](https://platform.openai.com/docs/guides/tools-web-search) based on Bing
+  - [Claude](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/web-search-tool) based on [Brave](https://simonwillison.net/2025/Apr/21/ai-assisted-search/)
+  - [Grok](https://docs.x.ai/docs/guides/live-search)
+  - [openrouter](https://openrouter.ai/docs/features/web-search) based on Exa
 
 </details>
 
