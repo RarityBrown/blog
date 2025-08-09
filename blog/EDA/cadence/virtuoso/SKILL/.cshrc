@@ -1,0 +1,1 @@
+setenv LBS_CLUSTER_MASTER your_lbs_master
