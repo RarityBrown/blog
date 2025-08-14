@@ -38,8 +38,9 @@ Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，
 <summary>Corners</summary>
 
 - **无关、干扰、矛盾信息**
-  - 页面内广告等无关信息；整个页面和搜索问题无关或低密度信息；不同页面间信息矛盾；SEO 优化的劣质页面 - 看似相关，实则低质量；
-    - 例如：`Where does the AI researcher Jason Wei work?` 其个人主页上还未更新工作单位。
+  - 页面内广告等无关信息；整个页面和搜索问题无关或低密度信息；
+  - 不同页面间信息矛盾；页面信息过时；SEO 优化的看似相关、实则劣质页面；官方网站信息不如第三方中肯客观，没有小道消息
+    - 例如：`Where does the AI researcher Jason Wei work?` 其个人主页上还未更新工作单位
     - 例如：在 [Alternative](#Alternative-类) 类型的搜索过程中，SEO 优化的劣质页面问题非常明显
 - **不可交互的非纯文本内容**
   - 静态内容
@@ -59,7 +60,7 @@ Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，
       - 不同 tab 但网址相同的网页（例如 `lmarena.ai: The (2nd) best LLM on lmarena today?`）
       - 点击/滚动才展开的评论区
       - 折叠或需要翻页的内容（例如 `https://github.com/electron/electron/issues/9035`）
-      - 知乎文章的登录框
+      - 社交媒体的登录框
       - 人机验证码
     - OpenAI 的[答案](https://youtu.be/twXsAiTINO0?t=567)是 Agent。我认为这是正确的，因为本质上只有这种 Agent 的方式可以实现通用性，只要人能过去的地方 Agent 理论上都能过去，而不是一个个去写规则。但是速度目前还是一个问题（也就是 vLLM 的问题），这个问题 Agent 需要 10 分钟，而有经验的相关人类应该 1 分钟以内就可以解决。
   - 在线超长 .pdf 文件，通过 pdf.js 加载的在线 pdf 文件；超大型网页
@@ -164,9 +165,9 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 ##### Alternative 类
 
 - Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
-  - 参考答案: [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [flowith](https://flowith.io/), [suna](https://www.suna.so/), [Minimax](https://agent.minimax.io/), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/)
+  - 参考答案: [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [flowith](https://flowith.io/), [suna](https://www.suna.so/), [Minimax](https://agent.minimax.io/), [skywork](https://skywork.ai), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/), [MiroThinker](https://dr.miromind.ai/)
 - Alternatives to cursor app?
-  - 参考答案：Windsurf, Trae, Kiro, VSCode + Copilot   (典型错误：Codeium, Zed Editor)
+  - 参考答案：Windsurf, Zed, Trae, Kiro, VSCode + Copilot
 - Alternatives to Manus AI?
   - 参考答案：convergence AI, runner H, Genspark    (典型错误：MS Copilot)
 - Alternatives to perplexity sonar api? I'm asking for alternatives to the sonar api, not the toC product perplexity itself.
@@ -187,6 +188,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - I want to create something similar to Cadence Virtuoso ViVA. Which one should I use among ECharts with lttb, Plotly.js, or uPlot?
   - 答案：Grok 3 DeeperSearch, Plotly.js > ECharts > uPlot; OpenAI o4-mini DR, uPlot > ECharts > Plotly.js; Perplexity DR, uPlot > ECharts = Plotly.js; Gemini 2.5 flash DR, uPlot > Plotly.js > ECharts 
 - 中英文搜索针对小众领域代码的 LLM benchmarks。一般的 code benchmark for LLM 都是大众的 C++, Python, Javascript 之类的。但是有很多小众代码领域，包括但不限于 SystemVerilog, LaTeX, CMake, AHK, PowerShell, Assembly, Lisp, tcl 等小众代码有什么 benchmark 吗？例如，针对 Verilog 有 VerilogEval, RTLLM, [scale-lab/MetRex](https://github.com/scale-lab/MetRex), [ProtocolLLM](https://arxiv.org/abs/2506.07945)（在最终报告中不要再提及这些了）; 针对 LaTeX 的 [TeXpert](https://arxiv.org/abs/2506.16990), [vTikZ](https://arxiv.org/abs/2505.04670); 针对全面的有 [McEval](https://mceval.github.io/)。不要背景、意义、挑战与解决方案之类的空话。
+- auto save / real-time save in cadence virtuoso? `dbSetAutoSave` doesn't seem to work and `checkForUnsavedViewsUponRun` is off topic.
+
 - 用 mermaid 梳理复旦复控、复芯凡高、复旦微电子、上海华岭、复控华龙、皓骏创投、复微芯讯、复旦科创投、上海复旦创投（和复旦科创投是两家公司）、复旦复华、复微迅捷、上海菩扬、蒋国兴之间的关系。中文搜索、中文回答，把两两间的持股比例尽可能写清楚。同时，如果有和这个关系网很密切的公司和人员也可以加进 mermaid 图中
 - search with quotes “tsmchome”. Based on online information, infer the folder structure. Show me the results in an output format similar to the `tree` command.
  - 参考答案：
