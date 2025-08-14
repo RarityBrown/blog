@@ -12,6 +12,20 @@
   - 例如 "证明 $\frac{1}{2}=\frac{2}{2+2-1}$", "Asheville, Akita, Kanazawa 哪个城市没有开过奥运会？"
   - 可以考虑传统选择题形式的类 GPQA 评测 + 填空题形式的类 GPQA 评测 + 没有一个选项正确的选择题形式的类 GPQA 评测。
 
+一个典型的 QC 问答示例：
+
+> Question: 15-4=?  A. 10  B. 9  C. 8  D. 7    Answer within 10 words.
+>
+> Answer1✔️: The correct answer, 11, is not one of the options. 
+> 
+> Answer2❌: B 
+>
+> Question: are you 100% sure? maybe recheck your answer again?
+>
+> Answer3✔️: It’s 11; the options seem off. 
+>
+> Answer4❌: Sorry, it's C 
+
 一些类似的项目：
 
 [MATH-Perturb](https://math-perturb.github.io/)
@@ -58,31 +72,11 @@
 >
 > 典型错误：4oL 之类的模型喜欢“为考试而学习 vs. 为学习而考试”和“为生活而工作 vs. 为工作而生活”之类的，但是显然不如例子中给的那么具有戏剧性。o1p 则可以准确观察到句中戏剧性的原因，但是给出的其他例子也欠佳。
 
-> Q: 在晚宴上嘉宾们觥筹交错，交谈甚欢，这时，一位嘉宾问你：“我们太吵不会影响你吧？” 此时你的回答应该是： A. 不会不会 B. 没有没有。请简要说明理由
->
-> 参考答案：A. 不会不会: 隐含承认“吵”这个事实，只是强调“吵”这个事实不会造成影响；**B**. 没有没有: 直接否定“吵”这个前提，表示对方根本不吵，自然也就不存在“影响”的问题
-
 > Q: Chinese alternatives for "the quick brown fox jumps over the lazy dog"
 >
 > 典型错误：回答古文或诗词
 >
 > 正确答案：充分体现各种字形，包括左右结构、上下结构等；或是直接翻译也可以（Edge 浏览器的官方做法）
-
-> Q: 设计一道题目：1. 要求 LLM 极易出错，而人类却能轻松解答。所以如果**你**尝试作答后发现可成功正确作答，则说明题目设计不符合要求；2. 题目答案具有客观唯一性。题目不应依赖于实时的、私人的感官信息（例如“现在房间里有什么气味”），而应基于客观事实，类似于“12+21等于几”或“2022年美国总统是谁”这类问题。
->
-> 参考答案：
-> 
-> 1. 脑筋急转弯、谜语、双关、笑话；
-> 2. 可纯文本描述但是难以理解，对于人类来说需用到多模态的问题
->     - 视觉、空间知觉：
->       - 2D
->         - 文本视觉模式识别 (Look-and-say sequence)
->         - 用 tikz, svg, python, ASCII 等画图
->         - 纯文本描述的数独、棋类
->         - ARC-AGI
->       - 3D
->         - 竹竿问题
->     - 听觉: 发音, 谐音梗, 双语笑话
 
 ### 知识问题（类似于 SimpleQA ）
 
@@ -112,6 +106,10 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > QC 正确情况：grok3 错错对; Gemini 2.5 Pro 对; v3-0324 对对; Sonnet 3.7 thinking 错错错; o3-mini 错; kingfall 对
 >
 > 注：非常确定这道题被 OpenAI 拿去做 post-train 了，最新的 4o/4.1 可以答对一模一样的 Q，但是仍然不知道顺尔宁是什么药。
+
+> Q: 有什么果实根茎类的蔬菜是**完全**不用削皮就可以进行下一步加工的？可削可不削、可剥可不剥的蔬菜不算。所以例如小胡萝卜、嫩萝卜、西红柿、嫩黄瓜、小土豆、嫩姜、甜薯、山药、嫩丝瓜等等可削可不削都不算。我能想到的有椒类 青椒/彩椒/辣椒/长椒/尖椒、豆荚类 四季豆/菜豆/豇豆/豆角/扁豆/刀豆/荷兰豆，你再帮我想 10 个。
+>
+> 参考答案：茄子、秋葵、苦瓜、芦笋、芹菜、蒜苔
 
 > Q: 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
 >
@@ -157,7 +155,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
   - 正确答案：2014, 2016?
   - 正确情况：gemini-exp-1121 对对, Sonnet 3.5 对.不会.
 - Q: 除了 Logitech MX Master，推荐**两**款有侧向滚轮的鼠标。仅需要名字，无需介绍   Apart from the Logitech MX Master, recommend **two** mice with a side scroll wheel. Only the name is needed, no description.
-  - 参考答案：Kensington Pro Fit Ergo Vertical Wireless Trackball; Keychron M6 Wireless; rapoo mt760l; DeLUX M913GX; Mad Catz R.A.T. 8+
+  - 参考答案：Kensington Pro Fit Ergo Vertical Wireless Trackball; Keychron M6 Wireless; rapoo mt760l, MT750; ProArt Mouse MD300; DeLUX M913GX; Mad Catz R.A.T. 8+
   - 典型错误：Razer Pro Click, Microsoft Sculpt Ergonomic Mouse, Microsoft Surface Precision Mouse, MX Anywhere
   - 正确情况：4oL 错, Sonnet 3.7 错错, Sonnet 3.7 thinking 错错, GPT4.5 错; Kingfall 半对
 - Q: Verilog 中 `always @(posedge clk, negedge rst_n)` 和 `always @(posedge clk or negedge rst_n)` 哪个更好？为什么？好像和 Verilog 标准也有关系？
@@ -248,19 +246,10 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 #### 其他
 
-> Q: 4.5米, 6米, 20米长的竹竿能否通过高4米宽3米的门？Can poles of 4.5 meters, 6 meters, and 20 meters in length pass through a door 4 meters high and 3 meters wide? Omit the process and give the answer directly, for example, "Yes, No, Yes"          [ref](https://zhuanlan.zhihu.com/p/23434595912)
->
-> 更简单的版本：6米长的队伍能不能通过高4米宽3米的门？ 
->
-> 正确答案：都可以
->
-> 正确情况：o3-mini-high 对对对对 (加上20米后, 错错); 4oL 错; o1 错; Gemini 2.5 Pro 错错; grok3 错错错; r1 错; GPT4.5 错
-
-> Q: #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
->
-> 典型错误：#D7B5CC, #D7B8CC, #D2B4D2, #D7CCCC, #D8CCCC
->
-> 正确答案：#EBDAE5, #EBDAE6, #ECDAE6? #D7BACC?
+- 4.5米, 6米, 20米长的竹竿能否通过高4米宽3米的门？Can poles of 4.5 meters, 6 meters, and 20 meters in length pass through a door 4 meters high and 3 meters wide? Omit the process and give the answer directly, for example, "Yes, No, Yes"          [ref](https://zhuanlan.zhihu.com/p/23434595912)
+  - 更简单的版本：6米长的队伍能不能通过高4米宽3米的门？ 
+  - 正确答案：都可以
+- #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
 
 #### 纯数学问题（主要考察 reasoning model）
 
@@ -273,22 +262,14 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > - 11+4+5+1+4+19+1981+0=2025 11+4+5+1+4+1919+81+0=2025 11+4+5+14+1+9+1981+0=2025 11-4+51-4-1-9+1981+0=2025
 > - 114+5+1+4+1919-8-10=2025 114-5-1-4+1919-8+10=2025
 > - 1145+1+41+9+19+810=2025 1145+1+41+919-81+0=2025
-> 
-> 人脑思路：
-> 1. 因为第一个1必是正号，所以其实就是通过五个1、两个4、一个5、一个8、两个9（所有数字不应全部用上）来加减得到个位是 4 的一个数字，可以凑 4 + 0 , 14 + 0, 24 + 0, 34 + 0, 44 + 0
-> 2. 
-> 
-> 正确情况：o1-min, o3-mini 对/回答不会/回答不可能; o1 超时超时超时; o3-mini-high 超长思考后超时; Gemini 2.5 Pro 对对
->
-> 本题可以充分测试 max output token (o3-mini 原生的 1M 确实是有用的)
-
 
 - 0.4646018366... 这个无理数对应的符号表示结果是什么？例如 0.1415926... 的符号表示结果是 \pi-3。0.4646018366... 这个数据在我给你的有效位数内没有任何的四舍五入错误
   - 正确答案： $\frac{5-\pi}{4}$
 - 2025 年 7 月 22 日的农历和 2003 年 7 月 27 日的农历是同一天吗？
   - 正确答案：都是六月廿八
 - https://www.zhihu.com/question/640357173/answer/3380518541
-
+- =RATE(60, -2000, 0, 240000)
+  - 2.146%
 
 > Q: $\left[ \mu C_{ox} \frac{W}{L_2} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{S2} - V_{TH2}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_D - V_{S2}}{V_T} \right) \right)=\left[ \mu C_{ox} \frac{W}{L_3} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{TH3}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_{S2}}{V_T} \right) \right)$ 除了 $V_{S2}$ 不知道，别的都已知，且 $V_{TH2}=V_{TH3}=V_{TH}$ ，求 $V_{S2}$
 >
