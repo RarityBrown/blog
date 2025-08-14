@@ -1,8 +1,13 @@
 # Linux Setting to Make Virtuoso Handy
 
 
-- 关闭 GNOME 所有动画效果?
 - 重启后自动启动目录?
+
+关闭 GNOME 所有动画效果
+
+```bash
+gsettings set org.gnome.desktop.interface enable-animations false
+```
 
 
 ---
