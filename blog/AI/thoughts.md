@@ -68,6 +68,18 @@ radar-beta
   min 0
 ```
 
+- Physical World Common Sense & Embodied Cognition
+  - 视觉、空间知觉
+    - 2D Visual 
+      - 文本视觉模式识别 (Look-and-say sequence)
+      - 用 tikz, svg, python, ASCII 等画图
+      - 纯文本描述的数独、棋类、七巧板、ARC-AGI等图形游戏
+    - 3D Visual
+      - 竹竿问题
+  - 听觉
+    - 语言：发音, 谐音梗, 脑筋急转弯, 谜语, 双关, 笑话, 双语笑话
+    - 音乐：音乐推荐, 发音技巧
+
 2025/08/04: 自己 2025/08/03 (Jagged Performance) 和 2024/11/21 (替代难度) 两个想法和 Jason Wei [不谋而合](https://youtu.be/twXsAiTINO0)还是很高兴的。但是 2025/02/07 这个小众语料的预测应该是和 OpenAI 相反了，OpenAI 内部应该还是[重视](https://youtu.be/twXsAiTINO0?t=2131)这些的。[asymmetry of verification](https://www.jasonwei.net/blog/asymmetry-of-verification-and-verifiers-law) 这个观点是我之前完全没有想到的，之前只想到了 verification，没想到 asymmetry。另外，我今天才知道 Jason Wei 是 SimpleQA 和 BrowseComp 这两个我很欣赏的 benchmark 的一作。
 
 2025/08/05: 看来泛化能力只是一个美化的谎言，2025 年 OpenAI 还是官方钦定英语 Benchmark 效果[最好](https://youtu.be/twXsAiTINO0?t=1864)；Chinese 的数据点很特殊，不知道为什么。昨天小众语料的想法也是这个的体现。
@@ -79,6 +91,8 @@ radar-beta
 2025/08/08: gpt-5 平平无奇，没有 Apple 的命，得了 Apple 的病。HLE 和 Grok4 一个分；SWE 八月底被 Claude 碾压，彻彻底底碾压，gpt-5 w/o thinking 50+ 而 opus next? w/o thinking 80+。做题也不行，coding 也不行。或者说 claude 和 gemini 稳了，gemini 3 flash 一定是一个远好于 gpt-5-mini 且仅略逊于 gpt-5 一点（真的只有 small margin）的模型。
 
 2025/08/08: 在 gpt-5 上试了几个非常小众的例子。悲伤地说，LLM 所追求的更广通用性将在 Gemini 3.0 pro 终结了。工程上一切都是 tradeoff 啊。
+
+2025/08/12: scaling law 在 size 和 data 上的巅峰目前是 opus 4.1，终极答案是 MoE；在 test-time compute 上的巅峰目前是 gpt-5-pro，终极答案我认为是 ASIC。接下去应该 scaling 什么？希望研究员能在未来两年内找到答案，不然 LLM 的泡沫就快到尽头了。
 
 ## 评测的小 ideas
 
