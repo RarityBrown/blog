@@ -42,6 +42,7 @@ ui    ciwCmdInputLines                     int     4
 
 ;;;;;;;;;;;;;;;;;; schematic
 schematic            srcSolderOnCrossover cyclic "ignored"   ; ignore solder dot cross over warning
+schematic            srcInstOverlapValue  int    10
 
 ;;;;;;;;;;;;;;;;;; graphic
 ; graphic              balloonOn           boolean t               ; ?enable the info balloon by default
