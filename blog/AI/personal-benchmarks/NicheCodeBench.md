@@ -192,11 +192,12 @@ Including:
 > ```latex
 > \rule{1em}{6em}            \hspace{-3.5em}         \rule[+2.5em]{6em}{1em}
 > \rule{6em}{1em}            \kern{-3.5em}           \rule[-2.5em]{1em}{6em}
-> \rule[-2.5em]{1em}{6em}    \kern{-3.5em}           \rule{6em}{1em}
-> \rlap{\hskip 2.5em \rule[-3em]{1em}{6em}}          \rule[-0.5em]{6em}{1em}  % laps? \smash?
+> \rule[-2.5em]{1em}{6em}    \kern{-3.5em}           \rule        {6em}{1em}
+> \rlap{\hskip  2.5em \rule[-3em]{1em}{6em}}         \rule[-0.5em]{6em}{1em}  % laps? \smash?
+> \rlap{\hspace{2.5em}\rule      {1em}{6em}}         \rule[+2.5em]{6em}{1em}
 > ```
 >
-> 正确情况：Gemini 2.5 Pro 对
+> 正确情况：Gemini 2.5 Pro 对; gpt-5 对
 
 > Q:
 > 
@@ -242,33 +243,15 @@ Including:
 >
 > 正确情况：Gemini 2.5 Pro 半对
 
-
-
-
-> Q: Create a code block containing all possible methods for inserting a new line within a `\texttt` in LaTeX, ensuring compatibility with Mathjax/Katex.
->
-> 典型错误：
->
-> ```latex
-> \texttt{line1 \\       line2}
-> \texttt{line1 \newline line2}
-> \texttt{line1 \cr      line2}
-> \begin{verbatim}
-> line1
-> line2
-> \end{verbatim}
-> ```
+> Q: How inserting a new line within a `\texttt` in LaTeX math mode without `verbatim`, `alltt`, `lstlisting`, `tabular` environment, and `\parbox`, `\ttfamily`, `\par`, `\shortstack`, `\vtop`, `\caption`, `\protect`, `\halign`, `\bgroup`, `\offinterlineskip`, `\put`, `\makebox`, `\noindent`, `\vbox` commands.
 >
 > 正确答案：There is no direct way, some alternative ways are
 > 
 > ```latex
 > \begin{array}{l}  \texttt{line1} \\  \texttt{line2}  \end{array}
-> 
 > \begin{aligned}   \texttt{line1} \\  \texttt{line2}  \end{aligned}
->
-> \verb|line1|  \\  \verb|line2|
+>                     \verb|line1| \\    \verb|line2|
 > ```
-
 
 > Q: use CircuiTikz to draw a basic common source without bias or ac coupling
 >
@@ -301,7 +284,6 @@ Including:
 >     \draw (M1.drain)   to [short, *-o]  ++(1,0)   node[right]      {$V_{out}$};
 > \end{circuitikz}
 > ```
-
 
 > Q: use CircuiTikz to draw a basic two-stage amplifier in CMOS with differential input and common source output
 >
