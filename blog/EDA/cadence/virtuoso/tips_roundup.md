@@ -11,17 +11,11 @@
 - [用 `.scs` 文件实现批量引用同一工艺角下的 mos, res, cap](https://zhuanlan.zhihu.com/p/588659964)
 - [用 `.scs` 文件保存 model 批量引用](https://blog.csdn.net/qq_33599939/article/details/122505894#11scsmodel_19)
 - [多 PDK 联合仿真 - MTS (Multi-Technology-Simulation)](https://zhuanlan.zhihu.com/p/1927021838178975825)
+- [Built-in libs (analogLib & rfLib & ahdlLib, etc.)](built-in-libs.md)
 
 建议文件路径 (todo):
 
 `virtuoso -log ../log/cds20250101.log` 启动
-
-
-
-### analogLib & rfLib & ahdlLib
-
-- vpulse / ipulse: https://optics.eee.nottingham.ac.uk/wiki/Vlsi:Cadence_Tips
-- cccs: https://zhuanlan.zhihu.com/p/673455481
 
 ### SKILL &  `.cshrc`, `.cdsinit`, `.cdsenv`
 
@@ -33,6 +27,7 @@
 - [`.cdsinit` 和 `.cdsenv` 文件的妙用](https://zhuanlan.zhihu.com/p/334782042)
 - [防 virtuoso 意外退出而中断仿真（附 `.cdsinit` 和 `.cdsenv` 文件说明）](https://zhuanlan.zhihu.com/p/557858923)
 - [ `.cshrc`, `.cdsinit`, `.cdsenv`文件配置，修改工艺文件通过 SKILL 实现 overstress 仿真](https://zhuanlan.zhihu.com/p/703004089)
+- [SKILL 编程 —— gm/ID 计算器](https://zhuanlan.zhihu.com/p/665033979)
 
 ## Schematic & Layout & GDS
 
@@ -109,6 +104,15 @@
 - [IC23.1 仿真结果 VIVA 曲线图背景调整成白色](https://zhuanlan.zhihu.com/p/8242343475)
 - [Calculator 基本操作](https://zhuanlan.zhihu.com/p/461911657)
 - [bus A to D](https://zhuanlan.zhihu.com/p/607779887), 注: 应为“菜单栏中的 measurements”，而不是右键信号显示的 measurement
+
+```lisp
+awvCreateBus("DATAOUT" list(
+    awvAnalog2Digital(VT("/DATAOUT<3>") 0.9 0.1 nil 0 "hilo") 
+    awvAnalog2Digital(VT("/DATAOUT<2>") 0.9 0.1 nil 0 "hilo") 
+    awvAnalog2Digital(VT("/DATAOUT<1>") 0.9 0.1 nil 0 "hilo") 
+    awvAnalog2Digital(VT("/DATAOUT<0>") 0.9 0.1 nil 0 "hilo")
+) "Binary")
+```
 
 ## Others
 
