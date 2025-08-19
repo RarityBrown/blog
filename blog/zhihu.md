@@ -47,3 +47,5 @@
 dynamic element matching? 
 
 ### [Sansen 中文版第50页 源随器幅频特性曲线中尖峰原因](https://www.zhihu.com/question/494496007)
+
+### [晶体管密度最高可以达到多少?](https://www.zhihu.com/question/652919031/answer/1923520186885054545)
