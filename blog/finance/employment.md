@@ -10,3 +10,5 @@
 #### 高速
 
 [迅芯微电子](http://www.acelamicro.com/)
+
+https://www.zhihu.com/question/39671925
