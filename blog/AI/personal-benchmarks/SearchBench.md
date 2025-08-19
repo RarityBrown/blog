@@ -21,6 +21,15 @@
   - [Claude](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/web-search-tool) based on [Brave](https://simonwillison.net/2025/Apr/21/ai-assisted-search/)
   - [Grok](https://docs.x.ai/docs/guides/live-search)
   - [openrouter](https://openrouter.ai/docs/features/web-search) based on Exa
+- Agents with "deep" search + browse + (visual)
+  - [Genspark](https://www.genspark.ai)
+  - [h2oGPTe](https://h2ogpte.genai.h2o.ai/)
+  - [skywork](https://skywork.ai)
+  - [MiroThinker](https://dr.miromind.ai/)
+  - [flowith](https://flowith.io/)
+  - [suna](https://www.suna.so/)
+  - [Minimax](https://agent.minimax.io/)
+  - [Komo](https://komo.ai/)
 
 </details>
 
@@ -63,6 +72,7 @@ Search 有非常多的 corner cases，一点都不优雅，频率依次倒序，
       - 社交媒体的登录框
       - 人机验证码
     - OpenAI 的[答案](https://youtu.be/twXsAiTINO0?t=567)是 Agent。我认为这是正确的，因为本质上只有这种 Agent 的方式可以实现通用性，只要人能过去的地方 Agent 理论上都能过去，而不是一个个去写规则。但是速度目前还是一个问题（也就是 vLLM 的问题），这个问题 Agent 需要 10 分钟，而有经验的相关人类应该 1 分钟以内就可以解决。
+    - Google 目前的公开简单 [url context](https://ai.google.dev/gemini-api/docs/url-context) 方案仍然是抓取[静态内容](https://simonwillison.net/2025/Aug/18/google-gemini-url-context/)。但是 Gemini Doc 里面写明是支持图片的。
   - 在线超长 .pdf 文件，通过 pdf.js 加载的在线 pdf 文件；超大型网页
     - 例如 `https://www.spec.org/cpu2017/results/cpu2017/` `https://github.com/kaisugi/gpt4_vocab_list/blob/main/o200k_base_vocab_list.txt`
   - 隐藏的网页、登录墙、付费墙：只可能本地解决，靠一个个去谈不可能覆盖完全
@@ -139,6 +149,11 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - 中国国内目前排名前20的医院里，前身是教会医院的有哪些？超级简单回答。例如 “是：仁济、浙一、华西、华山...；不是：北大三院、积水潭、中山、瑞金...”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
   - 正确答案：是教会医院：北京协和、中国医大一院、仁济、瑞金、浙二、武汉协和、湘雅、华西；不是教会医院：301、北大一院、北大三院、中山、华山、浙一、郑大一附院、武汉同济、湘雅二院、中山一院、南方医院、西京。参考[2023复旦版排名](https://rank.cn-healthcare.com/fudan/national-general) (2024年11月发布)
   - 正确情况：Gemini 2.5 Pro w Google 对
+- iPad 播放器 app？简单回答，不满足要求的不用提及。中英文双语搜索，至少参考 20 个有效信息源。app 要求：1. 明确支持 >2.0 (不包括等于，一定要大于) 倍速; 2. 在最近一年内更新过; 3. 不是 safari 扩展，是播放器 app; 4. 除了 VLC 以外
+  - 典型错误：Infuse
+  - 参考答案：
+- iPad 播放器 app？简单回答，不满足要求的不用提及。中英文双语搜索。app 要求：1. 是个可以实时自动生成并显示字幕的播放器，而不是在线字幕生成服务或者本地视频剪辑软件; 2. 要当前已经支持的，而不是 VLC 这种只是宣布即将支持但是还没支持的; 3. 要支持中文和英文，所以原生 Live Captions 目前还不能用; 4. 除了 YPlayer 以外
+  - 参考答案：应该是没有了
 
 ##### "No" 问题
 
