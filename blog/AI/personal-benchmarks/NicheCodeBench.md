@@ -655,6 +655,7 @@ endmodule
 - An interactive phased array demo.
 - An **interactive** demo for **principles** of BLDC and PMSM. So having only fancy animations is not enough and lengthy theoretical text is useless.
 - An Interactive Newton's cradle with adjustable number of balls and wire length. The UI should be extremely simple, but the physics must be extremely realistic, considering non-ideal factors such as resistance, etc.
+- An interactive second-order inverted pendulum on a cart simulation with random noise and damping. Add automatic control algorithm without any manual parameter adjustment by the user. You automatically determine the algorithm type and parameters; the user only needs to turn the algorithm on or off with a single button. At the same time, when the algorithm is enabled, allow the user to manually apply external force disturbances to test the robustness of the algorithm.
 - Simulate the movement of multiple positive and negative charged particles within a square, with an electric field pointing to the right and a magnetic field pointing into the screen. The interaction forces between each particle need to be considered.
 - Build a real-time microphone spectrum visualizer, with historical data also displayed. Use color as intensity, with one axis being frequency and the other being time. Place the historical maximum, sub-maximum, current maximum, and sub-maximum values in real-time on the plane. And add a 3d chart side by side, use z axis to represent the intensity instead of color, x and y as frequency and time without three.js.
 
