@@ -84,73 +84,50 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 考虑到 SimpleQA 已经存在数据集泄露或过拟合的[情况](https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507/discussions/4)，自建类 SimpleQA 数据集还是非常有意义的，比如 [ACG-SimpleQA](https://github.com/prnake/ACG-SimpleQA)
 
-
-> Q: 上海四校八大？
->
-> QC: 控江中学和七宝中学，哪个不是上海八大金刚？
-> 
-> 典型错误：复交同师。基本上只取决对于中文互联网上知识的爬取深入程度和清洗的合理程度，因为这个靠多语言能力翻译没用，同时含有“四校八大”相关的网页内容往往是低质量的。
-> 
-> 正确情况：4oL 对; Sonnet 3.5 错错; Gemini 2 Pro 对;
->
-> QC 正确情况：Sonnet 3.7 thinking 错; Gemini 2.5 Pro 错; kingfall 错
-
-> Q: 顺尔宁是 NSAIDs 吗？泰诺呢？开瑞坦呢？双氯芬酸呢？右美沙芬呢？简单回答，即类似于“是、不是、不是、不是、是”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
->
-> QC: 泰诺和顺尔宁哪个是抗组胺药？
->
-> 正确答案：不是、不是、不是、是、不是。类似地，取决于中文语料，多语言能力翻译没用。这题可以看出不管是开源还是闭源的模型都有明显蒸馏其他家的模型，对于“顺尔宁”这一项的错误认知往往是“顺尔宁就是布洛芬”
->
-> Q 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; *4oL 错*; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
->
-> QC 正确情况：grok3 错错对; Gemini 2.5 Pro 对; v3-0324 对对; Sonnet 3.7 thinking 错错错; o3-mini 错; kingfall 对
->
-> 注：非常确定这道题被 OpenAI 拿去做 post-train 了，最新的 4o/4.1 可以答对一模一样的 Q，但是仍然不知道顺尔宁是什么药。
-
-> Q: 有什么果实根茎类的蔬菜是**完全**不用削皮就可以进行下一步加工的？可削可不削、可剥可不剥的蔬菜不算。所以例如小胡萝卜、嫩萝卜、西红柿、嫩黄瓜、小土豆、嫩姜、甜薯、山药、嫩丝瓜等等可削可不削都不算。我能想到的有椒类 青椒/彩椒/辣椒/长椒/尖椒、豆荚类 四季豆/菜豆/豇豆/豆角/扁豆/刀豆/荷兰豆，你再帮我想 10 个。
->
-> 参考答案：茄子、秋葵、苦瓜、芦笋、芹菜、蒜苔
-
-> Q: 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
->
-> 正确答案：1700 中心对称, 轴对称; 1700 中心对称, 轴对称; 1900 中心对称, 不轴对称
-
-> Q: 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献. Recommend the three most significant and influential people in the analog EDA field and the digital EDA field, respectively. Just list their names, without introducing their contributions.
->
-> QC: Razavi 和 Thomas Lee 哪个不是模拟 EDA 领域的专家？
->
-> 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Paul R. Gray, Thomas Lee, Bob Pease, Murmann, Willy 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
->
-> 参考答案：
->
-> - General
->   - Pat Pistilli
-> - Analog:
->   - Donald O. Pederson (SPICE)
->   - Laurence(Larry) Nagel (SPICE)
->   - Arthur Richard Newton (SPICE)
->   - Ronald A. Rohrer (SPICE)
->   - Ken Kundert (Spectre)
->   - Jacob K. White (Spectre)
->   - Rob A. Rutenbar
->   - Georges Gielen
->   - Alberto Sangiovanni-Vincentelli
-> - Digital:
->   - Alberto Sangiovanni-Vincentelli
->   - Kurt Keutzer (Bell Labs, Synopsys, UCB)
->   - Aart de Geus (Synopsys)
->   - Phil Moorby (Verilog)
->   - Robert K. Brayton (UCB)
->   - Hugo De Man (IMEC)
->   - Giovanni De Micheli
->   - Robert K. Brayton
->   - Ernest S. Kuh (葛守仁)
-> 
-> 没有提到 Razavi, Moore 等离谱答案则可以认为正确 https://wadmes.github.io/2019/12/11/EDA-family-tree/
-> 
-> Q 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错错; Kingfall 对
+What should be the punishment for looking at your opponent's board in chess? answer in short.
 
 
+- 上海四校八大？
+  - QC: 控江中学和七宝中学，哪个不是上海八大金刚？
+  - 典型错误：复交同师。基本上只取决对于中文互联网上知识的爬取深入程度和清洗的合理程度，因为这个靠多语言能力翻译没用，同时含有“四校八大”相关的网页内容往往是低质量的。
+  - 正确情况：4oL 对; Sonnet 3.5 错错; Gemini 2 Pro 对;
+  - 正确情况 QC：Sonnet 3.7 thinking 错; Gemini 2.5 Pro 错; kingfall 错
+- 顺尔宁是 NSAIDs 吗？泰诺呢？开瑞坦呢？双氯芬酸呢？右美沙芬呢？简单回答，即类似于“是、不是、不是、不是、是”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
+  - QC: 泰诺和顺尔宁哪个是抗组胺药？
+  - 正确答案：不是、不是、不是、是、不是。类似地，取决于中文语料，多语言能力翻译没用。这题可以看出不管是开源还是闭源的模型都有明显蒸馏其他家的模型，对于“顺尔宁”这一项的错误认知往往是“顺尔宁就是布洛芬”
+  - 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; *4oL 错*; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
+  - 正确情况 QC：grok3 错错对; Gemini 2.5 Pro 对; v3-0324 对对; Sonnet 3.7 thinking 错错错; o3-mini 错; kingfall 对
+  - 注：非常确定这道题被 OpenAI 拿去做 post-train 了，最新的 4o/4.1 可以答对一模一样的 Q，但是仍然不知道顺尔宁是什么药。
+- 有什么果实根茎类的蔬菜是**完全**不用削皮就可以进行下一步加工并最终食用的？可削可不削、可剥可不剥的蔬菜不算。所以例如小胡萝卜、嫩萝卜、西红柿、嫩黄瓜、小土豆、嫩姜、甜薯、山药、嫩丝瓜等等可削可不削都不算。我能想到的有椒类 青椒/彩椒/辣椒/长椒/尖椒、豆荚类 四季豆/菜豆/豇豆/豆角/扁豆/刀豆/荷兰豆，你再帮我想 10 个。
+  - 参考答案：茄子、秋葵、苦瓜、芦笋、芹菜、蒜苔；   西葫芦？丝瓜？
+- 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
+  - 正确答案：1700 中心对称, 轴对称; 1700 中心对称, 轴对称; 1900 中心对称, 不轴对称
+- QC: What should be the punishment for looking at your opponent's board in chess? answer in short.   ref: https://www.reddit.com/r/LocalLLaMA/comments/1m9holp/comment/n59i71p/
+  - 正确答案：None—both players share the same board. You’re supposed to look at it.
+- 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献. Recommend the three most significant and influential people in the analog EDA field and the digital EDA field, respectively. Just list their names, without introducing their contributions.
+  - QC: Razavi 和 Thomas Lee 哪个不是模拟 EDA 领域的专家？
+  - 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Paul R. Gray, Thomas Lee, Bob Pease, Murmann, Willy 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
+  - 参考答案：
+    - General
+      - Pat Pistilli
+    - Analog:
+      - SPICE: Donald O. Pederson, Laurence(Larry) Nagel, Arthur Richard Newton, Ronald A. Rohrer
+      - Spectre: Ken Kundert, Jacob K. White
+      - Rob A. Rutenbar
+      - Georges Gielen
+      - Alberto Sangiovanni-Vincentelli
+    - Digital:
+      - Alberto Sangiovanni-Vincentelli
+      - Kurt Keutzer (Bell Labs, Synopsys, UCB)
+      - Aart de Geus (Synopsys)
+      - Phil Moorby (Verilog)
+      - Robert K. Brayton (UCB)
+      - Hugo De Man (IMEC)
+      - Giovanni De Micheli
+      - Robert K. Brayton
+      - Ernest S. Kuh (葛守仁)
+    - 没有提到 Razavi, Moore 等离谱答案则可以认为正确 https://wadmes.github.io/2019/12/11/EDA-family-tree/
+  - 正确情况：Sonnet 3.7 错; o1 错; grok3 错; Gemini 2 Pro 半对; GPT4.5 错错; Kingfall 对
 - Q: The release year of IC Compiler 2? When did ICC1 stop updating?
   - 正确答案：2014, 2016?
   - 正确情况：gemini-exp-1121 对对, Sonnet 3.5 对.不会.
