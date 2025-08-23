@@ -51,17 +51,13 @@
 在跑大仿真前的 check-list
 
 1. 需要的信号是否保存，不需要的信号是否不保存？
-2. 磁盘空间是否足够？`placeholder_file_reserved_for_deletion_in_case_of_emergency1.bin` 文件准备。
-3. 是否跑过短时间的 tran 验证？例如 1ns？
-4. 是否跑过一个扫描点的验证？
+2. 是否进入 ADE Assembler 仿真以自动保存仿真结果？
+3. 磁盘空间是否足够？`placeholder_file_reserved_for_deletion_in_case_of_emergency1.bin` 文件准备。
+4. 是否保存了 ADE 的状态和原理图的状态，以便于在 virtuoso 无响应时 xkill 而不丢失？
 5. 是否保存上次仿真的结果？
-6. 是否保存了 ADE 的状态和原理图的状态，以便于在 virtuoso 无响应时 xkill 而不丢失？
-
-
-
-
-
-
+6. 是否跑过短时间的 tran 验证？例如 1ns？
+7. 是否跑过一个扫描点的验证？
+8. 是否使用 [Run Preview](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-video-diary-run-point-selection-wysiwyg) 检查仿真设置？
 
 
 
