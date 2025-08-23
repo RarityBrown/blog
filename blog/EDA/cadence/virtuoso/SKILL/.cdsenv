@@ -7,15 +7,17 @@ cdsLibManager.main   showCategoriesOn boolean t              ; lib manager shows
 cdsLibManager.main   showFilesOn      boolean t              ; lib manager shows files
 
 ;;;;;;;;;;;;;;;;;; spectre
-; spectre.turboOpts    uniMode          string  "APS"          ; to use spectre APS by default. or "Spectre X"
-; spectre              numThreads       int     16           ; memory and multithreading config, todo
+; spectre.turboOpts    uniMode          string  "Spectre X"          ; to use Spectre X by default. or "APS"
+; spectre              numThreads       int     16                   ; memory and multithreading config, todo
 
 ;;;;;;;;;;;;;;;;;; ADE XL (ADE Explorer)
 ;;; Why ADE XL instead of ADE Explorer: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/52576/how-to-set-default-corners-in-maestro
-; adexl.icrpStartup    defaultJobPolicy           string "My_jobpolicy"        ; My jobs parallelization policy
-; adexl.gui            defaultCorners             string "./corners/corner_mc_tt40.csv" ; IC6.1.8-64b.500.20 and above. for IC6.1.8-64b.500.19  string "./corners/corners_6.sdb" ; . see https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/49271/load-corners-csv-file-skill-function
-; maestro.lscs         defaultNetlistingJobPolicy string "LSCS_NetJob_Policy"  ; or use the LSCS instead of the ICRP
-; maestro.lscs         defaultSimulationJobPolicy string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP         
+adexl.gui            enableAutoRefreshPointsTable  boolean t
+; adexl.icrpStartup    defaultJobPolicy              string "My_jobpolicy"        ; My jobs parallelization policy
+; adexl.gui            defaultCorners                string "./corners/corner_mc_tt40.csv" ; IC6.1.8-64b.500.20 and above. for IC6.1.8-64b.500.19  string "./corners/corners_6.sdb" ; . see https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/49271/load-corners-csv-file-skill-function
+; maestro.lscs         defaultNetlistingJobPolicy    string "LSCS_NetJob_Policy"  ; or use the LSCS instead of the ICRP
+; maestro.lscs         defaultSimulationJobPolicy    string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP         
+
 
 ;;;;;;;;;;;;;;;;;;
 ; auCore.misc          annotationSetupFileList string "./.cadence/dfII/annotationSetups/My_annoSetup.as"
@@ -42,7 +44,7 @@ ui    ciwCmdInputLines                     int     4
 
 ;;;;;;;;;;;;;;;;;; schematic
 schematic            srcSolderOnCrossover cyclic "ignored"   ; ignore solder dot cross over warning
-schematic            srcInstOverlapValue  int    10
+schematic            srcInstOverlapValue  int    60
 
 ;;;;;;;;;;;;;;;;;; graphic
 ; graphic              balloonOn           boolean t               ; ?enable the info balloon by default
@@ -59,6 +61,15 @@ layout               labelHeight         float   0.07
 layout               labelFonStyle       cyclic  "roman"
 layout               pinTextSameLayer    boolean t
 layout               pinTextPurposeNames string  "pin"
+
+; layout               saveRulers                      boolean     nil                    ; ref: https://gist.github.com/02015678/783ad36389fe3b7aa8cd
+; layout               rulerFontSize                   cyclic      "Medium"
+; layout               rulerFontBold                   boolean     t
+; layout               rulerUseSameColor               boolean     t
+; layout               rulerLabelBackgroundColor       cyclic      "black"
+; graphic              rulerColorPacketName            string      "orange"
+; graphic              transientRulerColorPacketName   string      "orange"
+
 
 ;;;;;;;;;;;;;;;;;; backup and autosave setting, todo
 cdba.undo            dbUndoAcrossSave    boolean t               ; Undo after save.  ref: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/54295/can-i-undo-my-changes-after-i-save-the-schematic-in-virtuoso, https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/51607/undo-history-cleared-when-saving-layout
