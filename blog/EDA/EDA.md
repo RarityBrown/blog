@@ -17,13 +17,17 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 - 文档：CS 不用多说了，哪怕 MATLAB 的 examples 都是全公开的；EDA 的 Workshop 和 Lab，请给 Synopsys 和 Cadence 交钱
 
 
-当然，EDA 界也是有一些开源或免费替代品的：比如 [olofk](https://github.com/olofk/edalize) 提供的一些 "API"，[dalance](https://github.com/dalance) 或 [chipsalliance](https://github.com/chipsalliance) 开发的 systemverilog lint，[iverilog](https://github.com/steveicarus/iverilog) 和 [verilator](https://github.com/verilator/verilator) 可以用来仿真，[Yosys](https://github.com/YosysHQ/yosys) 可以用来综合，[KLayout](https://www.klayout.de/) 可以用来编辑 layout。但是没有一项开源工具是 "SOTA" 的（用 EDA 的术语说就是 "golden" 的），也没有一项工具会被用于商业项目。
+当然，EDA 界也是有一些开源或免费替代品的：比如 [olofk](https://github.com/olofk/edalize) 提供的一些 "API"，[dalance](https://github.com/dalance) 或 [chipsalliance](https://github.com/chipsalliance) 开发的 systemverilog lint，[iverilog](https://github.com/steveicarus/iverilog) 和 [verilator](https://github.com/verilator/verilator) 可以用来仿真，[Yosys](https://github.com/YosysHQ/yosys) 可以用来综合，[xschem](https://github.com/StefanSchippers/xschem) 和 [KLayout](https://www.klayout.de/) 可以用来编辑 schematic 和 layout。但是没有一项开源工具是 "SOTA" 的（用 EDA 的术语说就是 "golden" 的），也没有一项工具会被用于商业项目。
 
 从曾经 UC Berkeley SPICE 的开源，到今日 EDA 完全闭源。为什么 SPICE 和 Chromium 会开源，而 Synopsys 和 Jetbrains 会闭源，这些软件开源和闭源的原因都相同吗？
 
 或者说，行业软件开源和免费才是一个小众而稀有的名词？Adobe, Intuit, Autodesk 这些行业软件本就是高度闭源并收费的。似乎除了 CS 行业，to B 天然意味着闭源和收费，所以为什么 GCC 或是 Linux 一直能维持开源才是值得探究的。
 
-另一个和传统软件行业不同的是，EDA 的用户侧对新版的追求非常不强烈。2016 年版的 EDA 软件有大把人还在用，而十年前 to C 的软件到现在是基本上不可用的状态。
+另一个和传统软件行业不同的是，EDA 的用户侧对新版的追求非常不强烈。2016 年版的 EDA 软件有大把人还在用，而十年前 to C 的软件到现在是基本上不可用的状态。比如说三个点：
+
+1. EDA 默认的 Version Control 是一个完全的灾难，软件行业嘲笑使用 xxx_v2 或 xxx_20250902 的命名法在 EDA 领域无处不在
+2. 几乎所有 EDA 的所有操作都是 Synchronous + Thread Blocking。Virtuoso 的 ViVA 在 IC23.1 才修复这个问题，而生成 Calibre view 的这个问题还一直没修复。好听点叫做 Windows File Explorer 同级别。
+3. EDA 软件只做加法而不做减法，这点其实和同样为了保持向后兼容性的 Windows 很像。EDA 还在用 csh, tcl 这种早已被现代主流软件开发所抛弃的语言，连 Microsoft 都放弃 VB 了。不过这一点还是可以理解的，和 LLM 讨论出三点我比较认可的原因：一是验证方式，重新跑一边 python 的流程是需要 tape-out 来说话的；二是失败成本，简单易懂；第三点我没想到的是生态系统控制权的差异，Synposys+Cadence 之和在 EDA 领域行业的影响力是不及 Microsoft 在软件行业影响力的，Foundry 和 Fabless 是有很大的话语权的。
 
 在 EDA 开发者看来，软件实现功能以支持 tapeout 比可维护性更重要，最近看到一个 ADI 开源的 [Verilog-A Model Rule Enforcer](https://github.com/analogdevicesinc/vampyre)，整个一个 8000 行的 python 来解决。不过虽说是 ADI，其实也只有一个 Geoffrey Coram 老工程师在单打独斗。
 
@@ -31,7 +35,8 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 
 一些观点和视角：
 
-- 开发者视角：当一个持有 Open Source 精神和关注 UX 的开发者进入 EDA 圈子，最终却是离去：详见 [Digital-IDE](https://github.com/Digital-EDA/Digital-IDE) 开发者的[感悟](https://www.zhihu.com/question/1890410020828575085/answer/1917651711587230283)
+- 业余 EDA 开发者视角：当一个持有 Open Source 精神和关注 UX 的开发者进入 EDA 圈子，最终却是离去：详见 [Digital-IDE](https://github.com/Digital-EDA/Digital-IDE) 开发者的[感悟](https://www.zhihu.com/question/1890410020828575085/answer/1917651711587230283)
+- 专业 EDA 开发者视角：Verilog-AMS 的语法 by [豆芽](https://www.zhihu.com/pin/1928327506064315913)
 - 学术界视角：Are open source digital design flows ready for mainstream? by Frank K. Gürkaynak, ETH Zürich. [slide](https://mos-ak.org/bruges_2024/publication/8_Gurkaynak_ESSERC_2024_ETHZ_pulp.pdf)
 - IC infra 从业人员分享：https://icinfra.cn/
 
@@ -119,3 +124,5 @@ https://bbs.eetop.cn/thread-992392-1-1.html
 
 
 https://blog.csdn.net/weixin_43444334/article/details/147316674
+
+https://wiki.to.infn.it/vlsi/workbook/computing
