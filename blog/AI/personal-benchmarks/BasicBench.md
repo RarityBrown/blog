@@ -1,14 +1,10 @@
 # My Personal Basic Benchmark
 
-考虑到各种 Benchmark 泄露严重，现在基本上只参考 Arena Hard Prompts (Overall) with Style Control 作为 Benchmark。
-
-同时，在平时使用过程中，收集选择一些第一梯队 LLM (GPT-5, Gemini 2.5 Pro, Opus 4 thinking, Grok 4) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分，edit: 结果没一个满分，栽在图形上了)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
-
-
+考虑到各种 Benchmark 泄露严重，在平时使用过程中，收集选择一些第一梯队 LLM (GPT-5, Gemini 2.5 Pro, Opus 4.1 thinking, Grok 4) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分，edit: 结果没一个满分，栽在图形上了)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
 
 ### QC 系列
 
-- 加入 QC (Question with Critical Thinking, 题目就是错的
+- 加入 QC (Question with Critical Thinking, 题目就是错的)
   - 例如 "证明 $\frac{1}{2}=\frac{2}{2+2-1}$", "Asheville, Akita, Kanazawa 哪个城市没有开过奥运会？"
   - 可以考虑传统选择题形式的类 GPQA 评测 + 填空题形式的类 GPQA 评测 + 没有一个选项正确的选择题形式的类 GPQA 评测。
 
@@ -42,12 +38,6 @@
 2. "情商", unspoken rules, unspoken expectations
 3. 语言中的创造力
 
-> Q: 一个双耳旁两个木读啥（将回答限制在 10 字符以内）
->
-> 正确答案：郴（chēn）
->
-> 正确情况：Gemini 2.5 Pro 对对对; 4oL 错; Sonnet 3.7 thinking 错
-
 > Q: Tea and coffee are available, but liquor, wine or beer (?) not.   are / is
 >
 > 正确答案：is
@@ -58,15 +48,9 @@
 >
 > 参考答案：as if \[it were\] aimed at ... 状语？装补？我也不确定
 
-> Q: "赣南师大"有一个梗是"江南 style"，为什么赣和江发音相近？
->
-> 正确答案：gànnan (中文) 和 gangnam (韩语); 和 (Jiang) 没关系
->
-> 正确情况：o3-mini 错
-
 > Q: 椭圆内接三角形的一个顶点在椭圆的右侧(a,0)，另外两个顶点分别在椭圆的上顶点 (0,b) 和下顶点 (0,-b)。如果椭圆不是正着放在直角坐标系中间，而且还旋转了，我应该如何用一句话描述这个三角形？
 >
-> 参考答案：以椭圆长轴一个端点为顶角顶点、短轴两个端点为底角顶点的椭圆内接等腰三角形
+> 参考答案：由椭圆长轴一个端点与短轴两个端点构成的三角形；以椭圆长轴一个端点为顶角顶点、短轴两个端点为底角顶点的椭圆内接等腰三角形
 
 > Q: Delaying graduation because of an exchange program vs. Going on an exchange program because of delayed graduation; Female college student engaging in prostitution vs. A fallen young woman persisting to complete her college education; He smokes while praying vs. He prays while smoking. Are there any other similar examples? Give me one.
 >
@@ -84,9 +68,12 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 考虑到 SimpleQA 已经存在数据集泄露或过拟合的[情况](https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507/discussions/4)，自建类 SimpleQA 数据集还是非常有意义的，比如 [ACG-SimpleQA](https://github.com/prnake/ACG-SimpleQA)
 
-What should be the punishment for looking at your opponent's board in chess? answer in short.
-
-
+- 一个双耳旁两个木读啥（将回答限制在 10 字符以内）
+  - 正确答案：郴（chēn）
+  - 正确情况：Gemini 2.5 Pro 对对对; 4oL 错; Sonnet 3.7 thinking 错; gpt-5-high 错
+- 阜阳西湖和蒋介石有什么关系吗？
+  - 正确答案：蒋介石 → 花园口决堤 → 颍州西湖淤塞
+  - 正确情况：gpt-5-high 提醒后对; opus 4.1 thinking 错; Gemini 2.5 Pro 错
 - 上海四校八大？
   - QC: 控江中学和七宝中学，哪个不是上海八大金刚？
   - 典型错误：复交同师。基本上只取决对于中文互联网上知识的爬取深入程度和清洗的合理程度，因为这个靠多语言能力翻译没用，同时含有“四校八大”相关的网页内容往往是低质量的。
@@ -98,12 +85,13 @@ What should be the punishment for looking at your opponent's board in chess? ans
   - 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; *4oL 错*; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
   - 正确情况 QC：grok3 错错对; Gemini 2.5 Pro 对; v3-0324 对对; Sonnet 3.7 thinking 错错错; o3-mini 错; kingfall 对
   - 注：非常确定这道题被 OpenAI 拿去做 post-train 了，最新的 4o/4.1 可以答对一模一样的 Q，但是仍然不知道顺尔宁是什么药。
-- 有什么果实根茎类的蔬菜是**完全**不用削皮就可以进行下一步加工并最终食用的？可削可不削、可剥可不剥的蔬菜不算。所以例如小胡萝卜、嫩萝卜、西红柿、嫩黄瓜、小土豆、嫩姜、甜薯、山药、嫩丝瓜等等可削可不削都不算。我能想到的有椒类 青椒/彩椒/辣椒/长椒/尖椒、豆荚类 四季豆/菜豆/豇豆/豆角/扁豆/刀豆/荷兰豆，你再帮我想 10 个。
-  - 参考答案：茄子、秋葵、苦瓜、芦笋、芹菜、蒜苔；   西葫芦？丝瓜？
+- 有什么**果实根茎**类（菌菇类不算，韭菜大葱等实际上是叶的也不算）的蔬菜（水果不算）是**完全**不用削皮就可以进行下一步加工并最终食用的？可削可不削、可剥可不剥的蔬菜不算。所以例如小胡萝卜、嫩萝卜、小土豆、嫩姜、甜薯、山药、西红柿、嫩丝瓜、嫩黄瓜、嫩西葫芦等等可削可不削的都不算。我能想到的有椒类 青椒/彩椒/辣椒/长椒/尖椒、豆类 四季豆/菜豆/豇豆/豆角/扁豆/刀豆/荷兰豆/甜豆/豆芽/豆荚，你再帮我想 10 个，果实类 5 个，根茎类 5 个。
+  - 参考答案：茄子、秋葵、苦瓜；芦笋、芹菜/西芹、蒜苔、鱼腥草;     玉米? 西兰花 / 花菜?
 - 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
   - 正确答案：1700 中心对称, 轴对称; 1700 中心对称, 轴对称; 1900 中心对称, 不轴对称
 - QC: What should be the punishment for looking at your opponent's board in chess? answer in short.   ref: https://www.reddit.com/r/LocalLLaMA/comments/1m9holp/comment/n59i71p/
   - 正确答案：None—both players share the same board. You’re supposed to look at it.
+  - 正确情况：gpt-5 对
 - 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献. Recommend the three most significant and influential people in the analog EDA field and the digital EDA field, respectively. Just list their names, without introducing their contributions.
   - QC: Razavi 和 Thomas Lee 哪个不是模拟 EDA 领域的专家？
   - 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Paul R. Gray, Thomas Lee, Bob Pease, Murmann, Willy 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
@@ -226,6 +214,9 @@ What should be the punishment for looking at your opponent's board in chess? ans
 - 4.5米, 6米, 20米长的竹竿能否通过高4米宽3米的门？Can poles of 4.5 meters, 6 meters, and 20 meters in length pass through a door 4 meters high and 3 meters wide? Omit the process and give the answer directly, for example, "Yes, No, Yes"          [ref](https://zhuanlan.zhihu.com/p/23434595912)
   - 更简单的版本：6米长的队伍能不能通过高4米宽3米的门？ 
   - 正确答案：都可以
+- "赣南师大"有一个梗是"江南 style"，为什么赣和江发音相近？
+  - 正确答案：gànnan (中文) 和 gangnam (韩语); 和 (Jiang) 没关系
+  - 正确情况：gpt-5-high 对; Opus-4.1-thinking 错; Gemini 2.5 Pro 错;
 - #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
 
 #### 纯数学问题（主要考察 reasoning model）
@@ -240,53 +231,22 @@ What should be the punishment for looking at your opponent's board in chess? ans
 > - 114+5+1+4+1919-8-10=2025 114-5-1-4+1919-8+10=2025
 > - 1145+1+41+9+19+810=2025 1145+1+41+919-81+0=2025
 
-- 0.4646018366... 这个无理数对应的符号表示结果是什么？例如 0.1415926... 的符号表示结果是 \pi-3。0.4646018366... 这个数据在我给你的有效位数内没有任何的四舍五入错误
+- 0.4646018366... 这个无理数对应的符号表示结果是什么？例如 0.14159265... 的符号表示结果是 \pi-3。0.4646018366... 这个数据在我给你的有效位数内没有任何的四舍五入错误
   - 正确答案： $\frac{5-\pi}{4}$
+  - 正确情况：deepseek-v3.1-thinking 对
 - 2025 年 7 月 22 日的农历和 2003 年 7 月 27 日的农历是同一天吗？
   - 正确答案：都是六月廿八
 - https://www.zhihu.com/question/640357173/answer/3380518541
 - =RATE(60, -2000, 0, 240000)
   - 2.146%
-
-> Q: $\left[ \mu C_{ox} \frac{W}{L_2} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{S2} - V_{TH2}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_D - V_{S2}}{V_T} \right) \right)=\left[ \mu C_{ox} \frac{W}{L_3} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{TH3}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_{S2}}{V_T} \right) \right)$ 除了 $V_{S2}$ 不知道，别的都已知，且 $V_{TH2}=V_{TH3}=V_{TH}$ ，求 $V_{S2}$
->
-> 正确答案：下一题
-
-> Q: $V_{S2} = V_T\ln(\frac{1}{x})\quad\text{with}\quad x^{1/n} = \frac{L_2}{L_3}(1-x)$ 和 $V_{S2} = nV_T\ln(\frac{1}{x})\quad\text{with}\quad x^n + \frac{L_3}{L_2}x - 1 = 0$ 两个 $V_{S2}$ 的表达式等价吗？
->
-> 正确答案：等价。令 $x_2=x_1^{1/n}$ 即可。
-
-> Q: Solve $y^n + \frac{L_3}{L_2}y - 1 = 0$ analytically in a closed-form, where $1<n<2$. Solution should not be numerical nor approximate (such as series expansion). The solution does exist.
->
-> Q: Given $x^n + ax - 1 = 0$, solve for $x$ in a closed-form analytically, where $1<n<2$. Solution should not be numerical nor approximate (such as series expansion). The solution does exist, but not in elementary functions.
->
-> 正确?答案：$y=\left\{\frac{1}{\frac{L_3}{L_2}(n-1)}\,W\!\Biggl[\frac{n}{n-1}\Bigl(\frac{L_3}{L_2}\Bigr)^{-\frac{n}{n-1}}\Biggr]\right\}^{\frac1{n-1}}=1 - \frac{1}{n}\frac{L_3}{L_2} + \frac{(3-n)}{2n^2}\left(\frac{L_3}{L_2}\right)^2 - \frac{(n^2-5n+10)}{6n^3}\left(\frac{L_3}{L_2}\right)^3 + ...$
->
-> 正确情况：grok3 thinking 不会; qwq 32b 不会; o3-mini 对
-
-> Q: What is the relationship between the transcendental equation $x=x^{m}+q$ and the Lambert W function?
->
-> 正确答案：Not sure $x=\exp\left[-\frac{1}{m-1}\,W\!\left(-\frac{m-1}{m}\,q^{\frac{m}{m-1}}\right)\right]$
->
-> 正确情况：o3-mini 对
-
-
-> Q: Are $x=\exp\left[-\frac{1}{m-1} W\left(-\frac{m-1}{m}q^{\frac{m}{m-1}}\right)\right]$ and $x = x^m + q$ equivalent?
->
-> 正确答案：Yes? Not sure
->
-> 正确情况：o3-mini 对; Sonnet 3.7 对; grok 3 thinking 对
->
-> - Set $t = -\frac{1}{m-1}W\left(-\frac{m-1}{m}q^{\frac{m}{m-1}}\right)$, so $x = e^t$.
-> - Substituting into $x = x^m + q$: $e^t - e^{mt} = q$
-> - If $W(z) = w$, then $z = we^w$: In our case, $W\left(-\frac{m-1}{m}q^{\frac{m}{m-1}}\right) = -(m-1)t$,  so: $-\frac{m-1}{m}q^{\frac{m}{m-1}} = -(m-1)t \cdot e^{-(m-1)t}$​
-> - Simplifying: $\frac{m-1}{m}q^{\frac{m}{m-1}} = (m-1)t \cdot e^{-(m-1)t}$
-> - Now, let's examine our equation $e^t - e^{mt} = q$: $e^t - e^{mt} = e^t(1 - e^{(m-1)t}) = q$
-> - Since $e^{(m-1)t} = (e^t)^{m-1} = x^{m-1}$, we have: $e^t(1 - x^{m-1}) = x - x^m = q$
-
-> Q: Given $y^n + \frac{L_3}{L_2}y - 1 = 0, \text{where} 1<n<2, 0.01<\frac{L_3}{L_2}<100$. How to approximate the analytical solution of $y$? The final approximate analytical solution should avoid case discussion and transcendental functions. Within the range of $1<n<2, 0.01<\frac{L_3}{L_2}<100$, the error of the approximate solution should be controlled within 5%, and the solution should be as concise as possible while ensuring accuracy.
->
-> 参考答案：
+- $\left[ \mu C_{ox} \frac{W}{L_2} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{S2} - V_{TH2}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_D - V_{S2}}{V_T} \right) \right)=\left[ \mu C_{ox} \frac{W}{L_3} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{TH3}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_{S2}}{V_T} \right) \right)$ 除了 $V_{S2}$ 不知道，别的都已知，且 $V_{TH2}=V_{TH3}=V_{TH}$ ，求 $V_{S2}$
+  - 正确答案：下一题
+- Q: $V_{S2} = V_T\ln(\frac{1}{x})\quad\text{with}\quad x^{1/n} = \frac{L_2}{L_3}(1-x)$ 和 $V_{S2} = nV_T\ln(\frac{1}{x})\quad\text{with}\quad x^n + \frac{L_3}{L_2}x - 1 = 0$ 两个 $V_{S2}$ 的表达式等价吗？
+  - 正确答案：等价。令 $x_2=x_1^{1/n}$ 即可。
+- Given $y^n + \frac{L_3}{L_2}y - 1 = 0, \text{where} 1<n<2, 0.01<\frac{L_3}{L_2}<100$. How to approximate the analytical solution of $y$? The final approximate analytical solution should avoid case discussion and transcendental functions. Within the range of $1<n<2, 0.01<\frac{L_3}{L_2}<100$, the error of the approximate solution should be controlled within 5%, and the solution should be as concise as possible while ensuring accuracy.
+- the final one (超级钓鱼题集合): $\tan^2\frac{\pi}{13}\cdot\tan^2\frac{3\pi}{13}\cdot\tan^2\frac{4\pi}{13} + 19\sum^{26}_{n=1}\sin(\frac{n^8\pi}{26})=?$
+  - ref: [1](https://zhuanlan.zhihu.com/p/1899907731562934988) [2](https://www.bilibili.com/video/BV1mUbHzcEhW/) [3]()
+  - 正确答案: $65-18\sqrt{13} + 19\sqrt{13} = $
 
 ## VLLM 题目列表
 
