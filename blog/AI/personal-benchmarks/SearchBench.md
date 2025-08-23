@@ -29,6 +29,7 @@
   - [flowith](https://flowith.io/)
   - [suna](https://www.suna.so/)
   - [Minimax](https://agent.minimax.io/)
+  - [Ninja](https://myninja.ai/)
   - [Komo](https://komo.ai/)
 
 </details>
@@ -188,12 +189,13 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - Alternatives to perplexity sonar api? I'm asking for alternatives to the sonar api, not the toC product perplexity itself.
   - 参考答案：[Models](#Models)
 
-##### 能不能搜到
+##### 能不能搜到，搜不搜得到
 
-这类问题 Google 会很占优势。比如在 Qwen-Image 发布半小时内搜索，Gemini 2.5 Pro 就显著比 o3, opus-4 好。perplexity 也很厉害，目前不知道他们为什么看上去比 Bing 还牛，和 CF 喷他们有关系吗...
+这类问题 Google 会很占优势。比如在 Qwen-Image 发布半小时内搜索，Gemini 2.5 Pro 就显著比 gpt-5, opus-4.1, grok 好。perplexity 也很厉害，目前不知道他们为什么看上去比 Bing 还牛，和 CF 喷他们有关系吗...
 
 
 - aad08s040g? answer within 100 words.
+- serach with quotes: "cmd64bit" for an exact match
 
 
 ##### 普通问题
