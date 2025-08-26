@@ -51,14 +51,20 @@
 在跑大仿真前的 check-list
 
 1. 需要的信号是否保存，不需要的信号是否不保存？
-2. 是否进入 ADE Assembler 仿真以自动保存仿真结果？
+  1. 如果是 `allpub` 评估是否放得下？
+  2. 如果是 `lvlpub` 评估层次是否合理 - 特别是在前后仿切换的时候
+  3. 如果是 `select` 是否都存了？
+2. 是否进入 ADE Assembler 仿真，以自动保存仿真结果？
 3. 磁盘空间是否足够？`placeholder_file_reserved_for_deletion_in_case_of_emergency1.bin` 文件准备。
-4. 是否保存了 ADE 的状态和原理图的状态，以便于在 virtuoso 无响应时 xkill 而不丢失？
-5. 是否保存上次仿真的结果？
-6. 是否跑过短时间的 tran 验证？例如 1ns？
-7. 是否跑过一个扫描点的验证？
-8. 是否使用 [Run Preview](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-video-diary-run-point-selection-wysiwyg) 检查仿真设置？
-
+4. CPU 是否足够？
+   1. CPU 总体是否足够？
+   2. 是否有 Job Setup 并行度阻止仿真
+   3. ADE Assembler 中是否有老任务 suspended 阻止仿真？
+5. 是否保存了 ADE 的状态和原理图的状态，以便于在 virtuoso 无响应时 xkill 而不丢失？
+6. 是否保存上次仿真的结果？
+7. 是否跑过短时间的 tran 验证？例如 1ns？
+8. 是否跑过一个扫描点的验证？
+9. 是否使用 [Run Preview](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-video-diary-run-point-selection-wysiwyg) 检查仿真设置？
 
 
 Virtuoso 中仿真数据默认存储位置由 asimenv.startup projectDir 这一环境变量设置，默认位置是 `~/simulation`。对于如何修改这一环境变量，以及如何把波形图背景设为白色，可以参考 [cdsenv](SKILL.md#cdsinit-and-cdsenv) 这篇文章。
