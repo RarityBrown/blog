@@ -95,13 +95,16 @@ OP 提出三个问题，本质上就是一个问题：
 4. 在 Testbench 1 的 `config` 中将 "DUT_X" cell 设置使用 `calibre` view；然后在 ADE Assembler 的 global config sweep 中只设置 "OpAMP1" 使用 `schematic_v2` view
 5. 在 Testbench 1 的 `config` 中将 "DUT_X" cell 设置使用 `calibre` view；然后在 ADE Assembler 的 global config sweep 中设置 "DUT_X" 使用 `config` view，"OpAMP1" 使用 `schematic_v2` 
 6. 在 Testbench 1 的 `config` 中将 "DUT_X" cell 设置使用 `calibre` view；然后在 ADE Assembler 的 global config sweep 中设置 "DUT_X" 使用 `schematic` view，"OpAMP1" 使用 `schematic_v2` view
+7. 在 Testbench 1 的 `config` 中将 "DUT_X" cell 设置使用 `schematic_v2` view；然后在 ADE Assembler 的 global config sweep 中设置 "DUT_X" 使用 `schematic` view，"OpAMP1" 使用 `schematic_v2` view
 
 此时我们知道：
 
 - 情况 1 和 2 中，我们是可以在 hierarchy editor 中看到 "DUT_X", "OpAMP1" 和 "OpAMP2" 都是使用默认的 `schematic` view；top-level `config`，即  Testbench 1 的 `config` 中存在对于 "OpAMP1" 和 "OpAMP2" 的设置
 - 情况 3, 4, 5, 6 中，则只有 "DUT_X" 的 `calibre` view，因为对于 "DUT_X" 的整体抽寄生 view 而言，"OpAMP1" 和 "OpAMP2" 已经是不存在的概念了；此时的 top-level `config`，即  Testbench 1 的 `config` 中只能看到对于 "DUT_X" 的 `calibre` 设置。
 
-所以情况 1, 2, 3 生效是必然的，情况 4, 5 不生效也是必然的。比较特殊的是情况 6，实测也是会生效的。即 ADE Assembler 中 global config sweep 会具有更高优先级，可以覆盖 `config` view 中的设置。
+所以情况 1, 2, 3 生效是必然的，情况 4, 5 不生效也是必然的。比较特殊的是情况 6 和 7，实测也是会生效的。即 ADE Assembler 中 global config sweep 会具有更高优先级，可以覆盖 `config` view 中的设置。
+
+但是这样跑 6 会有一个问题，即 "DUT_X" cell `schematic` 内部的所有信号仿真结果不可见，比如 `schematic` 内部有一个节点 `v_inner`。ADE 的结果保存机制会认为 "DUT_X" 的 `calibre` view 中没有 `v_inner` 这个节点，所以画出不波形图，虽然我们实际上仿真跑的是 "DUT_X" 的 `schematic` view。跑 7 时，如果 `schematic` 和 `schematic_v2` 都有内部节点 `v_inner` 则可以正常。
 
 
 ### 问题三
@@ -118,3 +121,14 @@ OP 提出三个问题，本质上就是一个问题：
 类似的，在使用 hierarchy editor 编辑 `config` 时，右上角的 Global Bindings 也展示了目前 config 下的 view list 和 stop list。
 
 https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/40967/per-test-config-variables-in-ade-xl/1358598
+
+
+### 复制问题
+
+Update Instance - Of New Copies Only
+
+把 DUT_TB 复制为 DUT_TB2 时：
+
+- 不选："DUT_TB2" 的 `config` 中仍是 "DUT_TB"；"DUT_TB2" 的 maestro view 的 design 仍是 DUT_TB
+- Of New Copies Only:
+- Of Entire Library: DUT_TB 的 config 也被更新为 "DUT_TB2"
