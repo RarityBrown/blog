@@ -24,20 +24,20 @@ adexl.gui            enableAutoRefreshPointsTable  boolean t
 ; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
 
 ;;;;;;;;;;;;;;;;;; VIVA
-; viva.rectGraph           background       string  "white"        ; for older version
-; viva.graph                antiAlias        string  ?
-viva.graphFrame           background       string  "white"        ; for IC6.1.8 IC23.1 
-viva.trace                lineThickness    string  "thick"
-; viva.trace                lineStyle        string  "solid"      ; Dot, dashed, etc.
-asimenv.plotting          useDisplayDrf    boolean nil          ; for tsmc pdk only. SMIC and others don't need this line. see https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/41208/dotted-lines-by-default-in-viva https://www.edaboard.com/threads/how-to-change-the-default-in-ade-cadence.378231/ https://joeyaochou.wordpress.com/2015/04/08/cadence-virtuoso-learning-note/ https://gist.github.com/02015678/783ad36389fe3b7aa8cd https://bbs.eetop.cn/thread-959872-4-1.html https://bbs.eetop.cn/thread-917244-1-1.html https://bbs.eetop.cn/thread-664788-1-1.html
-viva.horizMarker          font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.horizMarker          interceptStyle   string  "on"
-viva.vertMarker           font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.vertMarker           interceptStyle   string  "on"
-viva.pointMarker          font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.axis                 font             string  "Default,15,-1,5,75,0,0,0,0,0"
-viva.traceLegend          font             string  "Default,15,-1,5,75,0,0,0,0,0"
-
+; viva.rectGraph           background         string  "white"        ; for older version
+; viva.graph                antiAlias          string  ?
+viva.graphFrame           background         string  "white"        ; for IC6.1.8 IC23.1 
+viva.trace                lineThickness      string  "thick"
+; viva.trace                lineStyle          string  "solid"      ; Dot, dashed, etc.
+asimenv.plotting          useDisplayDrf      boolean nil          ; for tsmc pdk only. SMIC and others don't need this line. see https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/41208/dotted-lines-by-default-in-viva https://www.edaboard.com/threads/how-to-change-the-default-in-ade-cadence.378231/ https://joeyaochou.wordpress.com/2015/04/08/cadence-virtuoso-learning-note/ https://gist.github.com/02015678/783ad36389fe3b7aa8cd https://bbs.eetop.cn/thread-959872-4-1.html https://bbs.eetop.cn/thread-917244-1-1.html https://bbs.eetop.cn/thread-664788-1-1.html
+viva.horizMarker          font               string  "Default,15,-1,5,75,0,0,0,0,0"
+viva.horizMarker          interceptStyle     string  "on"
+viva.vertMarker           font               string  "Default,15,-1,5,75,0,0,0,0,0"
+viva.vertMarker           interceptStyle     string  "on"
+viva.pointMarker          font               string  "Default,15,-1,5,75,0,0,0,0,0"
+viva.axis                 font               string  "Default,15,-1,5,75,0,0,0,0,0"
+viva.traceLegend          font               string  "Default,15,-1,5,75,0,0,0,0,0"
+viva.table                significantDigits  string  "12"           ; https://www.rfinsights.com/cadence/cadence-tips-and-tricks/
 ;;;;;;;;;;;;;;;;;; 
 ui    defaultEditorBackgroundColor         string  "#2F2F2F"       ; schematic / layout black background to vscode dark gray
 ui    ciwCmdInputLines                     int     4
