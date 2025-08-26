@@ -3,7 +3,14 @@
 todo
 
 - 重启后自动启动目录?
-- 仿真完手机通知推送
+- 仿真完手机通知推送?
+
+--- 
+
+**远程客户端**
+
+- nomachine
+- Exceed TurboX
 
 ---
 
@@ -26,7 +33,7 @@ touch ~/myscript/rmt
 # gedit ~/myscript/rmt
 # nano ~/myscript/rmt
 
-chmod +x ~/myscript/rmt
+chmod 700 ~/myscript/rmt
 echo 'set path = ( ~/myscript $path )' >> ~/.cshrc
 source ~/.cshrc
 ```
@@ -191,3 +198,14 @@ gsettings set org.gnome.desktop.wm.preferences focus-mode 'click'
 
 **建议的文件夹 hierarchy**
 
+```
+cdnsws/
+├── calibrerunset/
+│   └── runset
+├── corners/
+│   └── corners.csv
+├── jobrule
+├── log
+├── workspace
+└── workspacetest
+```
