@@ -662,6 +662,9 @@ endmodule
 
 ###### 普通开发
 
+<details>
+<summary>普通开发</summary>
+
 - A replica of wavedrom in D3.js (real-time rendering + syntax highlighting for code)
 - A circuit schematic editor. Use key `i` to new an instance choosing dialog. The symbol of the circuit component should be drawn correctly
 
@@ -673,9 +676,29 @@ Build a replica of cadence virtuoso viva using D3.js
 4. right-click to set each axis (log, linear, etc.), and to set line styles (thickness, etc.) should be supported. 
 5. performance optimization for millions of data points
 
-> Q: A full-size keyboard tester. Once a key is pressed, the corresponding virtual key permanently changes color to indicate it is working, rather than temporarily highlighting.
+- A 108-key full-size keyboard tester. Once a key is pressed, the corresponding virtual key permanently changes color to indicate it is working, rather than temporarily highlighting.  注意：F1 不打开帮助; ctrl, win(meta), shift, capslock, ins, home 等特殊键
+- 帮我把这个改一些不兼容的语法后，部署一下，要求和原来完全保持一致    https://observablehq.com/@mbostock/smith-chart
+- Bing replica
+- An online office word
+- A hex (binary) editor
+- Tangram puzzle game
+- An interactive 3D bicycle (not a 2D model in 3D space. I want a real 3D bicycle with thickness.)                 ref: https://ciechanow.ski/bicycle/
+- An interactive SVG introduction. Unlike raster images, SVGs can be embedded directly into HTML, allowing their elements, such as <circle> and <rect>, to be styled and animated with CSS and JavaScript. The guide explains fundamental shapes and emphasizes using the viewBox attribute to ensure graphics are truly scalable. It also demonstrates how to use presentational attributes like stroke and stroke-dasharray to create dynamic effects, such as self-drawing animations, making it a powerful tool for web development.                   ref: https://www.joshwcomeau.com/svg/friendly-introduction-to-svg/
+- An interactive planar MOSFET 3d model with 2 fingers
 
-> Q: 帮我把这个改一些不兼容的语法后，部署一下，要求和原来完全保持一致    https://observablehq.com/@mbostock/smith-chart
+also demonstrates how to use presentational attributes like stroke and stroke-dasharray to create dynamic effects, such as self-drawing animations, making it a powerful tool for web development.
+
+
+</details>
+
+###### Long live the svg
+
+- Draw svg of transmission gate in mosfets and symbol without any fancy ui or color, without further introduction, so just two simple svgs.
+- 用 svg 画一个单级单管共栅级放大电路的小信号电路图
+- 用 svg 画出 $I_{in1}-I_{in2}=\dfrac{I_{SS}}{V_{ov}}(V_{in1} - V_{in2})\sqrt{1 - \dfrac{(V_{in1}-V_{in2})^2}{{4V_{ov}^2}}}$ 的函数图像，横纵坐标啥的都可以不需要，就曲线就行。取 x = (V_in1 - V_in2)/V_ov ∈ [-√2, √2], 对于 |x|> √2 的部分取 |x|=√2。画三条线，一条 is=vov=1，一条 is=1.5, vov=1, 一条 is=1.2, vov=1.2。不要使用 script
+- `<svg width="100" height="120" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><line x1="30" y1="30" x2="30" y2="90" stroke="black" stroke-width="2" /><line x1="40" y1="30" x2="40" y2="90" stroke="black" stroke-width="2" /><line x1="40" y1="30" x2="70" y2="30" stroke="black" stroke-width="2" /><line x1="70" y1="10" x2="70" y2="30" stroke="black" stroke-width="2" /><line x1="50" y1="90" x2="70" y2="90" stroke="black" stroke-width="2" /><line x1="70" y1="90" x2="70" y2="110" stroke="black" stroke-width="2" /><polygon points="50,90 40,85 40,95" fill="black" /><text x="20" y="60" font-family="Arial" font-size="12" text-anchor="end">G</text><text x="75" y="15" font-family="Arial" font-size="12">D</text><text x="75" y="110" font-family="Arial" font-size="12">S</text></svg>` 这个 NMOS 的画法有一个错误，帮我修正一下。
+  - 正确答案：把 `<polygon points="50,90 40,85 40,95" fill="black" />` 改成 `<polygon points="70,90 60,85 60,95" fill="black"/>`; `<line x1="50" y1="90" x2="70" y2="90" stroke="black" stroke-width="2"/>` 改成 `<line x1="40" y1="90" x2="70" y2="90" stroke="black" stroke-width="2"/>`
+  - 正确情况：gpt-5-high 错; grok4 错; Gemini 2.5 Pro 错
 
 
 
@@ -697,6 +720,7 @@ Build a replica of cadence virtuoso viva using D3.js
 - A demo for Shiki vs Prism.js vs Highlight.js side by side with minimalistic UI. I'm mainly looking at the actual comparison demo between the three, not superficial things like comparison tables or comparison section. Language: Verilog, tcl and lisp, with a code input area where users can modify the code or the code types. Dark theme + light theme, unify the syntax highlighting scheme.
 - A minimalistic LaTeX syntax highlighting demo using monaco and @shikijs/monaco
 - Editor Playground to try out Monaco, CodeMirror and Ace editor side by side. Sync the code among the three. Dark theme + light theme. It would be best to unify the syntax highlighting scheme and font size in the editor.
+- 
 - Build a plotting app to draw the graph of Math.random(x)*(Math.sin(x) + Math.random(x)), with a total of 20,000 points, where x in [0,50), refreshing the random data every 5 seconds. Time and display how long it takes to refresh the data and redraw the plot each time. Supports cursor-centric zoom on the x-axis using the mouse wheel, with no zoom on the y-axis. Choose any plot lib you'd like, the only goal is to be fast. > NOTE: For accurate timing, measure the full operation. Since some UI updates are asynchronous, stop the timer in a completion callback or post-render hook, not immediately after the dispatch call. This avoids measuring only the initial synchronous task, capturing the true, user-experienced duration from start to final render. Meanwhile, use a red and a green light to indicate the start and completion of rendering for user confirmation.
 - A minimalistic KaTeX demo with `mhchem` enabled.
   - 正确情况：opus-4 都不行，让我很震惊。看来 Agent 确实是必经之路。
@@ -781,24 +805,6 @@ katex 的 `mhchem` 没有生效，现在显示的 `\ce` 是红色的报错模式
 An interactive test page comparing the rendering performance of WebGPU and WebGL2. Demands a certain pressure on gpu; don't have both tests come out at 60 fps.
 - An interactive test page comparing the rendering performance of WebGPU and WebGL2. Demands a certain pressure on gpu; don't have both tests come out at 60 fps.
 - Wrap a multi-page PDF onto an ellipsoid, and let the user scroll through the PDF in real time with the mouse wheel instead of scaling the ellipsoid.
-
-</details>
-
-##### 纯 UI 展示
-
-<details>
-<summary>纯 UI 展示</summary>
-
-- Bing replica
-- An online office word
-- A hex (binary) editor
-- Draw svg of transmission gate in mosfets and symbol without any fancy ui or color, without further introduction, so just two simple svgs.
-- An interactive 3D bicycle (not a 2D model in 3D space. I want a real 3D bicycle with thickness.)                 ref: https://ciechanow.ski/bicycle/
-- An interactive SVG introduction. Unlike raster images, SVGs can be embedded directly into HTML, allowing their elements, such as <circle> and <rect>, to be styled and animated with CSS and JavaScript. The guide explains fundamental shapes and emphasizes using the viewBox attribute to ensure graphics are truly scalable. It also demonstrates how to use presentational attributes like stroke and stroke-dasharray to create dynamic effects, such as self-drawing animations, making it a powerful tool for web development.                   ref: https://www.joshwcomeau.com/svg/friendly-introduction-to-svg/
-- An interactive planar MOSFET 3d model with 2 fingers
-
-also demonstrates how to use presentational attributes like stroke and stroke-dasharray to create dynamic effects, such as self-drawing animations, making it a powerful tool for web development.
-
 
 </details>
 
