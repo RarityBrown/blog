@@ -21,18 +21,25 @@
   - [Claude](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/web-search-tool) based on [Brave](https://simonwillison.net/2025/Apr/21/ai-assisted-search/)
   - [Grok](https://docs.x.ai/docs/guides/live-search)
   - [openrouter](https://openrouter.ai/docs/features/web-search) based on Exa
-- Agents with "deep" search + browse + (visual)
-  - [Genspark](https://www.genspark.ai)
-  - [h2oGPTe](https://h2ogpte.genai.h2o.ai/)
+- Agentic deep search + browse + (visual)
   - [skywork](https://skywork.ai)
   - [MiroThinker](https://dr.miromind.ai/)
-  - [flowith](https://flowith.io/)
-  - [suna](https://www.suna.so/)
-  - [Minimax](https://agent.minimax.io/)
   - [Ninja](https://myninja.ai/)
   - [Komo](https://komo.ai/)
-
+- True Agents
+  - [Manus](https://manus.im)
+  - [Genspark](https://www.genspark.ai)
+  - [h2oGPTe](https://h2ogpte.genai.h2o.ai/)
+  - [suna](https://www.suna.so/)
+  - [scout](https://scout.new/)
+  - [OpenManus](https://openmanus.org/)
+  - convergence AI
+  - [runner H](https://runner.hcompany.ai/)
+  - [Minimax](https://agent.minimax.io/)
+  - [flowith](https://flowith.io/)
+  - www.saner.ai ? www.decompute.run ?
 </details>
+
 
 #### Existing Benchmarks
 
@@ -181,11 +188,11 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 ##### Alternative 类
 
 - Alternatives to OpenAI's Deep Research / Deep Search apart from Grok, Gemini, Perplexity and open-source alternatives.
-  - 参考答案: [Genspark](https://www.genspark.ai/agents?type=moa_deep_research), [h2oGPTe](https://h2ogpte.genai.h2o.ai/), [flowith](https://flowith.io/), [suna](https://www.suna.so/), [Minimax](https://agent.minimax.io/), [skywork](https://skywork.ai), [Jina AI](https://search.jina.ai/), [Komo](https://komo.ai/), [MiroThinker](https://dr.miromind.ai/)
+  - 参考答案: [Models](#Models)
 - Alternatives to cursor app?
-  - 参考答案：Windsurf, Zed, Trae, Kiro, VSCode + Copilot
+  - 参考答案：Windsurf, Zed, Trae, Qoder, Kiro, VSCode + Copilot, Augmentcode, Traycer
 - Alternatives to Manus AI?
-  - 参考答案：convergence AI, runner H, Genspark    (典型错误：MS Copilot)
+  - 参考答案：[Models](#Models)    (典型错误：MS Copilot)
 - Alternatives to perplexity sonar api? I'm asking for alternatives to the sonar api, not the toC product perplexity itself.
   - 参考答案：[Models](#Models)
 
