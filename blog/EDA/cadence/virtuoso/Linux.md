@@ -9,6 +9,7 @@ todo
 
 **远程客户端**
 
+- vnc
 - nomachine
 - Exceed TurboX
 
