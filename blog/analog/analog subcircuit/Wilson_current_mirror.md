@@ -2,6 +2,7 @@
 
 把几本经典模拟书上的威尔逊电流源的章节，郑益慧模电（华成英书），以及网上关于威尔逊电流源的内容做一个大汇总
 
+
 TL;DR: CMOS 工艺没必要使用，直接使用 cascode current mirror 就行。
 
 ## 引入
@@ -135,7 +136,7 @@ $$
 >
 > [Improved current mirror : r/chipdesign (reddit.com)](https://www.reddit.com/r/chipdesign/comments/75vpat/improved_current_mirror/)?
 
-![image](https://github.com/user-attachments/assets/fd12af91-5068-484e-aafc-b059a0220d35)
+#### 反馈分析
 
 不考虑体偏、 $I_{OUT}$ 端负载电阻=0（例如直接接 VDD，因为电流源一般驱动小阻抗，否则一山不容二虎）时，**将 M3 M1 的栅极断开**，求出：
 
@@ -145,15 +146,49 @@ $$
 
 - $V_{G3}\to V_{G2}$ 之间存在负反馈
   - 提高输出电阻至 $g_{m2}r_{o3}r_{o2}$ 量级
-  - 降低输入电阻至 $\dfrac{2}{g_{m3}}$​​​ 的量级，直接闭环求出
-- 能不能反接？M2 和 M3 二极管接法，即 $I_{IN},I_{OUT}$​ 位置互换
+  - 降低输入电阻至 $\dfrac{2}{g_{m3}}$ 的量级，直接闭环求出
+- 能不能反接？M2 和 M3 二极管接法，即 $I_{IN},I_{OUT}$ 位置互换
   - 不行，因为输入和输出阻抗也变化了
 
-==The circuit is a feedback amplifier with loop gain $g_{m3}R_{in}$​==. Since all time constants in that loop are of the same order of magnitude, they create a system with several poles. As a result, peaking can occur in the current transfer characteristic. When the Wilson current mirror circuit is biased with maximum high frequency the negative feedback loop cause instability in frequency response.
+==The circuit is a feedback amplifier with loop gain $g_{m3}R_{in}$==. Since all time constants in that loop are of the same order of magnitude, they create a system with several poles. As a result, peaking can occur in the current transfer characteristic. When the Wilson current mirror circuit is biased with maximum high frequency the negative feedback loop cause instability in frequency response.
 
 Wilson current mirror circuit creates noise across the output. This is due to the feedback which raises output impedance and directly affect the collector/drain current. The collector/drain current fluctuation contributes noises across the output.
 
+![image](https://github.com/user-attachments/assets/fd12af91-5068-484e-aafc-b059a0220d35)
+
 对于基于信号流图的多反馈环路分析可以参考：[多反馈回路和 Wilson 电流镜](https://zhuanlan.zhihu.com/p/681694941)
+
+#### 小信号分析
+
+在 $V_{OUT}$ 端施加 $I_t$ 有：
+
+1. $I_{t}$ 全部流过 M1，产生相应电压: $v_{gs1}=v_{gs3}=I_t\left( \dfrac{1}{g_{m1}}||r_{o1} \right)$
+2. $v_{g1,3}$ 经过 M3 common source 小信号放大: $v_{d3}=\underbrace{-g_{m3}\left( r_{o3}||\left(\frac{1}{g_{m4}}+\infty\right) \right)}_{\text{M1: common source gain}}\cdot v_{gs3} = -g_{m3}r_{o3}\frac{I_t}{g_{m1}}$
+3. $v_{g4}=v_{s4}$
+   - 从大信号角度分析：流过 M4 的电流恒定为 $I_{IN}$ ，所以 $V_{g4}-V_{s4} = \text{large signal const} = V_{d4}-V_{d3}$
+     - 而 $V_{d3}\ne\text{const}$ ，因为 $I_{IN}$ 电流可以通过 $r_{o3}$ 流出
+   - 所以从小信号角度分析：$v_{d4}\xlongequal{\substack{\text{physical} \\ \text{connection}}}v_{g4}\xlongequal{\substack{\text{small-signal} \\ \text{clamping}}}v_{s4}\xlongequal{\text{same net}}v_{d3}$
+
+所以：
+
+$$
+\begin{gather}
+v_{g2}=v_{g4}=v_{d3}=-g_{m3}r_{o3}\frac{I_t}{g_{m1}} \\
+g_{m2}v_{gs2} = g_{m2}\left( -g_{m3}r_{o3}\frac{I_t}{g_{m1}} -  \frac{I_t}{g_{m1}}\right) \\
+I_t=g_{m2}v_{gs2}+r_{o2}v_{ds2} \qquad V_{t}=v_{ds1}+v_{ds2} \\\\
+r_{out}=\left( \frac{1}{g_{m1}}+r_{o2}+\frac{g_{m2}}{g_{m1}}g_{m3}r_{o3}r_{o2} \right)
+\end{gather}
+$$
+
+如果是比例电流镜，即 $I_{OUT}=NI_{IN}$ 时， $g_{m1}=Ng_{m3},\; r_{o1}=\dfrac{r_{o3}}{N}$
+
+$$
+r_{out}\approx g_{m2}r_{o2}\cdot r_{o1} = r_{out,\text{cascode}}
+$$
+
+![image](https://github.com/user-attachments/assets/76f86f01-7fd5-49dd-9db9-742dd6d7e7a7)
+
+![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xNDAgLTQwIDY0MCAyNjAiPjxkZWZzPjxnIGlkPSJiIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiI+PHBhdGggZD0iTTMwIDB2NDBNNDAgMHY0ME00MCAwaDMwTTQwIDQwaDMwTTcwIDQwbC0xMC01djEweiIvPjwvZz48ZyBpZD0iYSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgcj0iMTUiLz48cGF0aCBkPSJNMC04VjgiLz48cGF0aCBmaWxsPSIjMDAwIiBkPSJtMCA4LTQtNmg4eiIvPjwvZz48ZyBpZD0iYyIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0tMTIgMGgyNE0tOCA0SDhNLTQgOGg4Ii8+PC9nPjxnIGlkPSJkIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiI+PHBhdGggZD0iTTAgMHY1TS02IDVINnY0MEgtNnpNMCA0NXY1Ii8+PC9nPjxnIGlkPSJlIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiI+PHBhdGggZmlsbD0iI2FkZDhlNiIgZD0ibTAgMC01MCAyOXYtNTh6Ii8+PHBhdGggZD0iTS02MCAwaDEwTTAgMGgxMCIvPjx0ZXh0IHg9Ii0zMSIgZmlsbD0iIzAwMCIgc3Ryb2tlPSJub25lIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+6Yit5oqUPHRzcGFuIGJhc2VsaW5lLXNoaWZ0PSJzdWIiIGZvbnQtc2l6ZT0iMTAiPm08L3RzcGFuPnI8dHNwYW4gYmFzZWxpbmUtc2hpZnQ9InN1YiIgZm9udC1zaXplPSIxMCI+bzwvdHNwYW4+PC90ZXh0PjwvZz48L2RlZnM+PHBhdGggZmlsbD0iI2FkZDhlNiIgZD0iTS0xNTAtNDBoMTM1djI3MGgtMTM1eiIvPjx0ZXh0IHg9Ii0xMDAiIHk9Ijk1IiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgPHRzcGFuIHg9Ii0xMTAiPmNvbW1vbjwvdHNwYW4+CiAgICA8dHNwYW4geD0iLTExMCIgZHk9IjEuMmVtIj5zb3VyY2U8L3RzcGFuPgogIDwvdGV4dD48dXNlIGhyZWY9IiNhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzAgLTIwKSIvPjxwYXRoIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTcwLTV2NDUiLz48dXNlIGhyZWY9IiNiIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDQwKSIvPjx1c2UgaHJlZj0iI2IiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMTUwKSIvPjxnIHRyYW5zZm9ybT0ic2NhbGUoLTEgMSkiPjx1c2UgaHJlZj0iI2IiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNDApIi8+PHVzZSBocmVmPSIjYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxNTApIi8+PC9nPjxwYXRoIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTMwIDYwaDYwTS0zMCAxNzBoNjBNLTcwIDgwdjcwTTcwIDgwdjcwTTcwIDQwVjIwTS03MCAyMEgwTTAgMjB2NDBNNzAgMTUwdi0yME03MCAxMzBIME0wIDEzMHY0ME0tNzAgMTkwdjIwTTcwIDE5MHYyMCIvPjx1c2UgaHJlZj0iI2MiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03MCAyMTApIi8+PHVzZSBocmVmPSIjYyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzAgMjEwKSIvPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIj48dXNlIGhyZWY9IiNhIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAxMjAgMTA4KSIvPjxwYXRoIGQ9Ik03MCAyMGg1ME0xMjAgMjB2NzNNMTIwIDEyM3Y4NyIvPjx1c2UgaHJlZj0iI2MiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyMCAyMTApIi8+PC9nPjx1c2UgaHJlZj0iI2IiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0MCA0MCkiLz48cGF0aCBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTQxMCA0MFYyMCIvPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIj48dXNlIGhyZWY9IiNhIiB0cmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSA0NTAgMTA4KSIvPjxwYXRoIGQ9Ik00MTAgMjBoNDBNNDUwIDIwdjczTTQ1MCAxMjN2ODciLz48dXNlIGhyZWY9IiNjIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NTAgMjEwKSIvPjwvZz48cGF0aCBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTQxMCA4MHY1MCIvPjx1c2UgaHJlZj0iI2QiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQxMCAxMzApIi8+PHBhdGggc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik00MTAgMTgwdjMwIi8+PHVzZSBocmVmPSIjYyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDEwIDIxMCkiLz48dXNlIGhyZWY9IiNlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMzUgNjApIi8+PHBhdGggc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0yNTAgNjBoMjVNMzQ1IDYwaDI1TTQxMCAxMzBIMjUwTTI1MCAxMzBWNjAiLz48L3N2Zz4=)
 
 ## 总结
 
