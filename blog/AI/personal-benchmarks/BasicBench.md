@@ -168,34 +168,24 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 正确情况： o1 对; 3-opus 半对; Gemini 2.5 Pro 对; Sonnet 3.7 对对; R1-0528 对
 -->
 
-> QC: 理想 LC 的 τ 是什么？一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。
-> What is the τ of an ideal LC? What is the natural frequency of a first-order RC low-pass filter (not the cutoff frequency)? Answer in under 30 words total.
->
-> 正确答案：没有、没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统；因为 natural frequency 适用于 second-order LTI
->
-> 正确情况：GPT4.5 对; Sonnet 3.7 错; Sonnet 4 对
-
-> Q: NMOS 弱反型区电流公式？（不要在最终结果中带 $I_{d0}$ 或 $I_S$ ，写在 latex code block 中）
->
-> 正确答案： $I_d = \left[ \mu C_{ox} \dfrac{W}{L} (n-1) V_t^2 \right] \exp\left(\dfrac{V_{gs} - V_{TH}}{n V_t}\right) \left(1 - \exp\left(-\dfrac{V_{ds}}{V_t}\right)\right)$
->
-> 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 对; big-engine-test 对; 3-opus 对
-
-> QC: 试推导 MOSFET 的亚阈值 $r_o=\frac{V_T}{I_{d}} \exp(\frac{V_{ds}}{V_T}-1)$, 其中 $I_d$ 是 MOSFET 目前的亚阈值电流
->
-> 正确答案：公式就是不对的，应当为 $\frac{V_T}{I_{d}} \left( \exp(\frac{V_{ds}}{V_T})-1 \right)$
->
-> 正确情况：2-flash-thinking 对; Sonnet 3.7 thinking 对; o3-mini 对但没指出错误
-
-> Q: 随便找一篇专业相关的论文的一大段，令其翻译至中文
->
-> 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
-
-> Q: NMOS + 一个电阻的 source follower 的 $A_{V_{DD}}$ 是多少？不考虑体效应，但是考虑 CLM
->
-> 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$ 或 $\frac{g_{ds}}{g_m+g_{ds}+\frac{1}{R_S}}$
->
-> 正确情况：o3-mini-high 对错; Gemini 2.5 Pro 对; Grok3 对
+- QC: 理想 LC 的 τ 是什么？一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。   What is the τ of an ideal LC? What is the natural frequency of a first-order RC low-pass filter (not the cutoff frequency)? Answer in under 30 words total.
+  - 正确答案：没有、没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统；因为 natural frequency 适用于 second-order LTI
+  - 正确情况：GPT4.5 对; Sonnet 3.7 错; Sonnet 4 对
+- CMOS 差动对的 $V_{in+}-V_{in-} \sim I_1-I_2$ 的关系是什么？不要输出推导过程，不要解释系数。两个公式回答，一个用 $\mu, C_{ox}, W, L, I_{SS}$ 另一个用 $V_{ov}, I_{SS}$
+  - 正确答案： $\sqrt{\mu_n C_{ox} \frac{W}{L} I_{SS}}\; (V_{in1} - V_{in2})\; \sqrt{1 - \frac{\mu_n C_{ox} (W/L)}{4I_{SS}} (V_{in1} - V_{in2})^2}$   $\dfrac{I_{SS}}{V_{ov}}(V_{in1} - V_{in2})\sqrt{1 - \dfrac{(V_{in1}-V_{in2})^2}{{4V_{ov}^2}}}$
+  - 正确情况：Gemini 2.5 Pro 对; gpt-5-high 错; grok-4 半对
+- NMOS 弱反型区电流公式？（不要在最终结果中带 $I_{d0}$ 或 $I_S$ ，写在 latex code block 中）
+  - 正确答案： $I_d = \left[ \mu C_{ox} \dfrac{W}{L} (n-1) V_t^2 \right] \exp\left(\dfrac{V_{gs} - V_{TH}}{n V_t}\right) \left(1 - \exp\left(-\dfrac{V_{ds}}{V_t}\right)\right)$
+  - 正确情况：o1p 漏了 (n-1) 项; Sonnet 3.5 对; big-engine-test 对; 3-opus 对
+- QC: 试推导 MOSFET 的亚阈值 $r_o=\frac{V_T}{I_{d}} \exp(\frac{V_{ds}}{V_T}-1)$, 其中 $I_d$ 是 MOSFET 目前的亚阈值电流
+  - 正确答案：公式就是不对的，应当为 $\frac{V_T}{I_{d}} \left( \exp(\frac{V_{ds}}{V_T})-1 \right)$
+  - 正确情况：2-flash-thinking 对; Sonnet 3.7 thinking 对; o3-mini 对但没指出错误
+- NMOS + 一个电阻的 source follower 的 $A_{V_{DD}}$ 是多少？不考虑体效应，但是考虑 CLM
+  - 正确答案：$\dfrac{1}{1+g_mr_o+\frac{r_o}{R_S}}$ 或 $\frac{g_{ds}}{g_m+g_{ds}+\frac{1}{R_S}}$
+  - 正确情况：o3-mini-high 对错; Gemini 2.5 Pro 对; Grok3 对
+- 一个 NMOS 从 source 看进去的电阻是 $1/g_m$ 吗（NMOS 的 drain 接 VDD，不考虑 CLM, body effect）？简单回答。如果 NMOS 的 drain 通过 $R_D$ 接 VDD 呢？
+  - 正确答案: $r_{out} = \frac{R_D + r_o}{1 + g_m r_o}$
+  - 正确情况：Gemini 2.5 Pro 对; gpt-5-high 错
 
 > Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
 >
@@ -209,14 +199,28 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 > Q: 最简单的两个电阻一个运放的反相放大器的反馈系数是多少？通过 $A_{CL}=\dfrac{A_{OL}}{1+\beta A_{OL}}$ 计算闭环增益（不要通过 KCL KVL）
 
-#### 其他
+
+> Q: 随便找一篇专业相关的论文的一大段，令其翻译至中文
+>
+> 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
+
+#### 非文字能力
+
+##### 声音能力
+
+- 温州话和粤语的数字 0~10 中哪**一**个音最像？
+  - 正确答案：五 ng \[ŋ\]
+- "赣南师大"有一个梗是"江南 style"，为什么赣和江发音相近？
+  - 正确答案：gànnan (中文) 和 gangnam (韩语); 和 (Jiang) 没关系
+  - 正确情况：gpt-5-high 对; Opus-4.1-thinking 错; Gemini 2.5 Pro 错;
+- 为什么一个姓吕的上海人英文名不能取名 Paul？
+
+
+##### 视觉能力
 
 - 4.5米, 6米, 20米长的竹竿能否通过高4米宽3米的门？Can poles of 4.5 meters, 6 meters, and 20 meters in length pass through a door 4 meters high and 3 meters wide? Omit the process and give the answer directly, for example, "Yes, No, Yes"          [ref](https://zhuanlan.zhihu.com/p/23434595912)
   - 更简单的版本：6米长的队伍能不能通过高4米宽3米的门？ 
   - 正确答案：都可以
-- "赣南师大"有一个梗是"江南 style"，为什么赣和江发音相近？
-  - 正确答案：gànnan (中文) 和 gangnam (韩语); 和 (Jiang) 没关系
-  - 正确情况：gpt-5-high 对; Opus-4.1-thinking 错; Gemini 2.5 Pro 错;
 - #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
 
 #### 纯数学问题（主要考察 reasoning model）
