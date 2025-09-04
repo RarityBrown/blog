@@ -186,6 +186,9 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 - 一个 NMOS 从 source 看进去的电阻是 $1/g_m$ 吗（NMOS 的 drain 接 VDD，不考虑 CLM, body effect）？简单回答。如果 NMOS 的 drain 通过 $R_D$ 接 VDD 呢？
   - 正确答案: $r_{out} = \frac{R_D + r_o}{1 + g_m r_o}$
   - 正确情况：Gemini 2.5 Pro 对; gpt-5-high 错
+- 精确推导共源极的小信号输入阻抗，用 $g_m, R_{eq}=r_o||R_D, C_{gd}, C_L$ 和 $s$ 表示（不考虑 $C_{gs}$），并化简成 $\frac{a_ms^m+...+a_1s^1+a_0}{b_ns^n...+b_1s^1+b_0}$ 的形式
+  - 正确答案: $Z_{in}(s) = \frac{sR_{eq}(C_{gd}+C_L)+1}{s^2R_{eq}C_{gd}C_L+sC_{gd}(1+g_mR_{eq})}$
+
 
 > Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
 >
