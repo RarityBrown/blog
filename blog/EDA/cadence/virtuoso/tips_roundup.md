@@ -83,6 +83,7 @@
 - [用 Verilog-A 配置电路修调控制](https://zhuanlan.zhihu.com/p/460423786)
 - [AMS 数模混仿步骤](https://zhuanlan.zhihu.com/p/683070031)
 - [AMS 数模混仿流程](https://zhuanlan.zhihu.com/p/8280687951)
+- [AMS 的断点续仿](https://zhuanlan.zhihu.com/p/1946303598406399756)
 
 ### ADE Others
 
