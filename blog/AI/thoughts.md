@@ -94,6 +94,8 @@ radar-beta
 
 2025/08/12: scaling law 在 size 和 data 上的巅峰目前是 opus 4.1，终极答案是 MoE；在 test-time compute 上的巅峰目前是 gpt-5-pro，终极答案我认为是 ASIC。接下去应该 scaling 什么？希望研究员能在未来两年内找到答案，不然 LLM 的泡沫就快到尽头了。
 
+2025/08/22: LLM 的科学时代已经过去，工程时代正在来临。gpt-5 的工程进步是"说不会"和"反问用户"，Sam 说 gpt-6 的工程进步是记忆。
+
 ## 评测的小 ideas
 
 ### Bode
