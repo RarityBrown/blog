@@ -96,6 +96,8 @@ radar-beta
 
 2025/08/22: LLM 的科学时代已经过去，工程时代正在来临。gpt-5 的工程进步是"说不会"和"反问用户"，Sam 说 gpt-6 的工程进步是记忆。
 
+2025/09/07: Kimi-K2-0905 还是有点东西的，基本上是如今最好的非思考模型了，比 GPT-5 (minimal); Qwen3 Max 之流有显著提升。在除了 coding 和 tool-calling 方面，其他方向是可以打平 opus-4.1 的。
+
 ## 评测的小 ideas
 
 ### Bode
