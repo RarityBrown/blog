@@ -18,6 +18,8 @@ Bipolar 的电流镜，即使采用了 cascode 形式，也会因为 $\beta$ 不
 > Gray: *Analysis and Design of Analog Integrated Circuits*
 >
 > 华成英: 模拟电子技术基础
+>
+> 其他参考资料：[β-help 电流镜 by 没芯没肺](https://zhuanlan.zhihu.com/p/1935300254837761404)  [β-help/Wilson 电流镜 by designer](https://zhuanlan.zhihu.com/p/622797847)
 
 #### DC
 
@@ -49,9 +51,7 @@ $$
 
 ##### 温度影响减小
 
-郑益慧观点 P28 44:00：==Q2 射极电阻：电流源形式，很大？温度稳定性好==
-
-感觉不太对
+郑益慧观点 P28 44:00：Q2 射极电阻：电流源形式，很大？温度稳定性 （笔者感觉不太对）
 
 #### 负反馈
 
