@@ -8,7 +8,7 @@
 <summary>Models</summary>
 
 - Domain-specific LLMs (One-stop search + LLM answer APIs)
-  - [Perplexity](https://docs.perplexity.ai/getting-started/models)
+  - [Perplexity](https://docs.perplexity.ai/getting-started/models) basd on Google [Serpapi](https://serpapi.com/)
   - [Linkup](https://app.linkup.so/playground?example=deepSourcedAnswer)
   - [Exa](https://docs.exa.ai/reference/answer)
   - [Liner](https://liner.com/features/ai-search)
@@ -162,6 +162,9 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 参考答案：
 - iPad 播放器 app？简单回答，不满足要求的不用提及。中英文双语搜索。app 要求：1. 是个可以实时自动生成并显示字幕的播放器，而不是在线字幕生成服务或者本地视频剪辑软件; 2. 要当前已经支持的，而不是 VLC 这种只是宣布即将支持但是还没支持的; 3. 要支持中文和英文，所以原生 Live Captions 目前还不能用; 4. 除了 YPlayer 以外
   - 参考答案：应该是没有了
+- University of Shanghai 是什么大学？
+  - 正确答案：沪江大学
+- 
 
 ##### "No" 问题
 
