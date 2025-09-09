@@ -85,13 +85,13 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
   - 正确情况：Sonnet 3.5 错; 2-flash-thinking 对; Gemini 2 Pro 对; *4oL 错*; grok3 错; o3-mini 错; o3-mini-high 对; GPT4.5 对
   - 正确情况 QC：grok3 错错对; Gemini 2.5 Pro 对; v3-0324 对对; Sonnet 3.7 thinking 错错错; o3-mini 错; kingfall 对
   - 注：非常确定这道题被 OpenAI 拿去做 post-train 了，最新的 4o/4.1 可以答对一模一样的 Q，但是仍然不知道顺尔宁是什么药。
-- 有什么**果实根茎**类（菌菇类不算，韭菜大葱等实际上是叶的也不算）的蔬菜（水果不算）是**完全**不用削皮就可以进行下一步加工并最终食用的？可削可不削、可剥可不剥的蔬菜不算。所以例如小胡萝卜、嫩萝卜、小土豆、嫩姜、甜薯、山药、西红柿、嫩丝瓜、嫩黄瓜、嫩西葫芦等等可削可不削的都不算。我能想到的有椒类 青椒/彩椒/辣椒/长椒/尖椒、豆类 四季豆/菜豆/豇豆/豆角/扁豆/刀豆/荷兰豆/甜豆/豆芽/豆荚，你再帮我想 10 个，果实类 5 个，根茎类 5 个。
-  - 参考答案：茄子、秋葵、苦瓜；芦笋、芹菜/西芹、蒜苔、鱼腥草;     玉米? 西兰花 / 花菜?
+- 有什么**果实根茎**类的蔬菜（菌菇、水果不算，西兰花、花菜、空心菜、韭菜、大葱这些也食用花、叶类的也不算）是**完全**不用削皮就可以进行下一步加工并最终食用的？大蒜、洋葱、玉米这种模棱两可的不算；可削可不削、可剥可不剥的蔬菜也不算，所以例如小胡萝卜、嫩萝卜、小土豆、嫩姜、甜薯、小山药、西红柿、嫩丝瓜南瓜黄瓜佛手瓜西葫芦等等可削可不削的都不算。我能想到的有椒类 青椒/彩椒/辣椒/长椒/尖椒、豆类 四季豆/菜豆/豇豆/豆角/扁豆/刀豆/荷兰豆/甜豆/豆芽/豆荚，你再帮我想 10 个，果实类 5 个，根茎类 5 个。
+  - 参考答案：茄子、秋葵、苦瓜；芦笋、芹菜/西芹、蒜苔、鱼腥草、百合;
 - 1700, 1800, 1900  的英国国旗中心对称吗？轴对称吗？简单回答，回答格式例如：1700 不中心对称, 不轴对称; 1800 中心对称, 不轴对称; 1900 不中心对称, 不轴对称。注意，这只是一个回答格式示例，并不是/不一定是正确答案。 [ref](https://www.zhihu.com/question/13900016892/answer/116203857857)
   - 正确答案：1700 中心对称, 轴对称; 1700 中心对称, 轴对称; 1900 中心对称, 不轴对称
 - QC: What should be the punishment for looking at your opponent's board in chess? answer in short.   ref: https://www.reddit.com/r/LocalLLaMA/comments/1m9holp/comment/n59i71p/
   - 正确答案：None—both players share the same board. You’re supposed to look at it.
-  - 正确情况：gpt-5 对
+  - 正确情况：gpt-5 对; opus-4.1 错
 - 分别推荐模拟 EDA 领域和数字 EDA 领域中贡献最显著且最有影响力的三人，仅需分别列出英文名字即可，无需介绍他们的贡献. Recommend the three most significant and influential people in the analog EDA field and the digital EDA field, respectively. Just list their names, without introducing their contributions.
   - QC: Razavi 和 Thomas Lee 哪个不是模拟 EDA 领域的专家？
   - 典型错误：推荐一些不那么有名的人、模拟数字倒置、把 Razavi, Baker, Paul R. Gray, Thomas Lee, Bob Pease, Murmann, Willy 之类的人算在模拟 EDA 开发、把 David Patterson, Moore 之类的人算在数字 EDA 开发
@@ -103,7 +103,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
       - Spectre: Ken Kundert, Jacob K. White
       - Rob A. Rutenbar
       - Georges Gielen
-      - Alberto Sangiovanni-Vincentelli
+      - Alberto Sangiovanni-Vincentelli (Cadence & Synopsys)
     - Digital:
       - Alberto Sangiovanni-Vincentelli
       - Kurt Keutzer (Bell Labs, Synopsys, UCB)
@@ -145,29 +145,9 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 #### 专业相关问题
 
-> Q: 以下这段话有什么根本性的事实错误（正确、不完整、略有不严谨、正确但笼统、正确但过于简单的部分均无需列出与分析）？无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。本文将介绍无机半导体的基本概念、特性以及其在实际应用中的重要性。无机半导体是指由无机材料构成的半导体材料。与有机半导体不同，无机半导体的导电性主要是由其晶体结构和化学成分决定的。具体而言，无机半导体通常是由金属和非金属元素组成的化合物，如二硫化锌、氧化镓等。这些化合物具有特殊的晶体结构，使得它们的电子能带结构在一定温度范围内呈现出半导体的特性。无机半导体的最重要特性之一是能带结构。能带结构决定了材料的导电性质。在无机半导体中，通常存在着价带和导带两个能带。价带中的电子处于较低的能量状态，而导带中的电子处于较高的能量状态。当外界施加电场或加热材料时，一部分价带中的电子会跃迁到导带中，形成自由电子和空穴。这种电子和空穴的运动就是电流的基础。无机半导体的导电性还与掺杂有关。掺杂是指在材料中引入少量的杂质，以改变其导电性质。掺杂可以分为N型和P型两种。在N型掺杂中，引入的杂质具有多余的电子，这些电子可以自由移动，从而增加材料的导电性。而在P型掺杂中，引入的杂质具有少了一个电子的空位，这些空位可以被电子填充，形成空穴，从而增加材料的导电性。N型和P型材料的结合可以形成PN结，这是半导体器件中最基本的结构之一。无机半导体在电子学和光电子学领域有着广泛的应用。例如，半导体二极管是一种常见的电子器件，它利用PN结的特性实现了电流的整流和放大。此外，无机半导体还广泛应用于太阳能电池、激光器、光电探测器等领域。这些应用使得无机半导体成为现代高科技产业的重要基础材料。无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。无机半导体的导电性质与其能带结构和掺杂有关，这使得它成为实现电流控制和光电转换的重要材料。对于人类社会的科技进步和经济发展而言，无机半导体的研究和应用具有重要意义。
-> 
-> 正确答案：
-> - “无机半导体**通常**是由金属和非金属元素组成的化合物”（Si 和 Ge 更通常啊）
-> - “如**二硫**化锌、氧化镓等”
-> - “它利用PN结的特性实现了电流的整流和**放大**”
-> - “当外界施加**电场**或加热材料时，一部分价带中的电子会跃迁到导带中”
->   - 虽然在高场强下可能存在碰撞电离（雪崩击穿），对于 PN 结可能存在隧穿效应。但是“电场”用在原文这个语境下，是不对的，就是只有热激发、光激发。
->
-> 无论哪个点都容易被 LLM 遗漏，单独再问 LLM 一次这几句话对不对，往往都能给出正确答案。所以现在的 LLM 大海捞针评估我感觉是很有问题，或者说太简单了（大海捞针的插入针对于人类来说极明显，只能说是“大海捞钢筋”），此处稍微难一点点的“水塘捞细针”都捞不到。Jamba 有提到这个问题，并给出了 effective context window。但是显然，对于这个问题而言 1k 至 4k 左右 token 的 context window 都没有，大致只有 0.1k 的水平。不过这段话摘自公开的百度文库，所以这可能进一步加剧了这种情况，因为搞不好这段话还在训练数据集里。不过震惊的是 yi-lighting 全部答出来了。
->
-> 同时，这题的 prompt 也挺重要的，似乎**哪些**比**什么**会导致 LLM 答得更全。
->
-> 正确情况（使用**什么**作为关键词）：o3-mini-high 1;
-
-<!-- 太简单了，淘汰
-> Q: !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？  What is the name of the standard cell corresponding to the logic expression !(AB+C)? How many MOSFETs are required in CMOS logic?
->
-> 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
->
-> 正确情况： o1 对; 3-opus 半对; Gemini 2.5 Pro 对; Sonnet 3.7 对对; R1-0528 对
--->
-
+- !(AB+C) 逻辑表达式对应的 standard cell 叫什么？在 CMOS 逻辑中需要几个 MOSFET？  What is the name of the standard cell corresponding to the logic expression !(AB+C)? How many MOSFETs are required in CMOS logic?
+  - 正确答案：2-1 AND-OR-Invert gate (AOI21), 6个
+  - 正确情况：o1 对; 3-opus 半对; Gemini 2.5 Pro 对; Sonnet 3.7 对对; R1-0528 对
 - QC: 理想 LC 的 τ 是什么？一阶 RC 低通滤波器的 natural frequency 是什么（不是截止频率）？给出总计 30 个字以内的解答。   What is the τ of an ideal LC? What is the natural frequency of a first-order RC low-pass filter (not the cutoff frequency)? Answer in under 30 words total.
   - 正确答案：没有、没有。因为 τ 针对 first-order LTI, LC tank 是二阶系统；因为 natural frequency 适用于 second-order LTI
   - 正确情况：GPT4.5 对; Sonnet 3.7 错; Sonnet 4 对
@@ -186,26 +166,34 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 - 一个 NMOS 从 source 看进去的电阻是 $1/g_m$ 吗（NMOS 的 drain 接 VDD，不考虑 CLM, body effect）？简单回答。如果 NMOS 的 drain 通过 $R_D$ 接 VDD 呢？
   - 正确答案: $r_{out} = \frac{R_D + r_o}{1 + g_m r_o}$
   - 正确情况：Gemini 2.5 Pro 对; gpt-5-high 错
-- 精确推导共源极的小信号输入阻抗，用 $g_m, R_{eq}=r_o||R_D, C_{gd}, C_L$ 和 $s$ 表示（不考虑 $C_{gs}$），并化简成 $\frac{a_ms^m+...+a_1s^1+a_0}{b_ns^n...+b_1s^1+b_0}$ 的形式
-  - 正确答案: $Z_{in}(s) = \frac{sR_{eq}(C_{gd}+C_L)+1}{s^2R_{eq}C_{gd}C_L+sC_{gd}(1+g_mR_{eq})}$
+- PSRR of 5T-OTA in $g_m$ and $r_o$?
+  - 正确答案 PMOS：$A_{VDD}\approx\dfrac{1}{2g_{m3}r_{o,\text{tail}}}  \qquad  A_{VSS}\approx 1$
+  - 正确答案 NMOS: $A_{VDD}=\frac{(1 + 2R_5(g_{ds1,2} + g_{m1,2}))(g_{m3,4} + g_{ds3,4})}{g_{ds1,2} + (1 + 2r_{o,\text{tail}}(g_{ds1,2} + g_{m1,2}))(g_{m3,4} + g_{ds3,4})} \approx 1 \implies \text{PSRR}^+\approx g_{m1,2}(r_{o1,2}||r_{o3,4})$
+  - 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
+  - 正确情况：Gemini 2.5 Pro 错, kingfall 错, r1-0528 半对
+- 最简单的两个电阻一个运放的反相放大器的反馈系数是多少？通过 $A_{CL}=\dfrac{A_{OL}}{1+\beta A_{OL}}$ 计算闭环增益（不要通过 KCL KVL）
+- 随便找一篇专业相关的论文的一大段，令其翻译至中文
+  - 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
 
 
-> Q: PSRR of 5T-OTA in $g_m$ and $r_o$?
->
-> 正确答案 PMOS：$A_{VDD}\approx\dfrac{1}{2g_{m3}r_{o,\text{tail}}}  \qquad  A_{VSS}\approx 1$
->
-> 正确答案 NMOS: $A_{VDD}=\frac{(1 + 2R_5(g_{ds1,2} + g_{m1,2}))(g_{m3,4} + g_{ds3,4})}{g_{ds1,2} + (1 + 2r_{o,\text{tail}}(g_{ds1,2} + g_{m1,2}))(g_{m3,4} + g_{ds3,4})} \approx 1 \implies \text{PSRR}^+\approx g_{m1,2}(r_{o1,2}||r_{o3,4})$
+> Q: 以下这段话有什么根本性的事实错误（正确、不完整、略有不严谨、正确但笼统、正确但过于简单的部分均无需列出与分析）？无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。本文将介绍无机半导体的基本概念、特性以及其在实际应用中的重要性。无机半导体是指由无机材料构成的半导体材料。与有机半导体不同，无机半导体的导电性主要是由其晶体结构和化学成分决定的。具体而言，无机半导体通常是由金属和非金属元素组成的化合物，如二硫化锌、氧化镓等。这些化合物具有特殊的晶体结构，使得它们的电子能带结构在一定温度范围内呈现出半导体的特性。无机半导体的最重要特性之一是能带结构。能带结构决定了材料的导电性质。在无机半导体中，通常存在着价带和导带两个能带。价带中的电子处于较低的能量状态，而导带中的电子处于较高的能量状态。当外界施加电场或加热材料时，一部分价带中的电子会跃迁到导带中，形成自由电子和空穴。这种电子和空穴的运动就是电流的基础。无机半导体的导电性还与掺杂有关。掺杂是指在材料中引入少量的杂质，以改变其导电性质。掺杂可以分为N型和P型两种。在N型掺杂中，引入的杂质具有多余的电子，这些电子可以自由移动，从而增加材料的导电性。而在P型掺杂中，引入的杂质具有少了一个电子的空位，这些空位可以被电子填充，形成空穴，从而增加材料的导电性。N型和P型材料的结合可以形成PN结，这是半导体器件中最基本的结构之一。无机半导体在电子学和光电子学领域有着广泛的应用。例如，半导体二极管是一种常见的电子器件，它利用PN结的特性实现了电流的整流和放大。此外，无机半导体还广泛应用于太阳能电池、激光器、光电探测器等领域。这些应用使得无机半导体成为现代高科技产业的重要基础材料。无机半导体是一种具有特殊电子性质的材料，它在电子学和光电子学领域有着广泛的应用。无机半导体的导电性质与其能带结构和掺杂有关，这使得它成为实现电流控制和光电转换的重要材料。对于人类社会的科技进步和经济发展而言，无机半导体的研究和应用具有重要意义。
 > 
-> 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
+> 正确答案：
+> - “无机半导体**通常**是由金属和非金属元素组成的化合物”（Si 和 Ge 更通常啊）
+> - “如**二硫**化锌、氧化镓等”
+> - “它利用PN结的特性实现了电流的整流和**放大**”
+> - “当外界施加**电场**或加热材料时，一部分价带中的电子会跃迁到导带中”
+>   - 虽然在高场强下可能存在碰撞电离（雪崩击穿），对于 PN 结可能存在隧穿效应。但是“电场”用在原文这个语境下，是不对的，就是只有热激发、光激发。
 >
-> 正确情况：o3-mini-high 错，Gemini 2.5 Pro 错, kingfall 错, r1-0528 半对
-
-> Q: 最简单的两个电阻一个运放的反相放大器的反馈系数是多少？通过 $A_{CL}=\dfrac{A_{OL}}{1+\beta A_{OL}}$ 计算闭环增益（不要通过 KCL KVL）
-
-
-> Q: 随便找一篇专业相关的论文的一大段，令其翻译至中文
+> 无论哪个点都容易被 LLM 遗漏，单独再问 LLM 一次这几句话对不对，往往都能给出正确答案。所以现在的 LLM 大海捞针评估我感觉是很有问题，或者说太简单了（大海捞针的插入针对于人类来说极明显，只能说是“大海捞钢筋”），此处稍微难一点点的“水塘捞细针”都捞不到。Jamba 有提到这个问题，并给出了 effective context window。但是显然，对于这个问题而言 1k 至 4k 左右 token 的 context window 都没有，大致只有 0.1k 的水平。不过这段话摘自公开的百度文库，所以这可能进一步加剧了这种情况，因为搞不好这段话还在训练数据集里。不过震惊的是 yi-lighting 全部答出来了。
 >
-> 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
+> 同时，这题的 prompt 也挺重要的，似乎**哪些**比**什么**会导致 LLM 答得更全。
+>
+> 正确情况（使用**什么**作为关键词）：o3-mini-high 1;
+
+#### long-context bench
+
+可以喂一本有错误的专业类书籍给 LLM，让其寻找错误。然后用现有的勘误表来打分。
 
 #### 非文字能力
 
@@ -228,7 +216,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 #### 纯数学问题（主要考察 reasoning model）
 
-> Q: 1145141919810 在任意数字之间插入 +- 使得等式 = 2025 (不用代码，不用过程，仅直接给出两种答案，给出答案后再检查一下正确性)  Insert + or - between the digits of 1145141919810 to make the equation equal to 2025. (No code, just provide two solutions directly. Check the correctness after giving the solutions.)  [ref] (https://www.zhihu.com/question/7671636421/answer/68993839512)
+> Q: 1145141919810 在任意数字之间插入 +- 使得等式 = 2025 (不用代码，不用过程，仅直接给出两种答案，给出答案后再检查一下正确性)  Insert + or - between the digits of 1145141919810 to make the equation equal to 2025. (No code, just provide two solutions directly. Check the correctness after giving the solutions.)  [ref](https://www.zhihu.com/question/7671636421/answer/68993839512)
 >
 > 参考答案(代码遍历)：
 > 
