@@ -28,7 +28,7 @@ Including:
 
 > Q: How to print quotes within a node in a Mermaid flowchart? Answer within 1 line in a code block.
 >
-> 正确答案：`A["Node with #quot;quotes&quot;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
+> 正确答案：`A["Node with #quot;quotes&quot;"]` 或者 `A["This is a #34;quote#34;"]` ref: [link](https://mermaid.js.org/syntax/flowchart.html#entity-codes-to-escape-characters)
 >
 > 正确情况：o1p 错错错; 4oL 错错错错; secret-chatbot 对对对错错; Sonnet 3.5 错错错错; Gemini 2 Pro 错错错错错错错; r1 错; Gemini 2.5 Pro 错; Kingfall 对
 >
@@ -430,7 +430,7 @@ Q: Write a function for me in Cadence SKILL: For an input less than 16, return 0
 参考答案：
 
 ```lisp
-(procedure (mapping x)
+procedure (mapping x)
   (cond
     ((lessp x 16) 0.005)
     ((lessp x 80) 0.01)
@@ -439,7 +439,6 @@ Q: Write a function for me in Cadence SKILL: For an input less than 16, return 0
     ((lessp x 640) 0.4)
     (t 1.0)
   )
-)
 ; or
 (defun mapping (x)
   (cond
@@ -453,7 +452,7 @@ Q: Write a function for me in Cadence SKILL: For an input less than 16, return 0
 )
 ```
 
-正确情况：Gemini 2.5 Pro 对; k2 错; m1 错
+正确情况：Gemini 2.5 Pro 对; k2-0905 对; opus-4.1 对
 
 
 </details>
@@ -461,7 +460,7 @@ Q: Write a function for me in Cadence SKILL: For an input less than 16, return 0
 <details>
 <summary>SKILL-Specific</summary>
 
-  
+
 </details>
 
 </details>
@@ -633,6 +632,8 @@ module decimator_data_stimuli (CLK, D);
 
 endmodule
 ```
+
+Q: https://zhuanlan.zhihu.com/p/1948107481772425798
 
 </details>
 
