@@ -122,39 +122,6 @@ One of the possible reasons can be that 'Save' check box for these signals are n
 
 解决方案：这是将 `IT("/PM2/S")` 函数的变量名设置成 `/PM2/S` 后产生的 bug，将 Name 字段中的 `/PM2/S` 删去或改成其他任意字符。如果对于电压信号的情形，可以 uncheck "Save" checkbox 来看似绕过这个 bug，但是这不解决根本问题。
 
-
-## Spectre 仿真类型
-
-### 背景
-
-https://community.cadence.com/cadence_blogs_8/b/cic/posts/spectre-tech-tips-accuracy-101
-
-### 万物的开山: `dc` simulation
-
-modified nodal analysis
-
-### `dc` 的衣钵: `tran` simulation
-
-- 步长 (time step parameter)
-  - Spectre 一般情况下会自动动态的设置 `tran` 仿真的步长：例如在信号变化幅度较大时缩小 step；当电路进入类似于稳态，没什么信号波动时增大 step
-  - `step`:
-  - `maxstep`: 本次 `tran` 所允许的最大步长。当我们不希望 spectre 在电路进入稳态后 step 越来越大，而一直小于一个最大 step 值
-  - `minstep`: 
-- param
-  - tran noise
-    - isnoisy
-
-
-### 小信号的王者: `ac` simulation
-
-### `ac` 的亲戚: `stb` simulation
-
-Striving for small-signal stability - Loop-Based and Device-Based Algorithms for Stability Analysis of Linear Analog Circuits in the Frequency Domain
-
-### `sp`
-
-### Spectre 在模拟仿真领域超越 Hspice 的开端: `pss` simulation
-
 ### Spectre Fast SPICE, RF SPICE
 
 - *Getting The Most Out Of Spectre*
