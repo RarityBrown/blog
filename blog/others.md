@@ -23,3 +23,5 @@
 20250411: 关税主要针对实体货物 (Goods)，无形的数字软件许可、咨询服务、金融交易不用交关税。当然也有一些情况值得单独讨论，例如进口电影、艺术品、电子垃圾、电力、超出免税额度的旅客行李和邮寄物品被视为商品，要交关税；巡演临展艺术品、国内航空公司租借国外飞机不用交关税。增值税等此处不考虑。
 
 20250420: 看 Sam Altman 发了[X](https://x.com/sama/status/1913609769518317929)，招 8 年以上经验的 Senior Semiconductor Device Engineer，年薪 15~21 万美金。作为对比，和 Google 第一年的年薪相近，如果在 Google 年以上则差不多是 30 万以上。
+
+20250910: 类似的，[Apple Hardware Engineer Salary](https://www.levels.fyi/companies/apple/salaries/hardware-engineer)
