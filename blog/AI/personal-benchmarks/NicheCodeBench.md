@@ -3,7 +3,7 @@
 Including:
 
 1. Niche (programming) languages in the general sense, e.g., AHK (v2), LaTeX (tikz, etc.), PowerShell, MATLAB, Mermaid etc.
-2. Niche (programming) languages used in IC, e.g., Assembly, SystemVerilog, Verilog-AMS (Verilog-A), Cadence SKILL, tcl, Wavedrom etc.
+2. Niche (programming) languages used in IC, e.g., Assembly, SystemVerilog, Verilog-AMS (Verilog-A), Cadence SKILL, tcl, Wavedrom, SPICE etc.
 3. Niche code within widely-used languages, such as WebGPU code in front-end development and some niche libraries in Python
 
 ### Niche languages in the general sense
@@ -634,6 +634,17 @@ endmodule
 ```
 
 Q: https://zhuanlan.zhihu.com/p/1948107481772425798
+
+</details>
+
+##### SPICE (circuit)
+
+<details>
+<summary>SPICE</summary>
+
+- https://arxiv.org/html/2502.07980v1
+- https://arxiv.org/html/2507.19525v1
+- https://link.springer.com/article/10.1007/s40593-025-00501-w
 
 </details>
 
