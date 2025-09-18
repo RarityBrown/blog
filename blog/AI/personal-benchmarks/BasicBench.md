@@ -244,6 +244,8 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 - 2025 年 7 月 22 日的农历和 2003 年 7 月 27 日的农历是同一天吗？
   - 正确答案：都是六月廿八
 - https://www.zhihu.com/question/640357173/answer/3380518541
+- 有一百万只鸡，每次从有腿的鸡中抽取一只砍掉一条腿，重复一百万次，最后数学期望下还有多少完好的鸡？  ref: https://www.zhihu.com/question/1950568727587317333
+  - 正确答案：317844
 - =RATE(60, -2000, 0, 240000)
   - 2.146%
 - $\left[ \mu C_{ox} \frac{W}{L_2} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{S2} - V_{TH2}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_D - V_{S2}}{V_T} \right) \right)=\left[ \mu C_{ox} \frac{W}{L_3} (n-1) V_T^2 \right] \exp \left( \frac{V_{G} - V_{TH3}}{n V_T} \right) \left( 1 - \exp \left( - \frac{V_{S2}}{V_T} \right) \right)$ 除了 $V_{S2}$ 不知道，别的都已知，且 $V_{TH2}=V_{TH3}=V_{TH}$ ，求 $V_{S2}$
@@ -254,12 +256,3 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 - the final one (超级钓鱼题集合): $\tan^2\frac{\pi}{13}\cdot\tan^2\frac{3\pi}{13}\cdot\tan^2\frac{4\pi}{13} + 19\sum^{26}_{n=1}\sin(\frac{n^8\pi}{26})=?$
   - ref: [1](https://zhuanlan.zhihu.com/p/1899907731562934988) [2](https://www.bilibili.com/video/BV1mUbHzcEhW/) [3]()
   - 正确答案: $65-18\sqrt{13} + 19\sqrt{13} = $
-
-## VLLM 题目列表
-
-Use your native image editing capability to make the following virtuoso schematic screenshot to a Visio-style white-background circuit schematic for academic papers (not simply invert color, but make the wire thicker, delete the annotations on components, etc. to make the schematic publish-ready)
-
-The first image acts as a style reference for you.
-
-![image](https://github.com/user-attachments/assets/dbb993b9-2d15-43b1-bfc9-eee475d5375b)
-
