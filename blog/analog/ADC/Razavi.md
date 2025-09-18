@@ -46,10 +46,48 @@ Omitted
 In a properly designed track-and-hold circuit, the condition $\omega_1\ll\frac{1}{\tau}=\frac{1}{R_{on}(C_a+C_b\cos\omega_1t)}$ must be satisfied. Therefore, the RC network functions as a τ delay unit, resulting in a phase lag of $\omega_1\tau$ in the output signal:
 
 $$
-V_{out} \approx \frac{V_{DD}}{2} + \frac{V_{DD}}{2} \cos[\omega_1 t - R_{on}(C_a+C_b\cos\omega_1 t)\omega_1]
+\begin{aligned}
+V_{out}(t) 
+&\approx \frac{V_{DD}}{2} + \frac{V_{DD}}{2} \cos[\omega_1t - R_{on}(C_a + C_b \cos \omega_1t)\omega_1] \\
+V_{out,ac}(t)
+&= \frac{V_{DD}}{2}\cos[\omega_1t - \underbrace{R_{on}C_a\omega_1}_{\displaystyle\phi_0} - \underbrace{R_{on}C_b\omega_1}_{\displaystyle\beta_0} \cos(\omega_1t)]\\
+&= \frac{V_{DD}}{2} \cos[\omega_1t - \phi_0 - \beta_0 \cos(\omega_1t)] \\
+&= \frac{V_{DD}}{2}\bigg( \cos(\omega_{1}t - \phi_0)\cdot\cos(\beta_0 \cos(\omega_1t)) + \sin(\omega_{1}t - \phi_0)\cdot\sin(\beta_0 \cos(\omega_1t)) \bigg)
+\end{aligned}
 $$
 
-(2) todo
+For a S&H:
+
+$$
+\omega_1\ll\dfrac{1}{R_{on}C_H}<\dfrac{1}{R_{on}C_b} 
+\implies \beta_0\cos(\omega_1t)\ll1 
+\implies
+\begin{cases}
+\cos(\beta_0 \cos(\omega_1t)) \approx 1 - \frac{\beta_0^2}{2}\cos^2(\omega_{1}t) \\
+\sin(\beta_0 \cos(\omega_1t)) \approx \beta_0 \cos(\omega_1t) - \frac{\beta_0^3}{6}\cos^3(\omega_1t)
+\end{cases}
+$$
+
+Therefore:
+
+$$
+\begin{aligned}
+V_{out,ac}(t) 
+&= \frac{V_{DD}}{2}\left( \cos(\omega_{1}t - \phi_0)\cdot\left(1 - \frac{\beta_0^2}{2}\cos^2(\omega_1t)\right) + \sin(\omega_1t - \phi_0)\cdot\left(\beta_0 \cos(\omega_1t) - \frac{\beta_0^3}{6}\cos^3(\omega_1t)\right) \right)\\
+&= \frac{V_{DD}}{2} \left[ \underbrace{\left(1 - \frac{\beta_0^2}{4}\right)\cos(\omega_{1}t - \phi_0) - \frac{\beta_0^2}{8}\cos(\omega_1t + \phi_0)}_{ \displaystyle(1ω_1)} + \underbrace{\frac{\beta_0}{2}\sin(2\omega_1t - \phi_0)}_{\displaystyle(2ω_1)} - \underbrace{\frac{\beta_0^2}{8}\cos(3\omega_1t - \phi_0)}_{\displaystyle(3ω_1)} - \underbrace{\frac{\beta_0}{2}\sin(\phi_0)}_{\displaystyle\text{DC offset}} + \dots \right]
+\end{aligned}
+$$
+
+We get:
+
+$$
+\boxed{
+\begin{aligned}
+\text{HD2} &\approx \frac{V_{DD}\beta_0/4}{V_{DD}/2} = \frac{\beta_0}{2} = \frac{R_{on}C_b\omega_1}{2} \\
+\text{HD3} &\approx \frac{V_{DD}\beta_0^2/16}{V_{DD}/2} = \frac{\beta_0^2}{8} = \frac{(R_{on}C_b\omega_1)^2}{8}
+\end{aligned}
+}
+$$
 
 #### 3.6 
 
@@ -120,11 +158,21 @@ $$
 
 #### 3.17
 
-todo
+$$
+\sqrt{\overline{V_{n,A}^2}}=\sqrt\frac{2kT}{C_b}  \qquad 
+R_{on}=\frac{1}{\mu_nC_{ox}\dfrac{W}{L}(V_{DD}-V_{TH})} \qquad 
+\Delta R_{on,rms}
+\approx \frac{V_{n,rms}\cdot R_{on}}{V_{DD}-V_{TH}}
+= \frac{R_{on}\cdot\sqrt{\dfrac{2kT}{C_b}}}{V_{DD}-V_{TH}}
+$$
+
+?
 
 #### 3.18
 
-?
+$$
+V_{P,\max}=V_{DD}+|V_{TH,5}| \implies V_{in,\max}=|V_{TH,5}| 
+$$
 
 #### 3.19
 
@@ -137,4 +185,4 @@ $$
 
 #### 3.20
 
-?
+No?
