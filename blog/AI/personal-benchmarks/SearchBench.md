@@ -149,8 +149,10 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - The best LLM on LMarena's search arena today?
   - 正确答案：o3-search
 - Create a comparison table of FP16, FP8 and FP4 dense + sparse PFLOPS for A100, H200, RTX5090, B200
-- USNO 的计时精度是世界上最高吗？世界上第二高的是谁呢？
-  - 应该不是的，但是懒得研究了。
+- GPT-5 nano MMMU-Pro result and Gemma 3 instruct 27b SimpleQA result? answer in short
+  - 正确答案：[62.6%](https://openai.com/index/introducing-gpt-5-for-developers/) (“high” setting; average across standard + vision sets); [10%](https://ai.google.dev/gemma/docs/core/model_card_3) (0-shot)
+
+
 
 ##### 中文语境普通问题
 
@@ -164,7 +166,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 参考答案：应该是没有了
 - University of Shanghai 是什么大学？
   - 正确答案：沪江大学
-- 
+- USNO 的计时精度是世界上最高吗？世界上第二高的是谁呢？
+  - 应该不是的，但是懒得研究了。
 
 ##### "No" 问题
 
@@ -180,6 +183,9 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：No more (August 2025)   或者 [Synopsys ARC VPX DSP IP](https://www.synopsys.com/articles/narrow-precision-data-types-embedded-ai.html) 勉强可以算？
 - How to stop airpods from automatically connecting to windows 11 without 1.manually unpairing 2.affecting other connected BT devices 3.coding in powershell
   - 正确答案：no you can't.     [1](https://learn.microsoft.com/en-us/answers/questions/4174413/dont-connect-to-bluetooth-automatically-which-are) 和 [2](https://learn.microsoft.com/en-us/answers/questions/4163051/airpods-pro-automatically-connecting-to-laptop-whe) 都是官方的错误信息。
+- matlab 2025b 比 2025a 新增了什么功能？我不关心 2025a 的功能。简单回答。
+  - 正确答案：no. only quality and stability improvements
+
 
 </details>
 
