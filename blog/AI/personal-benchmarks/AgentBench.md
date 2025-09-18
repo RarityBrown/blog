@@ -14,7 +14,7 @@
 
 ##### 长问题
 
-
+---
 
 Q: 以下这些总共 7 个股票，给我他们五个五年（即 2025-2020 ... 2005-2000）和五个三年的增长率以及减掉各自大盘的增长率。做成可视化。
 
@@ -27,7 +27,7 @@ Q: 以下这些总共 7 个股票，给我他们五个五年（即 2025-2020 ...
 
 哦对，另外再加一个科华数据
 
-
+---
 
 
 ```base64
@@ -56,7 +56,32 @@ Help me do the following:
 |               |                  |      |      |                 |      |
 
 
+---
 
+```svg
+<svg width="400" height="200" viewBox="-4 -2 8 4" xmlns="http://www.w3.org/2000/svg">
+  <path id="myCurve" fill="none" stroke="blue" stroke-width="1"
+        vector-effect="non-scaling-stroke"/>
+  <script><![CDATA[
+    (function () {
+      const curve = document.getElementById('myCurve');
+      const points = 100;
+      const startX = -Math.PI;
+      const endX = Math.PI;
+      let pathData = '';
+      for (let i = 0; i <= points; i++) {
+        const x = startX + (endX - startX) * i / points;
+        const y = Math.sin(x);
+        const command = (i === 0) ? 'M' : 'L';
+        pathData += `${command} ${x.toFixed(3)} ${y.toFixed(3)} `;
+      }
+      curve.setAttribute('d', pathData);
+    })();
+  ]]></script>
+</svg>
+```
+
+render the svg and give me a png file.
 
 
 #### Linux + Visual 不能做到的
