@@ -14,7 +14,7 @@ gpt-oss 的发布，从硬件角度讲，我个人认为最关键的是 MXFP4。
 | AWS       | Trainium 3                                                   | Q4 2025       | Q4 2025                 | ❓                                                            |
 | IBM       | Spyre                                                        | Aug 26, 2024  | Q4 2025                 | ❌ No?                                                          |
 |           |                                                              |               |                         |                                                              |
-| Huawei    | 昇腾 Ascend 920                                              | Q4 2025       | ?                       | ❓                                                           |
+| Huawei    | 昇腾 Ascend 950                                              | 2026         | ?                       | ✔️ Hardware                                                       |
 
 以下是一些观点：
 
