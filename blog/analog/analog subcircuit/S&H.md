@@ -49,14 +49,15 @@ $$
 > [!NOTE]
 >
 > 平方律的 MOSFET 模型，有：
+> 
 > $$
 > I_{D}=\mu_{n}C_{ox}\dfrac{W}{L}\left( (V_{GS}-V_{TH})V_{DS}-\frac{1}{2}V_{DS}^2 \right) \\
-> 
 > R_{ON}(V_{in}(t))|_{V_{DS}\sim 0}
 > =\frac{1}{\pdv{I_D}{V_{DS}}}
 > =\frac{1}{\mu_nC_{ox}\frac{W}{L}(V_{GS}-V_{TH}-V_{DS})}
 > =\frac{1}{\mu_nC_{ox}\frac{W}{L}(V_{DD}-V_{in}-V_{TH})}
 > $$
+> 
 > 对于低电源电压的设计，要注意 MOSFET 开关是否能导通。
 >
 > At low supply voltages and large-signal excursions, the voltage-dependent resistance of the switch can lead to aperture time differences causing distortion. 
@@ -149,6 +150,7 @@ $$
 ![img](https://github.com/user-attachments/assets/ad3369a4-0ca5-484b-b8eb-9faa7e3ffbc5)
 
 这种在采样开关上的时间不均匀采样时间，可以等价为被采信号上 $V_{in}(t-\Delta t_m(V_{in}))$ 的延迟不均匀，即 [Abidi, TCAS-I, 2018] 的 fig. 4. (b) 
+
 $$
 \begin{aligned}
 V_{c}(t) 
@@ -156,11 +158,11 @@ V_{c}(t)
 & \approx V_{in}(t)-\Delta t_m\dv{v_{in}(t)}{t}+\frac{1}{2}\Delta t_m^2\dv[2]{v_{in}(t)}{t}
 \end{aligned}
 $$
+
 将 $\Delta t_m = \dfrac{t_f}{V_{DD}}(V_{TH}+n\cdot V_{in}(t))$ 和 $V_{in}=A_0\sin\omega t$ 带入上式，可得
+
 $$
 \boxed{\text{HD}2_{tim}=\frac{\text{IM}2_{tim}}{2}\approx\frac{n}{2}\frac{A_{0}}{V_{DD}}(\omega_{0}t_{f})} \\
-
-
 \boxed{\text{HD}3_{tim}=\frac{\text{IM}3_{tim}}{3}\approx\frac{n^2}{8}\left(\frac{A_0}{V_{DD}}\right)^2\left(\omega_0t_f\right)^2}
 $$
 
@@ -287,6 +289,119 @@ $$
 
 
 
+### $v_{in}(t)$-dependent $C_H'=C_H+C_{DB}(v_{in})$
+
+$C_{DB}$ 是 Switch MOSFET drain-bulk PN 结的结电容，对于结电容有：
+
+$$
+C_{DB}(v_{in}) 
+= \frac{C_{j0}}{\left( 1 + \dfrac{V_{DB}}{\phi_0} \right)^m}
+= \frac{C_{j0}}{\left( 1 + \dfrac{V_{in}(t)}{\phi_0} \right)^m}
+$$
+
+In Razavi's ADC book, Problem 3.5 assumes that $C'_H(t) = C_a + C_b\cos(\omega_1t)$ for an input signal of $V_{in}(t) = \frac{V_{DD}}{2} + \frac{V_{DD}}{2}\cos(\omega_1t)$: 
+
+In a properly designed track-and-hold circuit, the condition $\omega_1\ll\frac{1}{\tau}=\frac{1}{R_{on}(C_a+C_b\cos\omega_1t)}$ must be satisfied. Therefore, the RC network functions as a τ delay unit, resulting in a phase lag of $\omega_1\tau$ in the output signal:
+
+$$
+\begin{aligned}
+V_{out}(t) 
+&\approx \frac{V_{DD}}{2} + \frac{V_{DD}}{2} \cos[\omega_1t - R_{on}(C_a + C_b \cos \omega_1t)\omega_1] \\
+V_{out,ac}(t)
+&= \frac{V_{DD}}{2}\cos[\omega_1t - \underbrace{R_{on}C_a\omega_1}_{\displaystyle\phi_0} - \underbrace{R_{on}C_b\omega_1}_{\displaystyle\beta_0} \cos(\omega_1t)]\\
+&= \frac{V_{DD}}{2} \cos[\omega_1t - \phi_0 - \beta_0 \cos(\omega_1t)] \\
+&= \frac{V_{DD}}{2}\bigg( \cos(\omega_{1}t - \phi_0)\cdot\cos(\beta_0 \cos(\omega_1t)) + \sin(\omega_{1}t - \phi_0)\cdot\sin(\beta_0 \cos(\omega_1t)) \bigg)
+\end{aligned}
+$$
+
+For a S&H:
+
+$$
+\omega_1\ll\dfrac{1}{R_{on}C_H}<\dfrac{1}{R_{on}C_b} 
+\implies \beta_0\cos(\omega_1t)\ll1 
+\implies
+\begin{cases}
+\cos(\beta_0 \cos(\omega_1t)) \approx 1 - \frac{\beta_0^2}{2}\cos^2(\omega_{1}t) \\
+\sin(\beta_0 \cos(\omega_1t)) \approx \beta_0 \cos(\omega_1t) - \frac{\beta_0^3}{6}\cos^3(\omega_1t)
+\end{cases}
+$$
+
+Therefore:
+
+$$
+\begin{aligned}
+V_{out,ac}(t) 
+&= \frac{V_{DD}}{2}\left( \cos(\omega_{1}t - \phi_0)\cdot\left(1 - \frac{\beta_0^2}{2}\cos^2(\omega_1t)\right) + \sin(\omega_1t - \phi_0)\cdot\left(\beta_0 \cos(\omega_1t) - \frac{\beta_0^3}{6}\cos^3(\omega_1t)\right) \right)\\
+&= \frac{V_{DD}}{2} \left[ \underbrace{\left(1 - \frac{\beta_0^2}{4}\right)\cos(\omega_{1}t - \phi_0) - \frac{\beta_0^2}{8}\cos(\omega_1t + \phi_0)}_{ \displaystyle(1ω_1)} + \underbrace{\frac{\beta_0}{2}\sin(2\omega_1t - \phi_0)}_{\displaystyle(2ω_1)} - \underbrace{\frac{\beta_0^2}{8}\cos(3\omega_1t - \phi_0)}_{\displaystyle(3ω_1)} - \underbrace{\frac{\beta_0}{2}\sin(\phi_0)}_{\displaystyle\text{DC offset}} + \dots \right]
+\end{aligned}
+$$
+
+We get:
+
+$$
+\boxed{
+\begin{aligned}
+\text{HD2} &\approx \frac{V_{DD}\beta_0/4}{V_{DD}/2} = \frac{\beta_0}{2} = \frac{R_{on}C_b\omega_1}{2} \\
+\text{HD3} &\approx \frac{V_{DD}\beta_0^2/16}{V_{DD}/2} = \frac{\beta_0^2}{8} = \frac{(R_{on}C_b\omega_1)^2}{8}
+\end{aligned}
+}
+$$
+
+> [!NOTE]
+>
+> Razavi’s analytical method actually underestimates HD2 and HD3; in particular, HD3 shows a qualitative accuracy in Razavi’s framework, yet quantitatively it introduces an error of roughly a factor of 10. We therefore need a more accurate approach for evaluation.
+
+另一种方法有：
+
+我们有 $V_{in}(t) = V_{DC} + V_{AC}\cos(\omega_1t)$ 和 $C(t) = C_a + C_b\cos(\omega_1t)$，其中 $V_{DC}=V_{AC}=\dfrac{V_{DD}}{2}$
+
+$$
+\begin{aligned}
+V_{out}(t) 
+&= V_{in}(t) - R_{on} \frac{d}{dt}[C(t)V_{out}(t)] \\
+\approx V_{out}^{(1)}(t) & = V_{in}(t) - R_{on} \frac{d}{dt}[C(t)V_{in}(t)] \\
+&= V_{in}(t)-R_{on}\dv{}{t}(C_a + C_b\cos(\omega_1t))(V_{DC} + V_{AC}\cos(\omega_1t)) \\
+&= V_{in}(t)-R_{on}\dv{}{t}\left( \left(C_aV_{DC} + \frac{C_bV_{AC}}{2}\right) + (C_aV_{AC} + C_bV_{DC})\cos(\omega_1t) + \frac{C_bV_{AC}}{2}\cos(2\omega_1t) \right) \\
+&= V_{in}(t) - R_{on} \big[ -\omega_1(C_aV_{AC} + C_bV_{DC})\sin(\omega_1t) - \omega_1C_bV_{AC}\sin(2\omega_1t) \big] \\
+&= \underbrace{(V_{DC} + V_{AC}\cos(\omega_1t))}_{V_{in}(t)} + \underbrace{R_{on}\omega_1(C_aV_{AC} + C_bV_{DC})\sin(\omega_1t)}_{\text{基波修正项}} + \underbrace{R_{on}\omega_1C_bV_{AC}\sin(2\omega_1t)}_{\text{二次谐波}}
+\end{aligned}
+$$
+
+所以 HD2 有：
+
+$$
+\boxed{\text{HD2} = R_{on}\omega_1C_b}
+$$
+
+为了得到三次谐波，我们需要进行第二轮迭代。我们将上面得到的 $V_{out}^{(1)}(t)$ 代回到原始方程中。
+
+$$
+V_{out}^{(2)}(t) = V_{in}(t) - R_{on} \frac{d}{dt}[C(t)V_{out}^{(1)}(t)]
+$$
+
+三次谐波来自于 $C(t)$ 中的 $\omega_1$ 分量与 $V_{out}^{(1)}(t)$ 中的 $2\omega_1$ 分量的混频，在乘积 $C(t)V_{out}^{(1)}(t)$ 中，我们关注的项是：
+
+$$
+\text{交叉项} 
+= \underbrace{(C_b\cos(\omega_1t))}_{\text{from } C(t)} \times \underbrace{(R_{on}\omega_1C_bV_{AC}\sin(2\omega_1t))}_{\text{from } V_{out}^{(1)}(t)}
+= R_{on}\omega_1C_b^2V_{AC} \cos(\omega_1t)\sin(2\omega_1t)
+= R_{on}\omega_1C_b^2V_{AC} \cdot \frac{1}{2}[\sin(3\omega_1t) + \sin(\omega_1t)]
+$$
+
+我们只关心产生三次谐波的部分，即 $\frac{1}{2}R_{on}\omega_1C_b^2V_{AC}\sin(3\omega_1t)$
+
+$$
+\frac{d}{dt}\left[\frac{1}{2}R_{on}\omega_1C_b^2V_{AC}\sin(3\omega_1t)\right] = \frac{3}{2}R_{on}\omega_1^2C_b^2V_{AC}\cos(3\omega_1t)
+$$
+
+代入 $V_{out}$ 的修正项公式，得到输出的三次谐波分量 $V_{out,3\omega_1}(t)$：
+
+$$
+V_{out,3\omega_1}(t) 
+= -R_{on} \times \left(\frac{3}{2}R_{on}\omega_1^2C_b^2V_{AC}\cos(3\omega_1t)\right) 
+= -\frac{3}{2}(R_{on}\omega_1)^2C_b^2V_{AC}\cos(3\omega_1t)
+\implies \boxed{\text{HD3} = \frac{3}{2}(R_{on}\omega_1C_b)^2}
+$$
 
 
 ### non-ideal clock (jitter)
@@ -297,7 +412,7 @@ by Razavi:
 
 
 
-### Appendix: where does $n$ come from
+### Appendix: where does $n$ come from (in Iizuka's paper)
 
 
 
