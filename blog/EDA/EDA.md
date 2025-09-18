@@ -40,6 +40,8 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 - 学术界视角：Are open source digital design flows ready for mainstream? by Frank K. Gürkaynak, ETH Zürich. [slide](https://mos-ak.org/bruges_2024/publication/8_Gurkaynak_ESSERC_2024_ETHZ_pulp.pdf)
 - IC infra 从业人员分享：https://icinfra.cn/
 
+惊闻浙大 55nm 线 pdk 要[准备](https://www.zhihu.com/question/497652898/answer/1951322675583628264)开源了，这对国内的数字设计和数字 EDA 无疑是重大利好。SMIC 没动力做的，ICSprout 做确实是合适的。三年后，待 pdk 磨合完毕，这将成为中国 IC 教育界的 golden standard。
+
 ## Domestic EDAs
 
 
