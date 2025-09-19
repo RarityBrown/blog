@@ -46,3 +46,4 @@
 - vpulse / ipulse: https://optics.eee.nottingham.ac.uk/wiki/Vlsi:Cadence_Tips
 - cccs: https://zhuanlan.zhihu.com/p/673455481
 - https://zhuanlan.zhihu.com/p/1951970338117251467
+- ideal low-pass filter: https://zhuanlan.zhihu.com/p/1951974455933928357
