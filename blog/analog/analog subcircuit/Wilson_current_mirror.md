@@ -19,7 +19,7 @@ Bipolar 的电流镜，即使采用了 cascode 形式，也会因为 $\beta$ 不
 >
 > 华成英: 模拟电子技术基础
 >
-> 其他参考资料：[β-help 电流镜 by 没芯没肺](https://zhuanlan.zhihu.com/p/1935300254837761404)  [β-help/Wilson 电流镜 by designer](https://zhuanlan.zhihu.com/p/622797847)
+> 其他参考资料：[β-help 电流镜 by 没芯没肺](https://zhuanlan.zhihu.com/p/1935300254837761404),  [β-help/Wilson 电流镜 by designer](https://zhuanlan.zhihu.com/p/622797847), [基于 BJT 和 MOS Wilson CM 的双环负反馈分析 by 归来](https://zhuanlan.zhihu.com/p/460748211)
 
 #### DC
 
