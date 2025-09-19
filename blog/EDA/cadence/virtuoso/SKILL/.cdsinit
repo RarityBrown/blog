@@ -19,6 +19,10 @@ hiSetBindKey("Schematics" "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow()
 hiSetBindKey("Layout"     "<Btn4Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 1.25)")
 hiSetBindKey("Layout"     "<Btn5Down>" "hiZoomWindowAtMouse(hiGetCurrentWindow() 0.8)")
 
+hiSetBindKey("Symbol"     "<Key>w"     "schHiCreateSymbolShape("line" "outline")")  ; ref: https://www.thecadforums.com/threads/default-keyboard-shortcuts-not-working-in-schematic-editor.35492/
+
+
+
 ; ref: https://gist.github.com/02015678/cae341f4262fa73325e30eb925a21659
 ; 9 to add net probe, SHIFT+9 to delete net probe, CTRL+9 to delete all probe
 ; Mouse-Btn1 Double click to Descend, Mouse-Btn3 Double click to Return
