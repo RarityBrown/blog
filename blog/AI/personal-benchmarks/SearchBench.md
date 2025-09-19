@@ -168,6 +168,9 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：沪江大学
 - USNO 的计时精度是世界上最高吗？世界上第二高的是谁呢？
   - 应该不是的，但是懒得研究了。
+- 在 virtuoso 中快速切换 schematic view 和 symbol view 的快捷键是什么？
+  - 正确答案： <kbd>=</kbd>, ref: [1](https://zhuanlan.zhihu.com/p/493405291), or search "schHiOpenSymbolOrSchematicView"
+
 
 ##### "No" 问题
 
