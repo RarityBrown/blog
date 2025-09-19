@@ -39,6 +39,7 @@
 - [通过 SKILL 实现无 GUI 的命令操作，以及自动化 streamout 的 GDS 导出](https://zhuanlan.zhihu.com/p/6010155066)
 - [Net trace manager 版图快速定位](https://zhuanlan.zhihu.com/p/13366999517)
 - [Layout 常见快捷键](https://zhuanlan.zhihu.com/p/28770741048)
+- [使用 <kbd>=</kbd> 快速切换 schematic view 和 symbol view](https://zhuanlan.zhihu.com/p/493405291)
 
 ## ADE
 
