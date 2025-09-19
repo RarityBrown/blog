@@ -124,8 +124,6 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 - The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
   - 正确答案：`project compileoutofdate`    (典型错误：`vlog -work work +acc=r *.v`)
-- "hiFormDone" 函数中的 hi 是什么意思？
-  - 正确答案：[Human Interface](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/50958/whats-the-difference-between-le-commands-and-hi-commands)
 - The latest sub-version for Cadence Virtuoso 6.1.8 and Virtuoso 23.1?
   - [ISR34](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-icadvm20-1-isr34-and-ic6-1-8-isr34-now-available), 当然如果你再细一点，可以发现有 [ISR36](https://bbs.eetop.cn/thread-991360-1-1.html), 不过这个要非常细，这些链接也是可以的 [1](https://www.nulledfrm.com/threads/cadence-virtuoso-ic06-18-360-linux.133645/#post-815659)[2](https://dl4all.org/software/graphics-design/866023-cadence-virtuoso-ic0618360-linux.html)[3](https://downloadly.ir/software/engineering-specialized/cadence-ic-design-virtuoso/)[4](https://www.iranhack.com/forum/forum/%D9%86%D8%B1%D9%85-%D8%A7%D9%81%D8%B2%D8%A7%D8%B1/188483-cadence-virtuoso-ic06-18-360-linux)[5](https://bbs.eetop.cn/thread-991360-1-1.html)[6](https://bbs.eetop.cn/thread-984059-1-1.html); [ISR14](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-ic23-1-isr-14-now-available), 这个的话官方确实就是最新，"IC23.10.130" 尚可搜到，14 就搜不到了。
 - Packages Explicitly NOT Included in Mathjax3 `AllPackages` by Default?
@@ -158,7 +156,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 - 中国国内目前排名前20的医院里，前身是教会医院的有哪些？超级简单回答。例如 “是：仁济、浙一、华西、华山...；不是：北大三院、积水潭、中山、瑞金...”。注意，这只是一个回答格式示例，并不是/不一定是正确答案。
   - 正确答案：是教会医院：北京协和、中国医大一院、仁济、瑞金、浙二、武汉协和、湘雅、华西；不是教会医院：301、北大一院、北大三院、中山、华山、浙一、郑大一附院、武汉同济、湘雅二院、中山一院、南方医院、西京。参考[2023复旦版排名](https://rank.cn-healthcare.com/fudan/national-general) (2024年11月发布)
-  - 正确情况：Gemini 2.5 Pro w Google 对
+  - 正确情况：Gemini 2.5 Pro w Google 对错
 - iPad 播放器 app？简单回答，不满足要求的不用提及。中英文双语搜索，至少参考 20 个有效信息源。app 要求：1. 明确支持 >2.0 (不包括等于，一定要大于) 倍速; 2. 在最近一年内更新过; 3. 不是 safari 扩展，是播放器 app; 4. 除了 VLC 以外
   - 典型错误：Infuse
   - 参考答案：
@@ -170,7 +168,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 应该不是的，但是懒得研究了。
 - 在 virtuoso 中快速切换 schematic view 和 symbol view 的快捷键是什么？
   - 正确答案： <kbd>=</kbd>, ref: [1](https://zhuanlan.zhihu.com/p/493405291), or search "schHiOpenSymbolOrSchematicView"
-
+- "hiFormDone" 函数中的 hi 是什么意思？
+  - 正确答案：[Human Interface](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/50958/whats-the-difference-between-le-commands-and-hi-commands)
 
 ##### "No" 问题
 
