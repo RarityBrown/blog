@@ -133,8 +133,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：ICADV12.3, IC23.1
 - Do TSMC Shanghai fab and Nanjing fab offer MPW shuttles? Answer within 50 words. Don't tell me you're not sure, I'm very sure the definite answer is online (it might not be a direct answer, but after synthesizing the information, it's enough for you to make a definite judgment), so your final answer will be something like Shanghai: No, Nanjing: Yes. Note that this is just an example of the answer format, and is not necessarily the correct answer.
   - 正确答案：Shanghai Fab10 yes; Nanjing Fab16 no. ref: [2025 TSMC CyberShuttle Service Plan](http://www.szicc.org.cn/attachment/0/80/80748/1230778.pdf)
-- A comparative table summarizing the performance of Claude Sonnet 3.5 (aka the old Sonnet 3.5), Sonnet 3.6 (aka the Sonnet 3.5 new), Sonnet 3.7, Sonnet 4 on the SWE-bench Verified.
-  - 正确答案：pass@1: 33%, 49%, 62.3%, 72.7%; thinking: N/A, N/A, 70.3%, 80.2%
+- A comparative table summarizing the performance of Claude Sonnet 3.5 (aka the old Sonnet 3.5), Sonnet 3.6 (aka the Sonnet 3.5 new), Sonnet 3.7, Sonnet 4, Opus 4.1 on the SWE-bench Verified.
+  - 正确答案：pass@1: 33%, 49%, 62.3%, 72.7%, 74.5%; thinking: N/A, N/A, 70.3%, 80.2%, N/A
 - TSMC 28nm price @ europractice in 2025? Just tell me how much for only 1 square millimeter. And answer within 100 words. I’m absolutely sure you can get the answer without email or online price calculator.
   - 正确答案：[€10609](https://europractice-ic.com/schedules-prices-2025/)
 - Quantus, Raphael, StarRC, RaptorX, RaptorH, Exalto, EMX, xRC and xACT. Which are Cadence's? Which are Synopsys's?
