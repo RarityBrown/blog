@@ -98,6 +98,8 @@ radar-beta
 
 2025/09/07: Kimi-K2-0905 还是有点东西的，基本上是如今最好的非思考模型了，比 GPT-5 (minimal); Qwen3 Max 之流有显著提升。在除了 coding 和 tool-calling 方面，其他方向是可以打平 opus-4.1 的。
 
+2025/09/22: nano-banana 出来有段时间了，从应用层上讲，就是 image edit 模型的 GPT4 时刻。从在基本文字方面都费劲的 gpt3.5 到基本文字不会有逻辑问题的 gpt4；nano-banana 对于普通图片基本上没问题了，但是对于数学物理等等理工科的严谨配图（而不是插图或者示意图）还是基本不可用。
+
 ## 评测的小 ideas
 
 ### Bode
