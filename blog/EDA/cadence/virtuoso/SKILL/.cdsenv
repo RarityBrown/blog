@@ -1,6 +1,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;    Personal Setup    ;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; in CIW or .cdsinit: envSetVal("tool.sub" "opt" 'string "string")
+;; to ref: https://tuersi.space/ 兔二思
+
 
 ;;;;;;;;;;;;;;;;;; lib manager
 cdsLibManager.main   showCategoriesOn boolean t              ; lib manager shows categories
@@ -38,13 +41,25 @@ viva.pointMarker          font               string  "Default,15,-1,5,75,0,0,0,0
 viva.axis                 font               string  "Default,15,-1,5,75,0,0,0,0,0"
 viva.traceLegend          font               string  "Default,15,-1,5,75,0,0,0,0,0"
 viva.table                significantDigits  string  "12"           ; https://www.rfinsights.com/cadence/cadence-tips-and-tricks/
+
 ;;;;;;;;;;;;;;;;;; 
 ui    defaultEditorBackgroundColor         string  "#2F2F2F"       ; schematic / layout black background to vscode dark gray
 ui    ciwCmdInputLines                     int     4
 
+;;;;;;;;;;;;;;;;;; 
+designEditor.window   windowNameFormat     string  "%c %l %v %a %m"  ; cell name, lib name, view name... ref: https://www.kaixinspace.com/virtuoso-tips/
+
+;;;;;;;;;;;;;;;;;; 
+designEditor.fileSpec deDefaultWindowStyle cyclic  "new tab"
+treeAssistant         defaultOpenIn        string  "new tab"
+ab                    openLocation         string  "new tab"
+schematic             descendCanvasType    string  "new tab"
+; ref: https://tuersi.space/eda-config/virtuoso-cellview-startup-preferences-guide
+
 ;;;;;;;;;;;;;;;;;; schematic
 schematic            srcSolderOnCrossover cyclic "ignored"   ; ignore solder dot cross over warning
 schematic            srcInstOverlapValue  int    60
+schematic            netNameMethod        cyclic "derived"   ; https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/15757/pin-names
 
 ;;;;;;;;;;;;;;;;;; graphic
 ; graphic              balloonOn           boolean t               ; ?enable the info balloon by default
