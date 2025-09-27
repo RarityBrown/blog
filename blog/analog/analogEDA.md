@@ -158,7 +158,11 @@ $$
 \quad C(t) = C_a + C_b\cos(\omega_1 t)
 $$
 
+### `pnoise`
 
+#### jitter
+
+- [Sampled (Jitter) noisetype in Pnoise/Hbnoise analysis](https://community.cadence.com/cfs-file/__key/communityserver-discussions-components-files/38/Sampled_2800_Jitter_2900_-noisetype-in-Pnoise_5F00_1.pdf)
 
 ## MATLAB & Simulink
 
