@@ -179,6 +179,8 @@ ADE Assembler -> Global variable 右键 -> add config sweep
 - 关闭保存所有电压节点的数据，手动选择需要保存的电压节点
   - 待研究（目前看下来好像在大于某特定值的情况下，画图速度会严重降低，不知道是和什么硬件设置相关）
 
+> todo - search online: How can I speed up the startup time of Virtuoso simulations? I'm not talking about large simulations running slowly, but rather that even very small simulations have a fixed startup time. I want to know how to reduce this delay regardless of the simulation size.
+
 ### 其他方式
 
 #### 为不同的仿真组设置不同的 tran 仿真时间
