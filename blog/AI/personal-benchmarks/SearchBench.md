@@ -144,11 +144,16 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：yes, yes, no
 - Claude Opus 4 SimpleQA result? answer within 20 words.      Please refer to more sources.
   - 正确答案：[32.3%](https://www.kaggle.com/benchmarks/openai/simpleqa)。这题其实网上有一个更容易搜到的错误[信息](https://huggingface.co/datasets/smolagents/results/viewer/2024-12-26/train?f[model_id][value]=%27anthropic%2Fclaude-opus-4-20250514%27)，容易误导这些 search model
-- The best LLM on LMarena's search arena today?
+- The best LLM on LMarena's search arena today (with style control)?
   - 正确答案：o3-search
 - Create a comparison table of FP16, FP8 and FP4 dense + sparse PFLOPS for A100, H200, RTX5090, B200
 - GPT-5 nano MMMU-Pro result and Gemma 3 instruct 27b SimpleQA result? answer in short
   - 正确答案：[62.6%](https://openai.com/index/introducing-gpt-5-for-developers/) (“high” setting; average across standard + vision sets); [10%](https://ai.google.dev/gemma/docs/core/model_card_3) (0-shot)
+- The CPP of TSMC N28HPC+ process?
+  - 正确答案：[140nm](https://www.synopsys.com/articles/logic-library-capabilities.html) or [ref](https://zhuanlan.zhihu.com/p/243485197)
+- In which year was TSMC 16FFC RF started production?
+  - 正确答案：[2016](https://investor.tsmc.com/static/annualReports/2016/english/e_2_2.html)
+
 
 
 
@@ -187,7 +192,9 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：no you can't.     [1](https://learn.microsoft.com/en-us/answers/questions/4174413/dont-connect-to-bluetooth-automatically-which-are) 和 [2](https://learn.microsoft.com/en-us/answers/questions/4163051/airpods-pro-automatically-connecting-to-laptop-whe) 都是官方的错误信息。
 - matlab 2025b 比 2025a 新增了什么功能？我不关心 2025a 的功能。简单回答。
   - 正确答案：no. only quality and stability improvements
-
+- cadence virtuoso 里剪切的快捷键是什么？我不是问你什么粘贴，移动之类的快捷键，我就是要剪切。简单回答，不要长篇大论。
+  - 正确答案：no
+- 
 
 </details>
 
@@ -209,12 +216,13 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 
 ##### 能不能搜到，搜不搜得到
 
-这类问题 Google 会很占优势。比如在 Qwen-Image 发布半小时内搜索，Gemini 2.5 Pro 就显著比 gpt-5, opus-4.1, grok 好。perplexity 也很厉害，目前不知道他们为什么看上去比 Bing 还牛，和 CF 喷他们有关系吗...
+这类问题 Google / Perplexity 会很占优势。比如在 Qwen-Image 发布半小时内搜索，Gemini 2.5 Pro 就显著比 gpt-5, opus-4.1, grok 好。perplexity 也很厉害，目前不知道他们为什么看上去比 Bing 还牛，和 CF 喷他们有关系吗...
 
 
 - aad08s040g? answer within 100 words.
 - serach with quotes: "cmd64bit" for an exact match
-
+- search with quotes: "windowNameFormat"
+- search with quotes for an exact match: "netNameMethod"
 
 ##### 普通问题
 
