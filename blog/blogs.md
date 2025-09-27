@@ -27,7 +27,7 @@
 | 范益波 | 复旦大学     | 数字/体系结构 |                                                  | [一波](https://www.zhihu.com/people/ybfan)                 |                                |                                                              |                                                  |                                                       |                                   |
 | 唐长文 | 复旦大学     | 模拟/射频     |                                                  |                                                            | 高性能数据转换芯片设计老唐学堂 |                                                              |                                                  | [zwtang](https://blog.eetop.cn/space-uid-259079.html) |                                   |
 | 朱可人 | 复旦大学     | EDA           |                                                  |                                                            |                                |                                                              |                                                  |                                                       | [krzhu](https://github.com/krzhu) |
-
+| 程林   | 中科大       | 模拟/射频     |                                                  |                                                            |                                | 程林_USTC                                                    |                                                  |                                                       |                                   |
 
 
 注：只展示老师主动公开真实身份的账号。
