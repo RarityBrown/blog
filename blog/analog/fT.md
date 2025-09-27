@@ -1,0 +1,12 @@
+fT
+
+## fT in FinFET @ TSMC
+
+| TSMC                    | *28HPC+*      | *28HPC+ RF*                                                    | 16FFC RF                                                     | N7 RF | N6 RF                                                        | N4P RF                                | N4C RF |
+| ----------------------- | ----------- | ------------------------------------------------------------ | :----------------------------------------------------------- | ----- | ------------------------------------------------------------ | ------------------------------------- | ------ |
+| Type                    | Logic/Mixed | RF                                                           | RF                                                           | RF    | RF                                                           | RF                                    | RF     |
+| CPP                     | 140         |                                                              |                                                              |       | ? / 57                                                       | 51 / 85                               |        |
+| fT @ max                |             | > 300GHz                                                     | > 300GHz                                                     |       | 350GHz / 276GHz                                              | 307GHz / 331GHz                       |        |
+| (early production) year | 2015        | 2016                                                         | 2016                                                         | 2020  | 2021                                                         | 2024                                  | 2026   |
+| source                  |             | [1](https://investor.tsmc.com/static/annualReports/2017/english/ebook/files/basic-html/page14.html) | [1](https://investor.tsmc.com/static/annualReports/2019/english/ebook/index.html) [2](https://investor.tsmc.com/static/annualReports/2019/chinese/ebook/files/basic-html/page13.html) |       | [1](https://wccftech.com/tsmc-throws-the-ball-in-intels-court-by-showcasing-customized-chipmaking-technologies/) [2](https://semiwiki.com/semiconductor-manufacturers/tsmc/299944-highlights-of-the-tsmc-technology-symposium-2021-silicon-technology/) / [1](https://hao.cnyes.com/post/82384) | [1](https://hao.cnyes.com/post/82384) |        |
+
