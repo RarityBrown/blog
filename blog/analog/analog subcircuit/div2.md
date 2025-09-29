@@ -62,7 +62,7 @@ to be continued
 
 ## Injection-Locked Oscillator
 
-
+Fig 15.11 和 Fig 15.19 也是一种 Injection-Locked Oscillator ？todo
 
 
 
@@ -71,7 +71,8 @@ to be continued
 ref:
 
 1. *Design of CMOS Phase-Locked Loops, 15 Divide-by-2 Circuit Design*, Razavi
-2. [Fractional-Frequency Generators Utilizing Regenerative Modulation](https://ieeexplore.ieee.org/document/1686949)
+2. [Fractional-Frequency Generators Utilizing Regenerative Modulation](https://ieeexplore.ieee.org/document/1686949), 1939
+3. [The Design of a Millimeter-Wave Frequency Divider](https://ieeexplore.ieee.org/document/9950767), Razavi, 2022
 
 
 
