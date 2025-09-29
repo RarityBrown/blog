@@ -506,6 +506,71 @@ $$
 
 
 
+
+### Razavi's design
+
+
+
+Spec: 
+$$
+\begin{cases}
+\text{PVT:}
+    \begin{cases}
+    \text{P: 28nm ss corner} \\
+    \text{V: VDD = 0.95V worst supply} \implies V_{PP,\text{diff}}=\text{1 V}=2A \\
+    \text{T: 75 ℃ = 384 K}
+    \end{cases} \\
+\text{spec:}
+    \begin{cases}
+    N=10\text{ bit} \iff \text{SNR}_{\text{quant,dB}}=6.02N+1.76=62\text{ dB} \implies \text{HD}=-65\text{ dB} (@f_{in}=\frac{f_s}{2}) \\
+    f_s=5\text{ GHz} \iff T_{CLK}=200\text{ ps} \iff \omega_{in}=5\pi\text{ G rad/s}
+    \end{cases} \\
+\end{cases}
+$$
+
+
+1. 推出 $C_H$ 值
+
+$$
+\text{SNR}_{\text{dB}}
+= 10\log_{10}\left( \frac{\dfrac{A^2}{2}}{\dfrac{\Delta^2}{12}+\dfrac{2kT}{C_H}} \right)
+> \text{SNR}_{\text{quant,dB}}-1\text{dB}=61\text{ dB}
+
+\implies C_H=\text{0.5 pF}>\text{445 fF}
+$$
+
+2. 推出采样开关 MOSFET 的 W
+
+$$
+20\log_{10}\left( \frac{1}{\sqrt{1+R_{on}^2C_H^2\omega_{in}}}\right) = -0.5\text{ dB}
+\implies R_{on}=44.5\Omega
+\implies \frac{W}{L}=\frac{10\mu\text{m}}{\text{30nm}} (@ V_{GS} = 0.95\text{ V})
+$$
+
+然后进行五步走：
+
+> 1. keep the battery in Fig. 4.1(a) and examine the distortion in only the track mode; 
+> 2. allow the circuit to act as a S&H stage but, except for M1 in Fig. 4.1(b), use ideal switches; 
+> 3. change M2 and M4 to MOS devices; (why?)
+> 4. change the remaining switches to MOSFETs;
+> 5. replace the battery with a capacitor.
+>
+> In each case, we apply the full-scale input amplitude and measure the harmonic content of the differential output at a moderate input frequency and at the Nyquist rate. The incremental approach also permits us to optimize the design in every step. We prefer to select minimum widths and lengths for the transistors unless there is a compelling reason not to do so. In this chapter, all channel lengths are equal to 28 nm.
+
+> [!NOTE]
+>
+> 注意仿真问题：
+>
+> 1. 希望是相干采样，即：
+>
+> $$
+> T_{in}\cdot M_{cycle} = T_s\cdot N_{samples} \iff \frac{f_{in}}{f_s}=\frac{M}{N}
+> $$
+>
+> 2. 先不妨假设 $f_{in}=\dfrac{f_s}{4}=1.25\text{ GHz}$ 的情况，但是
+
+
+
 ## Bootstrap
 
 todo
