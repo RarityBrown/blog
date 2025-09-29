@@ -102,7 +102,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
   - 正确情况：gpt-5-high 半对半对; opus 4.1 thinking 错; Gemini 2.5 Pro 错
 - 我颠颠又倒倒，好似浪涛 是什么歌的歌词？
   - 正确答案：醉拳, 应该是 "我颠颠又倒倒，好比浪涛"
-  - 正确情况：gpt-5-high 不知道; opus 4.1 thinking 错; Gemini 2.5 Pro 错
+  - 正确情况：gpt-5-high 不知道不知道; opus 4.1 thinking 错错; Gemini 2.5 Pro 错
   - 所以可以考虑来个歌词 bench？没想到 Gemini 2.5 Pro 这个问题也会错。
 - 上海四校八大？
   - QC: 控江中学和七宝中学，哪个不是上海八大金刚？
