@@ -4,7 +4,7 @@
 
 ### DC
 
-#### `n` the subthreshold slope factor
+#### `n`, the subthreshold slope factor
 
 在器件课上，我们学过 SS 有
 
@@ -34,6 +34,57 @@ $$
 
 $$
 \frac{g_m}{C_{ox}} = \frac{g_{mb}}{C_{dep}}
+$$
+
+#### EKV 
+
+EKV 模型引入了一个关键的中间变量，叫做**Pinch-off 电压** $V_P$ 。可以理解为在沟道中任意一点，能产生反型电荷所需要的“局部有效栅极电压”。
+
+$$
+V_P = \frac{V_G - V_{TH0}}{n}
+$$
+
+EKV 模型将总漏极电流 $I_D$ 表示为**正向电流 $I_f$** 和**反向电流 $I_r$** 的差值：
+
+$$
+I_D = I_f - I_r
+$$
+
+##### 强反型下的 EKV
+
+正向电流 $I_f$ 由栅源极电压 $V_G, V_S$ 控制，强反型下的正向电流公式是：
+
+$$
+I_f = \frac{n}{2} \left(\mu C_{ox} \frac{W}{L}\right) \left(V_P - V_S\right)^2 \qquad (V_P>V_S)
+$$
+
+反向电流 $I_r$ 由栅漏极电压 $V_G, V_D$ 控制，强反型下的反向电流公式是：
+
+$$
+I_r = \frac{n}{2} \left(\mu C_{ox} \frac{W}{L}\right) \left(V_P - V_D\right)^2  \qquad (V_P>V_D)
+$$
+
+总电流有：
+
+$$
+I_D = \frac{n}{2} \mu C_{ox} \frac{W}{L} \left[ \left(\frac{V_G - V_{T0}}{n} - V_S\right)^2 - \left(\frac{V_G - V_{T0}}{n} - V_D\right)^2 \right] 
+$$
+
+所以，对应平方律模型中所谓的 1.三极管区, 2.饱和区（在 EKV 模型中即 1.源端强反型 + 漏断强反型, 2.源端强反型 + 漏断夹断）有：
+
+$$
+I_D = \begin{cases}
+\displaystyle \left(\mu C_{ox} \frac{W}{L}\right) \left(V_G - V_{TH0} - n\frac{V_S + V_D}{2}\right) \cdot V_{DS}  &  \dfrac{V_G - V_{TH0}}{n} > V_D, V_S \\
+\displaystyle \frac{n}{2} \mu C_{ox} \frac{W}{L} \left(\frac{V_G - V_{TH0}}{n} - V_S\right)^2  &  V_D >\dfrac{V_G - V_{TH0}}{n} > V_S
+\end{cases}
+$$
+
+我们可以推出其导通电阻：
+
+$$
+R_{ON} 
+= \left( \left. \frac{\partial I_D}{\partial V_{DS}} \right|_{V_{DS} \to 0} \right)^{-1}
+= \frac{1}{\mu C_{ox} \frac{W}{L} (V_G - V_{TH0} - nV_S)}
 $$
 
 ### Capacitor
