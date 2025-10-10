@@ -140,8 +140,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - Quantus, Raphael, StarRC, RaptorX, RaptorH, Exalto, EMX, xRC and xACT. Which are Cadence's? Which are Synopsys's?
   - 正确答案：Cadence: Quantus, EMX (acquired); Synopsys: Raphael, StarRC, RaptorX (acquired), RaptorH (acquired), Exalto (acquired)
   - 半开放版本: Help me research the Quantus, Raphael, StarRC, RaptorX, RaptorH, Exalto, EMX, Calibre xRC, Calibre xACT, and then sort them into tables.
-- Can the latest version of gemini-cli read audio, pdf and docx files (not talking about gemini api, but gemini-cli)? answer within 50 words.
-  - 正确答案：yes, yes, no
+- Can the latest version of gemini-cli, claude code, codex cli and Cursor read local audio, pdf and docx files (not talking about api, but cli products)? answer in short.
+  - 正确答案：Gemini: [yes](https://github.com/google-gemini/gemini-cli/pull/2556) and [no](https://github.com/google-gemini/gemini-cli/pull/3869), yes, no; Claude: no, [yes](https://www.threads.com/@boris_cherny/post/DM8tPKeTKGE/video-lastly-were-adding-pdf-supportclaude-code-can-now-read-pdfs-from-your-file-syste), no; OpenAI: no, no, no ; Cursor: no, no, no
 - Claude Opus 4 SimpleQA result? answer within 20 words.      Please refer to more sources.
   - 正确答案：[32.3%](https://www.kaggle.com/benchmarks/openai/simpleqa)。这题其实网上有一个更容易搜到的错误[信息](https://huggingface.co/datasets/smolagents/results/viewer/2024-12-26/train?f[model_id][value]=%27anthropic%2Fclaude-opus-4-20250514%27)，容易误导这些 search model
 - The best LLM on LMarena's search arena today (with style control)?
@@ -153,7 +153,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：[140nm](https://www.synopsys.com/articles/logic-library-capabilities.html) or [ref](https://zhuanlan.zhihu.com/p/243485197)
 - In which year was TSMC 16FFC RF started production?
   - 正确答案：[2016](https://investor.tsmc.com/static/annualReports/2016/english/e_2_2.html)
-
+- help me find the dissertation for this journal: https://ieeexplore.ieee.org/document/8850049
+  - 正确答案：https://researchrepository.ucd.ie/entities/publication/e600eb13-5d48-430f-96d2-7154a5dd2968
 
 
 
