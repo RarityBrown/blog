@@ -383,12 +383,21 @@ plt.show()
 
 1. ISSCC 2025 T2: Fundamentals of DRAM I/O : Standards & Circuits
 
-Cadence Reference: 
+Cadence reference available in offline doc: 
 
 1. `vivaxlug.pdf`: Virtuoso Visualization and Analysis XL User Guide
 2. `spectreRFinExplorer.pdf`: Spectre Circuit Simulator and Accelerated Parallel Simulator RF Analysis in ADE Explorer User Guide
 3. `JitterAN.pdf`: Jitter Measurements Using SpectreRF Application Note
-   1. eetop link: [JitterAN.book](https://picture.iczhiku.com/resource/eetop/sYKhSYjZLJZoTBCx.pdf) 
-4. Jee Measurement Using PSS/Pnoise and Transient Noise Analysis Rapid Adoption Kit (RAK)
-   1. cadence link: https://support1.cadence.com/public/docs/content/20483291.html
-   2. eetop link: https://bbs.eetop.cn/thread-976083-1-1.html
+   1. eetop link: [JitterAN.book](https://picture.iczhiku.com/resource/eetop/sYKhSYjZLJZoTBCx.pdf)
+  
+Cadence reference available online:
+
+1. Jee Measurement Using PSS/Pnoise and Transient Noise Analysis Rapid Adoption Kit (RAK)
+   1. cadence public link: https://support1.cadence.com/public/docs/content/20483291.html
+   2. cadence support link: https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O0V000009EVE2UAO
+   3. eetop link: https://bbs.eetop.cn/thread-976083-1-1.html
+2. Summary of Study of Cadence Sampled Phase Noise and Jitter Definitions with a Comparison to Conventional Time Interval Error (TIE) for a Driven Circuit, Shawn Logan
+   1. https://community.cadence.com/cadence_technology_forums/f/rf-design/56894/jee-measurement
+3. unknown 
+   1. https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O3w000009bh2QEAQ
+   2. https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1Od0000000nTk7EAE
