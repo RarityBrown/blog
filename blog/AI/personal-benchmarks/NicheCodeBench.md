@@ -253,6 +253,8 @@ Including:
 >                     \verb|line1| \\    \verb|line2|
 > ```
 
+> Q: draw an x-y axes frame in mathjax. try `\rule`; add `\blacktriangle` etc. to mimic farther
+
 > Q: use CircuiTikz to draw a basic common source without bias or ac coupling
 >
 > 参考答案：
