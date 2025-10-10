@@ -10,7 +10,7 @@ cdsLibManager.main   showCategoriesOn boolean t              ; lib manager shows
 cdsLibManager.main   showFilesOn      boolean t              ; lib manager shows files
 
 ;;;;;;;;;;;;;;;;;; spectre
-; spectre.turboOpts    uniMode          string  "Spectre X"          ; to use Spectre X by default. or "APS"
+spectre.turboOpts    uniMode          string  "APS"          ; to use spectre APS by default. or "Spectre X"
 ; spectre              numThreads       int     16                   ; memory and multithreading config, todo
 
 ;;;;;;;;;;;;;;;;;; ADE XL (ADE Explorer)
@@ -73,7 +73,7 @@ layout               xSnapSpacing        float   0.005           ; 0.005um is ty
 layout               ySnapSpacing        float   0.005           ; 0.005um is typical for 28~55nm nodes
 layout               displayPinNames     boolean t               ; ref: https://blog.csdn.net/d_pcb66/article/details/143432838
 layout               labelHeight         float   0.07
-layout               labelFonStyle       cyclic  "roman"
+layout               labelFontStyle       cyclic  "roman"
 layout               pinTextSameLayer    boolean t
 layout               pinTextPurposeNames string  "pin"
 
