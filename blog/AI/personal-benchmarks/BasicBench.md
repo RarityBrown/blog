@@ -268,12 +268,18 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 
 - #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
 
-##### 空间感知能力
+##### 空间感知和空间常识能力
 
 - 4.5米, 6米, 20米长的竹竿能否通过高4米宽3米的门？Can poles of 4.5 meters, 6 meters, and 20 meters in length pass through a door 4 meters high and 3 meters wide? Omit the process and give the answer directly, for example, "Yes, No, Yes"          [ref](https://zhuanlan.zhihu.com/p/23434595912)
   - 更简单的版本：6米长的队伍能不能通过高4米宽3米的门？ 
   - 正确答案：都可以
 - 一些文字描述的打结问题。但是这对于人来说也很难直接想象，而需要实操。
+
+看到一个有趣的[题目现象](https://epoch.ai/blog/deep-think-math#we-observed-deep-think-making-one-mistake-that-is-reminiscent-of-classical-human-cognitive-biases)，GSM8K 中最难的问题。
+
+> A landscaping company is delivering flagstones to a customer’s yard. Each flagstone weighs 75 pounds. If the delivery trucks can carry a total weight of 2000 pounds, how many trucks will be needed to transport 80 flagstones in one trip?
+
+gpt 4.5, r1, o1, o3, gemini 2.5 pro, gemini 2.5 deepthink 全部答错，即没有考虑到石板是不可分羹的。
 
 ##### 时间感知能力
 
