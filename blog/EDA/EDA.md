@@ -71,7 +71,7 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 - xbwpc: Github [repo](https://github.com/xbwpc/EDA_FeatureColle), [EETOP](https://blog.eetop.cn/856100)
   - scl_keygen 过时了，不再需要工具算号了；直接 patch，license 文件批量替换文本即可 [ref](https://bbs.eetop.cn/forum.php?mod=redirect&goto=findpost&ptid=983358&pid=11397884)
 - [open-CAD](https://bbs.eetop.cn/thread-863823-1-1.html)
-  - 1patch, aka [OCAD](https://bbs.eetop.cn/thread-863823-1-1.html)
+  - 1patch, aka OCAD, [latest version](https://bbs.eetop.cn/thread-995788-4-1.html)
     - cdslicgen.py
     - mgclicgen.py
     - ? 
@@ -115,12 +115,13 @@ https://bbs.eetop.cn/thread-992392-1-1.html
   - VCS vW-2024.09-SP1: https://www.0daydown.com/06/2938634.html
   - Verdi vW-2024.09-SP1: https://www.0daydown.com/06/2937248.html
 - Cadence
-  - Virtuoso IC25.1 base: https://bbs.eetop.cn/thread-992365-1-1.html
+  - Virtuoso IC25.1 base: https://bbs.eetop.cn/thread-992365-1-1.html; https://bbs.eetop.cn/thread-996027-3-1.html
   - Virtuoso IC23.1 base: https://bbs.eetop.cn/thread-951724-1-3.html; https://bbs.eetop.cn/thread-960760-1-2.html
   - Virtuoso IC23.1 ISR13: https://bbs.eetop.cn/thread-987799-1-3.html (ISR11: [1](https://bbs.eetop.cn/thread-985337-1-13.html))
   - Virtuoso IC6.1.8 ISR36: https://www.0daydown.com/03/2833851.html (ISR36: [0](https://bbs.eetop.cn/thread-991316-1-1.html) ISR34: [1](https://bbs.eetop.cn/thread-986436-1-27.html) [2](https://bbs.eetop.cn/thread-981601-1-21.html))
   - EMX
   - Xcelium 24.03.001: https://www.0daydown.com/08/2542782.html
+  - Spectre 25.1: https://bbs.eetop.cn/thread-995153-1-5.html
 - Siemens
   - Calibre 2025_1_16: https://bbs.eetop.cn/thread-985333-1-1.html
 
