@@ -17,7 +17,7 @@
 在 Virtuoso 中讨论“保存仿真”时，有三层含义：
 
 1. 保存 **Spectre** 的仿真数据，是针对于电路的
-2. 保存 **ADE** 的仿真结果，是针对于每次仿真的
+2. 保存 **ADE** 的仿真结果，是针对于每次仿真的 (`run`, 一个 `run` 可以有多个 `job`, 例如扫参时)
 3. 保存或另存为 **Maestro** 的 Cellview：[ADE Explorer Setup - Save Now and Reuse Later!](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-video-diary-reusing-ade-explorer-test-setup-through-save-and-export)
 
 
@@ -33,7 +33,7 @@
     - `OS("/PM0" "vth")`
     - 需要 Add Outputs 中选择添加 `OP Parameters`，不然公式报错
 
-#### ② ADE 仿真结果对于每次仿真而言
+#### ② ADE 仿真结果对于每次仿真 (`run`) 而言
 
 - ADE Explore
   - 默认覆盖每次仿真结果
@@ -172,6 +172,16 @@ https://youtu.be/RG5CjoPcHvs?t=1058
 ADE Assembler -> Global variable 右键 -> add config sweep 
 
 参考 [1](https://zhuanlan.zhihu.com/p/6580714389)
+
+#### Run Options in ADE Assembler
+
+`Run Options` 菜单控制着多个独立 `runs` 实例的行为。默认的 `Series` 模式会使新任务排队，而 `Parallel` 模式则允许多个运行实例同时进行。
+
+`Job Policy` 中的 `Max. Jobs` 参数定义了可供所有运行共享的计算资源总量上限，即同时执行的“工作”（Jobs）数量。
+
+当 `Run Options` 设置为 `Parallel` 时，这两个设置协同工作。后启动的仿真会与先前的仿真共享 `Max. Jobs` 的资源池，而不是等待其完成。关键在于，系统在资源分配上明确地优先考虑后启动的仿真。所以在待跑 `job` 数 > `Max. Jobs` 时，这只是一种插队，而无法加速所有 `run` 最终结束的时间点；但是如果待仿真的 `job` 数 < `Max. Jobs` 时，则可以加速。
+
+ref: [1](https://community.cadence.com/cadence_blogs_8/b/cic/posts/things-you-didn-t-know-about-virtuoso-ade-xl-take-this-job-and-run-it) [2](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/49584/run-options-of-ade-assembler-in-cadence-virtuoso) [3](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/45279/maestro-start-another-simulation-while-one-is-already-running)
 
 ### 直接加快串行仿真速度
 
