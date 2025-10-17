@@ -9,6 +9,8 @@
 
 #### 高速
 
-[迅芯微电子](http://www.acelamicro.com/)
+[苏州迅芯微电子](http://www.acelamicro.com/)
+
+成都华微
 
 https://www.zhihu.com/question/39671925
