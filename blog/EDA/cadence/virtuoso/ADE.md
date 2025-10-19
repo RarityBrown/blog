@@ -167,6 +167,8 @@ https://youtu.be/RG5CjoPcHvs?t=1058
 - **Timeouts (in Secs.)**
   - 保持默认
 
+Job Policy 可以在仿真开始后随时修改，随时生效。
+
 #### 同时前后仿 (同时仿真多个 config)
 
 ADE Assembler -> Global variable 右键 -> add config sweep 
