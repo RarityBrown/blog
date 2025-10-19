@@ -2,6 +2,30 @@
 
 ### Switches in analogLib
 
+### `switch`
+
+DC 情况下 analoglib 中 switch 的行为已经被[曹峰源](https://zhuanlan.zhihu.com/p/1932489880165941345)和[暗夜疾行](https://zhuanlan.zhihu.com/p/699269770)两人进行了详细的描述，暗夜疾行文章中最后一幅图详细描述了这个 `switch` 的 dc 特性。
+
+所以笔者这里主要是补充一下开关在 tran 仿真中可能会遇到的各种问题，因此假设读者已经了解了 `switch` 的 dc 特性。
+
+#### 问题一
+
+当 `vopen` 和 `vclose` 设置很相近时，开关的沿并没有想象中的陡峭。
+
+仿真电路图如下：
+
+![image](https://github.com/user-attachments/assets/4b550cad-fa70-4bb3-a8b9-3b070db95cd5)
+
+预期 `test` 节点的波形如左图所示，但是如果采用默认仿真设置会得到右图所示的波形：
+
+![image](https://github.com/user-attachments/assets/470c4960-8aa3-4c4f-bd85-3d9a1bf02ab3)
+
+这是仿真器最小步长导致的问题，左图是通过将 tran 仿真中的 `strobeperiod` 设置成 1f 来达到的预期行为。如果我们将曲线样式设置成 point 就会更加明显：
+
+![image](https://github.com/user-attachments/assets/677a68e5-fbae-4a5f-a9e8-420aeb6f192b)
+
+
+
 #### spxtswitch (sp*tswitch)
 
 
