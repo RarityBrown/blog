@@ -82,14 +82,65 @@ Including:
 <details>
 <summary>AHK</summary>
 
-> Q: How to send the string "{`\`" (one left brace + one backtick + one backslash + one backtick) in ahkv2 using the `Send` function? Answer within 1 line in a code block.
->
-> 正确答案：`Send('{{}``\``')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
->
-> 正确情况：Gemini 2 Pro 错错, o3-mini-high 错对错错, o3-mini 错错对, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错, Gemini 2.5 Pro 对错, Kingfall 对
->
-> 正确情况 RAG：sonar-pro-high 错错
+- How to send the string "{`\`" (one left brace + one backtick + one backslash + one backtick) in ahkv2 using the `Send` function? Answer within 1 line in a code block.
+  - 正确答案：`Send('{{}``\``')` or `Send "{Raw}{\"` or `Send("{{}" Chr(92))`
+  - 正确情况：Gemini 2 Pro 错错, o3-mini-high 错对错错, o3-mini 错错对, o1 错错, 4oL 对, Haiku 3.5 对对, Sonnet 3.5 对错, r1 对错, Gemini 2.5 Pro 对错, Kingfall 对
+  - 正确情况 RAG：sonar-pro-high 错错
 
+
+
+```ahk
+#Requires AutoHotkey v2.0
+
+; --- 方法一 (netsh) ---
+output := ComObject("WScript.Shell").Exec('cmd /c "netsh wlan show interfaces"').StdOut.ReadAll()
+if RegExMatch(output, "m)^\s*SSID\s*:\s*(.*)", &match)
+    MsgBox "方法一 (netsh): " Trim(match[1])
+else
+    MsgBox "方法一 (netsh) 未找到 SSID，原始输出:`n" output
+
+
+; --- 方法二 (PowerShell) ---
+ps := ComObject("WScript.Shell").Exec('powershell -NoProfile -Command "(Get-NetConnectionProfile).Name"')
+ssid_ps := ps.StdOut.ReadAll()
+if Trim(ssid_ps) != ""
+    MsgBox "方法二 (PowerShell): " Trim(ssid_ps)
+else
+    error_ps := ps.StdErr.ReadAll()
+    MsgBox "方法二 (PowerShell) 未找到 SSID，错误流输出:`n" Trim(error_ps)
+
+
+; --- 方法三 (DllCall) ---
+ssid_dll := ""
+hClient := 0
+pInterfaceList := 0
+pData := 0
+DllCall("Wlanapi.dll\WlanOpenHandle", "UInt", 2, "Ptr", 0, "Ptr*", &hClient)
+if hClient {
+    DllCall("Wlanapi.dll\WlanEnumInterfaces", "Ptr", hClient, "Ptr", 0, "Ptr*", &pInterfaceList)
+    if pInterfaceList {
+        pGuid := NumGet(pInterfaceList + A_PtrSize, "Ptr")
+        DllCall("Wlanapi.dll\WlanQueryInterface", "Ptr", hClient, "Ptr", pGuid, "Int", 7, "Ptr", 0, "UInt*",, "Ptr*", &pData)
+        if pData {
+            ssidLength := NumGet(pData + 520, "UInt")
+            if ssidLength > 0
+                ssid_dll := StrGet(pData + 524, ssidLength, "UTF-8")
+            DllCall("Wlanapi.dll\WlanFreeMemory", "Ptr", pData)
+        }
+        DllCall("Wlanapi.dll\WlanFreeMemory", "Ptr", pInterfaceList)
+    }
+    DllCall("Wlanapi.dll\WlanCloseHandle", "Ptr", hClient, "Ptr", 0)
+}
+
+if ssid_dll != ""
+    MsgBox "方法三 (DllCall): " ssid_dll
+else
+    MsgBox "方法三 (DllCall) 未能通过 API 获取 SSID (可能未连接或 API 调用失败)."
+```
+
+Error: This global variable has not been assigned a value. 是什么？简单回答，不要长篇大论。
+
+正确答案：方法二的 else 有两行，需要用大括号括起来。
 
 > Q: two ways to simplify this
 > 
@@ -347,12 +398,6 @@ Including:
 <details>
 <summary>Assembly</summary>
 
-> Q: `.long   -1559429120` to hex
->
-> 正确答案：`0xA30D0000`
->
-> 正确情况：sonnet 3.7 thinking 错对错; o3-mini 对对错; 2-flash-thinking 错
-
 > Q: x87 FPU + GCC. LC0 in decimal? Do not use scientific notation, write out the entire number directly.
 > 
 > ```assembly
@@ -363,9 +408,9 @@ Including:
 >         .long   0
 > ```
 > 
-> 正确答案：`1,290,111,812,442,216`  `1290892312867076`
+> 正确答案：`1,290,111,812,442,216` `1290111812442216`
 >
-> 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错; Gemini 2.5 Pro 错错; o3-mini-high 对; lunarcall 对
+> 正确情况：sonnet 3.7 thinking 错错; o3-mini 错错; Gemini 2.5 Pro 错错; o3-mini-high 对; lunarcall 对; gpt-5-mini-high 对; gpt-5-high 对
 
 </details>
 
