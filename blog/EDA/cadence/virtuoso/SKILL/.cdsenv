@@ -20,7 +20,7 @@ adexl.gui            enableAutoRefreshPointsTable  boolean t
 ; adexl.gui            defaultCorners                string "./corners/corner_mc_tt40.csv" ; IC6.1.8-64b.500.20 and above. for IC6.1.8-64b.500.19  string "./corners/corners_6.sdb" ; . see https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/49271/load-corners-csv-file-skill-function
 ; maestro.lscs         defaultNetlistingJobPolicy    string "LSCS_NetJob_Policy"  ; or use the LSCS instead of the ICRP
 ; maestro.lscs         defaultSimulationJobPolicy    string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP         
-
+maestro.plotting     distributedPlotEnabled        boolean t ; Virtuoso IC23.1
 
 ;;;;;;;;;;;;;;;;;;
 ; auCore.misc          annotationSetupFileList string "./.cadence/dfII/annotationSetups/My_annoSetup.as"
