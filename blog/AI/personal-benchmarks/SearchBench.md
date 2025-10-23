@@ -14,6 +14,8 @@
   - [Liner](https://liner.com/features/ai-search)
   - [Jina](https://jina.ai/deepsearch/)
   - [You](https://documentation.you.com/api-modes/search-api)
+  - [Parallel](https://parallel.ai/)
+  - [Nouswise](https://nouswise.com/)
 - General LLMs with search + browse tool
   - [Gemini](https://ai.google.dev/gemini-api/docs/google-search) based on Google
   - [Gemini url context](https://ai.google.dev/gemini-api/docs/url-context)
@@ -177,6 +179,8 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - "hiFormDone" 函数中的 hi 是什么意思？
   - 正确答案：[Human Interface](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/50958/whats-the-difference-between-le-commands-and-hi-commands)
 - jane goodall https://www.zhihu.com/question/1961179181229541348/answer/1961991093274019483
+- 在 Virtuoso ViVA 中直接滚动鼠标滚轮，按住 ctrl 滚，按住 shift 滚，ctrl+shift 滚分别是什么行为？直接说答案，简单说就行，我知道什么是 Virtuoso ViVA。
+
 
 ##### "No" 问题
 
