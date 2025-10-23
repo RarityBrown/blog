@@ -40,6 +40,7 @@
 - [Net trace manager 版图快速定位](https://zhuanlan.zhihu.com/p/13366999517)
 - [Layout 常见快捷键](https://zhuanlan.zhihu.com/p/28770741048)
 - [使用 <kbd>=</kbd> 快速切换 schematic view 和 symbol view](https://zhuanlan.zhihu.com/p/493405291)
+- [schematic 和 layout 中的 Label 使用小结](https://zhuanlan.zhihu.com/p/457895007)
 
 ## ADE
 
