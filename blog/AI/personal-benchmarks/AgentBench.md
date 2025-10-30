@@ -83,6 +83,14 @@ Help me do the following:
 
 render the svg and give me a png file.
 
+---
+
+1. Generate a prime-number table for me; the final deliverable is a two-page A4 PDF with the narrow margins.
+2. It must include every prime up to 6000.
+3. Bold the largest primes that are just below 128, 256, 512, 1024, 2048, and 4096.
+4. While still fitting everything onto two A4 pages, make all primes as large as possible and set them in Arial.
+
+---
 
 #### Linux + Visual 不能做到的
 
