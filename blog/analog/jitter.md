@@ -110,7 +110,7 @@ $$
 | Cadence 文档中的算法     | $\qquad\qquad\qquad\qquad \sqrt{\text{Var}(t_i)}\qquad\qquad \qquad\qquad$ | $\small\sqrt{\text{Var}(t_{i+1}-t_i)}=\sqrt{\text{Var}(t_{i+1}-t_i)-(t_{i+1,ideal}-t_{i,ideal})}$ <br /> $=\sqrt{\text{Var}(j_{abs}(n+1)-j_{abs}(n))}$ |
 | ISSCC 2012 T5 中的称谓   | absolute jitter, edge-to-reference jitter                    | period jitter, *edge-to-edge* jitter (下图, 指 edge n to edge n+1) |
 | ISSCC 2012 T5 中的示意图 | ![](https://github.com/user-attachments/assets/ee510f59-7001-4f3a-b7ec-c47d909263f8) | ![](https://github.com/user-attachments/assets/242b6514-05c7-4234-89a2-f6246b7bf9e2) |
-| 一些 ADC 文档中的称谓    | [aperture jitter](https://www.analog.com/media/en/training-seminars/tutorials/mt-007.pdf) |                                                              |
+| 一些 ADC 文档中的称谓    | aperture jitter                                              |                                                              |
 | 一些其他说法             | TIE jitter, edge-to-reference, edge-reference TIE            |                                                              |
 
 我们这里暂且对 Period Jitter 不做任何说明。目前我们只要知道，在 Cadence 中 absolute jitter = Jee 即可。
@@ -185,6 +185,23 @@ $$
 
 ```lisp
 rfJitter(?result "pnoiseOut1_sample_pm0" ?unit "Second" ?from 1 ?to (VAR("f_0")/2) ?signalLevel "rms")
+```
+
+
+
+我们是在理论分析而不是在使用 EDA 时，如果需要对 $\frac{1}{f^3}, \frac{1}{f^2}, \frac{1}{f}$ 噪声进行分段积分，考虑到 $L(f)$ 往往是 log-log 轴，所以需要一些运算：
+$$
+\Large\text{Jitter}_{rms}(s) = \frac{1}{2\pi f_c} \sqrt{2 \sum_{i=0}^{N-1} \int_{f_i}^{f_{i+1}} 10^{\frac{1}{10} \left( L_{\text{dB}}(f_i) + \left( \frac{L_{\text{dB}}(f_{i+1}) - L_{\text{dB}}(f_i)}{\log_{10}(f_{i+1}) - \log_{10}(f_i)} \right) \cdot (\log_{10}(f) - \log_{10}(f_i)) \right)} \mathrm{d}f}
+$$
+MATLAB 提供了一个封装好的函数 `phaseNoiseToJitter` ：
+
+```matlab
+PNFreq = [100,1e3,1e4,200e6];  # -125 dBc/Hz at 100 Hz, -150 dBc/Hz at 1 kHZ, -174 dBc/Hz at 10 kHz, -174 dBc/Hz at 200 MHz
+PNPow = [-125,-150,-174,-174];
+[Jrms_rad Jrms_deg Jrms_sec] = phaseNoiseToJitter(PNFreq,PNPow,'Frequency',100e6)  # a signal of 100 MHz frequency
+# Jrms_rad = 4.0430e-05
+# Jrms_deg = 0.0023
+# Jrms_sec = 6.4346e-14
 ```
 
 
@@ -382,6 +399,11 @@ plt.show()
 其他参考 ref: 
 
 1. ISSCC 2025 T2: Fundamentals of DRAM I/O : Standards & Circuits
+2. ADI MT-007: Aperture Time, Aperture Jitter, Aperture Delay Time - Removing the Confusion by Walt Kester
+3. ADI MT-008: Converting Oscillator Phase Noise to Time Jitter by Walt Kester 
+   1. [倔强的砖工](https://zhuanlan.zhihu.com/p/605435397)介绍与评论区
+
+4. [``phaseNoiseToJitter`- MATLAB](https://www.mathworks.com/help/msblks/ref/phasenoisetojitter.html)
 
 Cadence reference available in offline doc: 
 
@@ -389,7 +411,7 @@ Cadence reference available in offline doc:
 2. `spectreRFinExplorer.pdf`: Spectre Circuit Simulator and Accelerated Parallel Simulator RF Analysis in ADE Explorer User Guide
 3. `JitterAN.pdf`: Jitter Measurements Using SpectreRF Application Note
    1. eetop link: [JitterAN.book](https://picture.iczhiku.com/resource/eetop/sYKhSYjZLJZoTBCx.pdf)
-  
+
 Cadence reference available online:
 
 1. Jee Measurement Using PSS/Pnoise and Transient Noise Analysis Rapid Adoption Kit (RAK)
