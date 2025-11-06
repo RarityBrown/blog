@@ -695,6 +695,16 @@ Q: https://zhuanlan.zhihu.com/p/1948107481772425798
 
 </details>
 
+##### Wavedrom
+
+<details>
+<summary>Wavedrom</summary>
+
+- Draw a 7-bit gray code timing diagram in wavedrom
+  - 正确情况：Gemini 2.5 Pro 错
+
+</details>
+
 ### Niche code within widely-used languages
 
 #### Webarena & 前端
