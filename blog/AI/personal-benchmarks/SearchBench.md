@@ -14,7 +14,7 @@
   - [Liner](https://liner.com/features/ai-search)
   - [Jina](https://jina.ai/deepsearch/)
   - [You](https://documentation.you.com/api-modes/search-api)
-  - [Parallel](https://parallel.ai/)
+  - [Parallel](https://parallel.ai/) ⭐
   - [Nouswise](https://nouswise.com/)
 - General LLMs with search + browse tool
   - [Gemini](https://ai.google.dev/gemini-api/docs/google-search) based on Google
@@ -181,6 +181,10 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - jane goodall https://www.zhihu.com/question/1961179181229541348/answer/1961991093274019483
 - 在 Virtuoso ViVA 中直接滚动鼠标滚轮，按住 ctrl 滚，按住 shift 滚，ctrl+shift 滚分别是什么行为？直接说答案，简单说就行，我知道什么是 Virtuoso ViVA。
 
+##### 多语言
+
+- 2020, 2021, 2022, 2023, 2024 年日本和牛的最大进口国是什么？2020, 2021, 2022, 2023, 2024 年日本牛肉出口中和牛的占比？
+  - 这个问题非常难，也不太确定正确答案。牛肉的正确答案是有的，直接参考 牛肉輸出をめぐる動向 年輸出実績
 
 ##### "No" 问题
 
