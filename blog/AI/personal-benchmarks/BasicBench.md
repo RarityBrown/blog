@@ -196,7 +196,9 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
   - 正确答案: `type()`
 - “西文字体” 的英文是什么？我只要一种翻译，超级简单回答。
   - 正确答案: Latin fonts
-
+- m u n p f 下一个是什么？
+  - 正确答案: **a**tto
+  - 正确情况：gpt-5-high 对; opus-4.1-thinking 错; Gemini 2.5 Pro 错错; 
 
 ### 知识-推理混合问题
 
@@ -236,7 +238,7 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
   - 正确答案 NMOS: $A_{VDD}=\frac{(1 + 2R_5(g_{ds1,2} + g_{m1,2}))(g_{m3,4} + g_{ds3,4})}{g_{ds1,2} + (1 + 2r_{o,\text{tail}}(g_{ds1,2} + g_{m1,2}))(g_{m3,4} + g_{ds3,4})} \approx 1 \implies \text{PSRR}^+\approx g_{m1,2}(r_{o1,2}||r_{o3,4})$
   - 这道题好像有一些过难了，如果通过记忆来回答的话训练中的可参考语料太少，如果通过推理来回答的话 LLM 对于电路这一块的推理能力几乎为高中生水平。
   - 正确情况：Gemini 2.5 Pro 错, kingfall 错, r1-0528 半对
-- 最简单的两个电阻一个运放的反相放大器的反馈系数是多少？通过 $A_{CL}=\dfrac{A_{OL}}{1+\beta A_{OL}}$ 计算闭环增益（不要通过 KCL KVL）
+- 最简单的两个电阻一个运放的反相放大器的反馈系数是多少？通过 $A_{CL}=\dfrac{A_{OL}}{1+\beta A_{OL}}$ 反馈的角度计算闭环增益（不要通过虚断虚短）
 - 随便找一篇专业相关的论文的一大段，令其翻译至中文
   - 典型错误：大部分 LLM 会存在不同程度的专有名词翻译错误，最典型的是 device 没有翻译成“器件”。
 - 单音测试和双音测试的英文是什么？简单回答。HD 和 IM 是什么？
@@ -263,6 +265,27 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 > 同时，这题的 prompt 也挺重要的，似乎**哪些**比**什么**会导致 LLM 答得更全。
 >
 > 正确情况（使用**什么**作为关键词）：o3-mini-high 1;
+
+
+##### 非常数学的专业相关的问题
+
+$$
+\begin{aligned}
+Q_+ &= (V_{\text{in,p}} - V_{\text{cm1}})(C_1 + C_2) = (V_{SS} - V_{\text{out,p}})C_2 + (V_{\text{ref}}(V_{\text{in,p}}) - V_{\text{out,p}})C_1 \\
+Q_- &= (V_{\text{in,n}} - V_{\text{cm1}})(C_1 + C_2) = (V_{SS} - V_{\text{out,n}})C_2 + (V_{\text{ref}}(V_{\text{in,n}}) - V_{\text{out,n}})C_1
+\\\\
+\text{where } V_{\text{in,n}}&=V_{\text{CM,in}} - V_{\text{in,p}}
+\end{aligned}
+$$
+
+估算采样阶段满幅输入产生的 HD3 和 SNDR (从 Vin,diff 至 Vout, diff) 是多少 dB ，其中单端信号幅度，电容，输入信号共模分别如下：
+
+$$
+A_{\text{single}}=1.5/4, C_1=300fF, C_2=500fF, V_{\text{CM,in}}=0.4 \\
+V_{\text{ref}}(x)=1-0.00246\cdot\exp(-19.06x)
+$$
+
+正确答案：72.5dB
 
 #### long-context bench
 
@@ -296,6 +319,9 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 ##### 视觉能力
 
 - #D7E8FF + #FFCCCC. Subtractive color mixing result in HEX?
+
+- t g b y h n u 下一个是什么？
+  - 正确答案: j   因为键盘位置顺序
 
 ##### 空间感知和空间常识能力
 
