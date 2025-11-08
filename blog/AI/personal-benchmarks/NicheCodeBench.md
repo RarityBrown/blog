@@ -2,7 +2,7 @@
 
 Including:
 
-1. Niche (programming) languages in the general sense, e.g., AHK (v2), LaTeX (tikz, etc.), PowerShell, MATLAB, Mermaid etc.
+1. Niche (programming) languages in the general sense, e.g., AHK (v2), LaTeX (tikz, etc.), PowerShell, MATLAB, Mermaid, uBlock rules etc.
 2. Niche (programming) languages used in IC, e.g., Assembly, SystemVerilog, Verilog-AMS (Verilog-A), Cadence SKILL, tcl, Wavedrom, SPICE etc.
 3. Niche code within widely-used languages, such as WebGPU code in front-end development and some niche libraries in Python
 
