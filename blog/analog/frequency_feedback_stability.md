@@ -1,10 +1,10 @@
 # Frequency Response, Feedback and Stability
 
+[为什么用开环传函判断闭环系统的稳定性？ - 知乎](https://www.zhihu.com/question/31009358)
+
 [如何用Bode图判断系统的稳定性？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/20699458)
 
 [如何直观看待模拟电路中的环路增益？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/577525420)
-
-
 
 
 ## 一个有趣的问题：反相放大器
