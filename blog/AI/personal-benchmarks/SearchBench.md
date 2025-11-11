@@ -32,8 +32,7 @@
   - [Manus](https://manus.im)
   - [Genspark](https://www.genspark.ai)
   - [h2oGPTe](https://h2ogpte.genai.h2o.ai/)
-  - [suna](https://www.suna.so/)
-  - [scout](https://scout.new/)
+  - [suna](https://www.suna.so/)  https://www.kortix.com/
   - [OpenManus](https://openmanus.org/)
   - convergence AI
   - [runner H](https://runner.hcompany.ai/)
@@ -157,8 +156,14 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：[2016](https://investor.tsmc.com/static/annualReports/2016/english/e_2_2.html)
 - help me find the dissertation for this journal: https://ieeexplore.ieee.org/document/8850049
   - 正确答案：https://researchrepository.ucd.ie/entities/publication/e600eb13-5d48-430f-96d2-7154a5dd2968
-
-
+- Give me three lines of SKILL statements, each of which retrieves the ①effective, ②user and ③base default value of the 'vt1' parameter for the `switch` cell in the `analogLib` library, by querying its CDF in Virtuoso.
+  - 正确答案:
+  - `(cdfFindParamByName (cdfGetCellCDF (ddGetObj "analogLib" "switch")) "vt1")->defValue`
+  - `(cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "analogLib" "switch")) "vt1")->defValue`
+  - `(cdfFindParamByName (cdfGetBaseCellCDF (ddGetObj "analogLib" "switch")) "vt1")->defValue` 
+  - 正确情况：gpt-5-search 错; opus-4-search 对
+- Give me a single line of SKILL statement, which sets the `user` default value of the `Open voltage` parameter to `350m` for the `switch` cell in the `analogLib` library, by querying its CDF in Virtuoso.
+  - 正确答案: `(cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "analogLib" "switch")) "vt1")->defValue = "350mV"`
 
 ##### 中文语境普通问题
 
