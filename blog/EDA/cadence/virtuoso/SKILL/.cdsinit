@@ -12,6 +12,24 @@ hiSetFont("text"  ?size 14)                      ; Toolbar and Menu font size, g
 hiSetFont("label" ?size 14)                      ; simulation font size, greater than 16 is not recommended
 
 
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;; CDF default Value ;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "analogLib" "switch")) "vt1")->defValue = "300m"
+(cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "analogLib" "switch")) "vt2")->defValue = "400m"
+
+; not working
+; (cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "tsmcN28" "nch_mac")) "DFM_options")->defValue = "DFM+Analog"
+; schCreateInstForm->cellName->value
+; "nch_mac"
+
+; should try + call back, todo
+; schCreateInstForm->DFM_display->value="ON"
+; schCreateInstForm->DFM_options->value="DFM+Analog"
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;; Maestro bindkey ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
