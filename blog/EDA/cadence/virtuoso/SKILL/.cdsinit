@@ -26,6 +26,7 @@ hiSetFont("label" ?size 14)                      ; simulation font size, greater
 ; "nch_mac"
 
 ; should try + call back, todo
+; schCreateInstForm->libraryName->??
 ; schCreateInstForm->DFM_display->value="ON"
 ; schCreateInstForm->DFM_options->value="DFM+Analog"
 
