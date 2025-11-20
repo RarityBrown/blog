@@ -48,6 +48,8 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 
 ## Niche EDAs
 
+### Commercial Products
+
 笔者已知有 tape out 支持的：
 
 - [RFIC-GPT](https://zhuanlan.zhihu.com/p/719728477) for RF passive devices.
@@ -57,6 +59,10 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 
 - [Scientific Analog](https://www.scianalog.com/) Verify Analog Circuits in SystemVerilog: Event-Driven Analog Models without Writing Codes
 - [StarVision](https://www.concept.de/StarVision.html)
+
+### Academics Tools
+
+- [AmpCopilot](https://github.com/AmpCopilot/Amplifier-Copilot)
 
 ## Cracking
 
