@@ -1,6 +1,6 @@
 # My Personal Basic Benchmark
 
-考虑到各种 Benchmark 泄露严重，在平时使用过程中，收集选择一些第一梯队 LLM (gpt-5.1-high, Gemini 3 Pro, Opus 4.1 thinking, Grok 4.1) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分，edit: 结果没一个高考满分，栽在图形上了)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
+考虑到各种 Benchmark 泄露严重，在平时使用过程中，收集选择一些第一梯队 LLM (gpt-5.1-high, Gemini 3 Pro, Opus 4.5 thinking) 中部分 LLM 可以答对，部分 LLM 不能答对的适中难度题目，整理于本文。难度过大的，例如~~解个明年的高考数学压轴题~~(我估计 2025 年 6 月的时候可能真可以满分，edit: 结果没一个高考满分，栽在图形上了)、明年的物理系考研压轴题(我估计 2025 年 12 月的时候可能真可以满分)、写个更好的红楼梦后 40 回、写个 Windows 出来、~~证个哥德巴赫猜想~~等；以及难度过小的，例如 ~~MMLU~~GPQA 都拉不开区分度。
 
 ## 一些 非能力问题 问题
 
@@ -266,6 +266,13 @@ LLM without RAG 可能答对，LLM with RAG 几乎必对
 >
 > 正确情况（使用**什么**作为关键词）：o3-mini-high 1;
 
+
+- Analog Design Experiments With AI by Razavi https://ieeexplore.ieee.org/document/11262742
+  - 很显然 Razavi 不懂 AI, 估计答案是直接通过网页版的 ChatGPT 得到的，以下内容都不知道：
+    - 背后的模型是 gpt-5 还是 gpt-5-chat 
+    - reasoning 的配置参数
+    - 跑了几次实验？
+    - 是在同一个窗口喂的吗？带了 context 吗？
 
 ##### 非常数学的专业相关的问题
 
