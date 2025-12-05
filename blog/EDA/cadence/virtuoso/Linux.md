@@ -13,7 +13,17 @@ todo
 - nomachine
 - Exceed TurboX
 
+
+常见问题：
+
+不常见问题：
+
+Q: VNC 鼠标卡死，而显示、键盘等一切正常？
+
+A: <kbd>F8</kbd> + "Send Ctrl+Alt+Del"
+
 ---
+
 
 **关闭 GNOME 所有动画效果**
 
