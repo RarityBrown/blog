@@ -781,6 +781,7 @@ also demonstrates how to use presentational attributes like stroke and stroke-da
 - A modern browser technology playground: Showcase all emerging, fancy, modern browser technologies. Do not consider compatibility issues at all.
 - A *minimalistic* milkdown (a **WYSIWYG** markdown editor) demo      or: vditor
 - A simple mathjax v3 CHTML demo with ams macros and physics macros enabled.
+- A simple wavedrom demo with real-time rendering enabled.
 - MathJax vs KaTeX Renderer side by side, with a syntax highlight latex input box. **Enable the `physics` package in mathjax.**
 - 2x2 layout: mathlive + latex code editor (with syntax highlight); mathjax + katex (to compare the rendered output). Enable all the possible packages for mathjax and katex. For instance, enable the `physics` package in mathjax.
 - An interactive jsPDF + PDF.js pdf preview + iframe pdf preview demo
