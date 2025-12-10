@@ -187,7 +187,27 @@ ref: [1](https://community.cadence.com/cadence_blogs_8/b/cic/posts/things-you-di
 
 ### 直接加快串行仿真速度
 
-- High Performance Simulation
+#### High Performance Simulation
+
+使用 Spectre APS 或 Spectre X：
+
+- Spectre APS conservative 的精度可以认为是 golden standard
+- 通常认为 Spectre X ax 的精度所对应的仿真速度，是 analog / mixed signal / rf 设计中满足精度要求的前提下，可提供的最快速度
+  - 那么为什么 Spectre X 要提供几乎没有参考价值的 vx 等等精度选项呢？因为还有一些做全定制数字电路的仿真需求可以用到 vx 选项，对于模拟来说 vx 是毫无意义的
+
+使用后仿优化：todo
+
+#### 动态调整仿真精度
+
+- 上电启动或者 wire bond 未建立稳态时粗略仿真，思路类似于[动态开启 tran 噪声](isnoisy.md)的这篇文章
+- 正常工作要判断性能指标时精细仿真
+  - APS: https://m0nkey.cn/2020/03/experience-sharing-with-spectre-x-spectre-191-simulator/
+  - Spectre X: 在 GUI 的图形界面使用设置至 `cx` 或 `ax` 后使用 `steppreset` 调整时间精度
+    - 详细参考 [1](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/56783/spextrex-accuracy-preset-as-dynamic-parameter) [2](https://community.cadence.com/cadence_technology_forums/f/mixed-signal-design/58528/dinamycally-changing-accuracy-of-simulator-during-runtime) [3](https://community.cadence.com/cadence_blogs_8/b/cic/posts/dynamically-changing-spectre-x-solver-settings) 和 `spectreuser.pdf`
+    - 在 Spectre 21.1 ISR15 及以后的版本中才引入支持
+
+#### 节点数据保存
+
 - 关闭保存所有电压节点的数据，手动选择需要保存的电压节点
   - 待研究（目前看下来好像在大于某特定值的情况下，画图速度会严重降低，不知道是和什么硬件设置相关）
 
@@ -217,11 +237,3 @@ ref: [1](https://community.cadence.com/cadence_blogs_8/b/cic/posts/things-you-di
 5. 查看仿真结果：
 
 ![image](https://github.com/user-attachments/assets/cd7c18aa-c645-45f3-abc8-171aecaaac1e)
-
-
-#### 
-
-- 启动时粗略仿真，正常工作时精细仿真
-  - APS: https://m0nkey.cn/2020/03/experience-sharing-with-spectre-x-spectre-191-simulator/
-  - Spectre X: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/47915/dynamic-tolerance-with-spectre-x
-- isnoisy
