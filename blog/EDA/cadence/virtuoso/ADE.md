@@ -191,9 +191,10 @@ ref: [1](https://community.cadence.com/cadence_blogs_8/b/cic/posts/things-you-di
 
 使用 Spectre APS 或 Spectre X：
 
-- Spectre APS conservative 的精度可以认为是 golden standard
+- Spectre APS conservative 的精度可以认为是 golden standard。虽然 Spectre Classic conservative 有可能可以进一步提高一点精度，但是对于现代仿真而言，基本不可用，classic 在时间上就 APS 或 X 而言慢 10 到 100 倍。
 - 通常认为 Spectre X ax 的精度所对应的仿真速度，是 analog / mixed signal / rf 设计中满足精度要求的前提下，可提供的最快速度
   - 那么为什么 Spectre X 要提供几乎没有参考价值的 vx 等等精度选项呢？因为还有一些做全定制数字电路的仿真需求可以用到 vx 选项，对于模拟来说 vx 是毫无意义的
+  - 并不像 Spectre X 的宣传文档所述，实际上 Spectre X cx 的仿真精度 < Spectre APS conservative 的仿真精度。以 ADC 为例，对于 SNDR>80 的设计，[通常](https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/58886/accuracy-of-different-simulators-aps-spectre-spectre-x)认为 Spectre X cx 也无法提供所需的精度；此时只能使用 Spectre APS conservative，但是对于 SNDR>90 的设计 Spectre APS conservative 的精度可能也会不够。
 
 使用后仿优化：todo
 
