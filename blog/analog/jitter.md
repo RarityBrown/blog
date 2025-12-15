@@ -52,7 +52,7 @@ $$
 
 
 ```lisp
-stddev( abs_jitter( Cliped "falling" 0.5) )
+stddev( abs_jitter(Cliped "falling" 0.5 ?yUnit "s") )
 ```
 
 
@@ -65,7 +65,7 @@ $$
 \hat{\sigma}_{\text{abs}}\approx {\sigma}_{\text{abs}}
 $$
 
-对于很大的 $N$，样本标准差 $s=\hat{\sigma}$ ，即 `stddev( abs_jitter( Cliped "falling" 0.5) )` 近似服从一个正态分布：
+对于很大的 $N$，样本标准差 $s=\hat{\sigma}$ ，即 `stddev( abs_jitter(Cliped "falling" 0.5 ?yUnit "s") )` 近似服从一个正态分布：
 
 $$
 s = \hat{\sigma} \sim \mathcal{N}\left(\sigma, \frac{\sigma^2}{2(N-1)}\right)
@@ -178,7 +178,7 @@ $$
   - 方案：limit the integration of the phase noise to this limit here which is actually a limitation to $\dfrac{f_0}{2}$.
 
 $$
-\sigma_{ABS}^2 = \frac{2}{\omega_0^2} \int_{f_{MIN}=1\text{Hz}}^{\frac{f_0}{2}} L(f) \, \mathrm{d}f
+\sigma_{ABS}^2 = \frac{2}{(2\pi f_0)^2} \int_{f_{MIN}=1\text{Hz}}^{\frac{f_0}{2}} L(f) \, \mathrm{d}f
 $$
 
 因此，这个 $\frac{f_0}{2}$ 并不是什么做 ADC 的人产生的 Nyquist 频率，而是一切 driven circuit (例如 divider, buffer, mux; 暂时不包括 autonomous circuit 例如 VCO)，在通过频域 phase noise 分析一个 $f_0$ 频率信号的时域 absolute jitter 时，在最终积分时需要填写的频率上界。例如 Jee Measurement Using PSS/Pnoise and Transient Noise Analysis RAK 中的设置：40MHz 的振荡频率，20MHz 的积分上界。所以，如果我们需要在 Virtuoso 中写的公式时：
@@ -187,12 +187,26 @@ $$
 rfJitter(?result "pnoiseOut1_sample_pm0" ?unit "Second" ?from 1 ?to (VAR("f_0")/2) ?signalLevel "rms")
 ```
 
+需要注意的是，实际上噪声谱的 y 轴有多种可能的单位，包括但不限于三种**电压噪声密度** $V_n(f)$ ：
 
+```lisp
+         getData("out" ?result "pnoise_sample_pm0")             ; Output Noise     ( V   /sqrt(Hz) )
+     pow(getData("out" ?result "pnoise_sample_pm0") 2)          ; Output Noise     ( V**2/Hz       )
+db10(pow(getData("out" ?result "pnoise_sample_pm0") 2))         ; Output Noise     ( dBV /Hz       )
+```
+
+这三种在 ADE 的 `Results - Direct Plot - Main Form` 中都对应 `Output Noise` ，这并不是我们前文公式所需要的 $L(f)$ 相位噪声。**相位噪声**的图像竖轴的单位应该是 dBc/Hz，对应的是 `Main Form` 中的 `Edge Phase Noise`：
+
+```list
+rfEdgePhaseNoise(?result "pnoise_sample_pm0" ?eventList 'nil)   ; Edge Phase Noise ( dBc /Hz       )
+```
 
 我们是在理论分析而不是在使用 EDA 时，如果需要对 $\frac{1}{f^3}, \frac{1}{f^2}, \frac{1}{f}$ 噪声进行分段积分，考虑到 $L(f)$ 往往是 log-log 轴，所以需要一些运算：
+
 $$
 \Large\text{Jitter}_{rms}(s) = \frac{1}{2\pi f_c} \sqrt{2 \sum_{i=0}^{N-1} \int_{f_i}^{f_{i+1}} 10^{\frac{1}{10} \left( L_{\text{dB}}(f_i) + \left( \frac{L_{\text{dB}}(f_{i+1}) - L_{\text{dB}}(f_i)}{\log_{10}(f_{i+1}) - \log_{10}(f_i)} \right) \cdot (\log_{10}(f) - \log_{10}(f_i)) \right)} \mathrm{d}f}
 $$
+
 MATLAB 提供了一个封装好的函数 `phaseNoiseToJitter` ：
 
 ```matlab
@@ -204,6 +218,16 @@ PNPow = [-125,-150,-174,-174];
 # Jrms_sec = 6.4346e-14
 ```
 
+当然，如果我们不想使用 ADE 自带的函数，即上文提到的 `rfJitter` 来进行自动积分时；可以在 ADE 中手动验证 $\text{jitter} = \sqrt{\frac{2}{(2\pi f_0)^2} \int_{f_{MIN}=1\text{Hz}}^{\frac{f_0}{2}} L(f) \mathrm{d}f}$ 的正确性：
+
+```list
+Lf            = rfEdgePhaseNoise(?result "pnoise_sample_pm0" ?eventList 'nil)
+int_Lf_linear = integ((10**(Lf / 10)) 1 (VAR("f_0") / 2) " ")
+f_term        = (2 / ((2 * pi * VAR("f_0"))**2))
+jitter        = sqrt((f_term * int_Lf_linear))
+```
+
+这种方式得到的 jitter 在数值上应该和 `rfJitter(?result "pnoiseOut1_sample_pm0" ?unit "Second" ?from 1 ?to (VAR("f_0")/2) ?signalLevel "rms")` 是一模一样的。
 
 
 #### 例二 Jitter filtering in CDR systems: 一种更精准的积分方法 phase
@@ -229,7 +253,7 @@ PNPow = [-125,-150,-174,-174];
 行文至此，我们可以思考一下，
 
 ```lisp
-stddev( abs_jitter( Cliped "falling" 0.5) )
+stddev( abs_jitter(Cliped "falling" 0.5 ?yUnit "s") )
 rfJitter(?result "pnoiseOut1_sample_pm0" ?unit "Second" ?from 1 ?to (VAR("f_0")/2) ?signalLevel "rms")
 ```
 
@@ -261,6 +285,9 @@ $$
 
 更致命的是，上面的推导有一个至关重要的前提：每一个抖动样本 $j_{abs}(n)$ 都是相互独立的。但是当我们不开噪声时，所有的 DJ 显然不是独立的；即使开启噪声后，1/f  噪声在低频段具有极高的功率。在时域上，这意味着噪声信号具有很强的长期相关性。换句话说，电路在某个时刻的状态会受到很久之前噪声的影响。这导致连续几个、甚至几百个周期的抖动样本之间是高度相关的，而不是独立的。800 个沿的估计只是一个至少的底线了。
 
+**pnoise 问题**
+
+当然，pnoise 也容易出现问题，例如[这篇问题文章](https://blog.csdn.net/m0_62489442/article/details/144940946)中 pnoise 的仿真结果比 tran noise 好不少就是 pnoise 的仿真设置有误。只要 pnoise 的仿真设置有误，最直观的体现就是 jitter 反而比 tran noise 仿真出来的要好。noise 的仿真要格外注意，因为几乎所有的错误设置都会使得仿真结果反而变好（也包括 tran noise）。
 
 ### Accumulated Jitter (self-referenced in time domain)
 
