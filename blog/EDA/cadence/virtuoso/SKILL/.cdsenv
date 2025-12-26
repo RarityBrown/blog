@@ -11,7 +11,9 @@ cdsLibManager.main   showFilesOn      boolean t              ; lib manager shows
 
 ;;;;;;;;;;;;;;;;;; spectre
 spectre.turboOpts    uniMode          string  "APS"          ; to use spectre APS by default. or "Spectre X"
+spectre.turboOpts    spectreXPreset   string  "AX"
 ; spectre              numThreads       int     16                   ; memory and multithreading config, todo
+
 
 ;;;;;;;;;;;;;;;;;; ADE XL (ADE Explorer)
 ;;; Why ADE XL instead of ADE Explorer: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/52576/how-to-set-default-corners-in-maestro
@@ -85,6 +87,8 @@ layout               pinTextPurposeNames string  "pin"
 ; graphic              rulerColorPacketName            string      "orange"
 ; graphic              transientRulerColorPacketName   string      "orange"
 
+
+mspsAv.simProbe        saveOnlyOneGroupInstNode        boolean     t                      ; ref: https://bbs.eetop.cn/thread-963855-1-1.html
 
 ;;;;;;;;;;;;;;;;;; backup and autosave setting, todo
 cdba.undo            dbUndoAcrossSave    boolean t               ; Undo after save.  ref: https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/54295/can-i-undo-my-changes-after-i-save-the-schematic-in-virtuoso, https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/51607/undo-history-cleared-when-saving-layout
