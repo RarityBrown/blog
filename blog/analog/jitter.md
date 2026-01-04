@@ -9,15 +9,16 @@
 我们先从 Jitter 来源分类进行简单一览：
 
 - Idea: consider the total jitter distribution as the combination of:
-  - Deterministic Jitter (DJ) := any jitter with **bounded** distribution
-    - Inter symbol Interference (ISI)
-    - Crosstalk
-    - Duty Cycle Distortion (DCD)
-    - Power supply Induced Jitter (PSIJ)
-  - Random Jitter (RJ) := any jitter with **unbounded** distribution (gaussian)
+  - Deterministic Jitter (DJ) := any jitter with **bounded** distribution -> `tran`
+    - Data Dependent Jitter (DDJ) 
+      - Inter symbol Interference (ISI)
+      - Crosstalk
+      - Duty Cycle Distortion (DCD)
+    - Sinusoidal jitter (SJ) / Power supply Induced Jitter (PSIJ)
+  - Random Jitter (RJ) := any jitter with **unbounded** distribution (gaussian) -> `pss` + `pnoise`
     - Thermal Noise
     - Flicker Noise
-  - The result of DJ and RJ is called Total Jitter (TJ)
+  - The result of DJ and RJ is called Total Jitter (TJ) -> `tran` + tran noise enable
 
 关于所谓的 bounded 和 unbounded 有：
 
@@ -421,7 +422,13 @@ plt.show()
 不同地方对于 jitter 的名称不太一样，对于笔者造成了一定的困惑，同时网上 Virtuoso 仿真的方法也是只授人以鱼。所以有了这篇文章，希望能帮助读者理清不同的 jitter 类型，授人以渔。
 
 
-核心参考资料：ISSCC 2012 T5: JITTER basic and advanced concepts, statistics and applications
+核心参考资料：
+
+- ISSCC 2012 T5 by Nicola Da Dalt: JITTER basic and advanced concepts, statistics and applications
+- ESSCIRC 2019 T by Nicola Da Dalt: Jitter in Wireline and Data Converter Applications Presented
+- ESSCIRC 2019 T by Ali Sheikholeslami: Fundamental Concepts in Jitter and Phase Noise Presented
+- *Understanding Jitter and Phase Noise: A Circuits and Systems Perspective* by Nicola Da Dalt & Ali Sheikholeslami
+
 
 其他参考 ref: 
 
@@ -429,8 +436,7 @@ plt.show()
 2. ADI MT-007: Aperture Time, Aperture Jitter, Aperture Delay Time - Removing the Confusion by Walt Kester
 3. ADI MT-008: Converting Oscillator Phase Noise to Time Jitter by Walt Kester 
    1. [倔强的砖工](https://zhuanlan.zhihu.com/p/605435397)介绍与评论区
-
-4. [``phaseNoiseToJitter`- MATLAB](https://www.mathworks.com/help/msblks/ref/phasenoisetojitter.html)
+4. [`phaseNoiseToJitter`- MATLAB](https://www.mathworks.com/help/msblks/ref/phasenoisetojitter.html)
 
 Cadence reference available in offline doc: 
 
