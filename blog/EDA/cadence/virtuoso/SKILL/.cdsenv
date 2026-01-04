@@ -69,15 +69,21 @@ graphic              selectPartialVia    boolean t               ; https://bbs.e
 graphic              selectPartialMosaic boolean t
 graphic   protectedObjHighlightHaloWidth string  "thin"          ; https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/37203/layout-xl-how-to-set-default-options-for-selection-protection
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
-layout               drdEditMode         cyclic  "notify"
-layout               displayResolution   string  "Very High"
-layout               xSnapSpacing        float   0.005           ; 0.005um is typical for 28~55nm nodes
-layout               ySnapSpacing        float   0.005           ; 0.005um is typical for 28~55nm nodes
-layout               displayPinNames     boolean t               ; ref: https://blog.csdn.net/d_pcb66/article/details/143432838
-layout               labelHeight         float   0.07
+layout               drdEditMode          cyclic  "notify"
+layout               displayResolution    string  "Very High"
+layout               xSnapSpacing         float   0.005           ; 0.005um is typical for 28~55nm nodes
+layout               ySnapSpacing         float   0.005           ; 0.005um is typical for 28~55nm nodes
+layout               displayPinNames      boolean t               ; ref: https://blog.csdn.net/d_pcb66/article/details/143432838
+layout               labelHeight          float   0.07
 layout               labelFontStyle       cyclic  "roman"
-layout               pinTextSameLayer    boolean t
-layout               pinTextPurposeNames string  "pin"
+layout               pinTextSameLayer     boolean t               ; layoutXL? 
+layout               pinTextPurposeNames  string  "pin"           ; layoutXL pinTextSamePurpose boolean t  ?
+; layout               iconsOn              boolean t
+; layout               createPinLabel       boolean t
+; layoutXL             lxGenerateInBoundary boolean  t         
+; layoutXL             updateLayoutParameters  boolean t
+
+
 
 ; layout               saveRulers                      boolean     nil                    ; ref: https://gist.github.com/02015678/783ad36389fe3b7aa8cd
 ; layout               rulerFontSize                   cyclic      "Medium"
