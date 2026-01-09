@@ -437,6 +437,8 @@ plt.show()
 3. ADI MT-008: Converting Oscillator Phase Noise to Time Jitter by Walt Kester 
    1. [倔强的砖工](https://zhuanlan.zhihu.com/p/605435397)介绍与评论区
 4. [`phaseNoiseToJitter`- MATLAB](https://www.mathworks.com/help/msblks/ref/phasenoisetojitter.html)
+5. https://github.com/YiDingg/YiDingg/blob/main/_sidebar.md
+6. TCAS-I: Understanding Phase Error and Jitter: Definitions, Implications, Simulations, and Measurement
 
 Cadence reference available in offline doc: 
 
