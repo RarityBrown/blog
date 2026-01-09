@@ -28,3 +28,13 @@ $$
 \text{SS}=\dfrac{1}{a} &= \pu{60mV/decade}\quad &&\text{电流每增加 10 倍，电压需提高 60mV}
 \end{aligned}
 $$
+
+### `OT("/M1" "gmoverid")`
+
+当我们希望画出 M1 管的 gmoverid 和时间的曲线时（例如在设计 FIA Comparator），我们会用到 `OT("/M1" "gmoverid")` 函数 "to create an expression for transient operating point"。但是需要进行额外设置，否则画出来的是一个数值，而不是一条关于时间的曲线，设置如下：
+
+
+![](https://github.com/user-attachments/assets/2832a7d0-2db1-44e7-8664-73678dd2df28)
+
+参考资料：*Usage of Operating Point Parameters Rapid Adoption Kit (RAK)*
+
