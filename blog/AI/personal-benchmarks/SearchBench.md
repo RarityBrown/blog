@@ -16,6 +16,7 @@
   - [You](https://documentation.you.com/api-modes/search-api)
   - [Parallel](https://parallel.ai/) ⭐
   - [Nouswise](https://nouswise.com/)
+  - [MiroThinker](https://dr.miromind.ai/) ⭐
 - General LLMs with search + browse tool
   - [Gemini](https://ai.google.dev/gemini-api/docs/google-search) based on Google
   - [Gemini url context](https://ai.google.dev/gemini-api/docs/url-context)
@@ -164,6 +165,9 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确情况：gpt-5-search 错; opus-4-search 对
 - Give me a single line of SKILL statement, which sets the `user` default value of the `Open voltage` parameter to `350m` for the `switch` cell in the `analogLib` library, by querying its CDF in Virtuoso.
   - 正确答案: `(cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "analogLib" "switch")) "vt1")->defValue = "350mV"`
+- What is the website for the latest downloadable courseware for Stanford EE214B?
+  - 正确答案：[EE214B Winter 2017-18](https://bbs.eetop.cn/thread-918507-1-1.html)
+
 
 ##### 中文语境普通问题
 
