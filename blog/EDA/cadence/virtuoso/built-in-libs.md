@@ -8,9 +8,7 @@ DC 情况下 analoglib 中 switch 的行为已经被[曹峰源](https://zhuanlan
 
 所以笔者这里主要是补充一下开关在 tran 仿真中可能会遇到的各种问题，因此假设读者已经了解了 `switch` 的 dc 特性。
 
-#### 问题一
-
-当 `vopen` 和 `vclose` 设置很相近时，开关的沿并没有想象中的陡峭。
+#### 问题一: 当 `vopen` 和 `vclose` 设置很相近时，开关的沿并没有想象中的陡峭。
 
 仿真电路图如下：
 
@@ -25,6 +23,9 @@ DC 情况下 analoglib 中 switch 的行为已经被[曹峰源](https://zhuanlan
 ![image](https://github.com/user-attachments/assets/677a68e5-fbae-4a5f-a9e8-420aeb6f192b)
 
 
+#### 问题二: 电阻热噪声？
+
+结论：`analogLib` 中 `switch` 的 Ron 和 Roff 均不贡献噪声，请使用 `analogLib` 中的 `res` 和 `switch` 进行串联，来以此获得噪声。
 
 #### spxtswitch (sp*tswitch)
 
