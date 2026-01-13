@@ -20,8 +20,10 @@ spectre.turboOpts    spectreXPreset   string  "AX"
 ; adexl.gui            enableAutoRefreshPointsTable  boolean t                    ; disabled, significantly impacts performance in the ADE simulation settings when > 50 simulation points (e.g. MC) even in Virtuoso 23.1
 ; adexl.icrpStartup    defaultJobPolicy              string "My_jobpolicy"        ; My jobs parallelization policy
 ; adexl.gui            defaultCorners                string "./corners/corner_mc_tt40.csv" ; IC6.1.8-64b.500.20 and above. for IC6.1.8-64b.500.19  string "./corners/corners_6.sdb" ; . see https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/49271/load-corners-csv-file-skill-function
+adexl.gui            significantDigits             int     6                    ; for a designer who working on low-noise / high-precision / high-sndr design, 500.00mV and 500.01mV are different
 ; maestro.lscs         defaultNetlistingJobPolicy    string "LSCS_NetJob_Policy"  ; or use the LSCS instead of the ICRP
-; maestro.lscs         defaultSimulationJobPolicy    string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP         
+; maestro.lscs         defaultSimulationJobPolicy    string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP
+
 maestro.plotting     distributedPlotEnabled        boolean t ; Virtuoso IC23.1
 
 ;;;;;;;;;;;;;;;;;;
