@@ -682,6 +682,42 @@ endmodule
 
 Q: https://zhuanlan.zhihu.com/p/1948107481772425798
 
+Q: 我使用的是最新版的 Cadence Virtuoso，以下代码可以过编译吗（细枝末节不影响编译的不用分析，简单回答）？
+
+```verilog
+`include "constants.vams"
+`include "disciplines.vams"
+
+module Ideal_4bits_Flash_1st_continuous(
+    input vin_p, vin_n,
+    output [15:1] ther
+);
+    electrical [15:1] ther;
+    electrical vin_p, vin_n;
+
+    parameter real trise = 1p from [0:inf);
+    parameter real tfall = 1p from [0:inf);
+    parameter real tdly = 0 from [0:inf);
+    parameter real vlogic_high = 1;
+    parameter real vlogic_low = 0;
+    parameter real vref = 1.5;
+
+    real v_step;
+    real v_diff;
+    integer i;
+
+    analog begin
+        v_step = vref / 16.0;
+        v_diff = V(vin_p, vin_n);
+        for (i = 1; i <= 15; i = i + 1) begin
+            V(ther[i]) <+ transition(  (v_diff >= (i * v_step - vref / 2.0)) ? vlogic_high : vlogic_low, tdly, trise, tfall  );
+        end
+    end
+endmodule
+```
+
+A: 不行，应该把 `integer i;` 修改为 `genvar i;`
+
 </details>
 
 ##### SPICE (circuit)
