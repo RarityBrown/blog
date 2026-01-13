@@ -165,8 +165,10 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确情况：gpt-5-search 错; opus-4-search 对
 - Give me a single line of SKILL statement, which sets the `user` default value of the `Open voltage` parameter to `350m` for the `switch` cell in the `analogLib` library, by querying its CDF in Virtuoso.
   - 正确答案: `(cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "analogLib" "switch")) "vt1")->defValue = "350mV"`
-- What is the website for the latest downloadable courseware for Stanford EE214B?
+- What is the website for the latest downloadable slides for Stanford EE214B? (It doesn’t have to be the Stanford official website, but it must be downloadable)
   - 正确答案：[EE214B Winter 2017-18](https://bbs.eetop.cn/thread-918507-1-1.html)
+- Which cdsenv variables in Virtuoso **ADE Explorer** (not schematic annotation, ViVA, nor noise summary) are related to the number of decimal places displayed?
+  - 正确答案：`adexl.gui  significantDigits  int  4`
 
 
 ##### 中文语境普通问题
