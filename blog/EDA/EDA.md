@@ -16,8 +16,12 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 - IDE：CS 总算有个付费的 Jetbrains 了；EDA 用 Virtuoso ADE，请给 Cadence 交钱 
 - 文档：CS 不用多说了，哪怕 MATLAB 的 examples 都是全公开的；EDA 的 Workshop 和 Lab，请给 Synopsys 和 Cadence 交钱
 
+当然，EDA 界也是有一些开源或免费替代品的，比如：
 
-当然，EDA 界也是有一些开源或免费替代品的：比如 [olofk](https://github.com/olofk/edalize) 提供的一些 "API"，[dalance](https://github.com/dalance) 或 [chipsalliance](https://github.com/chipsalliance) 开发的 systemverilog lint，[iverilog](https://github.com/steveicarus/iverilog) 和 [verilator](https://github.com/verilator/verilator) 可以用来仿真，[Yosys](https://github.com/YosysHQ/yosys) 可以用来综合，[xschem](https://github.com/StefanSchippers/xschem) 和 [KLayout](https://www.klayout.de/) 可以用来编辑 schematic 和 layout。但是没有一项开源工具是 "SOTA" 的（用 EDA 的术语说就是 "golden" 的），也没有一项工具会被用于商业项目。
+- 数字方面 [olofk](https://github.com/olofk/edalize) 提供的一些 "API"，[dalance](https://github.com/dalance) 或 [chipsalliance](https://github.com/chipsalliance) 开发的 systemverilog lint，[iverilog](https://github.com/steveicarus/iverilog) 和 [verilator](https://github.com/verilator/verilator) 可以用来仿真，[Yosys](https://github.com/YosysHQ/yosys) 可以用来综合
+- 模拟方面 [xschem](https://github.com/StefanSchippers/xschem) 和 [KLayout](https://www.klayout.de/)可以用来编辑 schematic 和 layout。[ConfirmaXL](https://www.ucosm.net/) 也在试图把自己变为 Virtuoso。  
+
+但是没有一项开源工具是 "SOTA" 的（用 EDA 的术语说就是 "golden" 的），也没有一项工具会被用于商业项目。
 
 从曾经 UC Berkeley SPICE 的开源，到今日 EDA 完全闭源。为什么 SPICE 和 Chromium 会开源，而 Synopsys 和 Jetbrains 会闭源，这些软件开源和闭源的原因都相同吗？
 
@@ -40,7 +44,7 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 - 学术界视角：Are open source digital design flows ready for mainstream? by Frank K. Gürkaynak, ETH Zürich. [slide](https://mos-ak.org/bruges_2024/publication/8_Gurkaynak_ESSERC_2024_ETHZ_pulp.pdf)
 - IC infra 从业人员分享：https://icinfra.cn/
 
-惊闻浙大 55nm 线 pdk 要[准备](https://www.zhihu.com/question/497652898/answer/1951322675583628264)开源了，这对国内的数字设计和数字 EDA 无疑是重大利好。SMIC 没动力做的，ICSprout 做确实是合适的。三年后，待 pdk 磨合完毕，这将成为中国 IC 教育界的 golden standard。
+惊闻浙大 55nm 线 pdk ~~[准备](https://www.zhihu.com/question/497652898/answer/1951322675583628264)~~ [已经](https://github.com/openecos-projects/icsprout55-pdk)开源了，这对国内的数字设计和数字 EDA 无疑是重大利好。SMIC 没动力做的，ICSprout 做确实是合适的。三年后，待 pdk 磨合完毕，这将成为中国 IC 教育界的 golden standard。只可惜了做全定制设计的“小众群体”啊。
 
 ## Domestic EDAs
 
