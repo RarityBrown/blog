@@ -1,0 +1,12 @@
+Corner,5corners_3T,TT40,SS75,FF75,SS0,FF0,MC_TT40,MC_FF40,MC_SS40
+Enable,f,t,f,f,f,f,f,f,f
+#Temperature,40,40,75,75,0,0,40,40,40
+Tags,,,,,,,,,
+Modelfile::/PDK/TN28HPC+_1p9m6x1z1u/CRN28HPC+/PDK/iPDK_CRN28HPC+_v1.0_2p2a_20170531_all/iPDK_CRN28HPC+_v1.0_2p2a_20170531/models/spectre/toplevel_all.scs,f ,f ,f ,f ,f ,f ,f ,f ,f 
+Modelfile::/PDK/TN28HPC+/CRN28HPC+/PDK/TN28CRSP025W1_1_0_2P2A/iPDK_CRN28HPC+_v1.0_2p2a_20170531_all/iPDK_CRN28HPC+_v1.0_2p2a_20170531/models/spectre/toplevel_all.scs,t top_ff top_fs top_sf top_ss top_tt,t top_tt,t top_ss,t top_ff,t top_ss,t top_ff,f ,f ,f 
+Modelfile::/PDK/TN28HPC+_1p9m6x1z1u/CRN28HPC+/PDK/iPDK_CRN28HPC+_v1.0_2p2a_20170531_all/iPDK_CRN28HPC+_v1.0_2p2a_20170531/models/spectre/crn28hpcp_1d8_elk_v1d0_2p2_shrink0d9_embedded_usage.scs,f ,f ,f ,f ,f ,f ,t ttglobalcorner_localmc_mos_moscap,t ffglobalcorner_localmc_mos_moscap,t ssglobalcorner_localmc_mos_moscap
+Modelfile::/PDK/TN28HPC+_1p9m6x1z1u/CRN28HPC+/PDK/iPDK_CRN28HPC+_v1.0_2p2a_20170531_all/iPDK_CRN28HPC+_v1.0_2p2a_20170531/models/spectre/crn28hpcp_1d8_elk_v1d0_2p2_shrink0d9_embedded_usage.scs,f ,f ,f ,f ,f ,f ,t ttglobalcorner_localmc_res_bip_dio_disres,t ffglobalcorner_localmc_res_bip_dio_disres,t ssglobalcorner_localmc_res_bip_dio_disres
+Modelfile::/PDK/TN28HPC+_1p9m6x1z1u/CRN28HPC+/PDK/iPDK_CRN28HPC+_v1.0_2p2a_20170531_all/iPDK_CRN28HPC+_v1.0_2p2a_20170531/models/spectre/crn28hpcp_1d8_elk_v1d0_2p2_shrink0d9_embedded_usage.scs,f ,f ,f ,f ,f ,f ,t ttglobalcorner_localmc_mom,t ffglobalcorner_localmc_mom,t ssglobalcorner_localmc_mom
+Modelfile::/PDK/TN28HPC+_1p9m6x1z1u/CRN28HPC+/PDK/iPDK_CRN28HPC+_v1.0_2p2a_20170531_all/iPDK_CRN28HPC+_v1.0_2p2a_20170531/models/spectre/crn28hpcp_1d8_elk_v1d0_2p2_shrink0d9_embedded_usage.scs,f ,f ,f ,f ,f ,f ,t ttglobalcorner_localmc_ind_jvar,t ffglobalcorner_localmc_ind_jvar,t ssglobalcorner_localmc_ind_jvar
+Modelfile::/PDK/TN28HPC+_1p9m6x1z1u/CRN28HPC+/PDK/iPDK_CRN28HPC+_v1.0_2p2a_20170531_all/iPDK_CRN28HPC+_v1.0_2p2a_20170531/models/spectre/crn28hpcp_1d8_elk_v1d0_2p2_shrink0d9_embedded_usage.scs,f ,f ,f ,f ,f ,f ,t tt_r_metal,t ff_r_metal,t ss_r_metal
+
