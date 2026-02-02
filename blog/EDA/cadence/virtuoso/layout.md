@@ -1,17 +1,25 @@
 # Layout
 
-
-
 ## 值得注意的默认 bindkey
+
+### 对多根相同的线进行操作
 
 ---
 
+- 功能：等间距复制多根线
 - bindkey 操作：鼠标选中对象后按 **<kbd>H</kbd>** 键，移动鼠标 <kbd>Enter</kbd> 确定间距位置，使用 <kbd>.</kbd> 键等距复制
 - SKILL 函数接口： `leHiRepeatCopy()`
 
 ![Carnac_KELL412Uaj](https://github.com/user-attachments/assets/55762eab-8066-46b6-80cb-9067e8afb2ce)
 
 ---
+
+- 功能：拉升或缩短多根线
+- bindkey 操作：**<kbd>F4</kbd>** 在 "partial select" 和 "full select" 模式线切换，然后鼠标框选多根线的一段
+
+![](https://github.com/user-attachments/assets/c50d1aee-ac28-4c09-a367-48ca4ec5ad00)
+
+### 其他
 
 - bindkey 操作：鼠标选中对象后按 **<kbd>Shift</kbd> + <kbd>c</kbd>** 键，左键框选区域删除
 - SKILL 函数接口： `leHiChop()`
