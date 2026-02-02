@@ -86,6 +86,7 @@ hiSetBindKey("Schematics" "Ctrl<Key>D" "MYappendSignal()")     ; *D*raw the sign
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; layout bindkey ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 hiSetBindKey("Layout"     "F1"           "if( geGetSelSet() then geHiSetSelProtectionEF() else geHiUnsetSelProtectionEF() )")
+hiSetBindKey("Layout"     "Shift<Key>x"     "geSave()")
 
 procedure(MyMoveSelected(deltax deltay)     ; ref: https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/36295/bindkey-to-move-selected-object
   let((xform)
