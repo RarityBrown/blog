@@ -109,14 +109,16 @@ procedure( movingUnit()
     )
   )
 )
-hiSetBindKey("Layout" "Left"  "MyMoveSelected(-10*movingUnit() 0)")
-hiSetBindKey("Layout" "Right" "MyMoveSelected(10*movingUnit() 0)")
-hiSetBindKey("Layout" "Up"    "MyMoveSelected(0 10*movingUnit())")
-hiSetBindKey("Layout" "Down"  "MyMoveSelected(0 -10*movingUnit())")
+hiSetBindKey("Layout" "Left"           "MyMoveSelected(-10*movingUnit() 0)")
+hiSetBindKey("Layout" "Right"          "MyMoveSelected(10*movingUnit() 0)")
+hiSetBindKey("Layout" "Up"             "MyMoveSelected(0 10*movingUnit())")
+hiSetBindKey("Layout" "Down"           "MyMoveSelected(0 -10*movingUnit())")
 hiSetBindKey("Layout" "Ctrl<Key>Left"  "MyMoveSelected(-movingUnit() 0)")
 hiSetBindKey("Layout" "Ctrl<Key>Right" "MyMoveSelected(movingUnit() 0)")
 hiSetBindKey("Layout" "Ctrl<Key>Up"    "MyMoveSelected(0 movingUnit())")
 hiSetBindKey("Layout" "Ctrl<Key>Down"  "MyMoveSelected(0 -movingUnit())")
+
+; todo, if geGetSelSet() or geGetSelectedSet() return nil -> move the background as default bindkey
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
