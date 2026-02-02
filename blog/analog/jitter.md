@@ -425,6 +425,7 @@ plt.show()
 核心参考资料：
 
 - ISSCC 2012 T5 by Nicola Da Dalt: JITTER basic and advanced concepts, statistics and applications
+- ASSCC T3 by Ali Sheikholeslami: Basic of Jitter in Wireline Communications
 - ESSCIRC 2019 T by Nicola Da Dalt: Jitter in Wireline and Data Converter Applications Presented
 - ESSCIRC 2019 T by Ali Sheikholeslami: Fundamental Concepts in Jitter and Phase Noise Presented
 - *Understanding Jitter and Phase Noise: A Circuits and Systems Perspective* by Nicola Da Dalt & Ali Sheikholeslami
