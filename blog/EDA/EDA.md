@@ -18,8 +18,9 @@ EDA 行业和传统 to C 的软件行业是很不一样的。一句话概括就�
 
 当然，EDA 界也是有一些开源或免费替代品的，比如：
 
-- 数字方面 [olofk](https://github.com/olofk/edalize) 提供的一些 "API"，[dalance](https://github.com/dalance) 或 [chipsalliance](https://github.com/chipsalliance) 开发的 systemverilog lint，[iverilog](https://github.com/steveicarus/iverilog) 和 [verilator](https://github.com/verilator/verilator) 可以用来仿真，[Yosys](https://github.com/YosysHQ/yosys) 可以用来综合
-- 模拟方面 [xschem](https://github.com/StefanSchippers/xschem) 和 [KLayout](https://www.klayout.de/)可以用来编辑 schematic 和 layout。[ConfirmaXL](https://www.ucosm.net/) 也在试图把自己变为 Virtuoso。  
+- PDK 方面美国 [SkyWater 130nm](https://github.com/google/skywater-pdk), [GlobalFoundries 180nm](https://github.com/google/gf180mcu-pdk); 欧洲 [IHP BiCMOS](https://github.com/IHP-GmbH/IHP-Open-PDK); 大陆 [ICsprout 55nm](https://github.com/openecos-projects/icsprout55-pdk) 倒是也都有一些。也有 [IIC-OSIC](https://github.com/iic-jku/IIC-OSIC-TOOLS) 打包好的环境可以用。
+- 数字方面 [olofk](https://github.com/olofk/edalize) 提供的一些 "API"，[dalance](https://github.com/dalance) 或 [chipsalliance](https://github.com/chipsalliance) 开发的 systemverilog lint，[iverilog](https://github.com/steveicarus/iverilog) 和 [verilator](https://github.com/verilator/verilator) 可以用来仿真，[Yosys](https://github.com/YosysHQ/yosys) 可以用来综合。还有诸如 [siliconspace](https://siliconspace.org/) 这种 fancy 的 GUI。
+- 模拟方面 [xschem](https://github.com/StefanSchippers/xschem) 和 [KLayout](https://www.klayout.de/)可以用来编辑 schematic 和 layout，[ngspice](https://ngspice.sourceforge.io/download.html) 和 [Xyce](https://github.com/Xyce/Xyce) 可以用来仿真。[ConfirmaXL](https://www.ucosm.net/) 也在试图把自己变为 Virtuoso。  
 
 但是没有一项开源工具是 "SOTA" 的（用 EDA 的术语说就是 "golden" 的），也没有一项工具会被用于商业项目。
 
