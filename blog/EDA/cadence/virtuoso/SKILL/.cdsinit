@@ -118,5 +118,11 @@ hiSetBindKey("Layout" "Ctrl<Key>Up"    "MyMoveSelected(0 movingUnit())")
 hiSetBindKey("Layout" "Ctrl<Key>Down"  "MyMoveSelected(0 -movingUnit())")
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;; Calibre Realtime bindkey ;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+hiSetBindKey("Layout" "Ctrl<Key>H"   "mgc_calibre_realtime_send_highlight_cmd(\"CurrentError\")")
+hiSetBindKey("Layout" "Shift<Key>H"  "mgc_calibre_realtime_send_highlight_cmd(\"ClearHighlights\")")
+
 ; auto load Layout bindkey
 ; dbSetAutoSave()
