@@ -1,0 +1,225 @@
+(let ()
+  (defun _calcBestKAndSxxR_Spec (DAC Amp FFT_start N fs measType)
+    (let ((bestK 1.0) 
+          (maxVal nil) 
+          currentK 
+          val 
+          testWave
+          (time_stop (plus FFT_start (quotient (float N) fs)))
+          (fund_freq (quotient (float fs) N))
+          (max_freq  (times 0.5 fs))
+          (useMeasType (if (equal measType "sndr") "sinad" measType))
+          )
+      
+      (for i 0 60
+           (setq currentK (plus 1.0 (times i 0.01)))   ;; k 1.00 to 1.60
+           ;; DAC + k * Amp
+           (setq testWave (plus DAC (times currentK Amp)))
+           ;; spectrumMeasurement(testWave t FFT_start (FFT_start + (N / fs)) N (fs / N) (fs / 2) 0 "Rectangular" 0.0 0 10 "sinad")
+                      (setq val (spectrumMeasurement 
+                       testWave 
+                       t 
+                       FFT_start 
+                       time_stop 
+                       N 
+                       fund_freq 
+                       max_freq 
+                       0 
+                       "Rectangular" 
+                       0.0 
+                       0 
+                       10 
+                       useMeasType  ; "sinad", "sfdr", etc.
+                       ))
+           (when (or (null maxVal) (greaterp val maxVal))
+             (setq maxVal val)
+             (setq bestK currentK)))
+      (list bestK maxVal)))
+
+
+  (defglobalfun getBestK_1 (DAC Amp FFT_start N fs measType)
+    (cond
+      ((drIsWaveform DAC)
+       (car (_calcBestKAndSxxR_Spec DAC Amp FFT_start N fs measType)))
+      ((famIsFamily DAC)
+       (famMap 'getBestK_1 DAC Amp FFT_start N fs measType))
+      (t nil)))
+
+  (defglobalfun getMaxSxxR_1 (DAC Amp FFT_start N fs measType)
+    (cond
+      ((drIsWaveform DAC)
+       (cadr (_calcBestKAndSxxR_Spec DAC Amp FFT_start N fs measType)))
+      ((famIsFamily DAC)
+       (famMap 'getMaxSxxR_1 DAC Amp FFT_start N fs measType))
+      (t nil)))
+);
+;;;;;;;;;;;;;;;;;;;;;;;;;; GUI builder information ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ocnmRegGUIBuilder(
+ '(nil
+  function getMaxSxxR_1
+  name getMaxSxxR_1
+  description "getMaxSxxR_1"
+  category ("Custom Functions")
+  analysis (nil
+      general (nil
+        args (DAC Amp FFT_start N fs measType )
+          signals (nil
+                DAC (nil
+                      prompt "DAC"
+                      tooltip "DAC"
+                      )
+                Amp (nil
+                      prompt "Amp"
+                      tooltip "Amp"
+                      )
+           )
+          params(nil
+                 FFT_start (nil
+                       prompt "FFT_start"
+                       tooltip "FFT_start"
+                       guiRowHint 2
+                       type float
+                       required t
+                 )
+                 N (nil
+                       prompt "N"
+                       tooltip "N"
+                       guiRowHint 3
+                       type float
+                       required t
+                 )
+                 fs (nil
+                       prompt "fs"
+                       tooltip "fs"
+                       guiRowHint 4
+                       type float
+                       required t
+                 )
+                 measType (nil
+                       prompt "measType"
+                       tooltip "measType"
+                       guiRowHint 5
+                       type string
+                       required t
+                 )
+          )
+        inputrange t
+      )
+  )
+  outputs(result)
+ )
+)
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;; GUI builder information ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ocnmRegGUIBuilder(
+ '(nil
+  function getBestK_1
+  name getBestK_1
+  description "getBestK_1"
+  category ("Custom Functions")
+  analysis (nil
+      general (nil
+        args (DAC Amp FFT_start N fs measType )
+          signals (nil
+                DAC (nil
+                      prompt "DAC"
+                      tooltip "DAC"
+                      )
+                Amp (nil
+                      prompt "Amp"
+                      tooltip "Amp"
+                      )
+           )
+          params(nil
+                 FFT_start (nil
+                       prompt "FFT_start"
+                       tooltip "FFT_start"
+                       guiRowHint 2
+                       type float
+                       required t
+                 )
+                 N (nil
+                       prompt "N"
+                       tooltip "N"
+                       guiRowHint 3
+                       type float
+                       required t
+                 )
+                 fs (nil
+                       prompt "fs"
+                       tooltip "fs"
+                       guiRowHint 4
+                       type float
+                       required t
+                 )
+                 measType (nil
+                       prompt "measType"
+                       tooltip "measType"
+                       guiRowHint 5
+                       type string
+                       required t
+                 )
+          )
+        inputrange t
+      )
+  )
+  outputs(result)
+ )
+)
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;; GUI builder information ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ocnmRegGUIBuilder(
+ '(nil
+  function _calcBestKAndSxxR_Spec
+  name _calcBestKAndSxxR_Spec
+  description "_calcBestKAndSxxR_Spec"
+  category ("Custom Functions")
+  analysis (nil
+      general (nil
+        args (DAC Amp FFT_start N fs measType )
+          signals (nil
+                DAC (nil
+                      prompt "DAC"
+                      tooltip "DAC"
+                      )
+                Amp (nil
+                      prompt "Amp"
+                      tooltip "Amp"
+                      )
+           )
+          params(nil
+                 FFT_start (nil
+                       prompt "FFT_start"
+                       tooltip "FFT_start"
+                       guiRowHint 2
+                       type float
+                       required t
+                 )
+                 N (nil
+                       prompt "N"
+                       tooltip "N"
+                       guiRowHint 3
+                       type float
+                       required t
+                 )
+                 fs (nil
+                       prompt "fs"
+                       tooltip "fs"
+                       guiRowHint 4
+                       type float
+                       required t
+                 )
+                 measType (nil
+                       prompt "measType"
+                       tooltip "measType"
+                       guiRowHint 5
+                       type string
+                       required t
+                 )
+          )
+        inputrange t
+      )
+  )
+  outputs(result)
+ )
+)
