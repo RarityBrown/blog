@@ -1,12 +1,8 @@
-
-
-
-
 ## PEX
 
+### PEX 
+
 ### calibre view setup
-
-
 
 这个对话框用于把 Calibre xRC（PEX）的结果 back‑annotate 进 Virtuoso 库，生成可在 ADE 中仿真的 calibre 视图（含器件与寄生）。默认会弹出，让你确认映射文件、视图类型、端口策略、放置方式等。
 
