@@ -110,6 +110,10 @@ radar-beta
 
 2025/12/30: 展望 2026 - 2025 基本上是将 reasoning 所提供的性能吃干抹净 (o1 - o3 - 5 - 5.2-xhigh) 的一年，AI 需要下一个 paradigm shift，类似于 nano banana。但是 LLM 呢？目前测试集主要关注五种能力：知识广度、知识深度、指令遵从（包括但不限于工具调用等）、幻觉、上下文。例如 AIME 关注第二点，HLE 关注前两者，SWE-Verified 则关注了几乎所有点。我个人认为会在 2026 有机会进步的按照降序排列依次是：指令遵从、知识深度、幻觉、上下文、知识广度。但是瓶颈已然出现，所以如果 LLM 和 AI 都没有出现新的 paradigm shift 的话，NVDA 的股票将不再被高度看好，大厂们恐怕只能卷卷应用层的创新了，进入普及阶段而不是创新阶段了。
 
+2025/02/07: gpt-5.3 和 opus-4.6 基本上还是在打 coding 的仗，与我无关。但是 [gpt-5-lowers-protein-synthesis-cost](https://openai.com/index/gpt-5-lowers-protein-synthesis-cost/) 则是不容小觑。证明了在高度规范化的条件下，AI 对物理世界而非代码世界 "优化" 的可行性。
+
+2025/02/08: glm-ocr + ollama 伟大！本地万岁！
+
 ## 评测的小 ideas
 
 ### Bode
