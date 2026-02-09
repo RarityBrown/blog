@@ -1,0 +1,57 @@
+//  Runset file generated on Fri Jan 1 20:00:00 2026
+//  by Calibre Interactive v2024.4_39.16    Tue Dec 3 16:43:09 PST 2024
+//
+//      *** PLEASE DO NOT MODIFY THIS FILE ***
+//
+//
+
+cmn.showOptionPages.value = [ "Database", "Options" ]
+lvs.rulesFile.value = "/xxx/TSMC/TN28HPC+_1p9m6x1z1u/CRN28HPC+/PDK/iPDK_CRN28HPC+_v1.0_2p2a_20170531_all/iPDK_CRN28HPC+_v1.0_2p2a_20170531/Calibre/lvs/DFM_LVS_RC_CALIBRE_N28HP_1p9M_6X1Z1U_ALRDL.v1.0_3p"
+lvs.runDir.value = "/prj/calibre/lvs_run/lvs_20251205"
+lvs.layout.layoutFile.value = "cdns_cell_name.calibre.db"
+cmn.layout.defFiles.value = [ "cdns_cell_name.def" ]
+lvs.layout.topCellLibrary.value = "cdns_lib_name"
+cmn.layout.topCellLibraryFDI.value = "cdns_lib_name"
+lvs.layout.topCell.value = "cdns_cell_name"
+lvs.layout.topCellView.value = "layout"
+cmn.layout.topCellViewFDI.value = "layout"
+lvs.layout.layoutNetlist.value = "cdns_cell_name.sp"
+lvs.source2.sourceFile.value = "cdns_cell_name.sp"
+lvs.source2.topCellLibrary.value = "cdns_lib_name"
+lvs.source2.topCellLibraryFDI.value = "cdns_lib_name"
+lvs.source2.topCell.value = "cdns_cell_name"
+lvs.source2.topCellFDI.value = "cdns_cell_name"
+lvs.source2.topCellView.value = "schematic"
+lvs.source2.topCellViewFDI.value = "schematic"
+lvs.source.sourceFile.value = "cdns_cell_name.src.net"
+lvs.source.topCellLibrary.value = "cdns_lib_name"
+lvs.source.topCellLibraryFDI.value = "cdns_lib_name"
+lvs.source.topCell.value = "cdns_cell_name"
+lvs.source.topCellFDI.value = "cdns_cell_name"
+lvs.source.topCellView.value = "schematic"
+lvs.source.topCellViewFDI.value = "schematic"
+lvs.reports.lvsReport.value = "cdns_cell_name.lvs.report"
+      lvs.supply.lvsAbortOnSupplyError.value = "NO"
+      lvs.supply.lvsAbortOnSupplyError.specified = true
+lvs.supply.powerNames.value = [ "?VDD?", "?vdd?" ]
+lvs.supply.powerNames.specified = true
+lvs.supply.groundNames.value = [ "?VSS?", "?vss?" ]
+lvs.supply.groundNames.specified = true
+      lvs.lvsRecognizeGates.specified = true
+      lvs.lvsRecognizeGates.gatesType.value = "NONE"
+      lvs.lvsReduceGates.splitGates.specified = true
+      lvs.lvsReduceGates.reduceParallelMOS.specified = true
+cmn.virtualConnect.vconnect.value = "SPECIFIEDNAMES"
+cmn.virtualConnect.vconnect.specified = true
+cmn.virtualConnect.netNames.value = [ "virnet1", "virnet2" ]
+lvs.svrfIncludes.statementType.value = "SVRF"
+lvs.ercdb.resultsFile.value = "cdns_cell_name.erc.results"
+lvs.ercSummaryReport.report.value = "cdns_cell_name.erc.summary"
+lvs.ercSummaryReport.report.specified = true
+       lvs.ercSummaryReport.reportKeywords.value = [ "HIER" ]
+       lvs.ercSummaryReport.reportKeywords.specified = true
+cmn.turboCommand.runHow.value = "all"
+  //  todo, hyperscale
+cmn.lsfSlaveHosts.parameters = [
+    [ true, "1", "1", "", "", "", "", "", ""]
+]
