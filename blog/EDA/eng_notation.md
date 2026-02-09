@@ -6,69 +6,32 @@
 ### 把单元格中的 1,000,000 显示为 "1M"
 
 ```excel
-=LET(
-    val, B2,
-    abs_val, ABS(val),
-    log_val, IF(val=0, 0, LOG10(abs_val)),
-    tier, FLOOR(log_val, 3),
-    suffix, IFS(
-        val=0, "",
-        tier>=12, "T",
-        tier>=9, "G",
-        tier>=6, "M",
-        tier>=3, "k",
-        tier>=0, "",
-        tier>=-3, "m",
-        tier>=-6, "u",
-        tier>=-9, "n",
-        tier>=-12, "p",
-        TRUE, ""
-    ),
-    denom, 10^tier,
-    TEXT(val/denom, "0.##") & suffix
-)
-```
-
-
-
-```excel
 =IF(E10=0, "0", 
   LET(
     abs_val, ABS(E10),
-    n, FLOOR((LOG10(abs_val) + 1*10^-14)/3, 1), 
-    scaled_val, E10 / 10^(n*3),
-    idx, n + 6,
-    safe_idx, MIN(MAX(idx, 1), 11),
-    suffix, CHOOSE(safe_idx, "f", "p", "n", "u", "m", "", "k", "M", "G", "T", "P"),
+    n, FLOOR((LOG10(abs_val) + 1E-14) / 3, 1),
+    n_clamped, MIN(MAX(n, -5), 5),
+    scaled_val, E10 / 10^(n_clamped * 3),
+    prefixes, {"f";"p";"n";"u";"m";"";"k";"M";"G";"T";"P"},
+    suffix, INDEX(prefixes, n_clamped + 6),
     TEXT(scaled_val, "0.###") & suffix
   )
 )
 ```
 
-
-
 ### 把单元格中的 "1M" 识别为 1,000,000
 
 ```excel
 =LET(
-    txt, A2,
-    last_char, RIGHT(txt, 1),
-    is_suffix, NOT(ISNUMBER(--last_char)),
-    num_part, IF(is_suffix, LEFT(txt, LEN(txt)-1), txt),
-    suffix, IF(is_suffix, last_char, ""),
-    multiplier, IFS(
-        suffix="", 1,
-        EXACT(suffix,"T"), 10^12,
-        EXACT(suffix,"G"), 10^9,
-        EXACT(suffix,"M"), 10^6,
-        EXACT(suffix,"k"), 10^3,
-        EXACT(suffix,"m"), 10^-3,
-        EXACT(suffix,"u"), 10^-6,
-        EXACT(suffix,"n"), 10^-9,
-        EXACT(suffix,"p"), 10^-12,
-        TRUE, 1
-    ),
-    VALUE(num_part) * multiplier
+    t, TRIM(A2),
+    last, RIGHT(t),
+    has_suffix, ISERROR(VALUE(last)),
+    num_str, IF(has_suffix, LEFT(t, LEN(t)-1), t),
+    suffix, IF(has_suffix, last, ""),
+    units, {"T","G","M","k","","m","u","n","p","f"},
+    mults, {1E12,1E9,1E6,1E3,1,1E-3,1E-6,1E-9,1E-12,1E-15},
+    factor, XLOOKUP(TRUE, EXACT(suffix, units), mults, 1),
+    IFERROR(VALUE(num_str) * factor, NA())
 )
 ```
 
