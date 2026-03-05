@@ -120,6 +120,9 @@ hiSetBindKey("Layout" "Ctrl<Key>Down"  "MyMoveSelected(0 -movingUnit())")
 
 ; todo, if geGetSelSet() or geGetSelectedSet() return nil -> move the background as default bindkey
 
+hiSetBindKey("Layout" "Ctrl<Key>R"    "_leRotateOrFlip(\"MX\")")
+hiSetBindKey("Layout" "Shift<Key>R"   "_leRotateOrFlip(\"MY\")")
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;; Calibre Realtime bindkey ;;;;;;;;;;;;;;;;;;;;;
