@@ -80,6 +80,8 @@ layout               labelHeight          float   0.07
 layout               labelFontStyle       cyclic  "roman"
 layout               pinTextSameLayer     boolean t               ; layoutXL? 
 layout               pinTextPurposeNames  string  "pin"           ; layoutXL pinTextSamePurpose boolean t  ?
+layout               labelPurpose         string  "pin"
+
 ; layout               iconsOn              boolean t
 ; layout               createPinLabel       boolean t
 ; layoutXL             lxGenerateInBoundary boolean  t         
