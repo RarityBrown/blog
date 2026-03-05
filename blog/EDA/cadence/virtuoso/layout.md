@@ -72,7 +72,7 @@ hiSetBindKey("Layout" "Ctrl Shift<Btn5Down>" "changeWidth(-deltaWidth)")
 
 **对象保护（锁定）** Edit - Select - Set Selection Protection: 类似于 Powerpoint right click an object - lock(L) 的锁定功能
 
-避免在 layout layer 很多的情况下，鼠标拖动和选择物体时的误操作
+同时避免在 layout layer 很多的情况下，鼠标拖动和选择物体时的误操作
 
 ```lisp
 hiSetBindKey("Layout"     "F1"           "if( geGetSelSet() then geHiSetSelProtectionEF() else geHiUnsetSelProtectionEF() )")
