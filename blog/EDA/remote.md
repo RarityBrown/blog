@@ -1,7 +1,8 @@
-# VNC & VPN for EDA
+## VNC & VPN for EDA
 
 虽然 vnc 和 vpn 也不太算 eda，但是还是为了方便归类，一起放进来了。
 
+---
 
 需求一：在公司/学校网络中 RealVNC Viewer 不配置代理（使用系统代理），在非专用网络下配置 RealVNC Viewer 使用 zju-connect (HITSZ Connect Verge) 的代理。两种情况自动切换
 
@@ -55,3 +56,44 @@ CheckWifi(*) {
     }
 }
 ```
+
+--- 
+
+增加 linux 的显示分辨率, [source](https://www.xiaohongshu.com/user/profile/62aa23de000000001b02bd2b)
+
+```bash
+> xrandr
+Screen 0: minimum 32 x 32, current 1920 x 1080, maximum 32768 x 32768
+VNC-0 connected primary 1920x1080+0+0 0mm x 0mm
+   1920x1080     60.00*+
+   1920x1200     60.00  
+   1600x1200     60.00  
+   1680x1050     60.00  
+   1400x1050     60.00  
+   1360x768      60.00  
+   1280x1024     60.00  
+   1280x960      60.00  
+   1280x800      60.00  
+   1280x720      60.00  
+   1024x768      60.00  
+   800x600       60.00  
+   640x480       60.00
+
+> cvt 3840 2160
+# 3840x2160 59.98 Hz (CVT 8.29M9) hsync: 134.18 kHz; pclk: 712.75 MHz
+Modeline "3840x2160_60.00"  712.75  3840 4160 4576 5312  2160 2163 2168 2237 -hsync +vsync
+
+> xrandr --newmode "3840x2160_60.00"  712.75  3840 4160 4576 5312  2160 2163 2168 2237 -hsync +vsync
+
+> xrandr --addmode "VNC-0" "3840x2160_60.00"
+```
+
+---
+
+```bash
+gnome-tweaks
+```
+
+
+## Windows RDP
+
