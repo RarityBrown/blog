@@ -58,6 +58,19 @@ hiSetBindKey("Layout" "Ctrl<Key>Down"  "MyMoveSelected(0 -movingUnit())")
 /***************************************************************************
  * Virtuoso layout layer-cycle bindkeys
  * by gpt-5.4-high
+ * 
+ * ref: 
+ * https://www.edaboard.com/threads/skill-code-sample-on-how-to-hide-and-show-specific-layers.112476/
+ * https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/20213/bindkeys-in-ic1-6-5
+ * https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/39930/how-to-set-a-bindkey-to-display-multiple-layers
+ * https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/11922/how-to-select-and-deselect-a-layer-using-only-one-bind-key
+ * https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/20365/viewed-layers
+ * https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/25113/script-to-make-visible-dummy-layer-of-those-metal-layers-visible-in-lsw-selection
+ * https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/51861/all-layer-visible
+ * https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/65643/how-to-set-all-layers-of-a-specific-layer-name-visible-regardless-of-layer-purpose
+ * https://transistorized.net/post/stdal/post32.htm
+ * https://sites.google.com/site/yeagerengineering/cadence/bindkeys
+ * https://bbs.eetop.cn/thread-1001426-1-1.html
  *
  * Notes
  * - Edit the layer-name variables below for your PDK.
