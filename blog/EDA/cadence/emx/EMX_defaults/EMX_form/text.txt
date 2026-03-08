@@ -1,0 +1,50 @@
+"Process" "RC_IRCX_CRN28HPC+_1P9M+UT-ALRDL_6X1Z1U_typical.proc"
+"Proc_options" ""
+"Edge_mesh" 0.2
+"Thickness" 0.2
+"Via_merge" 0.2
+"_3D_metals" "*"
+"Surface_metals" ""
+"Signals" "*"
+"Grounds" ""
+"Global_ref" nil
+"Start" 0.0
+"Stop" 2e+10
+"Step" "1e+08"
+"Visualize" (t t nil nil)
+"Type" "N-port"
+"Plot_res" (t nil nil nil nil)
+"File_or_view" "EMX_form"
+
+"Capacitive" "*"
+"Inductive" "*"
+"Internal" ""
+"Size" 1.0
+"Label_depth" 2
+"Cadence_pins" t
+"Collapse_ports" nil
+"Resistance" 1.0
+"Separation" 5.0
+"Mode" "RLC"
+"Radiation" nil
+"Threads" 0
+"Simul_freqs" 0
+"Memory" "recommended"
+"Licensing" ""
+"Types" (t nil)
+"Formats" (t nil nil)
+"PZ_method" "none"
+"Data_file" ""
+"EMX" "--temperature=27 --uniform-source --solve-for-s --selected-sweep --local-reflex-scaling=0"
+"EMX_GDSview_combined" ""
+"GDSview" ""
+"ModelGen" ""
+"Work_dir" "./EMX_work"
+"EMX_path" ""
+
+"device_cells" nil
+"device_cells_time" nil
+"device_pin_check_mode" nil
+"selected_nets" nil
+"expanded_cells" nil
+"process_path" nil
