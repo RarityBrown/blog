@@ -58,8 +58,8 @@ hiSetBindKey("Symbol"     "<Key>w"     "schHiCreateSymbolShape(\"line\" \"outlin
 procedure(MYappendSignal()
     sevDirectPlot(sevSession(hiGetCurrentWindow()) 'asiiPlotTranSignalCB)  ; ref: https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/19291/awd-plotting-commands---_amsadirectplot
 )
-hiSetBindKey("Schematics" "Ctrl<Key>D" "MYappendSignal()")     ; *D*raw the signal
-
+; hiSetBindKey("Schematics" "Ctrl<Key>D" "MYappendSignal()")     ; *D*raw the signal
+hiSetBindKey("Schematics"     "F1"              "print(\"F1\")")
 
 ; ref: https://gist.github.com/02015678/cae341f4262fa73325e30eb925a21659
 ; 9 to add net probe, SHIFT+9 to delete net probe, CTRL+9 to delete all probe
@@ -77,6 +77,8 @@ hiSetBindKey("Schematics" "Ctrl<Key>D" "MYappendSignal()")     ; *D*raw the sign
 ; hidKey("Schematics" "Ctrl Shift <Key>J" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/user/Desktop/prj_20250224/.cadence/dfII/annotationSetups/My_annoSetup.as\")")
 ; hidKey("Schematics" "Ctrl Shift <Key>M" "annLoadAnnotationData(hiGetCurrentWindow() \"/home/arja/.cadence/TranannotationSetup.as\")")
 ; https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuosity-sharing-and-automatically-loading-ade-annotation-settings
+
+
 
 load("layout_bindkey.il")
 
