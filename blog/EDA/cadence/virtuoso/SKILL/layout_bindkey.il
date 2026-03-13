@@ -447,5 +447,58 @@ procedure(vlcInstallBindKeys()
 vlcInstallBindKeys()
 printf("Virtuoso layer-cycle bindkeys loaded.\n")
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; Define fixed copy spacing (Unit: um), (source drain metal 70nm + space 15nm + gate length 30nm + space 15nm) * 2
+defvar( MyCopySpacing 0.26 )
+procedure( MyDirectionalCopy( direction )
+    let( (cv selSet dx dy newFig newSelSet)
+        cv = geGetEditCellView()
+        selSet = geGetSelSet()
+        if( selSet then
+            cond(
+                (direction == "right"
+                    dx = MyCopySpacing
+                    dy = 0.0
+                )
+                (direction == "left"
+                    dx = -MyCopySpacing
+                    dy = 0.0
+                )
+                (direction == "up"
+                    dx = 0.0
+                    dy = MyCopySpacing
+                )
+                (direction == "down"
+                    dx = 0.0
+                    dy = -MyCopySpacing
+                )
+                (t
+                    dx = 0.0
+                    dy = 0.0
+                )
+            )
+
+            newSelSet = nil
+            foreach( fig selSet
+                newFig = dbCopyFig( fig cv list(dx:dy "R0" 1.0) )
+                if( newFig then
+                    newSelSet = cons(newFig newSelSet)
+                )
+            )
+            geDeselectAll()
+            foreach( fig newSelSet
+                geSelectFig(fig)
+            )
+        else
+            printf("Warning: No objects selected!\n")
+        )
+    )
+)
+
+;; =========================================================================
+;; Bindkeys Setup
+;; =========================================================================
+hiSetBindKey("Layout" "Shift Ctrl <Key>Left"  "MyDirectionalCopy(\"left\")")
+hiSetBindKey("Layout" "Shift Ctrl <Key>Right" "MyDirectionalCopy(\"right\")")
 
