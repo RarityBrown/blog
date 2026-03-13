@@ -24,6 +24,8 @@ adexl.gui            significantDigits             int     6                    
 ; maestro.lscs         defaultNetlistingJobPolicy    string "LSCS_NetJob_Policy"  ; or use the LSCS instead of the ICRP
 ; maestro.lscs         defaultSimulationJobPolicy    string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP
 
+
+asimenv.plotting     artistPlottingMode           string   "Append"
 maestro.plotting     distributedPlotEnabled        boolean t ; Virtuoso IC23.1
 
 ;;;;;;;;;;;;;;;;;;
@@ -72,6 +74,7 @@ graphic              selectPartialVia    boolean t               ; https://bbs.e
 graphic              selectPartialMosaic boolean t
 graphic   protectedObjHighlightHaloWidth string  "thin"          ; https://community.cadence.com/cadence_technology_forums/f/custom-ic-design/37203/layout-xl-how-to-set-default-options-for-selection-protection
 ;;;;;;;;;;;;;;;;;; layout ;;;;;;;;;;;;;
+layout               dynamicProbe         boolean t
 layout               drdEditMode          cyclic  "notify"
 layout               displayResolution    string  "Very High"
 layout               xSnapSpacing         float   0.005           ; 0.005um is typical for 28~55nm nodes
@@ -92,6 +95,8 @@ layout               pinTextSameLayer     boolean  t
 ; layoutXL             lxGenerateInBoundary boolean  t         
 ; layoutXL             updateLayoutParameters  boolean t
 
+layoutXL             lxSchematicDefaultApp 'cyclic "None"
+layoutXL             closeSchWindow       boolean   t
 
 
 ; layout               saveRulers                      boolean     nil                    ; ref: https://gist.github.com/02015678/783ad36389fe3b7aa8cd
@@ -101,6 +106,11 @@ layout               pinTextSameLayer     boolean  t
 ; layout               rulerLabelBackgroundColor       cyclic      "black"
 ; graphic              rulerColorPacketName            string      "orange"
 ; graphic              transientRulerColorPacketName   string      "orange"
+
+
+; multi-thread https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O3w000009lySvEAI&pageName=ArticleContent
+
+
 
 
 mspsAv.simProbe        saveOnlyOneGroupInstNode        boolean     t                      ; ref: https://bbs.eetop.cn/thread-963855-1-1.html
