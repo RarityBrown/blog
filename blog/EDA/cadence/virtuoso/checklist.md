@@ -15,7 +15,7 @@
 3. 硬件资源与应急
     1. 仿真引擎是否设置正确？精度 cx ax 是否正确？multi-threading 是否按照 CPU 核心数和前后仿电路大小合理设置？
     2. CPU 是否足够？
-        1. CPU 总体是否足够？是否有其他人在用这个 server？
+        1. CPU 总体是否足够？是否有其他人 / 自己的其他任务在用这个 server？会有你一个任务需要 32 核，而你自己的其他任务已经吃满 cpu 的情况吗？
         2. 是否有 Job Setup 并行度阻止仿真？如果是其他人复制的 maestro 也需要修改 Job Setup。
         3. ADE Assembler 中是否有老任务 suspended 阻止仿真？
     3. 是否保存了同 session 中其他 schematic/layout/maestro 的状态，以便于在 virtuoso 无响应时 xkill 而不丢失？
@@ -27,3 +27,19 @@
 - Simulation Engine:
   - APS conservative, Spectre X cx
 - restart virtuoso
+
+
+### 文件管理
+
+共享文件夹
+
+maestro lib, testbench schematic lib, cell schematic lib 三个库分开？
+
+
+自己创建的 symbol 中需要保留 `[partNmae]` 等，同时新增 `[@libName]` 这个域。
+
+
+命名格式 `schematic_hqh_20260317_1678`，schematic 用户只读
+
+
+每 1 分钟 10 分钟 100 分钟，1 天，2 天，3 天， 自动从公共 lib 里面拉去更新备份
