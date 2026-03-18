@@ -91,6 +91,9 @@ layout               pinTextPurpose       string   "pin"
 layout               pinTextPurposeNames  string   "pin"
 layout               pinTextSameLayer     boolean  t
 
+layout               gravityOn            boolean  t
+layout               gravityDistance      string   "Very Large"
+
 ; layout               iconsOn              boolean t
 ; layoutXL             lxGenerateInBoundary boolean  t         
 ; layoutXL             updateLayoutParameters  boolean t
