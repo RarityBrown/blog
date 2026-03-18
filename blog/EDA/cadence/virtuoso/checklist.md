@@ -43,3 +43,6 @@ maestro lib, testbench schematic lib, cell schematic lib 三个库分开？
 
 
 每 1 分钟 10 分钟 100 分钟，1 天，2 天，3 天， 自动从公共 lib 里面拉去更新备份
+
+
+layout 要和 schematic 每个都 binding 上
