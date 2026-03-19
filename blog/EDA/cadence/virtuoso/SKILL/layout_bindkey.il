@@ -15,6 +15,17 @@ hiSetBindKey("Layout" "Ctrl<Key>H"   "mgc_calibre_realtime_send_highlight_cmd(\"
 hiSetBindKey("Layout" "Shift<Key>H"  "mgc_calibre_realtime_send_highlight_cmd(\"ClearHighlights\")")
 
 
+procedure( CustomCreateMPP(templateName)
+    leHiCreateMPP()
+    hiToggleEnterForm()  ; todo
+    leRodMppForm->rodMPPTemplate->value = templateName
+    leRodMppForm->pathWidth->value = 0.12
+    hiiToggleEnterForm(leRodMppForm)
+)
+
+hiSetBindKey("Layout" "<Key>g" "CustomCreateMPP(\"NwellMPP\")")
+hiSetBindKey("Layout" "Ctrl<Key>g" "CustomCreateMPP(\"PSubMPP\")")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;; move obj with arrow keys
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
