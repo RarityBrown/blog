@@ -4,7 +4,7 @@
     1. 是否跑过短时间的 tran 验证？例如 1ps / 1ns？
     2. 在扫参、扫工艺角前，是否跑过一个扫描点的验证？
     3. 是否使用 [Run Preview](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-video-diary-run-point-selection-wysiwyg) 检查仿真设置？
-    4. 如果是其他人复制过来的，或者是复制备份的 tb，ADE 中的 Design 是否正确更新 cell 和 config？
+    4. ADE 中的 Design 正确指向相应的 cell 和 config？
 2. ADE 信号
     1. 需要的信号是否保存，不需要的信号是否不保存？
         1. 如果是 `allpub` 评估是否放得下？
