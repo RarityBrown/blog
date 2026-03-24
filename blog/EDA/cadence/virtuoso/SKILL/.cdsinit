@@ -14,8 +14,8 @@ hiSetFont("label" ?size 14)                      ; simulation font size, greater
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;; CDF default Value ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "analogLib" "switch")) "vt1")->defValue = "300m"
-(cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "analogLib" "switch")) "vt2")->defValue = "400m"
+; (cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "analogLib" "switch")) "vt1")->defValue = "300m"
+; (cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "analogLib" "switch")) "vt2")->defValue = "400m"
 
 ; not working
 ; (cdfFindParamByName (cdfGetUserCellCDF (ddGetObj "tsmcN28" "nch_mac")) "DFM_options")->defValue = "DFM+Analog"
@@ -26,6 +26,18 @@ hiSetFont("label" ?size 14)                      ; simulation font size, greater
 ; schCreateInstForm->libraryName->??
 ; schCreateInstForm->DFM_display->value="ON"
 ; schCreateInstForm->DFM_options->value="DFM+Analog"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;; Symbol LibName ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+myCustomTsgPath = "~/Desktop/cdnsws/setup/default_personal.tsg"    ; https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/45209/automatically-populate-cellname-instead-of-partname-when-generating-a-symbol-from-schematic
+if( isFile(myCustomTsgPath) then
+    if( boundp('tsgTemplateMasters) then
+        tsgTemplateMasters = cons( list("default_personal" myCustomTsgPath) tsgTemplateMasters )
+    )
+    envSetVal("schematic" "tsgTemplateType" 'string "default_personal")
+)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
