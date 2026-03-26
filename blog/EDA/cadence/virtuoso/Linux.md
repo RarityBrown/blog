@@ -25,10 +25,11 @@ A: <kbd>F8</kbd> + "Send Ctrl+Alt+Del"
 ---
 
 
-**关闭 GNOME 所有动画效果**
+**关闭 GNOME 所有动画效果, 一直 recursive-search**
 
 ```bash
 gsettings set org.gnome.desktop.interface enable-animations false
+gsettings set org.gnome.nautilus.preferences recursive-search 'always'
 ```
 
 ---
