@@ -5,6 +5,7 @@
     2. 在扫参、扫工艺角前，是否跑过一个扫描点的验证？
     3. 是否使用 [Run Preview](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-video-diary-run-point-selection-wysiwyg) 检查仿真设置？
     4. **ADE** 中的 Design 正确指向相应的 cell 和 config？**config** 中的 Top Cell 是否指向正确的 schematic？通过 Open Design in Tab 检查
+    5. testbench 的 schematic 和子电路层级的 schematic 是否保存了？避免 update and run 错误。
 2. ADE 信号
     1. 需要的信号是否保存，不需要的信号是否不保存？
         1. 如果是 `allpub` 评估是否放得下？
