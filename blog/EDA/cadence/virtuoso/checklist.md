@@ -26,6 +26,14 @@
     4. 是否保存了同 session 中其他 schematic/layout/maestro 的状态，以便于在 virtuoso 无响应时 xkill 而不丢失？
     5. 磁盘空间是否足够？`placeholder_file_reserved_for_deletion_in_case_of_emergency1.bin` 文件准备。
 
+对于超级大的后仿，可以考虑启用加快 netlisting 的过程：
+
+```
+envSetVal("adexl.test" "checkForNewCellviewVarsUponRun" 'cyclic "No")
+envSetVal("adexl.test" "checkForUnsavedViewsUponRun" 'boolean nil)
+envSetVal("adexl.gui" "disableConstraintsRead" 'boolean t)
+```
+
 
 ### debug checklist
 
