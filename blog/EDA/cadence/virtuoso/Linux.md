@@ -24,6 +24,16 @@ A: <kbd>F8</kbd> + "Send Ctrl+Alt+Del"
 
 ---
 
+**获取系统信息**
+
+```csh
+lscpu | awk '/Thread\(s\) per core/{t=$4} /Core\(s\) per socket/{c=$4} /Socket\(s\)/{s=$2} /CPU max MHz/{m=$4} END{printf "(%d*%d)*%d @ %.0f MHz\n",t,c,s,m}'
+awk '/MemTotal/{printf "%.1f GB\n", $2/1024/1024}' /proc/meminfo
+```
+
+例如 `(2*24)*2 @ 3347 MHz` 第一个 2 代表超线程，第二个 24 代表一个 cpu 中的物理核心数，第三个 2 代表两个 cpu socket，最后的表示最高主频。
+
+---
 
 **关闭 GNOME 所有动画效果, 一直 recursive-search**
 
