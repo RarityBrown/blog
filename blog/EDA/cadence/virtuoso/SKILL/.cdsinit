@@ -10,6 +10,7 @@ hiSetFont("ciw"   ?size 14)                      ; CIW font size, greater than 1
 hiSetFont("text"  ?size 14)                      ; Toolbar and Menu font size, greater than 16 is not recommended
 hiSetFont("label" ?size 14)                      ; simulation font size, greater than 16 is not recommended
 
+; drLoadDrf("")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;; CDF default Value ;;;;;;;;;;;;;;;;;;;;;;;;;
