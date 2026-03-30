@@ -10,7 +10,7 @@ cdsLibManager.main   showCategoriesOn boolean t              ; lib manager shows
 cdsLibManager.main   showFilesOn      boolean t              ; lib manager shows files
 
 ;;;;;;;;;;;;;;;;;; spectre
-spectre.turboOpts    uniMode          string  "APS"          ; to use spectre APS by default. or "Spectre X"
+spectre.turboOpts    uniMode          string  "Spectre X"          ; to use Spectre X by default. or "APS"
 spectre.turboOpts    spectreXPreset   string  "AX"
 ; spectre              numThreads       int     16                   ; memory and multithreading config, todo
 
@@ -20,9 +20,10 @@ spectre.turboOpts    spectreXPreset   string  "AX"
 ; adexl.gui            enableAutoRefreshPointsTable  boolean t                    ; disabled, significantly impacts performance in the ADE simulation settings when > 50 simulation points (e.g. MC) even in Virtuoso 23.1
 ; adexl.icrpStartup    defaultJobPolicy              string "My_jobpolicy"        ; My jobs parallelization policy
 ; adexl.gui            defaultCorners                string "./corners/corner_mc_tt40.csv" ; IC6.1.8-64b.500.20 and above. for IC6.1.8-64b.500.19  string "./corners/corners_6.sdb" ; . see https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/49271/load-corners-csv-file-skill-function
-adexl.gui            significantDigits             int     6                    ; for a designer who working on low-noise / high-precision / high-sndr design, 500.00mV and 500.01mV are different
-; maestro.lscs         defaultNetlistingJobPolicy    string "LSCS_NetJob_Policy"  ; or use the LSCS instead of the ICRP
-; maestro.lscs         defaultSimulationJobPolicy    string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP
+j adexl.gui            significantDigits             int     6                    ; for a designer who working on low-noise / high-precision / high-sndr design, 500.00mV and 500.01mV are different
+adexl.distribute   continueICRPRunOnAbruptGUIExit  boolean t                    ; https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1Od0000000nXSlEAM&pageName=ArticleContent
+maestro.lscs         defaultNetlistingJobPolicy    string "LSCS_NetJob_Policy"  ; or use the LSCS instead of the ICRP
+maestro.lscs         defaultSimulationJobPolicy    string "LSCS_SimJob_Policy"  ; or use the LSCS instead of the ICRP
 
 
 asimenv.plotting     artistPlottingMode           string   "Append"
@@ -98,8 +99,8 @@ layout               gravityDistance      string   "Very Large"
 ; layoutXL             lxGenerateInBoundary boolean  t         
 ; layoutXL             updateLayoutParameters  boolean t
 
-layoutXL             lxSchematicDefaultApp 'cyclic "None"
-layoutXL             closeSchWindow       boolean   t
+; layoutXL             lxSchematicDefaultApp 'cyclic "None"
+; layoutXL             closeSchWindow       boolean   t
 
 
 ; layout               saveRulers                      boolean     nil                    ; ref: https://gist.github.com/02015678/783ad36389fe3b7aa8cd
@@ -112,9 +113,6 @@ layoutXL             closeSchWindow       boolean   t
 
 
 ; multi-thread https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O3w000009lySvEAI&pageName=ArticleContent
-
-
-
 
 mspsAv.simProbe        saveOnlyOneGroupInstNode        boolean     t                      ; ref: https://bbs.eetop.cn/thread-963855-1-1.html
 
