@@ -3,7 +3,7 @@ procedure( ChangeSelectedMetalLayer(targetNum)
         sel = geGetSelSet()
         foreach(obj sel
             printf("Selected object type: %s\n" obj~>objType)
-            if(member(obj~>objType '("rect" "path" "pathseg" "label")) then
+            if(member(obj~>objType '("rect" "path" "pathSeg" "label")) then
                 layerName = obj~>layerName
                 purpose = obj~>purpose
                 if(layerName && rexMatchp("^M[0-9]+$" layerName) then
