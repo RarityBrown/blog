@@ -18,3 +18,6 @@ procedure( ChangeSelectedMetalLayer(targetNum)
 for(i 1 9
     hiSetBindKey("Layout" sprintf(nil "<Key>%d" i) sprintf(nil "ChangeSelectedMetalLayer(%d)" i))
 )
+
+
+; 如果是管子，能不能控制 sti 的 poly 数？
