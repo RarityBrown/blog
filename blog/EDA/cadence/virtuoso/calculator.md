@@ -43,3 +43,29 @@ $$
 ```skill
 
 ```
+
+
+## 常用函数
+
+```skill
+awvDigital2Analog(
+    awvCreateBus(
+        "DOUT1" 
+        list(
+            awvAnalog2Digital(vtime('tran "/I0/I2/I102/Dout<16>") nil nil 0.5 nil "centre") 
+            awvAnalog2Digital(vtime('tran "/I0/I2/I102/Dout<15>") nil nil 0.5 nil "centre") 
+            awvAnalog2Digital(vtime('tran "/I0/I2/I102/Dout<14>") nil nil 0.5 nil "centre") 
+            awvAnalog2Digital(vtime('tran "/I0/I2/I102/Dout<13>") nil nil 0.5 nil "centre")) 
+        "Binary"
+    ) 
+    0.75 
+    -0.75 
+    "(vhi+vlo)/2" 
+    ?mode 
+    "busvalue" 
+    ?outWaveType 
+    "zeroT" 
+    ?risetime 0.0 
+    ?falltime 0.0
+)
+```
