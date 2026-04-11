@@ -68,12 +68,31 @@ plt.show()
 ### get the path where psf stored
 
 
-axlGetPointPsfDir(...)
-pointSimulationCompleted
+resultsDir()
+openResults()
+maeReadResDB()
+selectResult()
+
+asiGetRunDir
+maeGetSimulationMessages
+
+```
+asiGetPsfDir(asiGetCurrentSession())
+axlGetPointPsfDir(axlGetHistoryEntry(axlGetMainSetupDB(axlGetWindowSession()) "ExplorerRun.0") "test_name")
+```
+
+axlGetPointPsfDir(axlGetHistoryEntry(axlGetMainSetupDB("session0") "Interactive.12") "opamplib:ampTest:1" ?cornerName "C0_0" ?designPointId 1)
+
+
+How to set up and execute a Post Run Simulation OCEAN Script for ADE XL, Explorer, and Assembler simulations https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1Od0000000nXS2EAM&pageName=ArticleContent
 
 ### run python
-
 
 sprintf(nil "test %s test" VARIABLE_A)
 
 atof(system_output_ipc("env -u PYTHONHOME -u PYTHONPATH -u LD_LIBRARY_PATH python -c 'print(1+1)'"))
+
+axlSessionRegisterCreationCallback
+asiRegCallBackOnSimComp
+runFinishedConclusion
+pointSimulationCompleted
