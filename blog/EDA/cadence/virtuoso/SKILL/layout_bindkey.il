@@ -31,8 +31,17 @@ hiSetBindKey("Layout" "Ctrl<Key>g" "CustomCreateMPP(\"PSubMPP\")")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 procedure(MyMoveSelected(deltax deltay)     ; ref: https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/36295/bindkey-to-move-selected-object
   let((xform)
-    xform = list(deltax:deltay "R0" 1)
-    foreach(obj geGetSelSet() dbMoveFig(obj nil xform))    ; Don't move the fig, if the selected obj is label pin. Bacause the label will move with the path, and this for loop will move pins twice. 
+    if( null(geGetSelSet()) then
+      cond(
+        ((minusp deltax) geScroll(nil "w" nil))
+        ((plusp deltax) geScroll(nil "e" nil))
+        ((minusp deltay) geScroll(nil "s" nil))
+        ((plusp deltay) geScroll(nil "n" nil))
+      )
+    else
+      xform = list(deltax:deltay "R0" 1)
+      foreach(obj geGetSelSet() dbMoveFig(obj nil xform))    ; Don't move the fig, if the selected obj is label pin. Bacause the label will move with the path, and this for loop will move pins twice. 
+    )
   )
 )
 procedure( movingUnit()
