@@ -87,7 +87,188 @@ R_{ON}
 = \frac{1}{\mu C_{ox} \frac{W}{L} (V_G - V_{TH0} - nV_S)}
 $$
 
-### Capacitor
+## Operating-Point Parameters (Virtuoso)
+
+### Capacitances
+
+| Parameter | Unit| BSIM4 Description | BSIM-BULK Description |
+| :--- | :--- | :--- | :--- |
+| `cbb` | (F) | Bulk capacitance, including intrinsic and overlap components. | Total body capacitance. |
+| `cbbi` | (F) | - | Intrinsic body capacitance. |
+| `cbd` | (F) | Intrinsic bulk-to-drain capacitance. | Total body-to-drain capacitance. |
+| `cbdbo` | (F) | CBDBO = -dQb/dVd intrinsic bulk-to-drain capacitance (alias=lx22). | - |
+| `cbdi` | (F) | - | Intrinsic body-to-drain capacitance. |
+| `cbg` | (F) | Total bulk-to-gate capacitance, including intrinsic and overlap components (alias=lx88). | Total body-to-gate capacitance. |
+| `cbgbo` | (F) | CBGBO = -dQb/dVg intrinsic bulk-to-gate capacitance (alias=lx21). | - |
+| `cbgi` | (F) | - | Intrinsic body-to-gate capacitance. |
+| `cbs` | (F) | Intrinsic bulk-to-source capacitance. | Total body-to-source capacitance. |
+| `cbsbo` | (F) | CBSBO = -dQb/dVs intrinsic bulk-to-source capacitance (alias=lx23). | - |
+| `cbsi` | (F) | - | Intrinsic body-to-source capacitance. |
+| `cdb` | (F) | Intrinsic drain-to-bulk capacitance. | Total drain-to-body capacitance. |
+| `cdbi` | (F) | - | Intrinsic drain-to-body capacitance. |
+| `cdd` | (F) | Drain capacitance, including intrinsic, overlap, and fringing components. | Total drain capacitance. |
+| `cddbo` | (F) | CDDBO = dQd/dVd intrinsic drain capacitance (alias=lx33). | - |
+| `cddi` | (F) | - | Intrinsic drain capacitance. |
+| `cdg` | (F) | Total drain-to-gate capacitance, including intrinsic, overlap, and fringing components (alias=lx87). | Total drain-to-gate capacitance. |
+| `cdgbo` | (F) | CDGBO = -dQd/dVg intrinsic drain-to-gate capacitance (alias=lx32). | - |
+| `cdgi` | (F) | - | Intrinsic drain-to-gate capacitance. |
+| `cds` | (F) | Total drain-to-source capacitance (alias=lx86). | Total drain-to-source capacitance. |
+| `cdsbo` | (F) | CDSBO = -dQd/dVs intrinsic drain-to-source capacitance (alias=lx34). | - |
+| `cdsi` | (F) | - | Intrinsic drain-to-source capacitance. |
+| `cgb` | (F) | Total gate-to-bulk capacitance, including intrinsic and overlap components. | Total gate-to-body capacitance. |
+| `cgbi` | (F) | - | Intrinsic gate-to-body capacitance. |
+| `cgd` | (F) | Total gate-to-drain capacitance, including intrinsic, overlap, and fringing components (alias=lx83). | Total gate-to-drain capacitance. |
+| `cgdbo` | (F) | CGDBO = -dQg/dVd intrinsic gate-to-drain capacitance (alias=lx19). | - |
+| `cgdext` | (F) | - | External gate-to-drain capacitance. |
+| `cgdi` | (F) | - | Intrinsic gate-to-drain capacitance. |
+| `cgg` | (F) | Total gate capacitance, including intrinsic, overlap and fringing components (alias=lx82). | Total gate capacitance. |
+| `cggbo` | (F) | CGGBO = dQg/dVg intrinsic gate capacitance (alias=lx18). | - |
+| `cggi` | (F) | - | Intrinsic gate capacitance. |
+| `cgs` | (F) | Total gate-to-source capacitance, including intrinsic, overlap, and fringing components (alias=lx84). | Total gate-to-source capacitance. |
+| `cgsbo` | (F) | CGSBO = -dQg/dVs intrinsic gate-to-source capacitance (alias=lx20). | - |
+| `cgsext` | (F) | - | External gate-to-source capacitance. |
+| `cgsi` | (F) | - | Intrinsic gate-to-source capacitance. |
+| `cjd` / `capbd` (`cjdt`) | (F) | Drain-bulk junction capacitance (alias=lx29). | Drain-to-substrate junction capacitance. |
+| `cjs` / `capbs` (`cjst`) | (F) | Source-bulk junction capacitance (alias=lx28). | Source-to-substrate junction capacitance. |
+| `cm` | (F) | Capacitance element 1 for QS model. | - |
+| `cmb` | (F) | Capacitance element 2 for QS model. | - |
+| `cmx` | (F) | Capacitance element 3 for QS model. | - |
+| `co` | (F) | Output Drain-Source capacitance. | - |
+| `covlgb` / `cgbov` | (F/m) / (F) | Gate-bulk overlap capacitances (alias=lv38). | Gate-to-substrate overlap capacitance. |
+| `covlgd` | (F/m) | Gate-drain overlap and fringing capacitances (alias=lv37). | - |
+| `covlgs` | (F/m) | Gate-source overlap and fringing capacitances (alias=lv36). | - |
+| `csb` | (F) | Intrinsic source-to-bulk capacitance. | Total source-to-body capacitance. |
+| `csbi` | (F) | - | Intrinsic source-to-body capacitance. |
+| `csd` | (F) | Total source-to-drain capacitance. | Total source-to-drain capacitance. |
+| `csdi` | (F) | - | Intrinsic source-to-drain capacitance. |
+| `csg` | (F) | Total source-to-gate capacitance, including intrinsic, overlap, and fringing components. | Total source-to-gate capacitance. |
+| `csgi` | (F) | - | Intrinsic source-to-gate capacitance. |
+| `css` | (F) | Source capacitance, including intrinsic, overlap, and fringing components. | Total source capacitance. |
+| `cssi` | (F) | - | Intrinsic source capacitance. |
+
+
+### 2. Frequency, Gm, R
+
+| Parameter | Unit| BSIM4 Description | BSIM-BULK Description |
+| :--- | :--- | :--- | :--- |
+| `fqslim` | (Hz) | QS model frequency limit. | - |
+| `ft` | (Hz) | Unity current gain frequency at actual bias. | Unity current gain frequency at actual bias. |
+| `fug` | (Hz) | Unity current gain frequency at actual bias. | Unity current gain frequency at actual bias. |
+| `gbd` | (S) | Bulk-drain diode conductance (alias=lx10). | - |
+| `gbs` | (S) | Bulk-source diode conductance (alias=lx11). | - |
+| `gds` | (S) | Common-source output conductance (alias=lx8). | Common-source output conductance. |
+| `gm` | (S) | Common-source transconductance (alias=lx7). | Common-source transconductance. |
+| `gmb` | (S) | DC bulk transconductance. | - |
+| `gmbs` | (S) | Body-transconductance (alias=lx9). | Body-transconductance. |
+| `gmoveri` | (1/V) | Gm/Ids. | - |
+| `gmoverid`| (1/V) | Gm/Ids. | Gm/Ids. |
+| `go` | (S) | Common-source output conductance. | - |
+| `rdeff` | (Ω) | Effective drain resistance. | - |
+| `rgate` | (Ω) | MOS gate resistance. | - |
+| `rgbd` | (Ω) | Gate bias-dependent resistance. | - |
+| `ron` | (Ω) | On-resistance, includes the parasitical rs and rd. | On-resistance. |
+| `rout` | (Ω) | AC output resistor. The parasitical rs and rd are excluded. | Output resistance. |
+| `rseff` | (Ω) | Effective source resistance. | - |
+
+### 3. Currents & Power
+
+| Parameter | Unit| BSIM4 Description | BSIM-BULK Description |
+| :--- | :--- | :--- | :--- |
+| `Iavl` | (A) | Weak avalanche current. | - |
+| `ib` | (A) | Total DC bulk current. | - |
+| `ibe` | (A) | Total DC bulk current. | - |
+| `ibulk` | (A) | Resistive bulk current. | - |
+| `id` | (A) | Resistive drain current. | Total resistive drain current. |
+| `idb` / `ibd` (`ijdb`) | (A) | DC drain-bulk current. | Drain-bulk junction current. |
+| `ide` | (A) | Total DC drain current. | - |
+| `ideff` | (A) | - | Effective drain current. |
+| `idriftsatd`| (A)| - | Drift region saturation current. |
+| `ids` | (A) | Resistive drain-to-source current. | Drain-source current. |
+| `ig` | (A) | Total DC gate current. | - |
+| `igb` | (A) | Gate-to-bulk tunneling current (alias=lx66). | Gate-to-bulk tunneling current. |
+| `igbacc` | (A) | Gate-to-bulk tunneling current determined by ECB (alias=lx73). | - |
+| `igbinv` | (A) | Gate-to-bulk tunneling current determined by EVB (alias=lx74). | - |
+| `igcd` | (A) | Gate-to-channel (drain side) tunneling current (alias=lx68). | Gate-to-channel (drain side) tunneling current. |
+| `igcs` | (A) | Gate-to-channel (source side) tunneling current (alias=lx67). | Gate-to-channel (source side) tunneling current. |
+| `igd` | (A) | Gate-to-drain tunneling current (alias=lx39). | Gate-to-drain tunneling current. |
+| `igdt` | (A) | Gate Dielectric tunneling current (alias=lx71). | - |
+| `ige` | (A) | Total DC gate current. | - |
+| `igeff` | (A) | - | Effective gate current. |
+| `igidl` | (A) | Gate-induced drain leakage current (alias=lx70). | Gate-induced drain leakage current. |
+| `igisl` | (A) | Gate-induced source leakage current. | Gate-induced source leakage current. |
+| `igs` | (A) | Gate-to-source tunneling current (alias=lx38). | Gate-to-source tunneling current. |
+| `is` | (A) | Total DC source current. | - |
+| `isb` / `ibs` (`ijsb`) | (A) | DC source-bulk current. | Source-bulk junction current. |
+| `ise` | (A) | Total DC source current. | - |
+| `iseff` | (A) | - | Effective source current. |
+| `isub` (`iii`) | (A) | Substrate current ( alias to LX69 ). | Impact ionization current. |
+| `pwr` | (W) | Power at op point. | Power at op point. |
+
+### 4. Charges
+
+| Parameter | Unit| BSIM4 Description | BSIM-BULK Description |
+| :--- | :--- | :--- | :--- |
+| `qb` | (Coul) | Total bulk charge, including intrinsic and overlap components. | Body charge. |
+| `qbi` | (Coul) | Intrinsic bulk charge. | Intrinsic bulk charge. |
+| `qd` | (Coul) | Total drain charge, including intrinsic, overlap and fringing components. | Drain charge. |
+| `qdi` | (Coul) | Intrinsic drain charge. | Intrinsic drain charge. |
+| `qg` | (Coul) | Total gate charge, including intrinsic, overlap and fringing components. | Gate charge. |
+| `qgdovl` | (Coul) | Gate-drain overlap and fringing charge. | - |
+| `qgi` | (Coul) | Intrinsic gate charge. | Intrinsic gate charge. |
+| `qgsovl` | (Coul) | Gate-source overlap and fringing charge. | - |
+| `qinv` | (Coul) | Inversion charge. | - |
+| `qjd` | (Coul) | Drain-bulk junction charge. | - |
+| `qjs` | (Coul) | Source-bulk junction charge. | - |
+| `qs` | (Coul) | Total source charge, including intrinsic, overlap and fringing components. | Source charge. |
+| `qsi` | (Coul) | Intrinsic source charge. | Intrinsic source charge. |
+
+### 5. Voltages
+
+| Parameter | Unit| BSIM4 Description | BSIM-BULK Description |
+| :--- | :--- | :--- | :--- |
+| `vbs` | (V) | Bulk-source voltage. | Body-to-source voltage. |
+| `vdb` | (V) | Drain-bulk voltage. | - |
+| `vds` | (V) | Drain-source voltage. | Drain-to-source voltage. |
+| `vdsat` (`vdssat`) | (V) | Drain-source saturation voltage (alias=lv10). | Drain-source saturation voltage. |
+| `vdsat_marg` / `vsat_marg` | (V) | Vds margin. (Note: BSIM4 has both names for this) | Vds margin. |
+| `vdss` | (V) | Drain saturation voltage at actual bias. | - |
+| `vdst` | (V) | - | External drain-source voltage. |
+| `vearly` | (V) | Equivalent early voltage. | Equivalent early voltage. |
+| `vfbeff` | (V) | Effective Flat-band voltage. | - |
+| `vgb` | (V) | Gate-bulk voltage. | - |
+| `vgd` | (V) | Gate-drain voltage. | - |
+| `vgs` | (V) | Gate-source voltage. | Gate-to-source voltage. |
+| `vgst` | (V) | - | External gate-source voltage. |
+| `vgt` (`vth_drive`)| (V) | effective gate drive voltage including back bias and drain bias effects. (Alias: vth_drive)| Effective gate drive voltage. |
+| `vsb` | (V) | Source-bulk DC voltage. | Voltage between source and bulk (vs-vb). |
+| `vsbt` | (V) | - | External source-bulk voltage. |
+| `vth` (`lv9`) | (V) | Threshold voltage (alias=lv9). | Threshold Voltage. |
+| `vth0` | (V) | Zero-bias threshold voltage, excluding back-bias (body effect) and drain-bias effect (DIBL). | - |
+
+### 6. Others
+
+| Parameter | Unit| BSIM4 Description | BSIM-BULK Description |
+| :--- | :--- | :--- | :--- |
+| `beff` | (A/V²) | Gain factor in saturation. | - |
+| `betaeff` | (A/V²) | Effective beta (alias LV21). | - |
+| `Ctype` | | Flag for channel type of MOSFET. 1: NMOS. -1: PMOS. | - |
+| `leffcv` | (m) | - | Effective length for CV. |
+| `OPdef` | | 1: Device Physics notation. 2: Circuit Simulator notation. | - |
+| `pro_Gamma`| | Gamma. | - |
+| `region` | triode | Estimated operating region. %Z outputs the number (0-4) in a rawfile. Possible values are off, triode, sat, subth and breakdown. | Estimated operating region. Spectre outputs number (0-4) in a rawfile. Possible values are off, triode, sat, subth and breakdown. |
+| `reversed`| | Reverse mode indicator. Possible values are no and yes. | - |
+| `SDint` | | Flag for source-drain interchange. 1: No S-D interchange, -1: S-D interchange. | - |
+| `SDop` | | Operation mode related to channel type and drain-source voltage sign. Possible values are Forward and Reverse. | - |
+| `self_gain`| | Transistor self gain. | Transistor self gain. |
+| `tau1` | (s) | Time constant related to NQS first frequency pole. | - |
+| `ueff` | | ueff. | - |
+| `weffcv` | (m) | - | Effective width for CV. |
+|  |  |  |  |
+| `dtemp` | (C) / 0.0 C | Alias for trise. | Offset of device temperature. |
+| `Dtsh` / `t_delta_sh` | (K) | Device temperature rise due to self-heating. | Device temperature by selfheating. |
+| `Tk` / `t_total_k` (`tk`) | (K) | Absolute Device temperature including self-heating. | Device temperature in Kelvin. |
+| `t_total_c`| (deg-C)| - | Device temperature in Celsius. |
+| `trise` | (C) / 0.0 C | Temperature rise from ambient. | Alias of dtemp. |
 
 ## Simulating
 
