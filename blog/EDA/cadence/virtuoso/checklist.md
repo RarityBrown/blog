@@ -59,3 +59,11 @@ maestro lib, testbench schematic lib, cell schematic lib 三个库分开？
 
 
 layout 要和 schematic 每个都 binding 上
+
+### pre-tapeout checklist
+
+1. Monte Carlo
+2. Tran Noise
+3. Bonding
+4. Power for each modules
+5. PAD
