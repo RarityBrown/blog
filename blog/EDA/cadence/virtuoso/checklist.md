@@ -67,3 +67,4 @@ layout 要和 schematic 每个都 binding 上
 3. Bonding
 4. Power for each modules
 5. PAD
+6. SPI: proximal buffer
