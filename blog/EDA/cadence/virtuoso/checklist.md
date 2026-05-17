@@ -68,3 +68,5 @@ layout 要和 schematic 每个都 binding 上
 4. Power for each modules
 5. PAD
 6. SPI: proximal buffer
+7. Power-on Power-off Power-on @ different slope
+8. Over-voltage MOSFETs power-on? noting for every vgs/vds at any time
