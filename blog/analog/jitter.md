@@ -186,6 +186,7 @@ $$
 
 ```lisp
 rfJitter(?result "pnoiseOut1_sample_pm0" ?unit "Second" ?from 1 ?to (VAR("f_0")/2) ?signalLevel "rms")
+rfJitter(?result "pnoise_sample_pm0" ?unit "Second" ?from 1 ?to (VAR("f_0")/2) ?signalLevel "rms")
 ```
 
 需要注意的是，实际上噪声谱的 y 轴有多种可能的单位，包括但不限于三种**电压噪声密度** $V_n(f)$ ：
