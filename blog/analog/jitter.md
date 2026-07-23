@@ -441,6 +441,9 @@ plt.show()
 4. [`phaseNoiseToJitter`- MATLAB](https://www.mathworks.com/help/msblks/ref/phasenoisetojitter.html)
 5. https://github.com/YiDingg/YiDingg/blob/main/_sidebar.md
 6. TCAS-I: Understanding Phase Error and Jitter: Definitions, Implications, Simulations, and Measurement
+7. [待学芯: 关于 Jitter 与 ADC 的一些讨论](https://zhuanlan.zhihu.com/p/1923099254555127929)
+8. [YiDingg: VCO/PLL 仿真方法——周期性稳态仿真与相位噪声 (pss and pnoise)](https://zhuanlan.zhihu.com/p/1991913588185641646)
+9. [肥肥牛是只虎: PSS+Pnoise仿真：基本设置](https://mp.weixin.qq.com/s/etyQ2UkfisPkvbc44XFw4w)
 
 Cadence reference available in offline doc: 
 
@@ -451,12 +454,9 @@ Cadence reference available in offline doc:
 
 Cadence reference available online:
 
-1. Jee Measurement Using PSS/Pnoise and Transient Noise Analysis Rapid Adoption Kit (RAK)
-   1. cadence public link: https://support1.cadence.com/public/docs/content/20483291.html
-   2. cadence support link: https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O0V000009EVE2UAO
-   3. eetop link: https://bbs.eetop.cn/thread-976083-1-1.html
-2. Summary of Study of Cadence Sampled Phase Noise and Jitter Definitions with a Comparison to Conventional Time Interval Error (TIE) for a Driven Circuit, Shawn Logan
+1. RAK 2020 (obsolete): Jee Measurement Using PSS/Pnoise and Transient Noise Analysis: [eetop](https://bbs.eetop.cn/thread-976083-1-1.html)
+2. RAK 2025: Spectre Transient Noise Simulation from ADE - Advanced: [eetop](https://bbs.eetop.cn/thread-987336-1-1.html)
+3. [Support](https://ask.cadence.com/ASK/article-viewer?id=a1O3w000009bh2QEAQ&pageName=article-viewer): How to get Jee, Jc, and Jcc from transient simulation of driven circuit
+4. Summary of Study of Cadence Sampled Phase Noise and Jitter Definitions with a Comparison to Conventional Time Interval Error (TIE) for a Driven Circuit, Shawn Logan
    1. https://community.cadence.com/cadence_technology_forums/f/rf-design/56894/jee-measurement
-3. unknown 
-   1. https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1O3w000009bh2QEAQ
-   2. https://support.cadence.com/apex/ArticleAttachmentPortal?id=a1Od0000000nTk7EAE
+
