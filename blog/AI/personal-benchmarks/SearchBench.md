@@ -127,7 +127,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - The command recompiles all out-of-date files in a QuestaSim project? (not `vlog` or `vcom`)
   - 正确答案：`project compileoutofdate`    (典型错误：`vlog -work work +acc=r *.v`)
 - The latest sub-version for Cadence Virtuoso 6.1.8 and Virtuoso 23.1?
-  - [ISR34](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-icadvm20-1-isr34-and-ic6-1-8-isr34-now-available), 当然如果你再细一点，可以发现有 [ISR36](https://bbs.eetop.cn/thread-991360-1-1.html), 不过这个要非常细，这些链接也是可以的 [1](https://www.nulledfrm.com/threads/cadence-virtuoso-ic06-18-360-linux.133645/#post-815659)[2](https://dl4all.org/software/graphics-design/866023-cadence-virtuoso-ic0618360-linux.html)[3](https://downloadly.ir/software/engineering-specialized/cadence-ic-design-virtuoso/)[4](https://www.iranhack.com/forum/forum/%D9%86%D8%B1%D9%85-%D8%A7%D9%81%D8%B2%D8%A7%D8%B1/188483-cadence-virtuoso-ic06-18-360-linux)[5](https://bbs.eetop.cn/thread-991360-1-1.html)[6](https://bbs.eetop.cn/thread-984059-1-1.html); [ISR16](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-studio-ic23-1-isr16-now-available)
+  - [ISR34](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-icadvm20-1-isr34-and-ic6-1-8-isr34-now-available), 当然如果你再细一点，可以发现有 [ISR36](https://bbs.eetop.cn/thread-991360-1-1.html), 不过这个要非常细，这些链接也是可以的 [1](https://www.nulledfrm.com/threads/cadence-virtuoso-ic06-18-360-linux.133645/#post-815659)[2](https://dl4all.org/software/graphics-design/866023-cadence-virtuoso-ic0618360-linux.html)[3](https://downloadly.ir/software/engineering-specialized/cadence-ic-design-virtuoso/)[4](https://www.iranhack.com/forum/forum/%D9%86%D8%B1%D9%85-%D8%A7%D9%81%D8%B2%D8%A7%D8%B1/188483-cadence-virtuoso-ic06-18-360-linux)[5](https://bbs.eetop.cn/thread-991360-1-1.html)[6](https://bbs.eetop.cn/thread-984059-1-1.html); [ISR17](https://community.cadence.com/cadence_blogs_8/b/cic/posts/virtuoso-studio-ic23-1-isr17-now-available)
 - Packages Explicitly NOT Included in Mathjax3 `AllPackages` by Default?
   - 正确答案：`physics`, `autoload`, `require`, `setoptions`, (`colorv2`)
   - 参考来源：[所有包](https://docs.mathjax.org/en/v3.2/input/tex/extensions/), [启用的包](https://github.com/mathjax/MathJax-src/blob/3.2.2/ts/input/tex/AllPackages.ts), [参考链接](https://github.com/jupyterlab/jupyter-renderers/issues/229)         
@@ -147,7 +147,6 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
 - Claude Opus 4 SimpleQA result? answer within 20 words.      Please refer to more sources.
   - 正确答案：[32.3%](https://www.kaggle.com/benchmarks/openai/simpleqa)。这题其实网上有一个更容易搜到的错误[信息](https://huggingface.co/datasets/smolagents/results/viewer/2024-12-26/train?f[model_id][value]=%27anthropic%2Fclaude-opus-4-20250514%27)，容易误导这些 search model
 - The best LLM on LMarena's search arena today (with style control)?
-  - 正确答案：o3-search
 - Create a comparison table of FP16, FP8 and FP4 dense + sparse PFLOPS for A100, H200, RTX5090, B200
 - GPT-5 nano MMMU-Pro result and Gemma 3 instruct 27b SimpleQA result? answer in short
   - 正确答案：[62.6%](https://openai.com/index/introducing-gpt-5-for-developers/) (“high” setting; average across standard + vision sets); [10%](https://ai.google.dev/gemma/docs/core/model_card_3) (0-shot)
@@ -155,7 +154,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：[140nm](https://www.synopsys.com/articles/logic-library-capabilities.html) or [ref](https://zhuanlan.zhihu.com/p/243485197)
 - In which year was TSMC 16FFC RF started production?
   - 正确答案：[2016](https://investor.tsmc.com/static/annualReports/2016/english/e_2_2.html)
-- help me find the dissertation for this journal: https://ieeexplore.ieee.org/document/8850049
+- help me find the official webpage of the dissertation for this journal: https://ieeexplore.ieee.org/document/8850049
   - 正确答案：https://researchrepository.ucd.ie/entities/publication/e600eb13-5d48-430f-96d2-7154a5dd2968
 - Give me three lines of SKILL statements, each of which retrieves the ①effective, ②user and ③base default value of the 'vt1' parameter for the `switch` cell in the `analogLib` library, by querying its CDF in Virtuoso.
   - 正确答案:
@@ -191,6 +190,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：[Human Interface](https://community.cadence.com/cadence_technology_forums/f/custom-ic-skill/50958/whats-the-difference-between-le-commands-and-hi-commands)
 - jane goodall https://www.zhihu.com/question/1961179181229541348/answer/1961991093274019483
 - 在 Virtuoso ViVA 中直接滚动鼠标滚轮，按住 ctrl 滚，按住 shift 滚，ctrl+shift 滚分别是什么行为？直接说答案，简单说就行，我知道什么是 Virtuoso ViVA。
+- ipad 和 iPhone 可以单独设置某个 app 的语言吗？比如我比较关心 apple maps？超级超级超级简单回答
 
 ##### 多语言
 
@@ -211,7 +211,7 @@ LLM w/o RAG 几乎不可能答对；为评估 Deep Search 而生，但不是 Dee
   - 正确答案：No more (August 2025)   或者 [Synopsys ARC VPX DSP IP](https://www.synopsys.com/articles/narrow-precision-data-types-embedded-ai.html) 勉强可以算？
 - How to stop airpods from automatically connecting to windows 11 without 1.manually unpairing 2.affecting other connected BT devices 3.coding in powershell
   - 正确答案：no you can't.     [1](https://learn.microsoft.com/en-us/answers/questions/4174413/dont-connect-to-bluetooth-automatically-which-are) 和 [2](https://learn.microsoft.com/en-us/answers/questions/4163051/airpods-pro-automatically-connecting-to-laptop-whe) 都是官方的错误信息。
-- matlab 2025b 比 2025a 新增了什么功能？我不关心 2025a 的功能。简单回答。
+- matlab 2025b（不算 Toolbox） 比 2025a 新增了什么功能（修 bug 不算）？超级简单回答。
   - 正确答案：no. only quality and stability improvements
 - cadence virtuoso 里剪切的快捷键是什么？我不是问你什么粘贴，移动之类的快捷键，我就是要剪切。简单回答，不要长篇大论。
   - 正确答案：no
