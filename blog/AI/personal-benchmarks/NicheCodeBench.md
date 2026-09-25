@@ -811,7 +811,9 @@ also demonstrates how to use presentational attributes like stroke and stroke-da
 - `<svg width="100" height="120" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><line x1="30" y1="30" x2="30" y2="90" stroke="black" stroke-width="2" /><line x1="40" y1="30" x2="40" y2="90" stroke="black" stroke-width="2" /><line x1="40" y1="30" x2="70" y2="30" stroke="black" stroke-width="2" /><line x1="70" y1="10" x2="70" y2="30" stroke="black" stroke-width="2" /><line x1="50" y1="90" x2="70" y2="90" stroke="black" stroke-width="2" /><line x1="70" y1="90" x2="70" y2="110" stroke="black" stroke-width="2" /><polygon points="50,90 40,85 40,95" fill="black" /><text x="20" y="60" font-family="Arial" font-size="12" text-anchor="end">G</text><text x="75" y="15" font-family="Arial" font-size="12">D</text><text x="75" y="110" font-family="Arial" font-size="12">S</text></svg>` 这个 NMOS 的画法有一个错误，帮我修正一下。
   - 正确答案：把 `<polygon points="50,90 40,85 40,95" fill="black" />` 改成 `<polygon points="70,90 60,85 60,95" fill="black"/>`; `<line x1="50" y1="90" x2="70" y2="90" stroke="black" stroke-width="2"/>` 改成 `<line x1="40" y1="90" x2="70" y2="90" stroke="black" stroke-width="2"/>`
   - 正确情况：gpt-5-high 错; grok4 错; Gemini 2.5 Pro 错
-
+- 帮我画一个最简单的 1 阶 LMS 算法的框图示意，只允许用三种元件：乘法器、加法器、延迟器 (z^-1) 。学术风格，代码量尽可能少，我没要求的功能不要自己补上，尽可能少尝试少过度思考。你看看布局能不能优化一点，线能不能不交叉？能不能左侧输入  x 和 d，右侧输出 w？
+- 用 svg 画一个 StrongARM 比较器的 schematic（MOSFET 管级的）。学术风格，我没要求的功能不要自己补上，尽可能少尝试少过度思考。
+- 帮我画个 SR NAND latches 的管级电路图 svg。学术风格，我没要求的功能不要自己补上，尽可能少尝试少过度思考，不允许联网搜索。
 
 
 
